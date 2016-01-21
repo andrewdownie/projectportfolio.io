@@ -47,11 +47,11 @@
                 <!-- Search area -->
                 <div class="col-sm-3 col-md-3 pull-left">
                     <form class="navbar-form" role="search">
-                        <div class="input-group">
+                        <div class="input-group input-group-sm">
                             <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                <button class="btn btn-search" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                            <input type="text" class="form-control search-box" placeholder="Search..." name="srch-term" id="srch-term">
 
                         </div>
                     </form>
@@ -59,13 +59,13 @@
 
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Item 1</a>
+                        <a href="#">Top Rated</a>
                     </li>
                     <li>
-                        <a href="#">Item 2</a>
+                        <a href="#">Most Active</a>
                     </li>
                     <li>
-                        <a href="#">Item 3</a>
+                        <a href="#">About</a>
                     </li>
                 </ul>
 
