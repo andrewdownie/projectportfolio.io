@@ -33,17 +33,24 @@
     <![endif]-->
 
     <style>
-        textarea{
-            border: none;
-            resize: none;
-        }
-        textarea:hover{
+        p[contenteditable=true]:hover{
             background-color: #ddd;
         }
+
+
     </style>
 
     <script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            alert(getSelectedText())
+        });
+    });
+    function getSelectedText() {
+      t = (document.all) ? document.selection.createRange().text : document.getSelection();
 
+      return t;
+    }
     </script>
 </head>
 
@@ -51,9 +58,11 @@
 
     <!-- Page Content -->
     <div class="container">
-        <textarea>This is a text area.</textarea>
+        <button>Add span</button>
+        <p contenteditable="true"><a href="#">This is a paragraph.</a> It is editable. Try to change this text.</p>
 
-        <?php include "/var/www/projectportfolio/html/components/addpad.html";?>
+
+
 
 
 
