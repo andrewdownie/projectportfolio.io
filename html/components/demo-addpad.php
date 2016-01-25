@@ -51,10 +51,7 @@
 
     <!-- Page Content -->
     <div class="container">
-        <p>Click here.</p>
-
-        <!--<textarea></textarea>-->
-        <textarea></textarea>
+        <textarea>This is a text area.</textarea>
 
         <?php include "/var/www/projectportfolio/html/components/addpad.html";?>
 
