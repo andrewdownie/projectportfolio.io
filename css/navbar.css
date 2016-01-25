@@ -46,10 +46,10 @@ body {
 .btn-search{
     background-color: #4c4c4c;
     border: black 1px solid;
-    color: white;
+    color: #337ab7;;
 }
 .btn-search:hover{
-    color: #ccc;
+    color: #337ab7;
 }
 
 .search-box{
