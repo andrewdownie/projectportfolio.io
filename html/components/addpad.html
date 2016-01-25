@@ -27,6 +27,9 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="/js/lib/bootstrap.min.js"></script>
 
+    <!-- TO LET STUFF BE DRAGGED AROUND -->
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,31 +39,26 @@
 
     <script>
     $(document).ready(function() {
+        $(".addpad").draggable();
+
         $(".addpad table tr td button").click(function() {
             alert('You clicked an addpad button.')
         });
 
-        hoverCount = 0
-        /*$("textarea, image").click(function(e) {
-            $(".addpad").show();
-            $(".addpad").css("top", e.clientY + 50);
-            $(".addpad").css("left", e.clientX - 50);
-        });*/
 
-        $('textarea, image').on('click', function(e) {
-            $(".addpad").show();
-            $(".addpad").css("top", e.clientY + 50);
-            $(".addpad").css("left", e.clientX - 50);
-            e.stopPropagation();
+        $("textarea, image").click(function(e) {
+            if($(".addpad").is(":visible") == false){
+                $(".addpad").show();
+                $(".addpad").css("top", e.clientY + 50);
+                $(".addpad").css("left", e.clientX - 50);
+            }
+
         });
-
-        $(document).on('click', function (e) {
-            $(".addpad").hide();
-        });
-
         $(".addpad div i").click(function(e) {
             $(".addpad").hide();
         });
+
+
     });
     </script>
 
