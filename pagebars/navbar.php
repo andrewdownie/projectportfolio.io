@@ -13,17 +13,17 @@
     <title>ProjectPortfolio</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS
     <link href="css/shop-item.css" rel="stylesheet"> TODO: DELETE THIS-->
-    <link href="css/navbar.css" rel="stylesheet">
+    <link href="/css/navbar.css" rel="stylesheet">
 
     <!-- jQuery -->
-    <script src="js/lib/jquery-2.2.0.min.js"></script>
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -63,9 +63,6 @@
                     </li>
                     <li>
                         <a href="#">Most Active</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
                     </li>
                 </ul>
 

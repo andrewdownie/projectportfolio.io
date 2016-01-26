@@ -46,7 +46,7 @@
         });
 
 
-        $("textarea, image").click(function(e) {
+        $("p[contenteditable=true], image").click(function(e) {
             if($(".addpad").is(":visible") == false){
                 $(".addpad").show();
                 $(".addpad").css("top", e.clientY + 50);

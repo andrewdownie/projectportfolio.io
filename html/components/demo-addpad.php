@@ -15,8 +15,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS
-    <link href="css/shop-item.css" rel="stylesheet"> TODO: DELETE THIS-->
+    <!-- Custom CSS-->
     <link href="/css/navbar.css" rel="stylesheet">
 
     <!-- jQuery -->
@@ -24,6 +23,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/js/lib/bootstrap.min.js"></script>
+
+
+    <script src="/js/documentManipulation.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,20 +39,26 @@
             background-color: #ddd;
         }
 
+        .red{
+            color: red;
+        }
+        .bold{
+            font-weight: bold;
+        }
 
     </style>
 
     <script>
     $(document).ready(function(){
-        $("button").click(function(){
-            alert(getSelectedText())
-        });
-    });
-    function getSelectedText() {
-      t = (document.all) ? document.selection.createRange().text : document.getSelection();
+        $("button#red").click(function(){addClassToText("red")});
+        $("button#bold").click(function(){addClassToText("bold")});
 
-      return t;
-    }
+
+         //$("body").css("padding-top", getIntFromCss("body", "padding-top") + 400)
+         modifyCssInt("body", "padding-top", 170)
+    });
+
+
     </script>
 </head>
 
@@ -58,14 +66,12 @@
 
     <!-- Page Content -->
     <div class="container">
-        <button>Add span</button>
+        <?php include "/var/www/projectportfolio/pagebars/navbar.php";?>
+
+        <button id="red">Red</button>
+        <button id="bold">Bold</button>
         <p contenteditable="true"><a href="#">This is a paragraph.</a> It is editable. Try to change this text.</p>
-
-
-
-
-
-
+        <p>you can't edit this</p>
     </div>
 </body>
 
