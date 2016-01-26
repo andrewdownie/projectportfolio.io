@@ -39,16 +39,17 @@
             background-color: #eee;
             max-width: 800px;
         }
-        #blog-title{
-            font-size: 30px;
-            text-align: center;
-        }
+
+
 
     </style>
 
     <script>
     $(document).ready(function(){
 
+
+         //$("body").css("padding-top", getIntFromCss("body", "padding-top") + 400)
+         //modifyCssInt("body", "padding-top", +200)
     });
 
 
@@ -66,13 +67,27 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-2" style="position:fixed;">
-                <div style="font-size: 20px;">Edit mode</div>
+            <div class="col-md-2" style="position:fixed; display: block">
                 <?php include "/var/www/projectportfolio/html/components/addpad.html";?>
                 <?php include "/var/www/projectportfolio/html/components/stylepad.html";?>
             </div>
             <div class="col-md-8 col-md-offset-2">
-                <p id="blog-title" placeholder contenteditable="true">Blog Title</p>
+                <p contenteditable="true"><a href="#">This is a paragraph.</a> It is editable. Try to change this text.</p>
+                <p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p>
             </div>
             <div class="col-md-2"></div>
 

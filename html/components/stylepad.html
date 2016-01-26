@@ -27,9 +27,6 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="/js/lib/bootstrap.min.js"></script>
 
-    <!-- TO LET STUFF BE DRAGGED AROUND -->
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -38,73 +35,61 @@
     <![endif]-->
 
     <script>
-    $(document).ready(function() {
-        /*$(".stylepad").draggable();
+        $(document).ready(function() {
 
-        $(".stylepad table tr td button").click(function() {
-            alert('You clicked an stylepad button.')
+            $("#stylepad-bold").click(function() {
+                addClassToText("bold")
+            });
+            $("#stylepad-italic").click(function() {
+                addClassToText("italic")
+            });
+            $("#stylepad-underline").click(function() {
+                addClassToText("underline")
+            });
+            $("#stylepad-link").click(function() {
+                alert("modal pop up here or wat?")
+            });
+            $("#stylepad-setImage").click(function() {
+                alert("set image hur")
+            });
+
         });
-
-
-        $("p[contenteditable=true], image").click(function(e) {
-            if($(".stylepad").is(":visible") == false){
-                $(".stylepad").show();
-                $(".stylepad").css("top", e.clientY + 50);
-                $(".stylepad").css("left", e.clientX - 50);
-            }
-
-        });
-        $(".stylepad div i").click(function(e) {
-            $(".stylepad").hide();
-        });*/
-
-
-    });
     </script>
 
     <style>
         .stylepad table {
             border-collapse: collapse;
             border-spacing: 0;
-
             background-color: white;
-
-
         }
-        .stylepad{
+
+        .stylepad {
             display: inline-block;
             margin-bottom: 5px;
             border: black 1px solid;
             border-top: none;
             /*left: 100px;*/
-
             /*position: fixed;
             top: 100px;*/
         }
 
-        .stylepad button{
-            border: none;
-            color: black;
-            max-width: 120px;
-            width: 120px;
-            height: 30px;
-            max-height: 30px;
-            border-top: grey 1px solid;
-            display: block;/*this fixes the 1px at bottom thing*/
-            margin: 0;
-            padding: 0;
+        .stylepad table tr:first-child {
+            border-bottom: white 1px solid;
         }
 
         .stylepad table tr td button {
             border: none;
             color: black;
-            max-width: 30px;
-            width: 30px;
+            max-width: 40px;
+            width: 40px;
             height: 30px;
             max-height: 30px;
-            display: block;/*this fixes the 1px at bottom thing*/
+            display: block;
+            /*this fixes the 1px at bottom thing*/
         }
-        .stylepad table tr td button:hover, .stylepad button:hover{
+
+        .stylepad table tr td button:hover,
+        .stylepad button:hover {
             background-color: darkgrey;
         }
 
@@ -117,24 +102,49 @@
         }
 
         .stylepad table tr td i {
-            width: 30px;
-            max-width: 30px;
+            /*width: 40px;
+            max-width: 40px;*/
             color: black;
         }
         /*stylepad title */
-        .stylepad div{
-            padding-left:5px;
-            padding-right:5px;
+
+        .stylepad div {
+            padding-left: 5px;
+            padding-right: 5px;
             background-color: black;
             color: white;
-
         }
         /*stylepad title - hide text selection color*/
-        .stylepad div span::selection {background-color: transparent;}
-        .stylepad div span{cursor: default;}
+
+        .stylepad div span::selection {
+            background-color: transparent;
+        }
+
+        .stylepad div span {
+            cursor: default;
+        }
         /**/
-        .stylepad table tr td::selection {background-color: transparent;}
-        .stylepad table tr td{cursor: default;}
+
+        .stylepad table tr td::selection {
+            background-color: transparent;
+        }
+
+        .stylepad table tr td {
+            cursor: default;
+        }
+        /* - Text styles - */
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -145,16 +155,38 @@
                 Style element
             </span>
         </div>
+        <table class="stylepad-table2">
 
+        </table>
         <table>
             <tr>
-                <td><button data-toggle="tooltip" title=""><i class="fa fa-bold"></i></button></td>
-                <td><button data-toggle="tooltip" title=""><i class="fa fa-italic"></i></button></td>
-                <td><button data-toggle="tooltip" title=""><i class="fa fa-underline"></i></button></td>
-                <td><button data-toggle="tooltip" title=""><i class="fa fa-link"></i></button></td>
+                <td>
+                    <button id="stylepad-bold" data-toggle="tooltip" title="Bold the selected text."><i class="fa fa-bold"></i></button>
+                </td>
+                <td>
+                    <button id="stylepad-italic" data-toggle="tooltip" title="Italicize the selected text."><i class="fa fa-italic"></i></button>
+                </td>
+                <td>
+                    <button id="stylepad-underline" data-toggle="tooltip" title="Underline the selected text."><i class="fa fa-underline"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="stylepad-setImage" data-toggle="tooltip" title="Set the image of the selected image." style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
+                </td>
+                <td>
+                    <button id="stylepad-link" data-toggle="tooltip" title="Link a url to the selected text."><i class="fa fa-link"></i></button>
+                </td>
+
+                <td>
+                    <button id="stylepad-removeStyles" data-toggle="tooltip" title="Remove all styles on this element."><i class="fa fa-ban"></i></button>
+                </td>
+
             </tr>
         </table>
-        <button> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i> <span>Set Image</span></button>
+
+
+
 
 
     </div>
