@@ -39,7 +39,7 @@
 
     <script>
     $(document).ready(function() {
-        $(".addpad").draggable();
+        /*$(".addpad").draggable();
 
         $(".addpad table tr td button").click(function() {
             alert('You clicked an addpad button.')
@@ -56,7 +56,7 @@
         });
         $(".addpad div i").click(function(e) {
             $(".addpad").hide();
-        });
+        });*/
 
 
     });
@@ -70,13 +70,15 @@
             border-top: none;
             background-color: white;
 
+            margin-bottom: 5px;
 
         }
         .addpad{
-            display: none;
-            position: fixed;
-            left: 100px;
-            top: 300px;
+            display: inline-block;
+            /*left: 100px;*/
+
+            /*position: fixed;
+            top: 100px;*/
         }
 
         .addpad table tr td button {
@@ -106,11 +108,6 @@
             max-width: 40px;
             color: black;
         }
-
-        /*Addpad close button*/
-        .addpad div i:hover{
-            color: red;
-        }
         /*Addpad title */
         .addpad div{
             padding-left:5px;
@@ -122,6 +119,9 @@
         /*Addpad title - hide text selection color*/
         .addpad div span::selection {background-color: transparent;}
         .addpad div span{cursor: default;}
+        /**/
+        .addpad table tr td::selection {background-color: transparent;}
+        .addpad table tr td{cursor: default;}
     </style>
 </head>
 
@@ -131,35 +131,34 @@
             <span>
                 Add element
             </span>
-            <span style="float:right; padding-right:2px;">
-                <i class="fa fa-times"></i>
-            </span>
         </div>
 
-
         <table>
-        <tr>
-            <td><button data-toggle="tooltip" title="Add title above currently selected blog element."><i class="fa fa-angle-up"></i></button></td>
-            <td><button data-toggle="tooltip" title="Add text above currently selected blog element."><i class="fa fa-angle-up"></i></button></td>
-            <td><button data-toggle="tooltip" title="Add image above currently selected blog element."><i class="fa fa-angle-up"></i></button></td>
-        </tr>
-        <tr>
-            <td><i class="fa fa-pencil-square-o"></i></td>
-            <td><i class="fa fa-file-text"></i></td>
-            <td><i class="fa fa-picture-o"></i></td>
-        </tr>
-        <tr>
-            <td>Title</td>
-            <td>Text</td>
-            <td>Img</td>
-        </tr>
-        <tr>
-            <td><button data-toggle="tooltip" title="Add title below currently selected blog element."><i class="fa fa-angle-down"></i></button></td>
-            <td><button data-toggle="tooltip" title="Add text below currently selected blog element."><i class="fa fa-angle-down"></i></button></td>
-            <td><button data-toggle="tooltip" title="Add image below currently selected blog element."><i class="fa fa-angle-down"></i></button></td>
-        </tr>
+            <tr>
+                <td><button data-toggle="tooltip" title="Add title above currently selected blog element."><i class="fa fa-angle-up"></i></button></td>
+                <td><button data-toggle="tooltip" title="Add text above currently selected blog element."><i class="fa fa-angle-up"></i></button></td>
+                <td><button data-toggle="tooltip" title="Add image above currently selected blog element."><i class="fa fa-angle-up"></i></button></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-pencil-square-o"></i></td>
+                <td><i class="fa fa-file-text"></i></td>
+                <td><i class="fa fa-picture-o"></i></td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>Text</td>
+                <td>Img</td>
+            </tr>
+            <tr>
+                <td><button data-toggle="tooltip" title="Add title below currently selected blog element."><i class="fa fa-angle-down"></i></button></td>
+                <td><button data-toggle="tooltip" title="Add text below currently selected blog element."><i class="fa fa-angle-down"></i></button></td>
+                <td><button data-toggle="tooltip" title="Add image below currently selected blog element."><i class="fa fa-angle-down"></i></button></td>
+            </tr>
+        </table>
+
+
     </div>
-    </table>
+
 
 </body>
 

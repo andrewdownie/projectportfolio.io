@@ -36,7 +36,8 @@
 
     <style>
         p[contenteditable=true]:hover{
-            background-color: #ddd;
+            background-color: #eee;
+            max-width: 800px;
         }
 
         .red{
@@ -55,11 +56,13 @@
 
 
          //$("body").css("padding-top", getIntFromCss("body", "padding-top") + 400)
-         modifyCssInt("body", "padding-top", 170)
+         //modifyCssInt("body", "padding-top", +200)
     });
 
 
     </script>
+
+
 </head>
 
 <body>
@@ -67,12 +70,41 @@
     <!-- Page Content -->
     <div class="container">
         <?php include "/var/www/projectportfolio/pagebars/navbar.php";?>
-
-        <button id="red">Red</button>
-        <button id="bold">Bold</button>
-        <p contenteditable="true"><a href="#">This is a paragraph.</a> It is editable. Try to change this text.</p>
-        <p>you can't edit this</p>
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2" style="position:fixed;">
+                <?php include "/var/www/projectportfolio/html/components/addpad.html";?>
+                <?php include "/var/www/projectportfolio/html/components/addpad.html";?>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <button id="red">Red</button>
+                <button id="bold">Bold</button>
+                <p contenteditable="true"><a href="#">This is a paragraph.</a> It is editable. Try to change this text.</p>
+                <p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p><p>you can't edit this</p>
+                <p>you can't edit this</p>
+            </div>
+            <div class="col-md-2"></div>
+
+        </div>
+    </div>
+
+
+
 </body>
 
 </html>
