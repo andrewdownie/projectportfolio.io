@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ADD PAD -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Demo: stylepad</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS
+    <link href="css/shop-item.css" rel="stylesheet"> TODO: DELETE THIS-->
+    <link href="/css/navbar.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+    <!-- TO LET STUFF BE DRAGGED AROUND -->
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+    $(document).ready(function() {
+        /*$(".stylepad").draggable();
+
+        $(".stylepad table tr td button").click(function() {
+            alert('You clicked an stylepad button.')
+        });
+
+
+        $("p[contenteditable=true], image").click(function(e) {
+            if($(".stylepad").is(":visible") == false){
+                $(".stylepad").show();
+                $(".stylepad").css("top", e.clientY + 50);
+                $(".stylepad").css("left", e.clientX - 50);
+            }
+
+        });
+        $(".stylepad div i").click(function(e) {
+            $(".stylepad").hide();
+        });*/
+
+
+    });
+    </script>
+
+    <style>
+        .stylepad table {
+            border-collapse: collapse;
+            border-spacing: 0;
+
+            background-color: white;
+
+
+        }
+        .stylepad{
+            display: inline-block;
+            margin-bottom: 5px;
+            border: black 1px solid;
+            border-top: none;
+            /*left: 100px;*/
+
+            /*position: fixed;
+            top: 100px;*/
+        }
+
+        .stylepad button{
+            border: none;
+            color: black;
+            max-width: 120px;
+            width: 120px;
+            height: 30px;
+            max-height: 30px;
+            border-top: grey 1px solid;
+            display: block;/*this fixes the 1px at bottom thing*/
+            margin: 0;
+            padding: 0;
+        }
+
+        .stylepad table tr td button {
+            border: none;
+            color: black;
+            max-width: 30px;
+            width: 30px;
+            height: 30px;
+            max-height: 30px;
+            display: block;/*this fixes the 1px at bottom thing*/
+        }
+        .stylepad table tr td button:hover, .stylepad button:hover{
+            background-color: darkgrey;
+        }
+
+        .stylepad table tr td button i {
+            width: 10px;
+        }
+
+        .stylepad table tr td {
+            text-align: center;
+        }
+
+        .stylepad table tr td i {
+            width: 30px;
+            max-width: 30px;
+            color: black;
+        }
+        /*stylepad title */
+        .stylepad div{
+            padding-left:5px;
+            padding-right:5px;
+            background-color: black;
+            color: white;
+
+        }
+        /*stylepad title - hide text selection color*/
+        .stylepad div span::selection {background-color: transparent;}
+        .stylepad div span{cursor: default;}
+        /**/
+        .stylepad table tr td::selection {background-color: transparent;}
+        .stylepad table tr td{cursor: default;}
+    </style>
+</head>
+
+<body>
+    <div class="stylepad">
+        <div>
+            <span>
+                Style element
+            </span>
+        </div>
+
+        <table>
+            <tr>
+                <td><button data-toggle="tooltip" title=""><i class="fa fa-bold"></i></button></td>
+                <td><button data-toggle="tooltip" title=""><i class="fa fa-italic"></i></button></td>
+                <td><button data-toggle="tooltip" title=""><i class="fa fa-underline"></i></button></td>
+                <td><button data-toggle="tooltip" title=""><i class="fa fa-link"></i></button></td>
+            </tr>
+        </table>
+        <button> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i> <span>Set Image</span></button>
+
+
+    </div>
+
+
+</body>
+
+</html>
