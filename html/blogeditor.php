@@ -67,12 +67,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2" style="position:fixed;">
-                <div style="font-size: 20px;">Edit mode</div>
+                <div style="font-size: 20px;">Editor Tools</div>
                 <?php include "/var/www/projectportfolio/html/components/addpad.html";?>
                 <?php include "/var/www/projectportfolio/html/components/stylepad.html";?>
             </div>
             <div class="col-md-8 col-md-offset-2">
-                <p id="blog-title" placeholder contenteditable="true">Blog Title</p>
+                <p id="blog-title" placeholder contenteditable="true">Page Title</p>
             </div>
             <div class="col-md-2"></div>
 
