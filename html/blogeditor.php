@@ -70,20 +70,26 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-2" style="position:fixed;">
-                <div style="font-size: 20px;">Editor Tools</div>
+            <div class="col-sm-2" style="position:fixed;">
+                <div style="font-size: 16px;" class="visible-sm">Editor Tools</div>
+                <div style="font-size: 20px;" class="hidden-sm">Editor Tools</div>
+
                 <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>
-                <div class="visible-lg"><!--this is used to stack the pads vertically--></div>
+                <div class="visible-lg">
+                    <!--this is used to stack the pads vertically when the screen is large-->
+                </div>
                 <?php include "/var/www/projectportfolio/html/editor-tools/stylepad.html";?>
-                <div class="visible-lg"><!--this is used to stack the pads vertically--></div>
+                <div class="visible-lg">
+                    <!--this is used to stack the pads vertically when the screen is large-->
+                </div>
                 <?php include "/var/www/projectportfolio/html/editor-tools/blogpad.html";?>
             </div>
 
-            <span class="visible-sm visible-xs hidden-md-up">
+            <span class="visible-xs hidden-sm-up">
                 <div class="editortools-topspace"><hr/></div>
             </span>
 
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-sm-10 col-xs-12 col-sm-push-2">
                 <p id="blog-title" placeholder contenteditable="true">Page Title</p>
             </div>
 
