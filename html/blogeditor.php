@@ -44,6 +44,10 @@
             text-align: center;
         }
 
+        .editortools-topspace{
+            padding-top: 100px;
+        }
+
     </style>
 
     <script>
@@ -69,9 +73,16 @@
             <div class="col-md-2" style="position:fixed;">
                 <div style="font-size: 20px;">Editor Tools</div>
                 <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>
+                <div class="visible-lg"><!--this is used to stack the pads vertically--></div>
                 <?php include "/var/www/projectportfolio/html/editor-tools/stylepad.html";?>
+                <div class="visible-lg"><!--this is used to stack the pads vertically--></div>
                 <?php include "/var/www/projectportfolio/html/editor-tools/blogpad.html";?>
             </div>
+
+            <span class="visible-sm visible-xs hidden-md-up">
+                <div class="editortools-topspace"><hr/></div>
+            </span>
+
             <div class="col-md-8 col-md-offset-2">
                 <p id="blog-title" placeholder contenteditable="true">Page Title</p>
             </div>
