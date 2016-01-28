@@ -44,10 +44,22 @@
             text-align: center;
         }
 
-        .editortools-topspace{
-            padding-top: 100px;
-        }
 
+        @media (max-width: 277px){
+            .editortools-topspace{
+                padding-top: 300px;
+            }
+        }
+        @media (min-width: 278px) and (max-width: 403px){
+            .editortools-topspace{
+                padding-top: 200px;
+            }
+        }
+        @media (min-width: 404px){
+            .editortools-topspace{
+                padding-top: 100px;/*Pads are stack one by one at this point, need to match the number of pads there are here.*/
+            }
+        }
     </style>
 
     <script>
@@ -71,16 +83,16 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2" style="position:fixed;">
-                <div style="font-size: 16px;" class="visible-sm">Editor Tools</div>
-                <div style="font-size: 20px;" class="hidden-sm">Editor Tools</div>
+                <div style="font-size: 16px;" class="visible-sm visible-xs">Editor Tools</div>
+                <div style="font-size: 20px;" class="hidden-sm hidden-xs">Editor Tools</div>
 
                 <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>
                 <div class="visible-lg">
-                    <!--this is used to stack the pads vertically when the screen is large-->
+                    <!--this is used to ensure the pads stack vertically when the screen is large-->
                 </div>
                 <?php include "/var/www/projectportfolio/html/editor-tools/stylepad.html";?>
                 <div class="visible-lg">
-                    <!--this is used to stack the pads vertically when the screen is large-->
+                    <!--this is used to ensure the pads stack vertically when the screen is large-->
                 </div>
                 <?php include "/var/www/projectportfolio/html/editor-tools/blogpad.html";?>
             </div>
