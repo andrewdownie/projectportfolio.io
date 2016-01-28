@@ -43,14 +43,17 @@
 
 
         $('#addpad-title').click(function(e){
+            if(typeof(focusElement) === 'undefined'){ return; }
             focusElement.after("<p contenteditable='true'> title </p>")
         });
 
         $('#addpad-text').click(function(e){
+            if(typeof(focusElement) === 'undefined'){ return; }
             focusElement.after("<p contenteditable='true'> text </p>")
         });
 
         $('#addpad-image').click(function(e){
+            if(typeof(focusElement) === 'undefined'){ return; }
             focusElement.after("<p contenteditable='true'> image </p>")
 
         });
@@ -61,12 +64,14 @@
         it will stay focused on the element they selected to add elments after.*/
         $('body').click(function(){
             temp = $('p[contenteditable=true]:focus')
-            if(temp.length == 1){
-                focusElement = $('p[contenteditable=true]:focus')
+
+            if(typeof(temp) !== 'undefined' && temp.length == 1){
+                focusElement = temp
             }
-            else{
+            else if(typeof(focusElement) !== 'undefined'){
                 focusElement.focus()
             }
+
         });
     });
     </script>
