@@ -49,22 +49,31 @@
             .editortools-topspace{
                 padding-top: 300px;
             }
+            /*body{
+                border-top: 370px;
+            }*/
         }
         @media (min-width: 278px) and (max-width: 403px){
             .editortools-topspace{
                 padding-top: 200px;
             }
+            /*body{
+                border-top: 270px;
+            }*/
         }
         @media (min-width: 404px){
             .editortools-topspace{
                 padding-top: 100px;/*Pads are stack one by one at this point, need to match the number of pads there are here.*/
             }
+            /*body{
+                border-top: 170px;
+            }*/
         }
     </style>
 
     <script>
     $(document).ready(function(){
-
+        
     });
 
 
