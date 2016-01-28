@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ADD PAD -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Demo: stylepad</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS
+    <link href="css/shop-item.css" rel="stylesheet"> TODO: DELETE THIS-->
+    <link href="/css/navbar.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        $(document).ready(function() {
+
+            $("#stylepad-bold").click(function() {
+                addClassToText("bold")
+            });
+            $("#stylepad-italic").click(function() {
+                addClassToText("italic")
+            });
+            $("#stylepad-underline").click(function() {
+                addClassToText("underline")
+            });
+            $("#stylepad-link").click(function() {
+                alert("modal pop up here or wat?")
+            });
+            $("#stylepad-setImage").click(function() {
+                alert("set image hur")
+            });
+
+        });
+    </script>
+
+    <style>
+        .stylepad table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            background-color: white;
+        }
+
+        .stylepad {
+            display: inline-block;
+            margin-bottom: 5px;
+            border: black 1px solid;
+            border-top: none;
+            /*left: 100px;*/
+            /*position: fixed;
+            top: 100px;*/
+        }
+
+        .stylepad table tr:first-child {
+            border-bottom: white 4px solid;
+        }
+
+        .stylepad table tr td button {
+            border: none;
+            color: black;
+            max-width: 40px;
+            width: 40px;
+            height: 30px;
+            max-height: 30px;
+            display: block;
+            /*this fixes the 1px at bottom thing*/
+        }
+
+        .stylepad table tr td button:hover,
+        .stylepad button:hover {
+            background-color: darkgrey;
+        }
+
+        .stylepad table tr td button i {
+            width: 10px;
+        }
+
+        .stylepad table tr td {
+            text-align: center;
+        }
+
+        .stylepad table tr td i {
+            /*width: 40px;
+            max-width: 40px;*/
+            color: black;
+        }
+        /*stylepad title */
+
+        .stylepad div {
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: black;
+            color: white;
+        }
+        /*stylepad title - hide text selection color*/
+
+        .stylepad div span::selection {
+            background-color: transparent;
+        }
+
+        .stylepad div span {
+            cursor: default;
+        }
+        /**/
+
+        .stylepad table tr td::selection {
+            background-color: transparent;
+        }
+
+        .stylepad table tr td {
+            cursor: default;
+        }
+        /* - Text styles - */
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stylepad">
+        <div>
+            <span>
+                Style element
+            </span>
+        </div>
+        <table class="stylepad-table2">
+
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <button id="stylepad-bold" data-toggle="tooltip" title="Bold the selected text."><i class="fa fa-bold"></i></button>
+                </td>
+                <td>
+                    <button id="stylepad-italic" data-toggle="tooltip" title="Italicize the selected text."><i class="fa fa-italic"></i></button>
+                </td>
+                <td>
+                    <button id="stylepad-underline" data-toggle="tooltip" title="Underline the selected text."><i class="fa fa-underline"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="stylepad-setImage" data-toggle="tooltip" title="Set the image of the selected image." style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
+                </td>
+                <td>
+                    <button id="stylepad-link" data-toggle="tooltip" title="Link a url to the selected text."><i class="fa fa-link"></i></button>
+                </td>
+
+                <td>
+                    <button id="stylepad-removeStyles" data-toggle="tooltip" title="Remove all styles on this element."><i class="fa fa-ban"></i></button>
+                </td>
+
+            </tr>
+        </table>
+
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>

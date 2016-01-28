@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Demo: AddPad</title>
+    <title>Editor: ProjectPortfolio</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -68,13 +68,13 @@
         <div class="row">
             <div class="col-md-2" style="position:fixed;">
                 <div style="font-size: 20px;">Editor Tools</div>
-                <?php include "/var/www/projectportfolio/html/components/addpad.html";?>
-                <?php include "/var/www/projectportfolio/html/components/stylepad.html";?>
+                <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>
+                <?php include "/var/www/projectportfolio/html/editor-tools/stylepad.html";?>
+                <?php include "/var/www/projectportfolio/html/editor-tools/blogpad.html";?>
             </div>
             <div class="col-md-8 col-md-offset-2">
                 <p id="blog-title" placeholder contenteditable="true">Page Title</p>
             </div>
-            <div class="col-md-2"></div>
 
         </div>
     </div>
