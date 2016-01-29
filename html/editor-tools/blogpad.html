@@ -73,6 +73,13 @@
             display: block;
             /*this fixes the 1px at bottom thing*/
         }
+        @media (max-width: 767px){
+            .blogpad table tr td button {
+                max-width: 10000px;
+                width: 100%;
+                display: block;
+            }
+        }
 
         .blogpad table tr td button:hover,
         .blogpad button:hover {
@@ -80,11 +87,15 @@
         }
 
         .blogpad table tr td button i {
-            width: 10px;
+            max-width: 10px;
         }
 
         .blogpad table tr td {
             text-align: center;
+            width: 100%;
+        }
+        .blogpad table tr {
+            width: 100%;
         }
 
         .blogpad table tr td i {
@@ -149,8 +160,8 @@
                 <td>
                     <button id="blogpad-bold" data-toggle="tooltip" title="Bold the selected text.">
                         <i class="fa fa-floppy-o"></i>
-                        &nbsp;&nbsp;Save
-                        <span class="hidden-xs"> blog</span>
+
+                        <span class="hidden-xs">&nbsp;&nbsp;Save blog</span>
                     </button>
                 </td>
             </tr>
@@ -158,8 +169,8 @@
                 <td>
                     <button id="blogpad-setImage" data-toggle="tooltip" title="Set the image of the selected image.">
                         <i class="fa fa-times-circle"></i>
-                        &nbsp;&nbsp;Exit
-                        <span class="hidden-xs"> editor</span>
+
+                        <span class="hidden-xs">&nbsp;&nbsp;Exit editor</span>
                     </button>
                 </td>
 

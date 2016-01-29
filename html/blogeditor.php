@@ -67,6 +67,13 @@
                 padding-left: 0px !important;
                 padding-right: 0px !important;
             }
+
+            .blogpad{
+                flex-grow: 100;
+            }
+            .editor-tools-col{
+                 display: flex;
+            }
         }
         @media (min-width: 768px){
             .container-fluid {
@@ -74,6 +81,7 @@
                 padding-right: 15px;
             }
         }
+
     </style>
 
     <script>
@@ -96,7 +104,7 @@
 
     <div class="container-fluid " style="margin-top: -9px;">
         <div class="row">
-            <div class="col-sm-2" style="position:fixed;">
+            <div class="col-sm-2 col-xs-12 editor-tools-col" style="position:fixed;">
                 <div style="font-size: 16px;" class="visible-sm">Editor Tools</div>
                 <div style="font-size: 20px;" class="hidden-sm hidden-xs">Editor Tools</div>
 
