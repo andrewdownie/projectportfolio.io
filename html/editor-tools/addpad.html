@@ -84,16 +84,21 @@
             border-top: none;
             background-color: white;
 
-
+            z-index: 10000;
 
         }
         .addpad{
             display: inline-block;
             margin-bottom: 5px;
             /*left: 100px;*/
-
+            margin-right: -5px;
             /*position: fixed;
             top: 100px;*/
+        }
+        @media (max-width: 767px){
+            .addpad{
+                margin-bottom: 0px;
+            }
         }
 
         .addpad table tr td button {

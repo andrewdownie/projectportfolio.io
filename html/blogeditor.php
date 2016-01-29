@@ -45,35 +45,40 @@
         }
 
 
+
         @media (max-width: 277px){
             .editortools-topspace{
-                padding-top: 300px;
+                padding-top: 260px;
             }
-            /*body{
-                border-top: 370px;
-            }*/
         }
-        @media (min-width: 278px) and (max-width: 403px){
+        @media (min-width: 278px) and (max-width: 370px){
             .editortools-topspace{
-                padding-top: 200px;
+                padding-top: 160px;
             }
-            /*body{
-                border-top: 270px;
-            }*/
         }
-        @media (min-width: 404px){
+        @media (min-width: 371px){
             .editortools-topspace{
-                padding-top: 100px;/*Pads are stack one by one at this point, need to match the number of pads there are here.*/
+                padding-top: 70px;/*Pads are stack one by one at this point, need to match the number of pads there are here.*/
             }
-            /*body{
-                border-top: 170px;
-            }*/
+        }
+
+        @media (max-width: 767px){
+            .container-fluid {
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+        }
+        @media (min-width: 768px){
+            .container-fluid {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
         }
     </style>
 
     <script>
     $(document).ready(function(){
-        
+
     });
 
 
@@ -89,10 +94,10 @@
         <?php include "/var/www/projectportfolio/pagebars/navbar.php";?>
     </div>
 
-    <div class="container">
+    <div class="container-fluid " style="margin-top: -9px;">
         <div class="row">
             <div class="col-sm-2" style="position:fixed;">
-                <div style="font-size: 16px;" class="visible-sm visible-xs">Editor Tools</div>
+                <div style="font-size: 16px;" class="visible-sm">Editor Tools</div>
                 <div style="font-size: 20px;" class="hidden-sm hidden-xs">Editor Tools</div>
 
                 <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>
@@ -109,9 +114,13 @@
             <span class="visible-xs hidden-sm-up">
                 <div class="editortools-topspace"><hr/></div>
             </span>
+        </div>
+    </div>
 
+    <div class="container">
+        <div class="row">
             <div class="col-md-8 col-sm-10 col-xs-12 col-sm-push-2">
-                <p id="blog-title" placeholder contenteditable="true">Page Title</p>
+                <p id="blog-title" contenteditable="true">Page Title</p>
             </div>
 
         </div>

@@ -50,6 +50,8 @@
         .blogpad {
             display: inline-block;
             margin-bottom: 5px;
+            margin-right: -5px;
+            padding-right: 0;
             border: black 1px solid;
             border-top: none;
             /*left: 100px;*/
@@ -58,7 +60,7 @@
         }
 
         .blogpad table tr:first-child {
-            border-bottom: white 3px solid;
+            border-bottom: white 4px solid;
         }
 
         .blogpad table tr td button {
@@ -136,7 +138,7 @@
     <div class="blogpad">
         <div>
             <span>
-                Current blog
+                Blog
             </span>
         </div>
         <table class="blogpad-table2">
@@ -145,12 +147,20 @@
         <table>
             <tr>
                 <td>
-                    <button id="blogpad-bold" data-toggle="tooltip" title="Bold the selected text."><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Save blog</button>
+                    <button id="blogpad-bold" data-toggle="tooltip" title="Bold the selected text.">
+                        <i class="fa fa-floppy-o"></i>
+                        &nbsp;&nbsp;Save
+                        <span class="hidden-xs"> blog</span>
+                    </button>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <button id="blogpad-setImage" data-toggle="tooltip" title="Set the image of the selected image."> <i class="fa fa-times-circle"></i>&nbsp;&nbsp;Exit editor</button>
+                    <button id="blogpad-setImage" data-toggle="tooltip" title="Set the image of the selected image.">
+                        <i class="fa fa-times-circle"></i>
+                        &nbsp;&nbsp;Exit
+                        <span class="hidden-xs"> editor</span>
+                    </button>
                 </td>
 
             </tr>

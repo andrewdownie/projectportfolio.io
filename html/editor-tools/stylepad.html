@@ -36,19 +36,42 @@
 
     <script>
         $(document).ready(function() {
+            var stylepadFocusElement = null
+
+            $('body').click(function(){
+                temp = $('p[contenteditable=true]:focus')
+
+                if(typeof(temp) !== 'undefined' && temp.length == 1){
+                    stylepadFocusElement = temp
+                }
+                else{
+                    stylepadFocusElement = null
+                }
+
+            });
+
 
             $("#stylepad-bold").click(function() {
+                if(stylepadFocusElement === null){return;}
                 addClassToText("bold")
             });
             $("#stylepad-italic").click(function() {
+                if(stylepadFocusElement === null){return;}
                 addClassToText("italic")
             });
             $("#stylepad-underline").click(function() {
+                if(stylepadFocusElement === null){return;}
                 addClassToText("underline")
             });
             $("#stylepad-link").click(function() {
+                if(stylepadFocusElement === null){return;}
                 alert("modal pop up here or wat?")
             });
+            $("#stylepad-removeStyles").click(function() {
+                if(stylepadFocusElement === null){return;}
+                alert("remove styles here")
+            });
+
             $("#stylepad-setImage").click(function() {
                 alert("set image hur")
             });
@@ -68,13 +91,19 @@
             margin-bottom: 5px;
             border: black 1px solid;
             border-top: none;
+            margin-right: -5px;
             /*left: 100px;*/
             /*position: fixed;
             top: 100px;*/
         }
+        @media (max-width: 767px){
+            .stylepad{
+                margin-bottom: 0px;
+            }
+        }
 
         .stylepad table tr:first-child {
-            border-bottom: white 3px solid;
+            border-bottom: white 4px solid;
         }
 
         .stylepad table tr td button {
