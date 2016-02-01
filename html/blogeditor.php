@@ -46,17 +46,8 @@
 
 
 
-        @media (max-width: 277px){
-            .editortools-topspace{
-                padding-top: 260px;
-            }
-        }
-        @media (min-width: 278px) and (max-width: 370px){
-            .editortools-topspace{
-                padding-top: 160px;
-            }
-        }
-        @media (min-width: 371px){
+
+        @media (max-width: 844px){
             .editortools-topspace{
                 padding-top: 70px;/*Pads are stack one by one at this point, need to match the number of pads there are here.*/
             }

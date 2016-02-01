@@ -93,6 +93,9 @@
             margin-right: -1px;
             /*position: fixed;
             top: 100px;*/
+            max-height: 86px;
+            min-height: 86px;
+            height: 86px;
         }
         @media (max-width: 767px){
             .addpad{
@@ -107,6 +110,8 @@
             width: 40px;
             height: 20px;
             max-height: 20px;
+            min-height: 20px;
+            height: 20px;
 
             display: block;/*this fixes the 1px at bottom thing*/
         }
@@ -122,10 +127,16 @@
             text-align: center;
         }
 
+        .addpad table tr td span{
+            min-height: 30px;
+            height: 30px;
+        }
+
         .addpad table tr td i {
             width: 40px;
             max-width: 40px;
             color: black;
+            min-height: 18px;
         }
         /*Addpad title */
         .addpad div{
@@ -165,9 +176,9 @@
                 <td><i class="fa fa-picture-o"></i></td>
             </tr>
             <tr>
-                <td>Title</td>
-                <td>Text</td>
-                <td>Img</td>
+                <td><span>Title</span></td>
+                <td><span>Text</span></td>
+                <td><span>Img</span></td>
             </tr>
             <tr>
                 <td><button id="addpad-title" data-toggle="tooltip" title="Add title below currently selected blog element."><i class="fa fa-angle-down"></i></button></td>
