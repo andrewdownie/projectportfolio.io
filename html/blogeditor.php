@@ -14,6 +14,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Hint.css for hover tooltip text -->
+    <link rel="stylesheet" href="/css/hint.css">
 
     <!-- Custom CSS-->
     <link href="/css/navbar.css" rel="stylesheet">
@@ -74,6 +76,10 @@
             }
         }
 
+        #editor-tools::selection {
+            background-color: transparent;
+        }
+
     </style>
 
     <script>
@@ -100,7 +106,7 @@
         <div class="row">
             <div class="col-sm-2 col-xs-12 editor-tools-col" style="position:fixed;">
                 <div style="padding-top: 10px;"></div>
-                <div class="hidden-xs"><a id="editor-tools" class="button-link"><i class="fa fa-folder-open"></i> Editor Tools</a></div>
+                <div style="width: 100%;" data-hint="Click to toggle." class="hint--bottom hint--bounce hidden-xs"><a id="editor-tools" class="button-link"><i class="fa fa-folder-open"></i> Editor Tools</a></div>
 
                 <span id="editor-pads">
                     <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>
