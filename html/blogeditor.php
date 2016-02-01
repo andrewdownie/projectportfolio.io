@@ -85,7 +85,8 @@
     <script>
     $(document).ready(function(){
         $("#editor-tools").click(function(){
-            LinkToggle($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#editor-pads"))
+            //LinkToggle($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#editor-pads"))
+            ToggleElements($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $(".addpad"), $(".stylepad"), $(".blogpad") )
         });
     });
 
@@ -108,17 +109,16 @@
                 <div style="padding-top: 10px;"></div>
                 <div style="width: 100%;" data-hint="Click to toggle." class="hint--bottom hint--bounce hidden-xs"><a id="editor-tools" class="button-link"><i class="fa fa-folder-open"></i> Editor Tools</a></div>
 
-                <span id="editor-pads">
-                    <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>
-                    <div class="visible-lg">
-                        <!--this is used to ensure the pads stack vertically when the screen is large-->
-                    </div>
-                    <?php include "/var/www/projectportfolio/html/editor-tools/stylepad.html";?>
-                    <div class="visible-lg">
-                        <!--this is used to ensure the pads stack vertically when the screen is large-->
-                    </div>
-                    <?php include "/var/www/projectportfolio/html/editor-tools/blogpad.html";?>
-                </span>
+                <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>
+                <div class="visible-lg">
+                    <!--this is used to ensure the pads stack vertically when the screen is large-->
+                </div>
+                <?php include "/var/www/projectportfolio/html/editor-tools/stylepad.html";?>
+                <div class="visible-lg">
+                    <!--this is used to ensure the pads stack vertically when the screen is large-->
+                </div>
+                <?php include "/var/www/projectportfolio/html/editor-tools/blogpad.html";?>
+
             </div>
 
             <span class="visible-xs hidden-sm-up">
