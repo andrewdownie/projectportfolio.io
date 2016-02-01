@@ -1,0 +1,8 @@
+/*
+A file for placing general styles for the projectportfolio.io website
+*/
+
+.button-link{
+    cursor: pointer;
+    font-size: 15px;
+}
