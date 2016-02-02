@@ -105,7 +105,7 @@
 
     <div class="container-fluid " style="margin-top: -9px;">
         <div class="row">
-            <div class="col-sm-2 col-xs-12 editor-tools-col" style="position:fixed;">
+            <div class="col-sm-2 col-xs-12 editor-tools-col" style="position:fixed; z-index: 99999;">
                 <div style="padding-top: 10px;"></div>
                 <div style="width: 100%;" data-hint="Click to toggle." class="hint--bottom hint--bounce hidden-xs"><a id="editor-tools" class="button-link"><i class="fa fa-folder-open"></i> Editor Tools</a></div>
 
