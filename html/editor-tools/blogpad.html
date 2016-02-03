@@ -35,8 +35,12 @@
 
     <script>
         $(document).ready(function() {
-
-
+            $("#blogpad-save").click(function(){
+                $(this).blur()
+            });
+            $("#blogpad-exit").click(function(){
+                $(this).blur()
+            });
         });
     </script>
 
@@ -139,6 +143,11 @@
         .blogpad table tr td::selection {
             background-color: transparent;
         }
+        .blogpad table tr td button span::selection,
+        .blogpad table tr td button::selection
+        {
+            background-color: transparent;
+        }
 
         .blogpad table tr td {
             cursor: default;
@@ -180,7 +189,7 @@
         <table>
             <tr>
                 <td>
-                    <button data-hint="Save without exiting." class="hint--right hint--bounce" id="blogpad-bold">
+                    <button data-hint="Save without exiting." class="hint--right hint--bounce" id="blogpad-save">
                         <i class="fa fa-floppy-o"></i>
                         <span class="blogpad-labels">&nbsp;&nbsp;Save blog</span>
                     </button>
@@ -188,7 +197,7 @@
             </tr>
             <tr>
                 <td>
-                    <button data-hint="Exit edit mode (you will be prompted to save)." class="hint--right hint--bounce" id="blogpad-setImage">
+                    <button data-hint="Exit edit mode (you will be prompted to save)." class="hint--right hint--bounce" id="blogpad-exit">
                         <i class="fa fa-times-circle"></i>
                         <span class="blogpad-labels">&nbsp;&nbsp;Exit editor</span>
                     </button>

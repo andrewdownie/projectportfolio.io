@@ -39,8 +39,9 @@
 
     <style>
         p[contenteditable=true]:hover{
-            background-color: #eee;
             max-width: 800px;
+            border: 1px blue dotted;
+            margin-top: -1px;
         }
         #blog-title{
             font-size: 30px;
@@ -115,9 +116,9 @@
         <?php include "/var/www/projectportfolio/pagebars/navbar.php";?>
     </div>
 
-    <div class="container-fluid " style="margin-top: -9px;">
+    <div class="container-fluid " style="margin-top: -10px;">
         <div class="row">
-            <div class="col-sm-2 col-xs-12 editor-tools-col" style="position:fixed; z-index: 99999;">
+            <div class="col-sm-2 col-xs-12 editor-tools-col" style="position:fixed; z-index: 99999;  border-top: 1px white solid;">
                 <div style="padding-top: 10px;"></div>
                 <div style="width: 100%;" data-hint="Click to toggle." class="hint--bottom hint--bounce hidden-xs"><a id="editor-tools" class="button-link"><i class="fa fa-folder-open"></i> Editor Tools</a></div>
 

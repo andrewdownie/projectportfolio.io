@@ -54,25 +54,32 @@
             $("#stylepad-bold").click(function() {
                 if(stylepadFocusElement === null){return;}
                 addClassToText("bold")
+                $(this).blur()
             });
             $("#stylepad-italic").click(function() {
                 if(stylepadFocusElement === null){return;}
                 addClassToText("italic")
+                $(this).blur()
             });
             $("#stylepad-underline").click(function() {
                 if(stylepadFocusElement === null){return;}
                 addClassToText("underline")
+                $(this).blur()
             });
             $("#stylepad-link").click(function() {
                 if(stylepadFocusElement === null){return;}
+                $(this).blur()
                 alert("modal pop up here or wat?")
+
             });
             $("#stylepad-removeStyles").click(function() {
                 if(stylepadFocusElement === null){return;}
+                $(this).blur()
                 alert("remove styles here")
             });
 
             $("#stylepad-setImage").click(function() {
+                $(this).blur()
                 alert("set image hur")
             });
 
@@ -163,6 +170,9 @@
         /**/
 
         .stylepad table tr td::selection {
+            background-color: transparent;
+        }
+        .stylepad table tr td button::selection {
             background-color: transparent;
         }
 

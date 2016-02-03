@@ -44,18 +44,17 @@
 
         $('#addpad-title').click(function(e){
             if(typeof(focusElement) === 'undefined'){ return; }
-            focusElement.after("<p contenteditable='true' class='title'> title </p>")
+            focusElement.after("<p contenteditable='true' class='title'> title </p>").next("p").focus()
         });
 
         $('#addpad-text').click(function(e){
             if(typeof(focusElement) === 'undefined'){ return; }
-            focusElement.after("<p contenteditable='true'> text </p>")
+            focusElement.after("<p contenteditable='true'> text </p>").next("p").focus()
         });
 
         $('#addpad-image').click(function(e){
             if(typeof(focusElement) === 'undefined'){ return; }
-            focusElement.after("<img contenteditable='true' style='width: 100%; min-width: 100%;' src='https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30' alt='Image, pls'> </img>")
-
+            focusElement.after("<img contenteditable='true' style='width: 100%; min-width: 100%;' src='https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30' alt='Image, pls'> </img>").next("img").focus()
         });
 
         /*Whenever the user clicks, figure out what they clicked. If it was a blog content element,
@@ -68,9 +67,9 @@
             if(typeof(temp) !== 'undefined' && temp.length == 1){
                 focusElement = temp
             }
-            else if(typeof(focusElement) !== 'undefined'){
-                focusElement.focus()
-            }
+            //else if(typeof(focusElement) !== 'undefined'){
+            //    focusElement.focus()
+            //}
 
         });
     });
@@ -82,7 +81,7 @@
         }
 
         .addpad table {
-            margin-top: 2px;/*TODO: IE wants this to be 1 px for some reason*/
+            border-top: 2px solid white;/*TODO: IE wants this to be 1 px for some reason*/
             border-collapse: collapse;
             border-spacing: 0;
 
@@ -157,6 +156,7 @@
         .addpad div span::selection {background-color: transparent;}
         .addpad div span{cursor: default;}
         /**/
+        .addpad table tr td span::selection {background-color: transparent;}
         .addpad table tr td::selection {background-color: transparent;}
         .addpad table tr td{cursor: default;}
     </style>
