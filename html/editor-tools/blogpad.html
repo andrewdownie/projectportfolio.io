@@ -46,18 +46,23 @@
             border-spacing: 0;
             background-color: white;
             width: 100%;
+
+
         }
 
         .blogpad {
             display: inline-block;
             margin-bottom: 5px;
-            margin-right: -30px;
+
             padding-right: 0;
+            height: 100%;
             border: black 1px solid;
             border-top: none;
-            /*left: 100px;*/
-            /*position: fixed;
-            top: 100px;*/
+            /*margin-right: 1px;*/
+            margin-left: -2px;
+            margin-right: -30px;
+            /*border-left: black 1px solid;
+            border-right: black 1px solid;*/
         }
 
         .blogpad table tr:first-child {
@@ -148,6 +153,13 @@
         .underline {
             text-decoration: underline;
         }
+        #minimize-pads{
+            float:right;
+            height: 5px;
+        }
+        #minimize-pads i:hover{
+            color: grey;
+        }
     </style>
 </head>
 
@@ -157,10 +169,11 @@
             <span>
                 Blog
             </span>
+            <span id="minimize-pads" class="visible-xs">
+                <i class="fa fa-minus-square-o"></i>
+            </span>
         </div>
-        <table class="blogpad-table2">
 
-        </table>
         <table>
             <tr>
                 <td>

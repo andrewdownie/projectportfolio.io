@@ -52,7 +52,7 @@
 
         @media (max-width: 844px){
             .editortools-topspace{
-                padding-top: 70px;/*Pads are stack one by one at this point, need to match the number of pads there are here.*/
+                padding-top: 85px;/*Pads are stack one by one at this point, need to match the number of pads there are here.*/
             }
         }
 
@@ -84,9 +84,21 @@
 
     <script>
     $(document).ready(function(){
+        /*Toggle pads when not in xs mode*/
         $("#editor-tools").click(function(){
             //LinkToggle($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#editor-pads"))
             ToggleElements($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $(".addpad"), $(".stylepad"), $(".blogpad") )
+        });
+
+        /*Toggle pads when in xs mode*/
+        $("#minimize-pads").click(function() {
+            var visible = ToggleElements($("#minimize-pads i"), "fa fa-plus-square-o", "fa fa-minus-square-o", $(".addpad table"), $(".stylepad table"), $(".blogpad table") )
+            if(visible){
+                $(".editortools-topspace").css("padding-top", "85px")
+            }
+            else{
+                $(".editortools-topspace").css("padding-top", "20px")
+            }
         });
     });
 
@@ -122,7 +134,7 @@
             </div>
 
             <span class="visible-xs hidden-sm-up">
-                <div class="editortools-topspace"><hr/></div>
+                <div class="editortools-topspace"></div>
             </span>
         </div>
     </div>

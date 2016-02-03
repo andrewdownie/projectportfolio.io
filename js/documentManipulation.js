@@ -34,7 +34,7 @@ function modifyCssInt(pageElement, cssProperty, intAmount){
 
 
 /*------------------------------------------------------------------------------
-FUNCTION NAME: addClassToText
+FUNCTION: addClassToText
 AUTHOR                      DATE CREATED                    LAST MODIFIED
 Andrew Downie               2016 FEB 01                     2016 FEB 02
 --------------------------------------------------------------------------------
@@ -87,7 +87,9 @@ PARAMETERS:
     -- target: The html element that is to be shown / hidden based on the
         state of the currentIcon. Unlimited targets can be selected, but one is
         required.
-RETURN: VOID
+RETURN: BOOLEAN:
+            true: if the targets are visible
+            false: if the targets are hidden
 ------------------------------------------------------------------------------*/
 function ToggleElements(toggleElement, closedClasses, openClasses, target){
     var arrLen = arguments.length
@@ -102,7 +104,7 @@ function ToggleElements(toggleElement, closedClasses, openClasses, target){
         for(var i = 3; i < arrLen; i++){
             arguments[i].hide()
         }
-
+        return false;
     }
     else if(toggleElement.attr('class') == closedClasses){
         toggleElement.removeClass()
@@ -111,6 +113,6 @@ function ToggleElements(toggleElement, closedClasses, openClasses, target){
         for(var i = 3; i < arrLen; i++){
             arguments[i].show()
         }
-
     }
+    return true;
 }

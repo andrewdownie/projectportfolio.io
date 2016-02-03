@@ -44,7 +44,7 @@
 
         $('#addpad-title').click(function(e){
             if(typeof(focusElement) === 'undefined'){ return; }
-            focusElement.after("<p contenteditable='true'> title </p>")
+            focusElement.after("<p contenteditable='true' class='title'> title </p>")
         });
 
         $('#addpad-text').click(function(e){
@@ -54,7 +54,7 @@
 
         $('#addpad-image').click(function(e){
             if(typeof(focusElement) === 'undefined'){ return; }
-            focusElement.after("<p contenteditable='true'> image </p>")
+            focusElement.after("<img contenteditable='true' style='width: 100%; min-width: 100%;' src='https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30' alt='Image, pls'> </img>")
 
         });
 
@@ -62,8 +62,8 @@
         save a reference. If not refocus on the last seleted blog element. This way the user can
         keep adding elements to the page, and instead of focusing on the add button they click,
         it will stay focused on the element they selected to add elments after.*/
-        $('body').click(function(){
-            temp = $('p[contenteditable=true]:focus')
+        $('html').click(function(){
+            temp = $('p[contenteditable=true]:focus, img[contenteditable=true]:focus')
 
             if(typeof(temp) !== 'undefined' && temp.length == 1){
                 focusElement = temp
@@ -77,26 +77,32 @@
     </script>
 
     <style>
+        .title{
+            font-size: 20px;
+        }
+
         .addpad table {
+            margin-top: 2px;/*TODO: IE wants this to be 1 px for some reason*/
             border-collapse: collapse;
             border-spacing: 0;
-            border: black 1px solid;
-            border-top: none;
+
             background-color: white;
 
 
         }
         .addpad{
-            z-index: 99999;
             display: inline-block;
             margin-bottom: 5px;
             /*left: 100px;*/
-            margin-right: -1px;
+            /*margin-right: -1px;*/
             /*position: fixed;
             top: 100px;*/
-            max-height: 86px;
-            min-height: 86px;
-            height: 86px;
+            height: 100%;
+            min-width: 122px;
+            width: 122px;
+            border: black 1px solid;
+            border-top: none;
+            height: 100%;
         }
         @media (max-width: 767px){
             .addpad{
