@@ -38,6 +38,10 @@
     <![endif]-->
 
     <style>
+        html, body{/*TODO: move this to the navbar*/
+            height: 100%;
+        }
+
         p[contenteditable=true]:hover{
             max-width: 800px;
             border: 1px blue dotted;
@@ -142,8 +146,8 @@
 
     <div class="container">
         <div class="row">
-            <div style="padding-top: 10px;"></div>
-            <div class="col-md-8 col-sm-10 col-xs-12 col-sm-push-2">
+            <div style="padding-top: 10px;" ></div>
+            <div class="col-md-8 col-sm-10 col-xs-12 col-sm-push-2" id="content-area">
                 <p id="blog-title" contenteditable="true">Page Title</p>
             </div>
 

@@ -39,6 +39,21 @@
 
     <script>
     $(document).ready(function() {
+        $("body").click(function(e){
+            var target = $(e.target)/*TODO: this seems super ineffcient... but it works*/
+            if(target.is("[contenteditable='true']") == false || target.is("#blog-title")){
+                $(".moveremovepad").hide()
+            }
+        });
+        $("body").on("click", "p, img", function(e){
+            var offset = $(this).offset()
+            var width = $(this).width()
+
+            $(".moveremovepad").css("top", offset.top - 5)
+            $(".moveremovepad").css("left", offset.left + width - 55)
+            $(".moveremovepad").show()
+        });
+
 
     });
     </script>
@@ -47,10 +62,13 @@
         .moveremovepad{
             top: 250px;
             left: 250px;
-            position: absolute;
+            position: fixed;
+            color:white;
+            background-color: black;
         }
         .moveremovepad table tr td i{
             margin-right:5px;
+            margin-left:5px;
         }
         .moveremovepad table tr td i:hover{
             color: #337ab7;
