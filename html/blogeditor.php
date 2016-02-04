@@ -151,7 +151,7 @@
     </div>
 
 
-
+    <?php include "/var/www/projectportfolio/html/editor-tools/moveremovepad.html";?>
 </body>
 
 </html>
