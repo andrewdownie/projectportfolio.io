@@ -41,11 +41,9 @@
         html, body{/*TODO: move this to the navbar*/
             height: 100%;
         }
-
         p[contenteditable=true]:hover{
             max-width: 800px;
-            border: 1px blue dotted;
-            margin-top: -1px;
+            outline: 1px dotted #337ab7;
         }
         #blog-title{
             font-size: 30px;
