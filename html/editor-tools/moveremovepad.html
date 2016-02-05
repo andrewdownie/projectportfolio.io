@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Demo: AddPad</title>
+    <title>moveremovepad</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -39,10 +39,15 @@
 
     <script>
     $(document).ready(function() {
+        var selectedBlogElement
+
         $("body").click(function(e){
             var target = $(e.target)/*TODO: this seems super ineffcient... but it works*/
-            if(target.is("[contenteditable='true']") == false || target.is("#blog-title")){
+            if(target.is("[contenteditable='true']") == false){
                 $(".moveremovepad").hide()
+            }
+            else{
+                selectedBlogElement = target
             }
         });
         $("body").on("click", "p, img", function(e){
@@ -52,9 +57,27 @@
             $(".moveremovepad").css("top", offset.top - 5)
             $(".moveremovepad").css("left", offset.left + width - 55)
             $(".moveremovepad").show()
+
+            if($(this).is("#blog-title")){
+                $(".moveremovepad #delete i").hide()
+            }
+            else{
+                $(".moveremovepad #delete i").show()
+            }
         });
 
+        $(".moveremovepad #up").click(function(){
+            selectedBlogElement.prev().before(selectedBlogElement)
+        });
+        $(".moveremovepad #down").click(function(){
+            selectedBlogElement.next().after(selectedBlogElement)
+        });
+        $(".moveremovepad #delete").click(function(e){
+            if(selectedBlogElement.is("#blog-title") == false){
+                selectedBlogElement.remove()
+            }
 
+        });
     });
     </script>
 
@@ -82,9 +105,9 @@
     <div class="moveremovepad" style="display:none;">
         <table>
             <tr>
-                <td><i class="fa fa-arrow-up"></i></td>
-                <td><i class="fa fa-arrow-down"></i></td>
-                <td><i class="fa fa-times"></i></td>
+                <td id="up"><i class="fa fa-arrow-up"></i></td>
+                <td id="down"><i class="fa fa-arrow-down"></i></td>
+                <td id="delete"><i class="fa fa-times"></i></td>
             </tr>
         </table>
     </div>
