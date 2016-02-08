@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Demo: stylepad</title>
+    <title>Demo: inputbox</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -36,50 +36,50 @@
 
     <script>
         $(document).ready(function() {
-            var stylepadFocusElement = null
+            var inputboxFocusElement = null
 
             $('body').click(function(){
                 temp = $('p[contenteditable=true]:focus')
 
                 if(typeof(temp) !== 'undefined' && temp.length == 1){
-                    stylepadFocusElement = temp
+                    inputboxFocusElement = temp
                 }
                 else{
-                    stylepadFocusElement = null
+                    inputboxFocusElement = null
                 }
 
             });
 
 
-            $("#stylepad-bold").click(function() {
-                if(stylepadFocusElement === null){return;}
+            $("#inputbox-bold").click(function() {
+                if(inputboxFocusElement === null){return;}
                 addClassToText("bold")
                 $(this).blur()
             });
-            $("#stylepad-italic").click(function() {
-                if(stylepadFocusElement === null){return;}
+            $("#inputbox-italic").click(function() {
+                if(inputboxFocusElement === null){return;}
                 addClassToText("italic")
                 $(this).blur()
             });
-            $("#stylepad-underline").click(function() {
-                if(stylepadFocusElement === null){return;}
+            $("#inputbox-underline").click(function() {
+                if(inputboxFocusElement === null){return;}
                 addClassToText("underline")
                 $(this).blur()
             });
-            $("#stylepad-link").click(function() {
-                if(stylepadFocusElement === null){return;}
+            $("#inputbox-link").click(function() {
+                if(inputboxFocusElement === null){return;}
                 linkText("meow")
                 $(this).blur()
                 alert("modal pop up here or wat?")
 
             });
-            $("#stylepad-removeStyles").click(function() {
-                if(stylepadFocusElement === null){return;}
+            $("#inputbox-removeStyles").click(function() {
+                if(inputboxFocusElement === null){return;}
                 $(this).blur()
                 alert("remove styles here")
             });
 
-            $("#stylepad-setImage").click(function() {
+            $("#inputbox-setImage").click(function() {
                 $(this).blur()
                 alert("set image hur")
             });
@@ -88,7 +88,7 @@
     </script>
 
     <style>
-        .stylepad table {
+        .inputbox table {
             border-collapse: collapse;
             border-spacing: 0;
             background-color: white;
@@ -96,21 +96,24 @@
             margin-top: 0px;
         }
 
-        .stylepad {
+        .inputbox {
             display: inline-block;
             margin-bottom: 5px;
 
-            height: 100%;
+
             border: black 1px solid;
             border-top: none;
-            /*order-left: black 1px solid;
-            border-right: black 1px solid;*/
 
-            min-width: 122px;
-            width: 122px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 250px;
+            height: 300px;
         }
         @media (max-width: 767px){
-            .stylepad{
+            .inputbox{
                 margin-bottom: 0px;
                 margin-right: 1px;
                 margin-left: -1px;
@@ -118,11 +121,11 @@
 
         }
 
-        .stylepad table tr:first-child {
+        .inputbox table tr:first-child {
             border-bottom: white 4px solid;
         }
 
-        .stylepad table tr td button {
+        .inputbox table tr td button {
             border: none;
             color: black;
             max-width: 40px;
@@ -133,51 +136,51 @@
             /*this fixes the 1px at bottom thing*/
         }
 
-        .stylepad table tr td button:hover,
-        .stylepad button:hover {
+        .inputbox table tr td button:hover,
+        .inputbox button:hover {
             background-color: darkgrey;
         }
 
-        .stylepad table tr td button i {
+        .inputbox table tr td button i {
             width: 10px;
         }
 
-        .stylepad table tr td {
+        .inputbox table tr td {
             text-align: center;
         }
 
-        .stylepad table tr td i {
+        .inputbox table tr td i {
             /*width: 40px;
             max-width: 40px;*/
             color: black;
         }
-        /*stylepad title */
+        /*inputbox title */
 
-        .stylepad div {
+        .inputbox div {
             padding-left: 5px;
             padding-right: 5px;
             background-color: black;
             color: white;
         }
-        /*stylepad title - hide text selection color*/
+        /*inputbox title - hide text selection color*/
 
-        .stylepad div span::selection {
+        .inputbox div span::selection {
             background-color: transparent;
         }
 
-        .stylepad div span {
+        .inputbox div span {
             cursor: default;
         }
         /**/
 
-        .stylepad table tr td::selection {
+        .inputbox table tr td::selection {
             background-color: transparent;
         }
-        .stylepad table tr td button::selection {
+        .inputbox table tr td button::selection {
             background-color: transparent;
         }
 
-        .stylepad table tr td {
+        .inputbox table tr td {
             cursor: default;
         }
         /* - Text styles - */
@@ -193,41 +196,45 @@
         .underline {
             text-decoration: underline;
         }
+
+        #close i:hover{
+            color:red;
+        }
     </style>
 </head>
 
 <body>
-    <div class="stylepad">
+    <div class="inputbox">
         <div>
             <span id="title">
                 Title goes here (input box)
             </span>
+            <span id="close" style="float:right;">
+                <i class="fa fa-times"></i>
+            </span>
         </div>
-        <table class="stylepad-table2">
-
-        </table>
         <table>
             <tr>
                 <td>
-                    <button data-hint="Bold the selected text." class="hint--right hint--bounce" id="stylepad-bold"><i class="fa fa-bold"></i></button>
+                    <button data-hint="Bold the selected text." class="hint--right hint--bounce" id="inputbox-bold"><i class="fa fa-bold"></i></button>
                 </td>
                 <td>
-                    <button data-hint="Italicize the selected text." class="hint--right hint--bounce" id="stylepad-italic"><i class="fa fa-italic"></i></button>
+                    <button data-hint="Italicize the selected text." class="hint--right hint--bounce" id="inputbox-italic"><i class="fa fa-italic"></i></button>
                 </td>
                 <td>
-                    <button data-hint="Underline the selected text." class="hint--right hint--bounce" id="stylepad-underline"><i class="fa fa-underline"></i></button>
+                    <button data-hint="Underline the selected text." class="hint--right hint--bounce" id="inputbox-underline"><i class="fa fa-underline"></i></button>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" id="stylepad-setImage" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
+                    <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" id="inputbox-setImage" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
                 </td>
                 <td>
-                    <button data-hint="Link a url to the selected text." class="hint--right hint--bounce" id="stylepad-link"><i class="fa fa-link"></i></button>
+                    <button data-hint="Link a url to the selected text." class="hint--right hint--bounce" id="inputbox-link"><i class="fa fa-link"></i></button>
                 </td>
 
                 <td>
-                    <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" id="stylepad-removeStyles"><i class="fa fa-ban"></i></button>
+                    <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" id="inputbox-removeStyles"><i class="fa fa-ban"></i></button>
                 </td>
 
             </tr>

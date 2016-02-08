@@ -155,6 +155,7 @@
 
 
     <?php include "/var/www/projectportfolio/html/editor-tools/moveremovepad.html";?>
+    <?php include "/var/www/projectportfolio/html/editor-tools/inputbox.html";?>
 </body>
 
 </html>
