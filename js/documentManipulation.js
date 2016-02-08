@@ -46,28 +46,37 @@ PARAMETERS:
 RETURN: VOID
 ------------------------------------------------------------------------------*/
 function addClassToText(classes){
-    var selection = getSelectedText()
-    var selection_text = selection.toString()
+    var text = wrapText('span')
+    text.setAttribute("class", classes)
+}
+function linkText(href){
+    var text = wrapText('a')
+    text.setAttribute("href", href)
+}
+
+function wrapText(wrapperType){
+    var selection = getSelection()
+    var selection_text = selection
 
     if(selection_text == ""){ return; }
 
-    var span = document.createElement('SPAN')
-    span.textContent = selection_text
-    span.classList.add(classes)
+    var wrapper = document.createElement(wrapperType)
+    wrapper.textContent = selection_text
 
     var range = selection.getRangeAt(0)
     range.deleteContents()
-    range.insertNode(span)
+    range.insertNode(wrapper)
+    return wrapper
 }
 
 
 
 /*------------------------------------------------------------------------------
-FUNCTION NAME: getSelectedText
+FUNCTION NAME: getSelection
 SOURCE:
 RETURN: the text currently selected by the user.
 ------------------------------------------------------------------------------*/
-function getSelectedText() {
+function getSelection() {
   t = (document.all) ? document.selection.createRange().text : document.getSelection();
   return t;
 }

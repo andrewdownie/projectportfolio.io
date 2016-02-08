@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ADD PAD -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Demo: stylepad</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS
+    <link href="css/shop-item.css" rel="stylesheet"> TODO: DELETE THIS-->
+    <link href="/css/navbar.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        $(document).ready(function() {
+            var stylepadFocusElement = null
+
+            $('body').click(function(){
+                temp = $('p[contenteditable=true]:focus')
+
+                if(typeof(temp) !== 'undefined' && temp.length == 1){
+                    stylepadFocusElement = temp
+                }
+                else{
+                    stylepadFocusElement = null
+                }
+
+            });
+
+
+            $("#stylepad-bold").click(function() {
+                if(stylepadFocusElement === null){return;}
+                addClassToText("bold")
+                $(this).blur()
+            });
+            $("#stylepad-italic").click(function() {
+                if(stylepadFocusElement === null){return;}
+                addClassToText("italic")
+                $(this).blur()
+            });
+            $("#stylepad-underline").click(function() {
+                if(stylepadFocusElement === null){return;}
+                addClassToText("underline")
+                $(this).blur()
+            });
+            $("#stylepad-link").click(function() {
+                if(stylepadFocusElement === null){return;}
+                linkText("meow")
+                $(this).blur()
+                alert("modal pop up here or wat?")
+
+            });
+            $("#stylepad-removeStyles").click(function() {
+                if(stylepadFocusElement === null){return;}
+                $(this).blur()
+                alert("remove styles here")
+            });
+
+            $("#stylepad-setImage").click(function() {
+                $(this).blur()
+                alert("set image hur")
+            });
+
+        });
+    </script>
+
+    <style>
+        .stylepad table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            background-color: white;
+            /*border-bottom: black 1px solid;*/
+            margin-top: 0px;
+        }
+
+        .stylepad {
+            display: inline-block;
+            margin-bottom: 5px;
+
+            height: 100%;
+            border: black 1px solid;
+            border-top: none;
+            /*order-left: black 1px solid;
+            border-right: black 1px solid;*/
+
+            min-width: 122px;
+            width: 122px;
+        }
+        @media (max-width: 767px){
+            .stylepad{
+                margin-bottom: 0px;
+                margin-right: 1px;
+                margin-left: -1px;
+            }
+
+        }
+
+        .stylepad table tr:first-child {
+            border-bottom: white 4px solid;
+        }
+
+        .stylepad table tr td button {
+            border: none;
+            color: black;
+            max-width: 40px;
+            width: 40px;
+            height: 30px;
+            max-height: 30px;
+            display: block;
+            /*this fixes the 1px at bottom thing*/
+        }
+
+        .stylepad table tr td button:hover,
+        .stylepad button:hover {
+            background-color: darkgrey;
+        }
+
+        .stylepad table tr td button i {
+            width: 10px;
+        }
+
+        .stylepad table tr td {
+            text-align: center;
+        }
+
+        .stylepad table tr td i {
+            /*width: 40px;
+            max-width: 40px;*/
+            color: black;
+        }
+        /*stylepad title */
+
+        .stylepad div {
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: black;
+            color: white;
+        }
+        /*stylepad title - hide text selection color*/
+
+        .stylepad div span::selection {
+            background-color: transparent;
+        }
+
+        .stylepad div span {
+            cursor: default;
+        }
+        /**/
+
+        .stylepad table tr td::selection {
+            background-color: transparent;
+        }
+        .stylepad table tr td button::selection {
+            background-color: transparent;
+        }
+
+        .stylepad table tr td {
+            cursor: default;
+        }
+        /* - Text styles - */
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stylepad">
+        <div>
+            <span id="title">
+                Title goes here (input box)
+            </span>
+        </div>
+        <table class="stylepad-table2">
+
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <button data-hint="Bold the selected text." class="hint--right hint--bounce" id="stylepad-bold"><i class="fa fa-bold"></i></button>
+                </td>
+                <td>
+                    <button data-hint="Italicize the selected text." class="hint--right hint--bounce" id="stylepad-italic"><i class="fa fa-italic"></i></button>
+                </td>
+                <td>
+                    <button data-hint="Underline the selected text." class="hint--right hint--bounce" id="stylepad-underline"><i class="fa fa-underline"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" id="stylepad-setImage" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
+                </td>
+                <td>
+                    <button data-hint="Link a url to the selected text." class="hint--right hint--bounce" id="stylepad-link"><i class="fa fa-link"></i></button>
+                </td>
+
+                <td>
+                    <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" id="stylepad-removeStyles"><i class="fa fa-ban"></i></button>
+                </td>
+
+            </tr>
+        </table>
+
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>

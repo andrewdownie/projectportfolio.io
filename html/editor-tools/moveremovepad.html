@@ -51,19 +51,7 @@
             }
         });
         $("body").on("click", "p, img", function(e){
-            var offset = $(this).offset()
-            var width = $(this).width()
-
-            $(".moveremovepad").css("top", offset.top - 5)
-            $(".moveremovepad").css("left", offset.left + width - 55)
-            $(".moveremovepad").show()
-
-            if($(this).is("#blog-title")){
-                $(".moveremovepad #delete i").hide()
-            }
-            else{
-                $(".moveremovepad #delete i").show()
-            }
+            move_moveremovepad($(this))
         });
 
         $(".moveremovepad #up").click(function(){
@@ -76,8 +64,26 @@
             if(selectedBlogElement.is("#blog-title") == false){
                 selectedBlogElement.remove()
             }
-
         });
+        /*$('.addpad #title, .addpad #text, .addpad #image').click(function(e){
+            move_moveremovepad($(":focus"))
+        });*/
+
+        function move_moveremovepad(targetElement){
+            var offset = targetElement.offset()
+            var width = targetElement.width()
+
+            $(".moveremovepad").css("top", offset.top - 5)
+            $(".moveremovepad").css("left", offset.left + width - 55)
+            $(".moveremovepad").show()
+
+            if($(this).is("#blog-title")){
+                $(".moveremovepad #delete i").hide()
+            }
+            else{
+                $(".moveremovepad #delete i").show()
+            }
+        }
     });
     </script>
 

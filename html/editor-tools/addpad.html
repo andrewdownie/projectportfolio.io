@@ -41,18 +41,18 @@
     $(document).ready(function() {
         var focusElement
 
-
-        $('#addpad-title').click(function(e){
+        //TODO: change "#addpad-title" to ".addpad #title"
+        $('.addpad #title').click(function(e){
             if(typeof(focusElement) === 'undefined'){ return; }
             focusElement.after("<p contenteditable='true' class='title'> title </p>").next("p").focus()
         });
 
-        $('#addpad-text').click(function(e){
+        $('.addpad #text').click(function(e){
             if(typeof(focusElement) === 'undefined'){ return; }
             focusElement.after("<p contenteditable='true'> text </p>").next("p").focus()
         });
 
-        $('#addpad-image').click(function(e){
+        $('.addpad #image').click(function(e){
             if(typeof(focusElement) === 'undefined'){ return; }
             focusElement.after("<img contenteditable='true' style='width: 100%; min-width: 100%;' src='https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30' alt='Image, pls'> </img>").next("img").focus()
         });
@@ -188,9 +188,9 @@
                 <td><span>Img</span></td>
             </tr>
             <tr>
-                <td><button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="addpad-title"><i class="fa fa-angle-down"></i></button></td>
-                <td><button class="hint--right hint--bounce" data-hint="Add text below currently selected blog element." id="addpad-text" title=""><i class="fa fa-angle-down"></i></button></td>
-                <td><button class="hint--right hint--bounce" data-hint="Add image below currently selected blog element." id="addpad-image" data-toggle="tooltip"><i class="fa fa-angle-down"></i></button></td>
+                <td><button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="title"><i class="fa fa-angle-down"></i></button></td>
+                <td><button class="hint--right hint--bounce" data-hint="Add text below currently selected blog element." id="text" title=""><i class="fa fa-angle-down"></i></button></td>
+                <td><button class="hint--right hint--bounce" data-hint="Add image below currently selected blog element." id="image" data-toggle="tooltip"><i class="fa fa-angle-down"></i></button></td>
             </tr>
         </table>
 
