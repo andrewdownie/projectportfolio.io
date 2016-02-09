@@ -36,9 +36,9 @@
 
     <script>
         $(document).ready(function() {
-            var stylepadFocusElement = null
+            //var stylepadFocusElement = null
 
-            $('body').click(function(){
+            /*$('body').click(function(){
                 temp = $('p[contenteditable=true]:focus')
 
                 if(typeof(temp) !== 'undefined' && temp.length == 1){
@@ -48,33 +48,27 @@
                     stylepadFocusElement = null
                 }
 
-            });
+            });*/
 
 
             $("#stylepad-bold").click(function() {
-                if(stylepadFocusElement === null){return;}
+                //if(stylepadFocusElement === null){return;}
                 addClassToText("bold")
                 $(this).blur()
             });
             $("#stylepad-italic").click(function() {
-                if(stylepadFocusElement === null){return;}
+            //    if(stylepadFocusElement === null){return;}
                 addClassToText("italic")
                 $(this).blur()
             });
             $("#stylepad-underline").click(function() {
-                if(stylepadFocusElement === null){return;}
+                //if(stylepadFocusElement === null){return;}
                 addClassToText("underline")
                 $(this).blur()
             });
-            $("#stylepad-link").click(function() {
-                if(stylepadFocusElement === null){return;}
-                linkText("meow")
-                $(this).blur()
-                alert("modal pop up here or wat?")
 
-            });
             $("#stylepad-removeStyles").click(function() {
-                if(stylepadFocusElement === null){return;}
+            //    if(stylepadFocusElement === null){return;}
                 $(this).blur()
                 alert("remove styles here")
             });

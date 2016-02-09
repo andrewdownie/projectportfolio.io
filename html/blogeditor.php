@@ -30,6 +30,8 @@
 
     <script src="/js/documentManipulation.js"></script>
 
+    <script src="/js/modalinput.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -87,6 +89,7 @@
 
     <script>
     $(document).ready(function(){
+
         /*Toggle pads when not in xs mode*/
         $("#editor-tools").click(function(){
             //LinkToggle($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#editor-pads"))
@@ -103,8 +106,18 @@
                 $(".editortools-topspace").css("padding-top", "20px")
             }
         });
+
+        $("#stylepad-link").click(function() {
+            linkText("meow")
+            $(this).blur()
+            getModalInput(callback, "meow")
+
+        });
     });
 
+    function callback(input){
+        alert(input)
+    }
 
     </script>
 
@@ -155,7 +168,7 @@
 
 
     <?php include "/var/www/projectportfolio/html/editor-tools/moveremovepad.html";?>
-    <?php include "/var/www/projectportfolio/html/editor-tools/inputbox.html";?>
+    <?php include "/var/www/projectportfolio/html/editor-tools/modalinput.html";?>
 </body>
 
 </html>
