@@ -44,6 +44,7 @@
             border-collapse: collapse;
             border-spacing: 0;
             background-color: white;
+
             /*border-bottom: black 1px solid;*/
             margin-top: 0px;
         }
@@ -57,7 +58,7 @@
             border-top: none;
 
             position: fixed;
-            top: 40%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
 
@@ -155,6 +156,10 @@
 
         .modalinput #ok{
             background-color: #337ab7;
+            width: 73%;
+            margin-top: 5px;
+            height: 27px;
+            margin-left: 9px;
         }
     </style>
 </head>
@@ -163,7 +168,7 @@
     <div class="modalinput">
         <div>
             <span id="title">
-                Set link url
+                Set link url (but also meow
             </span>
             <span id="close" style="float:right;">
                 <i class="fa fa-times"></i>
@@ -173,11 +178,11 @@
 
 
         <table style="width: 100%;">
-            <tr style="width: 98%;">
-                <td  style="max-width: 60%;">
+            <tr style="width: 100%;">
+                <td  style="width: 80%;">
                     <input id="input" type="text">
                 </td>
-                <td style="width: 30px;">
+                <td style="width: 20%;">
                     <button id="ok">Ok</button>
                 </td>
             </tr>
