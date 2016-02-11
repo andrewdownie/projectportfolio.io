@@ -81,6 +81,7 @@
             background-color: #236aa7;
         }
 
+
         .modalinput table tr td button:hover,
         .modalinput button:hover {
             background-color: darkgrey;
@@ -160,7 +161,11 @@
             margin-top: 5px;
             height: 27px;
             margin-left: 9px;
+            color: white;
         }
+            .modalinput #ok i{
+                color: white;
+            }
     </style>
 </head>
 
@@ -168,7 +173,7 @@
     <div class="modalinput">
         <div>
             <span id="title">
-                Set link url (but also meow
+                <i class="fa fa-link"></i></i> Set link url (but also meow)
             </span>
             <span id="close" style="float:right;">
                 <i class="fa fa-times"></i>
@@ -183,7 +188,7 @@
                     <input id="input" type="text">
                 </td>
                 <td style="width: 20%;">
-                    <button id="ok">Ok</button>
+                    <button id="ok"><i class="fa fa-check"></i>&nbsp;&nbsp;Ok</button>
                 </td>
             </tr>
         </table>
