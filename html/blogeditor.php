@@ -131,10 +131,12 @@
         <?php include "/var/www/projectportfolio/pagebars/navbar.php";?>
     </div>
 
-    <div class="container-fluid " style="margin-top: -10px;">
+    <div class="container-fluid" style="margin-top: -10px;">
         <div class="row">
-            <div class="col-sm-2 col-xs-12 editor-tools-col" style="position:fixed; z-index: 99999;  border-top: 1px white solid;">
+
+            <div class="col-sm-2 col-xs-12 editor-tools-col " style="position:fixed; z-index: 99999;  border-top: 1px white solid;">
                 <div style="padding-top: 10px;"></div>
+
                 <div style="width: 100%;"class="hidden-xs"><a id="editor-tools" class="button-link"><i class="fa fa-folder-open"></i> Editor Tools</a></div>
 
                 <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>

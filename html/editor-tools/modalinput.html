@@ -40,7 +40,7 @@
     <![endif]-->
 
     <style>
-        .modalinput table {
+        #modalinput #wrapper table {
             border-collapse: collapse;
             border-spacing: 0;
             background-color: white;
@@ -49,7 +49,25 @@
             margin-top: 0px;
         }
 
-        .modalinput {
+        #modalinput{
+            position: fixed;
+            opacity: 0;
+            pointer-events: none;
+
+            z-index: 99999;
+            background: rgba(0, 0, 0, 0.8);
+            -webkit-transition: opacity 100ms ease-in;
+            -moz-transition: opacity 100ms ease-in;
+            transition: opacity 100ms ease-in;
+
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #modalinput #wrapper{
             display: inline-block;
             margin-bottom: 5px;
 
@@ -62,47 +80,51 @@
             left: 50%;
             transform: translate(-50%, -50%);
 
-            max-width: 400px;
+            max-width: 500px;
             width: 100%;
             height: 70px;
         }
 
-        .modalinput table tr:first-child {/*****/
+        #modalinput #wrapper table tr:first-child {/*****/
             border-bottom: white 4px solid;
         }
 
-        .modalinput #ok {
+        #modalinput #wrapper #ok {
             border: none;
             color: black;
             display: block;
             /*this fixes the 1px at bottom thing*/
         }
-        .modalinput #ok:hover {
+        #modalinput #wrapper #ok:hover {
             background-color: #236aa7;
+            color: black;
+        }
+        #modalinput #wrapper #ok:hover i{
+            color: black;
         }
 
 
-        .modalinput table tr td button:hover,
-        .modalinput button:hover {
+        #modalinput #wrapper table tr td button:hover,
+        #modalinput #wrapper button:hover {
             background-color: darkgrey;
         }
 
-        .modalinput table tr td button i {
+        #modalinput #wrapper table tr td button i {
             width: 10px;
         }
 
-        .modalinput table tr td {
+        #modalinput #wrapper table tr td {
             text-align: center;
         }
 
-        .modalinput table tr td i {
+        #modalinput #wrapper table tr td i {
             /*width: 40px;
             max-width: 40px;*/
             color: black;
         }
         /*modalinput title */
 
-        .modalinput div {
+        #modalinput #wrapper div {
             padding-left: 5px;
             padding-right: 5px;
             background-color: black;
@@ -110,23 +132,23 @@
         }
         /*modalinput title - hide text selection color*/
 
-        .modalinput div span::selection {
+        #modalinput #wrapper div span::selection {
             background-color: transparent;
         }
 
-        .modalinput div span {
+        #modalinput #wrapper div span {
             cursor: default;
         }
         /**/
 
-        .modalinput table tr td::selection {
+        #modalinput #wrapper table tr td::selection {
             background-color: transparent;
         }
-        .modalinput table tr td button::selection {
+        #modalinput #wrapper table tr td button::selection {
             background-color: transparent;
         }
 
-        .modalinput table tr td {
+        #modalinput #wrapper table tr td {
             cursor: default;
         }
         /* - Text styles - */
@@ -143,19 +165,20 @@
             text-decoration: underline;
         }
 
-        #close i:hover{
+        #modalinput #wrapper #close i:hover{
             color:red;
         }
 
-        .modalinput #input{
+        #modalinput #wrapper #input{
             width: 20px;
             margin: 10px;
             margin-bottom: 5px;
             max-width: 400px;
             width: 100%;
+
         }
 
-        .modalinput #ok{
+        #modalinput #wrapper #ok{
             background-color: #337ab7;
             width: 73%;
             margin-top: 5px;
@@ -163,40 +186,43 @@
             margin-left: 9px;
             color: white;
         }
-            .modalinput #ok i{
+            #modalinput #wrapper #ok i{
                 color: white;
             }
     </style>
 </head>
 
 <body>
-    <div class="modalinput">
-        <div>
-            <span id="title">
-                <i class="fa fa-link"></i></i> Set link url (but also meow)
-            </span>
-            <span id="close" style="float:right;">
-                <i class="fa fa-times"></i>
-            </span>
+    <div id="modalinput">
+        <div id="wrapper">
+
+            <div>
+                <span id="title">
+                    <i class="fa fa-link"></i> Set link url (but also meow)
+                </span>
+                <span id="close" style="float:right;">
+                    <i class="fa fa-times"></i>
+                </span>
+            </div>
+
+
+
+            <table style="width: 100%;">
+                <tr style="width: 100%;">
+                    <td  style="width: 80%;">
+                        <input id="input" type="text">
+                    </td>
+                    <td style="width: 20%;">
+                        <button id="ok">
+                            <i class="fa fa-check hidden-xs"></i>
+                            <span class="hidden-xs">&nbsp;Ok</span>
+                            <span class="visible-xs">OK</span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
         </div>
-
-
-
-        <table style="width: 100%;">
-            <tr style="width: 100%;">
-                <td  style="width: 80%;">
-                    <input id="input" type="text">
-                </td>
-                <td style="width: 20%;">
-                    <button id="ok">
-                        <i class="fa fa-check hidden-xs"></i>
-                        <span class="hidden-xs">&nbsp;Ok</span>
-                        <span class="visible-xs">Ok</span>
-                    </button>
-                </td>
-            </tr>
-        </table>
-
 
 
 

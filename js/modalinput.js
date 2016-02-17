@@ -15,28 +15,33 @@ $(document).ready(function() {
 
 
 
-    $(".modalinput #close").click(function() {
+    $("#modalinput #wrapper #close").click(function() {
         //if(inputboxFocusElement === null){return;}
-        $(".modalinput").hide()
+        $("#modalinput").css("opacity", 0)
+        $("#modalinput").css("pointer-events", "none")
         $(this).blur()
     });
-    $(".modalinput #ok").click(function() {
+    $("#modalinput #wrapper #ok").click(function() {
         //if(inputboxFocusElement === null){return;}
-        $(".modalinput").hide()
+        $("#modalinput").css("opacity", 0)
+        $("#modalinput").css("pointer-events", "none")
         $(this).blur()
     });
-    $(".modalinput #cancel").click(function() {
+    $("#modalinput #wrapper #cancel").click(function() {
         //if(inputboxFocusElement === null){return;}
-        $(".modalinput").hide()
+        $("#modalinput").css("opacity", 0)
+        $("#modalinput").css("pointer-events", "none")
         $(this).blur()
     });
 
 });
 
 function getModalInput(callback, text){
-    $(".modalinput").show()
+    $("#modalinput").css("opacity", 1)
+    $("#modalinput").css("pointer-events", "auto")
+    $("#modalinput #wrapper #input").focus()
 
-    $(".modalinput #close").click(function(){
+    $("#modalinput #wrapper #close").click(function(){
         alert ("mow")
         callback(String(text))
     });
