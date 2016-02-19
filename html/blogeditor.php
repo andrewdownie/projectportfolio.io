@@ -110,13 +110,18 @@
         $("#stylepad-link").click(function() {
             linkText("meow")
             $(this).blur()
-            getModalInput(callback, "meow")
+            getModalInput(callback)
 
         });
     });
 
-    function callback(input){
-        alert(input)
+    function callback(status, value){
+        if(status == "cancelled"){
+            alert("modal was cancelled")
+        }
+        else{
+            alert("modal returned normal, value was: " + value)
+        }
     }
 
     </script>
