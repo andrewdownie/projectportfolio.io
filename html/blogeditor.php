@@ -108,18 +108,20 @@
         });
 
         $("#stylepad-link").click(function() {
-            linkText("meow")
+            var selectedText = getSelection()
+            //linkGivenText("taco", selectedText)//#1 this works...
             $(this).blur()
-            getModalInput(callback)
+            getModalInput("Set text link", setTextLinkCallback, selectedText)
 
         });
     });
 
-    function callback(status, value){
+    function setTextLinkCallback(status, value, target){
         if(status == "cancelled"){
             alert("modal was cancelled")
         }
         else{
+            //linkGivenText("taco", target)//#4 this doesn't....
             alert("modal returned normal, value was: " + value)
         }
     }

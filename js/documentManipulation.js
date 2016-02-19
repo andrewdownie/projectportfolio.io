@@ -71,8 +71,33 @@ function wrapText(wrapperType){
 
 
 
+function addClassToGivenText(classes, _selection){
+    var text = wrapGivenText('span', _selection)
+    text.setAttribute("class", classes)
+}
+function linkGivenText(href, _selection){
+    var text = wrapGivenText('a', _selection)
+    text.setAttribute("href", href)
+}
+function wrapGivenText(wrapperType, _selection){
+    var selection = _selection
+    var selection_text = selection
+
+    if(selection_text == ""){ return; }
+
+    var wrapper = document.createElement(wrapperType)
+    wrapper.textContent = selection_text
+
+    var range = selection.getRangeAt(0)
+    range.deleteContents()
+    range.insertNode(wrapper)
+    return wrapper
+}
+
+
+
 /*------------------------------------------------------------------------------
-FUNCTION NAME: getSelection
+FUNCTION NAME: getSelectedText()
 SOURCE:
 RETURN: the text currently selected by the user.
 ------------------------------------------------------------------------------*/
@@ -80,6 +105,7 @@ function getSelection() {
   t = (document.all) ? document.selection.createRange().text : document.getSelection();
   return t;
 }
+
 
 
 
