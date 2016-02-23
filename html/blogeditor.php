@@ -108,10 +108,13 @@
         });
 
         $("#stylepad-link").click(function() {
-            var selectedText = getSelection()
+        //    var selectedText = getSelection()
+            console.log("#1 target")
+        //    console.log(selectedText)
             //linkGivenText("taco", selectedText)//#1 this works...
+            modalSetTextLink()
             $(this).blur()
-            getModalInput("Set text link", setTextLinkCallback, selectedText)
+            //getModalInput("Set text link", setTextLinkCallback, selectedText)
 
         });
     });
@@ -121,7 +124,10 @@
             alert("modal was cancelled")
         }
         else{
-            //linkGivenText("taco", target)//#4 this doesn't....
+
+            console.log("#4 target")
+            console.log(target)
+            linkGivenText(value, target)//#4 this doesn't....
             alert("modal returned normal, value was: " + value)
         }
     }

@@ -1,17 +1,17 @@
-var _callback, _target
+var _callback;
+var _target;
 
 $(document).ready(function() {
     var inputboxFocusElement = null
 
 
     //TODO: do I need this?
-    $('body').click(function(){
+    $('body').click(function() {
         temp = $('p[contenteditable=true]:focus')
 
-        if(typeof(temp) !== 'undefined' && temp.length == 1){
+        if (typeof(temp) !== 'undefined' && temp.length == 1) {
             inputboxFocusElement = temp
-        }
-        else{
+        } else {
             inputboxFocusElement = null
         }
     });
@@ -19,50 +19,40 @@ $(document).ready(function() {
 
 
     $("#modalinput #wrapper #close").click(function() {
-        //if(inputboxFocusElement === null){return;}
+        $("#waiting-for-modal").contents().unwrap()
+
+        console.log("meow")
         $("#modalinput").css("opacity", 0)
         $("#modalinput").css("pointer-events", "none")
         $(this).blur()
-        _callback("cancelled", "", null)
     });
     $("#modalinput #wrapper #ok").click(function() {
         //if(inputboxFocusElement === null){return;}
         $("#modalinput").css("opacity", 0)
         $("#modalinput").css("pointer-events", "none")
         $(this).blur()
-    });
 
-    $("#modalinput #wrapper #ok").click(function(){
-        linkGivenText("taco", _target)//#3 this does not work...
-
-        if($("#modalinput #wrapper #input").val() != ""){
-            _callback("normal", $("#modalinput #wrapper #input").val(), _target)
+        if ($("#modalinput #wrapper #input").val() != "") {
+            $("#waiting-for-modal").attr("href", $("#modalinput #wrapper #input").val())
+            $("#waiting-for-modal").attr("id", "")
             $("#modalinput #wrapper #input").val("")
+        } else {
+            $("#waiting-for-modal").contents().unwrap()
         }
-        else{
-            _callback("cancelled", "", null)
-        }
-
 
     });
 
 });
+function modalSetTextLink(){
+    linkText("#", "waiting-for-modal")
+    ShowModal("Set link")
 
-//__PARAMETERS:
-//modalTitle: the text that appears in the title bar of the modal
-//callback(status, value): function that is called upon the modalinput being dismissed
-//----status: the status of the getModalInput: returns "normal" if value retrieved, or "cancelled" otherwise
-//----value: the actual value retrieved from the modal, will be an empty string if the modal was cancelled
-//target: an optional target that will be given to the callback function
-function getModalInput(modalTitle, callback, target){
-    //linkGivenText("taco", target)//#2 this works...
+}
 
+function ShowModal(modalTitle){
     $("#modalinput").css("opacity", 1)
     $("#modalinput").css("pointer-events", "auto")
     $("#modalinput #wrapper #input").focus()
 
     $("#modalinput #wrapper #title").html(modalTitle)
-
-    window._callback = callback
-    window._target = target
 }

@@ -17,16 +17,16 @@ FUNCTION LIST:
 ------------------------------------------------------------------------------*/
 
 
-function getCssInt(pageElement, cssProperty){
+function getCssInt(pageElement, cssProperty) {
     var intValue = $(pageElement).css(cssProperty).replace(/[^-\d\.]/g, '')
     return parseInt(intValue)
 }
 
-function setCssInt(pageElement, cssProperty, intAmount){
+function setCssInt(pageElement, cssProperty, intAmount) {
     $("body").css("padding-top", intAmount)
 }
 
-function modifyCssInt(pageElement, cssProperty, intAmount){
+function modifyCssInt(pageElement, cssProperty, intAmount) {
     var curval = getCssInt(pageElement, cssProperty)
     $("body").css("padding-top", curval + intAmount)
 }
@@ -45,20 +45,24 @@ PARAMETERS:
     -- classes: The class to add to the selected text.
 RETURN: VOID
 ------------------------------------------------------------------------------*/
-function addClassToText(classes){
+function addClassToText(classes) {
     var text = wrapText('span')
     text.setAttribute("class", classes)
 }
-function linkText(href){
+
+function linkText(href, id) {
     var text = wrapText('a')
     text.setAttribute("href", href)
+    text.setAttribute("id", id)
 }
 
-function wrapText(wrapperType){
+function wrapText(wrapperType) {
     var selection = getSelection()
     var selection_text = selection
 
-    if(selection_text == ""){ return; }
+    if (selection_text == "") {
+        return;
+    }
 
     var wrapper = document.createElement(wrapperType)
     wrapper.textContent = selection_text
@@ -70,24 +74,30 @@ function wrapText(wrapperType){
 }
 
 
-
-function addClassToGivenText(classes, _selection){
+//TODO: USE AN ENCLOSUE HERE? AND HAVE A CALL TO SAVE THE SELECTED TEXT with
+// A RETURN TO RETURN AN ENCLSOURE THAT HAS ACCESS TO THE SAVED SELECTED TEXT,
+//AND THEN THAT FUNCTION FINISHIES SETTING UP THE LINK????
+function addClassToGivenText(classes, _selection) {
     var text = wrapGivenText('span', _selection)
     text.setAttribute("class", classes)
 }
-function linkGivenText(href, _selection){
+
+function linkGivenText(href, _selection) {
     var text = wrapGivenText('a', _selection)
     text.setAttribute("href", href)
 }
-function wrapGivenText(wrapperType, _selection){
+
+function wrapGivenText(wrapperType, _selection) {
     var selection = _selection
     var selection_text = selection
 
-    if(selection_text == ""){ return; }
+    //    if(selection_text == ""){ console.log("selection text was null"); return; }
 
     var wrapper = document.createElement(wrapperType)
-    wrapper.textContent = selection_text
+    console.log("--Wrapper is:")
 
+    wrapper.textContent = selection_text
+    console.log(wrapper.textContent)
     var range = selection.getRangeAt(0)
     range.deleteContents()
     range.insertNode(wrapper)
@@ -102,8 +112,8 @@ SOURCE:
 RETURN: the text currently selected by the user.
 ------------------------------------------------------------------------------*/
 function getSelection() {
-  t = (document.all) ? document.selection.createRange().text : document.getSelection();
-  return t;
+    t = (document.all) ? document.selection.createRange().text : document.getSelection();
+    return t;
 }
 
 
@@ -126,26 +136,25 @@ RETURN: BOOLEAN:
             true: if the targets are visible
             false: if the targets are hidden
 ------------------------------------------------------------------------------*/
-function ToggleElements(toggleElement, closedClasses, openClasses, target){
+function ToggleElements(toggleElement, closedClasses, openClasses, target) {
     var arrLen = arguments.length
-    if(arrLen < 4){
+    if (arrLen < 4) {
         console.log(">> Error: 'ToggleElements' does not have enough parameters")
     }
 
-    if(toggleElement.attr('class') == openClasses){
+    if (toggleElement.attr('class') == openClasses) {
         toggleElement.removeClass()
         toggleElement.addClass(closedClasses)
 
-        for(var i = 3; i < arrLen; i++){
+        for (var i = 3; i < arrLen; i++) {
             arguments[i].hide()
         }
         return false;
-    }
-    else if(toggleElement.attr('class') == closedClasses){
+    } else if (toggleElement.attr('class') == closedClasses) {
         toggleElement.removeClass()
         toggleElement.addClass(openClasses)
 
-        for(var i = 3; i < arrLen; i++){
+        for (var i = 3; i < arrLen; i++) {
             arguments[i].show()
         }
     }
