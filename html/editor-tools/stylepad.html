@@ -35,7 +35,9 @@
     <![endif]-->
 
     <script>
+        var lastSelectedPageElement
         $(document).ready(function() {
+
             //var stylepadFocusElement = null
 
             /*$('body').click(function(){
@@ -74,10 +76,25 @@
             });
 
             $("#stylepad-setImage").click(function() {
+                $(lastSelectedPageElement).attr("src", "poo")
                 $(this).blur()
-                alert("set image hur")
+
+
             });
 
+            $("#stylepad-link").click(function() {
+                modalSetTextLink()
+                $(this).blur()
+
+            });
+
+
+            $("html").click(function(){
+                if($(":focus").is("p[contenteditable=true]") || $(":focus").is("img[contenteditable=true]")){
+                    lastSelectedPageElement = $(":focus")
+                }
+
+            });
         });
     </script>
 

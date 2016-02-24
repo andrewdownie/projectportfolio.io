@@ -54,6 +54,7 @@
 
         $('.addpad #image').click(function(e){
             if(typeof(focusElement) === 'undefined'){ return; }
+
             focusElement.after("<img contenteditable='true' style='width: 100%; min-width: 100%;' src='https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30' alt='Image, pls'> </img>").next("img").focus()
         });
 
