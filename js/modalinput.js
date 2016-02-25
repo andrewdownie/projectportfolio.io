@@ -33,7 +33,17 @@ $(document).ready(function() {
         $(this).blur()
 
         if ($("#modalinput #wrapper #input").val() != "") {
-            $("#waiting-for-modal").attr("href", $("#modalinput #wrapper #input").val())
+
+            if($("#waiting-for-modal").is("span")){
+                $("#waiting-for-modal").attr("href", $("#modalinput #wrapper #input").val())
+            }
+            else if($("#waiting-for-modal").is("img")){
+                $("#waiting-for-modal").attr("src", $("#modalinput #wrapper #input").val())
+            }
+
+
+
+
             $("#waiting-for-modal").attr("id", "")
             $("#modalinput #wrapper #input").val("")
         } else {
@@ -46,7 +56,11 @@ $(document).ready(function() {
 function modalSetTextLink(){
     linkText("#", "waiting-for-modal")
     ShowModal("Set link")
+}
 
+function modalSetImgLink(targetImg){
+    targetImg.attr("id", "waiting-for-modal")
+    ShowModal("Set image link")
 }
 
 function ShowModal(modalTitle){

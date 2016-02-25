@@ -53,30 +53,33 @@
             });*/
 
 
+
+
             $("#stylepad-bold").click(function() {
-                //if(stylepadFocusElement === null){return;}
+                if(lastSelectedPageElement === null){return;}
                 addClassToText("bold")
                 $(this).blur()
             });
             $("#stylepad-italic").click(function() {
-            //    if(stylepadFocusElement === null){return;}
+                if(lastSelectedPageElement === null){return;}
                 addClassToText("italic")
                 $(this).blur()
             });
             $("#stylepad-underline").click(function() {
-                //if(stylepadFocusElement === null){return;}
+                if(lastSelectedPageElement === null){return;}
                 addClassToText("underline")
                 $(this).blur()
             });
 
             $("#stylepad-removeStyles").click(function() {
-            //    if(stylepadFocusElement === null){return;}
+                if(lastSelectedPageElement === null){return;}
                 $(this).blur()
                 alert("remove styles here")
             });
 
             $("#stylepad-setImage").click(function() {
-                $(lastSelectedPageElement).attr("src", "poo")
+                if(lastSelectedPageElement === null){return;}
+                modalSetImgLink(lastSelectedPageElement)
                 $(this).blur()
 
 
@@ -94,6 +97,10 @@
                     lastSelectedPageElement = $(":focus")
                 }
 
+            });
+
+            $("button").click(function(){//events that are added last run first?
+                lastSelectedPageElement = null
             });
         });
     </script>

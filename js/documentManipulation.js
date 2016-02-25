@@ -8,10 +8,13 @@ DESCRIPTION:
     This file contains a series of functions related to making it easier to work
     with html, and css.
 FUNCTION LIST:
-    -- modifyCssInt
     -- setCssInt
     -- getCssInt
+    -- modifyCssInt
     -- addClassToText
+    -- linkText
+    -- wrapText
+    --
     -- getSelectedText
     -- ToggleElements
 ------------------------------------------------------------------------------*/
@@ -74,38 +77,6 @@ function wrapText(wrapperType) {
 }
 
 
-//TODO: USE AN ENCLOSUE HERE? AND HAVE A CALL TO SAVE THE SELECTED TEXT with
-// A RETURN TO RETURN AN ENCLSOURE THAT HAS ACCESS TO THE SAVED SELECTED TEXT,
-//AND THEN THAT FUNCTION FINISHIES SETTING UP THE LINK????
-function addClassToGivenText(classes, _selection) {
-    var text = wrapGivenText('span', _selection)
-    text.setAttribute("class", classes)
-}
-
-function linkGivenText(href, _selection) {
-    var text = wrapGivenText('a', _selection)
-    text.setAttribute("href", href)
-}
-
-function wrapGivenText(wrapperType, _selection) {
-    var selection = _selection
-    var selection_text = selection
-
-    //    if(selection_text == ""){ console.log("selection text was null"); return; }
-
-    var wrapper = document.createElement(wrapperType)
-    console.log("--Wrapper is:")
-
-    wrapper.textContent = selection_text
-    console.log(wrapper.textContent)
-    var range = selection.getRangeAt(0)
-    range.deleteContents()
-    range.insertNode(wrapper)
-    return wrapper
-}
-
-
-
 /*------------------------------------------------------------------------------
 FUNCTION NAME: getSelectedText()
 SOURCE:
@@ -115,6 +86,9 @@ function getSelection() {
     t = (document.all) ? document.selection.createRange().text : document.getSelection();
     return t;
 }
+
+
+
 
 
 
