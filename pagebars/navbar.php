@@ -27,7 +27,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-bottom: 1px solid while;">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-bottom: 1px solid white;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
