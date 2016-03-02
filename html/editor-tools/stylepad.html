@@ -56,39 +56,43 @@
 
 
             $("#stylepad-bold").click(function() {
+                $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("bold")
-                $(this).blur()
             });
             $("#stylepad-italic").click(function() {
+                $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("italic")
-                $(this).blur()
             });
             $("#stylepad-underline").click(function() {
+                $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("underline")
-                $(this).blur()
             });
 
             $("#stylepad-removeStyles").click(function() {
+                $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 $(lastSelectedPageElement).html($(lastSelectedPageElement).text())
-                $(this).blur()
-                //alert("remove styles here")
             });
 
             $("#stylepad-setImage").click(function() {
-                if(lastSelectedPageElement === null){return;}
-                modalSetImgLink(lastSelectedPageElement)
                 $(this).blur()
+                if(lastSelectedPageElement === null){return;}
+                if($(lastSelectedPageElement).is("img[contenteditable]")){
+                    modalSetImgLink(lastSelectedPageElement)
+                }
+
+
 
 
             });
 
             $("#stylepad-link").click(function() {
-                modalSetTextLink()
                 $(this).blur()
+                modalSetTextLink()
+
 
             });
 

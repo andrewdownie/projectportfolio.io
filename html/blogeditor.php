@@ -31,6 +31,8 @@
     <script src="/js/documentManipulation.js"></script>
 
     <script src="/js/modalinput.js"></script>
+    <script src="/js/editor-tools/moveremovepad.js"></script>
+    <script src="/js/editor-tools/addpad.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
