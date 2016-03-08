@@ -55,29 +55,29 @@
 
 
 
-            $("#stylepad-bold").click(function() {
+            $("#bold button").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("bold")
             });
-            $("#stylepad-italic").click(function() {
+            $("#italic button").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("italic")
             });
-            $("#stylepad-underline").click(function() {
+            $("#underline button").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("underline")
             });
 
-            $("#stylepad-removeStyles").click(function() {
+            $("#removeStyles button").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 $(lastSelectedPageElement).html($(lastSelectedPageElement).text())
             });
 
-            $("#stylepad-setImage").click(function() {
+            $("#setImage button").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 if($(lastSelectedPageElement).is("img[contenteditable]")){
@@ -89,7 +89,7 @@
 
             });
 
-            $("#stylepad-link").click(function() {
+            $("#link button").click(function() {
                 $(this).blur()
                 modalSetTextLink()
 
@@ -112,7 +112,7 @@
     </script>
 
     <style>
-        .stylepad table {
+        #stylepad table {
             border-collapse: collapse;
             border-spacing: 0;
             background-color: white;
@@ -120,7 +120,7 @@
             margin-top: 0px;
         }
 
-        .stylepad {
+        #stylepad {
             display: inline-block;
             margin-bottom: 5px;
 
@@ -134,7 +134,7 @@
             width: 122px;
         }
         @media (max-width: 767px){
-            .stylepad{
+            #stylepad{
                 margin-bottom: 0px;
                 margin-right: 1px;
                 margin-left: -1px;
@@ -142,11 +142,11 @@
 
         }
 
-        .stylepad table tr:first-child {
+        #stylepad table tr:first-child {
             border-bottom: white 4px solid;
         }
 
-        .stylepad table tr td button {
+        #stylepad table tr td button {
             border: none;
             color: black;
             max-width: 40px;
@@ -156,30 +156,30 @@
             /*this fixes the 1px at bottom thing*/
         }
 
-        .stylepad table tr td button:hover,
-        .stylepad button:hover {
+        #stylepad table tr td button:hover,
+        #stylepad button:hover {
             background-color: darkgrey;
         }
 
-        .stylepad table tr td button i {
+        #stylepad table tr td button i {
             width: 10px;
         }
 
-        .stylepad table tr td {
+        #stylepad table tr td {
             text-align: center;
             max-height: 30px;
             height: 30px;
             display: inline-block;
         }
 
-        .stylepad table tr td i {
+        #stylepad table tr td i {
             /*width: 40px;
             max-width: 40px;*/
             color: black;
         }
         /*stylepad title */
 
-        .stylepad div {
+        #stylepad div {
             padding-left: 5px;
             padding-right: 5px;
             background-color: black;
@@ -187,23 +187,23 @@
         }
         /*stylepad title - hide text selection color*/
 
-        .stylepad div span::selection {
+        #stylepad div span::selection {
             background-color: transparent;
         }
 
-        .stylepad div span {
+        #stylepad div span {
             cursor: default;
         }
         /**/
 
-        .stylepad table tr td::selection {
+        #stylepad table tr td::selection {
             background-color: transparent;
         }
-        .stylepad table tr td button::selection {
+        #stylepad table tr td button::selection {
             background-color: transparent;
         }
 
-        .stylepad table tr td {
+        #stylepad table tr td {
             cursor: default;
         }
         /* - Text styles - */
@@ -223,37 +223,34 @@
 </head>
 
 <body>
-    <div class="stylepad">
+    <div id="stylepad">
         <div>
             <span>
                 <i class="fa fa-font"></i> Style element
             </span>
         </div>
-        <table class="stylepad-table2">
-
-        </table>
         <table>
             <tr>
-                <td>
-                    <button data-hint="Bold the selected text." class="hint--right hint--bounce" id="stylepad-bold"><i class="fa fa-bold"></i></button>
+                <td id="bold">
+                    <button data-hint="Bold the selected text." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
                 </td>
-                <td>
-                    <button data-hint="Italicize the selected text." class="hint--right hint--bounce" id="stylepad-italic"><i class="fa fa-italic"></i></button>
+                <td id="italic">
+                    <button data-hint="Italicize the selected text." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
                 </td>
-                <td>
-                    <button data-hint="Underline the selected text." class="hint--right hint--bounce" id="stylepad-underline"><i class="fa fa-underline"></i></button>
+                <td id="underline">
+                    <button data-hint="Underline the selected text." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
                 </td>
             </tr>
             <tr>
-                <td>
-                    <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" id="stylepad-setImage" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
+                <td id="setImage">
+                    <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
                 </td>
-                <td>
-                    <button data-hint="Link a url to the selected text." class="hint--right hint--bounce" id="stylepad-link"><i class="fa fa-link"></i></button>
+                <td id="link">
+                    <button data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
                 </td>
 
-                <td>
-                    <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" id="stylepad-removeStyles"><i class="fa fa-ban"></i></button>
+                <td id="removeStyles">
+                    <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
                 </td>
 
             </tr>

@@ -37,17 +37,17 @@
         $(document).ready(function() {
             $("#blogpad-save").click(function(){
                 $(this).blur()
-
+                alert("save blurg")
             });
             $("#blogpad-exit").click(function(){
                 $(this).blur()
-                
+                alert("exit blurg")
             });
         });
     </script>
 
     <style>
-        .blogpad table {
+        #blogpad table {
             border-collapse: collapse;
             border-spacing: 0;
             background-color: white;
@@ -56,7 +56,7 @@
 
         }
 
-        .blogpad {
+        #blogpad {
             display: inline-block;
             margin-bottom: 5px;
 
@@ -70,11 +70,11 @@
             border-right: black 1px solid;*/
         }
 
-        .blogpad table tr:first-child {
+        #blogpad table tr:first-child {
             border-bottom: white 4px solid;
         }
 
-        .blogpad table tr td button {
+        #blogpad table tr td button {
             border: none;
             color: black;
             max-width: 120px;
@@ -85,52 +85,52 @@
             /*this fixes the 1px at bottom thing*/
         }
         @media (max-width: 767px){
-            .blogpad table tr td button {
+            #blogpad table tr td button {
                 max-width: 10000px;
                 width: 100%;
             }
-            .blogpad{
+            #blogpad{
                 margin-left: -2px;
                 margin-right: -30px;
             }
         }
 
         @media (max-width: 380px){
-            .blogpad-labels-md{
+            #blogpad-labels-md{
                 display: none;
             }
         }
         @media (max-width: 330px){
-            .blogpad-labels-lg{
+            #blogpad-labels-lg{
                 display: none;
             }
         }
 
-        .blogpad table tr td button:hover,
-        .blogpad button:hover {
+        #blogpad table tr td button:hover,
+        #blogpad button:hover {
             background-color: darkgrey;
         }
 
-        .blogpad table tr td button i {
+        #blogpad table tr td button i {
             max-width: 10px;
         }
 
-        .blogpad table tr td {
+        #blogpad table tr td {
             text-align: center;
             width: 100%;
         }
-        .blogpad table tr {
+        #blogpad table tr {
             width: 100%;
         }
 
-        .blogpad table tr td i {
+        #blogpad table tr td i {
             /*width: 40px;
             max-width: 40px;*/
             color: black;
         }
         /*blogpad title */
 
-        .blogpad div {
+        #blogpad div {
             padding-left: 5px;
             padding-right: 5px;
             background-color: black;
@@ -138,25 +138,25 @@
         }
         /*blogpad title - hide text selection color*/
 
-        .blogpad div span::selection {
+        #blogpad div span::selection {
             background-color: transparent;
         }
 
-        .blogpad div span {
+        #blogpad div span {
             cursor: default;
         }
         /**/
 
-        .blogpad table tr td::selection {
+        #blogpad table tr td::selection {
             background-color: transparent;
         }
-        .blogpad table tr td button span::selection,
-        .blogpad table tr td button::selection
+        #blogpad table tr td button span::selection,
+        #blogpad table tr td button::selection
         {
             background-color: transparent;
         }
 
-        .blogpad table tr td {
+        #blogpad table tr td {
             cursor: default;
         }
         /* - Text styles - */
@@ -183,7 +183,7 @@
 </head>
 
 <body>
-    <div class="blogpad">
+    <div id="blogpad">
         <div>
             <span>
                 <i class="fa fa-cog"></i> Blog
