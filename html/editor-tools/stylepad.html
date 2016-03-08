@@ -83,26 +83,18 @@
                 if($(lastSelectedPageElement).is("img[contenteditable]")){
                     modalSetImgLink(lastSelectedPageElement)
                 }
-
-
-
-
             });
 
             $("#link button").click(function() {
                 $(this).blur()
                 modalSetTextLink()
-
-
             });
 
 
             $("html").click(function(){
                 if($(":focus").is("p[contenteditable=true]") || $(":focus").is("img[contenteditable=true]")){
                     lastSelectedPageElement = $(":focus")
-
                 }
-
             });
 
             $("button").click(function(){//events that are added last run first?
@@ -219,6 +211,18 @@
         .underline {
             text-decoration: underline;
         }
+
+        /*Why doesn't this work???????*/
+        #addpad #setImage-disabled button i{
+            color: white;
+            background-color: yellow;
+        }
+        #setImage-disabled button{
+            /**/
+        }
+        #setImage-disabled button:hover{
+            background-color: transparent;
+        }
     </style>
 </head>
 
@@ -245,6 +249,12 @@
                 <td id="setImage">
                     <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
                 </td>
+
+                <td id="setImage-disabled" >
+                    <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
+                </td>
+
+
                 <td id="link">
                     <button data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
                 </td>
