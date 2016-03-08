@@ -31,10 +31,6 @@
 
 
     <style>
-        .title{
-            font-size: 20px;
-        }
-
         #addpad table {
             border-top: 2px solid white;/*TODO: IE wants this to be 1 px for some reason*/
             border-collapse: collapse;
@@ -76,8 +72,11 @@
 
             display: block;/*this fixes the 1px at bottom thing*/
         }
-        #addpad table tr td button:hover{
+        #addpad table tr#enabled td button:hover{
             background-color: darkgrey;
+        }
+        #addpad table tr#disabled td button:hover{
+            /*Don't change the background color of the buttons*/
         }
 
         #addpad table tr td button i {
@@ -96,9 +95,15 @@
         #addpad table tr td i {
             width: 40px;
             max-width: 40px;
-            color: black;
             min-height: 18px;
         }
+        #addpad table tr#enabled td i{
+            color: black;
+        }
+        #addpad table tr#disabled td i{
+            color: #aaa;
+        }
+
         /*Addpad title */
         #addpad div{
             padding-left:5px;
@@ -142,10 +147,17 @@
                 <td><span>Text</span></td>
                 <td><span>Img</span></td>
             </tr>
-            <tr>
+
+            <tr id="enabled" style="display:none;">
                 <td><button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="title"><i class="fa fa-angle-down"></i></button></td>
                 <td><button class="hint--right hint--bounce" data-hint="Add text below currently selected blog element." id="text" title=""><i class="fa fa-angle-down"></i></button></td>
                 <td><button class="hint--right hint--bounce" data-hint="Add image below currently selected blog element." id="image" data-toggle="tooltip"><i class="fa fa-angle-down"></i></button></td>
+            </tr>
+
+            <tr id="disabled">
+                <td><button class="hint--right hint--bounce" data-hint="You must select a blog element first." id="title"><i class="fa fa-angle-down"></i></button></td>
+                <td><button class="hint--right hint--bounce" data-hint="You must select a blog element first." id="text" title=""><i class="fa fa-angle-down"></i></button></td>
+                <td><button class="hint--right hint--bounce" data-hint="You must select a blog element first." id="image" data-toggle="tooltip"><i class="fa fa-angle-down"></i></button></td>
             </tr>
         </table>
 

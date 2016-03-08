@@ -30,10 +30,15 @@ $(document).ready(function() {
 
         if(typeof(temp) !== 'undefined' && temp.length == 1){
             focusElement = temp
+            $("#addpad table tr#enabled").show()
+            $("#addpad table tr#disabled").hide()
         }
-        //else if(typeof(focusElement) !== 'undefined'){
-        //    focusElement.focus()
-        //}
+        else{
+            focusElement = null
+            $("#addpad table tr#disabled").show()
+            $("#addpad table tr#enabled").hide()
+        }
+
 
     });
 });
