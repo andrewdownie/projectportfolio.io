@@ -35,7 +35,7 @@
             font-size: 20px;
         }
 
-        .addpad table {
+        #addpad table {
             border-top: 2px solid white;/*TODO: IE wants this to be 1 px for some reason*/
             border-collapse: collapse;
             border-spacing: 0;
@@ -44,7 +44,7 @@
 
 
         }
-        .addpad{
+        #addpad{
             display: inline-block;
             margin-bottom: 5px;
             /*left: 100px;*/
@@ -59,12 +59,12 @@
             height: 100%;
         }
         @media (max-width: 767px){
-            .addpad{
+            #addpad{
                 margin-bottom: 0px;
             }
         }
 
-        .addpad table tr td button {
+        #addpad table tr td button {
             border: none;
             color: black;
             max-width: 40px;
@@ -76,31 +76,31 @@
 
             display: block;/*this fixes the 1px at bottom thing*/
         }
-        .addpad table tr td button:hover{
+        #addpad table tr td button:hover{
             background-color: darkgrey;
         }
 
-        .addpad table tr td button i {
+        #addpad table tr td button i {
             width: 10px;
         }
 
-        .addpad table tr td {
+        #addpad table tr td {
             text-align: center;
         }
 
-        .addpad table tr td span{
+        #addpad table tr td span{
             min-height: 30px;
             height: 30px;
         }
 
-        .addpad table tr td i {
+        #addpad table tr td i {
             width: 40px;
             max-width: 40px;
             color: black;
             min-height: 18px;
         }
         /*Addpad title */
-        .addpad div{
+        #addpad div{
             padding-left:5px;
             padding-right:5px;
             background-color: black;
@@ -108,17 +108,17 @@
 
         }
         /*Addpad title - hide text selection color*/
-        .addpad div span::selection {background-color: transparent;}
-        .addpad div span{cursor: default;}
+        #addpad div span::selection {background-color: transparent;}
+        #addpad div span{cursor: default;}
         /**/
-        .addpad table tr td span::selection {background-color: transparent;}
-        .addpad table tr td::selection {background-color: transparent;}
-        .addpad table tr td{cursor: default;}
+        #addpad table tr td span::selection {background-color: transparent;}
+        #addpad table tr td::selection {background-color: transparent;}
+        #addpad table tr td{cursor: default;}
     </style>
 </head>
 
 <body>
-    <div class="addpad">
+    <div id="addpad">
         <div>
             <span>
                 <i class="fa fa-plus-circle"></i> Add element
