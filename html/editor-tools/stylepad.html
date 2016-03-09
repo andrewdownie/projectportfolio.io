@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-
-    <!-- ADD PAD -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Demo: stylepad</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS
-    <link href="css/shop-item.css" rel="stylesheet"> TODO: DELETE THIS-->
-    <link href="/css/navbar.css" rel="stylesheet">
-
-    <!-- jQuery -->
-    <script src="/js/lib/jquery-2.2.0.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/js/lib/bootstrap.min.js"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <script>
         var lastSelectedPageElement
         $(document).ready(function() {
@@ -94,7 +59,8 @@
             $("html").click(function(){
                 if($(":focus").is("p[contenteditable=true]")){
                     lastSelectedPageElement = $(":focus")
-                    //show enabled styles
+                    $("#stylepad .show-styling").show()
+                    $("#stylepad .hide-styling").hide()
                 }
                 else if($(":focus").is("img[contenteditable=true]")){
                     lastSelectedPageElement = $(":focus")
@@ -104,11 +70,14 @@
                 else{
                     $("#stylepad #setImage-disabled").show()
                     $("#stylepad #setImage").hide()
+
+                    $("#stylepad .show-styling").hide()
+                    $("#stylepad .hide-styling").show()
                 }
             });
 
             $("button").click(function(){//events that are added last run first?
-                lastSelectedPageElement = null
+            //    lastSelectedPageElement = null
             });
         });
     </script>
@@ -223,11 +192,16 @@
         }
 
         /*Why doesn't this work???????*/
-        #stylepad #setImage-disabled button i{
+        #stylepad #setImage-disabled button i,
+        #stylepad table tr td.hide-styling button i{
             color: #aaa;
         }
         #stylepad #setImage-disabled button:hover{
             /*background-color: #F0F0F0; <-- this is now the default button color anyway*/
+        }
+
+        #stylepad table tr td.hide-styling button:hover{
+            background-color: #F0F0F0;
         }
     </style>
 </head>
@@ -241,14 +215,25 @@
         </div>
         <table>
             <tr>
-                <td id="bold">
+                <td id="bold" class="show-styling" style="display: none;">
                     <button data-hint="Bold the selected text." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
                 </td>
-                <td id="italic">
+                <td class="hide-styling">
+                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
+                </td>
+
+                <td id="italic" class="show-styling" style="display: none;">
                     <button data-hint="Italicize the selected text." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
                 </td>
-                <td id="underline">
+                <td class="hide-styling">
+                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
+                </td>
+
+                <td id="underline" class="show-styling" style="display: none;">
                     <button data-hint="Underline the selected text." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
+                </td>
+                <td class="hide-styling">
+                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
                 </td>
             </tr>
             <tr>
@@ -257,15 +242,21 @@
                 </td>
 
                 <td id="setImage-disabled" >
-                    <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
+                    <button data-hint="You must select an image first." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
                 </td>
 
 
-                <td id="link">
+                <td id="link" class="show-styling" style="display: none;">
                     <button data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
                 </td>
+                <td class="hide-styling">
+                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
+                </td>
 
-                <td id="removeStyles">
+                <td id="removeStyles" class="show-styling" style="display: none;">
+                    <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
+                </td>
+                <td class="hide-styling">
                     <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
                 </td>
 
@@ -280,5 +271,3 @@
 
 
 </body>
-
-</html>
