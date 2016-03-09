@@ -58,16 +58,24 @@
 
             $("html").click(function(){
                 if($(":focus").is("p[contenteditable=true]")){
+                    alert("you click a paragraph (editable)")
                     lastSelectedPageElement = $(":focus")
+                    $("#stylepad #setImage-disabled").show()
+                    $("#stylepad #setImage").hide()
+
                     $("#stylepad .show-styling").show()
                     $("#stylepad .hide-styling").hide()
                 }
                 else if($(":focus").is("img[contenteditable=true]")){
+                    alert("you clicked an image (editable)")
                     lastSelectedPageElement = $(":focus")
                     $("#stylepad #setImage-disabled").hide()
                     $("#stylepad #setImage").show()
+                    $("#stylepad .show-styling").hide()
+                    $("#stylepad .hide-styling").show()
                 }
                 else{
+                    alert("you clicked neither")
                     $("#stylepad #setImage-disabled").show()
                     $("#stylepad #setImage").hide()
 
@@ -86,6 +94,8 @@
         #stylepad table {
             border-collapse: collapse;
             border-spacing: 0;
+
+
             background-color: white;
             /*border-bottom: black 1px solid;*/
             margin-top: 0px;
@@ -114,7 +124,9 @@
         }
 
         #stylepad table tr:first-child {
+            border: 0;
             border-bottom: white 4px solid;
+
         }
 
         #stylepad table tr td button {
@@ -137,10 +149,21 @@
         }
 
         #stylepad table tr td {
+            border:none;
+            margin: 0;
+            padding: 0;
+
+            /*Setting margin-right to -4px makes IE work, but breaks chrome*/
+            margin-right: -4px;
+
             text-align: center;
             max-height: 30px;
             height: 30px;
             display: inline-block;
+
+            cursor: default;
+
+
         }
 
         #stylepad table tr td i {
@@ -173,10 +196,6 @@
         #stylepad table tr td button::selection {
             background-color: transparent;
         }
-
-        #stylepad table tr td {
-            cursor: default;
-        }
         /* - Text styles - */
 
         .bold {
@@ -196,11 +215,9 @@
         #stylepad table tr td.hide-styling button i{
             color: #aaa;
         }
-        #stylepad #setImage-disabled button:hover{
-            /*background-color: #F0F0F0; <-- this is now the default button color anyway*/
-        }
 
-        #stylepad table tr td.hide-styling button:hover{
+        #stylepad table tr td.hide-styling button:hover,
+        #stylepad #setImage-disabled button:hover{
             background-color: #F0F0F0;
         }
     </style>
@@ -213,7 +230,7 @@
                 <i class="fa fa-font"></i> Style element
             </span>
         </div>
-        <table>
+        <table style="border-collapse:collapse;">
             <tr>
                 <td id="bold" class="show-styling" style="display: none;">
                     <button data-hint="Bold the selected text." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
@@ -221,14 +238,12 @@
                 <td class="hide-styling">
                     <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
                 </td>
-
                 <td id="italic" class="show-styling" style="display: none;">
                     <button data-hint="Italicize the selected text." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
                 </td>
                 <td class="hide-styling">
                     <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
                 </td>
-
                 <td id="underline" class="show-styling" style="display: none;">
                     <button data-hint="Underline the selected text." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
                 </td>
@@ -240,26 +255,21 @@
                 <td id="setImage" style="display: none;">
                     <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
                 </td>
-
                 <td id="setImage-disabled" >
                     <button data-hint="You must select an image first." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
                 </td>
-
-
                 <td id="link" class="show-styling" style="display: none;">
                     <button data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
                 </td>
                 <td class="hide-styling">
                     <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
                 </td>
-
                 <td id="removeStyles" class="show-styling" style="display: none;">
                     <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
                 </td>
                 <td class="hide-styling">
-                    <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
+                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
                 </td>
-
             </tr>
         </table>
 
