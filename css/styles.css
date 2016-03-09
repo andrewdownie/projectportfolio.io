@@ -6,3 +6,7 @@ A file for placing general styles for the projectportfolio.io website
     cursor: pointer;
     font-size: 15px;
 }
+
+button{
+    background-color: #F0F0F0;
+}

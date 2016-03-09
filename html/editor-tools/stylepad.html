@@ -92,8 +92,18 @@
 
 
             $("html").click(function(){
-                if($(":focus").is("p[contenteditable=true]") || $(":focus").is("img[contenteditable=true]")){
+                if($(":focus").is("p[contenteditable=true]")){
                     lastSelectedPageElement = $(":focus")
+                    //show enabled styles
+                }
+                else if($(":focus").is("img[contenteditable=true]")){
+                    lastSelectedPageElement = $(":focus")
+                    $("#stylepad #setImage-disabled").hide()
+                    $("#stylepad #setImage").show()
+                }
+                else{
+                    $("#stylepad #setImage-disabled").show()
+                    $("#stylepad #setImage").hide()
                 }
             });
 
@@ -213,15 +223,11 @@
         }
 
         /*Why doesn't this work???????*/
-        #addpad #setImage-disabled button i{
-            color: white;
-            background-color: yellow;
+        #stylepad #setImage-disabled button i{
+            color: #aaa;
         }
-        #setImage-disabled button{
-            /**/
-        }
-        #setImage-disabled button:hover{
-            background-color: transparent;
+        #stylepad #setImage-disabled button:hover{
+            /*background-color: #F0F0F0; <-- this is now the default button color anyway*/
         }
     </style>
 </head>
@@ -246,7 +252,7 @@
                 </td>
             </tr>
             <tr>
-                <td id="setImage">
+                <td id="setImage" style="display: none;">
                     <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
                 </td>
 
