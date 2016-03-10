@@ -58,7 +58,8 @@
 
             $("html").click(function(){
                 if($(":focus").is("p[contenteditable=true]")){
-                    alert("you click a paragraph (editable)")
+                    //alert("you click a paragraph (editable)")
+
                     lastSelectedPageElement = $(":focus")
                     $("#stylepad #setImage-disabled").show()
                     $("#stylepad #setImage").hide()
@@ -67,7 +68,8 @@
                     $("#stylepad .hide-styling").hide()
                 }
                 else if($(":focus").is("img[contenteditable=true]")){
-                    alert("you clicked an image (editable)")
+                    //alert("you clicked an image (editable)")
+
                     lastSelectedPageElement = $(":focus")
                     $("#stylepad #setImage-disabled").hide()
                     $("#stylepad #setImage").show()
@@ -75,7 +77,8 @@
                     $("#stylepad .hide-styling").show()
                 }
                 else{
-                    alert("you clicked neither")
+                    //alert("you clicked neither")
+
                     $("#stylepad #setImage-disabled").show()
                     $("#stylepad #setImage").hide()
 
@@ -91,17 +94,6 @@
     </script>
 
     <style>
-        #stylepad table {
-            border-collapse: collapse;
-            border-spacing: 0;
-            /*THIS FIXED IT IN THE NEWER IE'S?!?!?!?!?! arrrrrrg*/
-            border: 0;
-
-
-            background-color: white;
-            /*border-bottom: black 1px solid;*/
-            margin-top: 0px;
-        }
 
         #stylepad {
             display: inline-block;
@@ -125,80 +117,26 @@
 
         }
 
-        #stylepad table tr:first-child {
-            border: 0;
-            border-bottom: white 4px solid;
-
-        }
-
-        #stylepad table tr td button {
-            border: none;
-            color: black;
-            max-width: 40px;
+        #stylepad button{
+            margin: 0;
+            padding: 0;
             width: 40px;
             height: 30px;
-            max-height: 30px;
-            /*this fixes the 1px at bottom thing*/
+            margin-right: -4px;
+            border: 0;
         }
 
-        #stylepad table tr td button:hover,
         #stylepad button:hover {
             background-color: darkgrey;
         }
 
-        #stylepad table tr td button i {
-            width: 10px;
-        }
-
-        #stylepad table tr td {
-            border:none;
-            margin: 0;
-            padding: 0;
-
-            /*Setting margin-right to -4px makes IE work, but breaks chrome*/
-            /*margin-right: -4px;*/
-
-            text-align: center;
-            max-height: 30px;
-            height: 30px;
-            display: inline-block;
-
-            cursor: default;
-
-
-        }
-
-        #stylepad table tr td i {
-            /*width: 40px;
-            max-width: 40px;*/
-            color: black;
-        }
-        /*stylepad title */
-
-        #stylepad div {
-            padding-left: 5px;
-            padding-right: 5px;
-            background-color: black;
-            color: white;
-        }
-        /*stylepad title - hide text selection color*/
-
-        #stylepad div span::selection {
+        #stylepad span::selection {
             background-color: transparent;
         }
 
         #stylepad div span {
             cursor: default;
         }
-        /**/
-
-        #stylepad table tr td::selection {
-            background-color: transparent;
-        }
-        #stylepad table tr td button::selection {
-            background-color: transparent;
-        }
-        /* - Text styles - */
 
         .bold {
             font-weight: bold;
@@ -222,60 +160,49 @@
         #stylepad #setImage-disabled button:hover{
             background-color: #F0F0F0;
         }
+
+        #stylepad #divider{
+            height: 2px;
+            background-color: white;
+        }
+
+        #stylepad div{
+            background-color: white;
+        }
+        #stylepad #titlebar{
+            background-color: black;
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: black;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
     <div id="stylepad">
-        <div>
+        <div id="titlebar">
             <span>
                 <i class="fa fa-font"></i> Style element
             </span>
         </div>
-        <table style="border-collapse:collapse;">
-            <tr>
-                <td id="bold" class="show-styling" style="display: none;">
-                    <button data-hint="Bold the selected text." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
-                </td>
-                <td class="hide-styling">
-                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
-                </td>
-                <td id="italic" class="show-styling" style="display: none;">
-                    <button data-hint="Italicize the selected text." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
-                </td>
-                <td class="hide-styling">
-                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
-                </td>
-                <td id="underline" class="show-styling" style="display: none;">
-                    <button data-hint="Underline the selected text." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
-                </td>
-                <td class="hide-styling">
-                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <td id="setImage" style="display: none;">
-                    <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
-                </td>
-                <td id="setImage-disabled" >
-                    <button data-hint="You must select an image first." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
-                </td>
-                <td id="link" class="show-styling" style="display: none;">
-                    <button data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
-                </td>
-                <td class="hide-styling">
-                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
-                </td>
-                <td id="removeStyles" class="show-styling" style="display: none;">
-                    <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
-                </td>
-                <td class="hide-styling">
-                    <button data-hint="You must select a blog element first." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
-                </td>
-            </tr>
-        </table>
 
+        <!-- ROW ONE -->
+        <div>
+            <button data-hint="Bold the selected text." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
+            <button data-hint="Italicize the selected text." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
+            <button data-hint="Underline the selected text." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
+        </div>
+        <!-- WHITE DIVIDER -->
+        <div id="divider">
 
+        </div>
+        <!-- ROW TWO -->
+        <div>
+            <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
+            <button data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
+            <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
+        </div>
 
 
 
