@@ -20,29 +20,29 @@
 
 
 
-            $("#bold button").click(function() {
+            $("#bold").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("bold")
             });
-            $("#italic button").click(function() {
+            $("#italic").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("italic")
             });
-            $("#underline button").click(function() {
+            $("#underline").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("underline")
             });
 
-            $("#removeStyles button").click(function() {
+            $("#removeStyles").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 $(lastSelectedPageElement).html($(lastSelectedPageElement).text())
             });
 
-            $("#setImage button").click(function() {
+            $("#setImage").click(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 if($(lastSelectedPageElement).is("img[contenteditable]")){
@@ -50,7 +50,7 @@
                 }
             });
 
-            $("#link button").click(function() {
+            $("#link").click(function() {
                 $(this).blur()
                 modalSetTextLink()
             });
@@ -163,6 +163,7 @@
 
         #stylepad #divider{
             height: 4px;
+
             background-color: white;
         }
 
@@ -179,6 +180,11 @@
             background-color: black;
             color: white;
         }
+
+        #stylepad .hide-styling i,
+        #stylepad #setImage-disabled{
+            color: #aaa;
+        }
     </style>
 </head>
 
@@ -190,21 +196,33 @@
             </span>
         </div>
 
-        <!-- ROW ONE -->
-        <div>
-            <button data-hint="Bold the selected text." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
-            <button data-hint="Italicize the selected text." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
-            <button data-hint="Underline the selected text." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
-        </div>
-        <!-- WHITE DIVIDER -->
-        <div id="divider"></div>
-        <!-- ROW TWO -->
-        <div>
-            <button style="margin-top: -1px;" data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"><i class="fa fa-picture-o"></i></button>
-            <button data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
-            <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
-        </div>
 
+        <div>
+            <!-- ROW ONE -->
+            <div>
+                <button id="bold" class="show-styling" style="display:none;" data-hint="Bold the selected text." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
+                <button class="hide-styling" data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-bold"></i></button>
+
+                <button id="italic" class="show-styling" style="display:none;" data-hint="Italicize the selected text." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
+                <button class="hide-styling" data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-italic"></i></button>
+
+                <button id="underline" class="show-styling" style="display:none;" data-hint="Underline the selected text." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
+                <button class="hide-styling" data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
+            </div>
+            <!-- WHITE DIVIDER -->
+            <div id="divider"></div>
+            <!-- ROW TWO -->
+            <div>
+                <button id="setImage" style="margin-top: -1px; display:none;" data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"><i class="fa fa-picture-o"></i></button>
+                <button id="setImage-disabled" style="margin-top: -1px;" data-hint="You must select a blog element first." class="hint--right hint--bounce" style="font-size: 13px;"><i class="fa fa-picture-o"></i></button>
+
+                <button id="link" class="show-styling" style="display:none;" data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
+                <button class="hide-styling" data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
+
+                <button id="removeStyles" class="show-styling"  style="display:none;" data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
+                <button class="hide-styling" data-hint="You must select a blog element first." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
+            </div>
+        </div>
 
 
     </div>
