@@ -162,12 +162,15 @@
         }
 
         #stylepad #divider{
-            height: 2px;
+            height: 4px;
             background-color: white;
         }
 
         #stylepad div{
             background-color: white;
+            padding: 0;
+            margin: 0;
+            border: 0;
         }
         #stylepad #titlebar{
             background-color: black;
@@ -194,12 +197,10 @@
             <button data-hint="Underline the selected text." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
         </div>
         <!-- WHITE DIVIDER -->
-        <div id="divider">
-
-        </div>
+        <div id="divider"></div>
         <!-- ROW TWO -->
         <div>
-            <button data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"> <i class="fa fa-share"></i> <i class="fa fa-picture-o"></i></button>
+            <button style="margin-top: -1px;" data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"><i class="fa fa-picture-o"></i></button>
             <button data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
             <button data-hint="Remove all styles on this element." class="hint--right hint--bounce" ><i class="fa fa-ban"></i></button>
         </div>
