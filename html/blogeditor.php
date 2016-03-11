@@ -100,7 +100,7 @@
 
         /*Toggle pads when in xs mode*/
         $("#minimize-pads").click(function() {
-            var visible = ToggleElements($("#minimize-pads i"), "fa fa-plus-square-o", "fa fa-minus-square-o", $("#addpad table"), $("#stylepad table"), $("#blogpad table") )
+            var visible = ToggleElements($("#minimize-pads i"), "fa fa-plus-square-o", "fa fa-minus-square-o", $("#addpad table"), $("#stylepad #content"), $("#blogpad table") )
             if(visible){
                 $(".editortools-topspace").css("padding-top", "85px")
             }
