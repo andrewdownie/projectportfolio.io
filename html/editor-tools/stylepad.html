@@ -55,8 +55,37 @@
                 modalSetTextLink()
             });
 
+            //This is how you make IE work for selecting and element of any type,
+            //Also could be useful for when you want to check that certain elements
+            //were not selected (which is done here in the else)
+            $('body').on('click', function(e){
+                if($(e.target).is("img[contenteditable=true]")){
+                    lastSelectedPageElement = $(":focus")
+                    $("#stylepad #setImage-disabled").hide()
+                    $("#stylepad #setImage").show()
+                    $("#stylepad .show-styling").hide()
+                    $("#stylepad .hide-styling").show()
+                }
+                else if($(e.target).is("p[contenteditable=true]")){
+                    lastSelectedPageElement = $(":focus")
+                    $("#stylepad #setImage-disabled").show()
+                    $("#stylepad #setImage").hide()
 
-            $("html").click(function(){
+                    $("#stylepad .show-styling").show()
+                    $("#stylepad .hide-styling").hide()
+                }
+                else{
+                    $("#stylepad #setImage-disabled").show()
+                    $("#stylepad #setImage").hide()
+
+                    $("#stylepad .show-styling").hide()
+                    $("#stylepad .hide-styling").show()
+                }
+            });
+
+            //focus does not work in IE, and onClick does not work for dynamically added elements,
+            //soooooooo00ooo it looks like .on('click', ...) is the way to go
+            /*$("html").click(function(){
                 if($(":focus").is("p[contenteditable=true]")){
                     //alert("you click a paragraph (editable)")
 
@@ -85,7 +114,7 @@
                     $("#stylepad .show-styling").hide()
                     $("#stylepad .hide-styling").show()
                 }
-            });
+            });*/
 
             $("button").click(function(){//events that are added last run first?
             //    lastSelectedPageElement = null
@@ -214,7 +243,7 @@
             <!-- ROW TWO -->
             <div>
                 <button id="setImage" style="margin-top: -1px; display:none;" data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"><i class="fa fa-picture-o"></i></button>
-                <button id="setImage-disabled" style="margin-top: -1px;" data-hint="You must select a blog element first." class="hint--right hint--bounce" style="font-size: 13px;"><i class="fa fa-picture-o"></i></button>
+                <button id="setImage-disabled" style="margin-top: -1px;" data-hint="You must select an image blog element first." class="hint--right hint--bounce" style="font-size: 13px;"><i class="fa fa-picture-o"></i></button>
 
                 <button id="link" class="show-styling" style="display:none;" data-hint="Link a url to the selected text." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
                 <button class="hide-styling" data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-link"></i></button>
