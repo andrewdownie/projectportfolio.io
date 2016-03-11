@@ -25,11 +25,19 @@ $(document).ready(function() {
     save a reference. If not refocus on the last seleted blog element. This way the user can
     keep adding elements to the page, and instead of focusing on the add button they click,
     it will stay focused on the element they selected to add elments after.*/
-    $('html').click(function(){
-        temp = $('p[contenteditable=true]:focus, img[contenteditable=true]:focus')
+    $('body').on('click', function(e){
 
-        if(typeof(temp) !== 'undefined' && temp.length == 1){
-            focusElement = temp
+        if($(e.target).is("img[contenteditable=true]")){
+            alert('meow')
+            //alert('p or img')
+            focusElement = $(":focus")
+            $("#addpad table tr#enabled").show()
+            $("#addpad table tr#disabled").hide()
+
+        }
+        else if($(e.target).is("p[contenteditable=true]")){
+
+            focusElement = $(":focus")
             $("#addpad table tr#enabled").show()
             $("#addpad table tr#disabled").hide()
         }

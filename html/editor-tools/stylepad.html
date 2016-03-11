@@ -83,38 +83,6 @@
                 }
             });
 
-            //focus does not work in IE, and onClick does not work for dynamically added elements,
-            //soooooooo00ooo it looks like .on('click', ...) is the way to go
-            /*$("html").click(function(){
-                if($(":focus").is("p[contenteditable=true]")){
-                    //alert("you click a paragraph (editable)")
-
-                    lastSelectedPageElement = $(":focus")
-                    $("#stylepad #setImage-disabled").show()
-                    $("#stylepad #setImage").hide()
-
-                    $("#stylepad .show-styling").show()
-                    $("#stylepad .hide-styling").hide()
-                }
-                else if($(":focus").is("img[contenteditable=true]")){
-                    //alert("you clicked an image (editable)")
-
-                    lastSelectedPageElement = $(":focus")
-                    $("#stylepad #setImage-disabled").hide()
-                    $("#stylepad #setImage").show()
-                    $("#stylepad .show-styling").hide()
-                    $("#stylepad .hide-styling").show()
-                }
-                else{
-                    //alert("you clicked neither")
-
-                    $("#stylepad #setImage-disabled").show()
-                    $("#stylepad #setImage").hide()
-
-                    $("#stylepad .show-styling").hide()
-                    $("#stylepad .hide-styling").show()
-                }
-            });*/
 
             $("button").click(function(){//events that are added last run first?
             //    lastSelectedPageElement = null
