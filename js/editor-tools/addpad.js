@@ -21,22 +21,15 @@ $(document).ready(function() {
 
     });
 
-    /*Whenever the user clicks, figure out what they clicked. If it was a blog content element,
-    save a reference. If not refocus on the last seleted blog element. This way the user can
-    keep adding elements to the page, and instead of focusing on the add button they click,
-    it will stay focused on the element they selected to add elments after.*/
-    $('body').on('click', function(e){
 
+    $('body').on('click', function(e){
         if($(e.target).is("img[contenteditable=true]")){
-            alert('meow')
-            //alert('p or img')
             focusElement = $(":focus")
             $("#addpad table tr#enabled").show()
             $("#addpad table tr#disabled").hide()
 
         }
         else if($(e.target).is("p[contenteditable=true]")){
-
             focusElement = $(":focus")
             $("#addpad table tr#enabled").show()
             $("#addpad table tr#disabled").hide()
@@ -49,4 +42,5 @@ $(document).ready(function() {
 
 
     });
+
 });
