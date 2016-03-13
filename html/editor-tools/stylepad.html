@@ -20,54 +20,60 @@
 
 
 
-            $("#bold").click(function() {
+            $("#bold").mousedown(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("bold")
+                return false;
             });
-            $("#italic").click(function() {
+            $("#italic").mousedown(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("italic")
+                return false;
             });
-            $("#underline").click(function() {
+            $("#underline").mousedown(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 addClassToText("underline")
+                return false;
             });
 
-            $("#removeStyles").click(function() {
+            $("#removeStyles").mousedown(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 $(lastSelectedPageElement).html($(lastSelectedPageElement).text())
+                return false;
             });
 
-            $("#setImage").click(function() {
+            $("#setImage").mousedown(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
                 if($(lastSelectedPageElement).is("img[contenteditable]")){
                     modalSetImgLink(lastSelectedPageElement)
                 }
+                return false;
             });
 
-            $("#link").click(function() {
+            $("#link").mousedown(function() {
                 $(this).blur()
                 modalSetTextLink()
+                return false;
             });
 
             //This is how you make IE work for selecting and element of any type,
             //Also could be useful for when you want to check that certain elements
             //were not selected (which is done here in the else)
-            $('body').on('click', function(e){
+            $('body').on('mousedown', function(e){
                 if($(e.target).is("img[contenteditable=true]")){
-                    lastSelectedPageElement = $(":focus")
+                    lastSelectedPageElement = $(e.target)
                     $("#stylepad #setImage-disabled").hide()
                     $("#stylepad #setImage").show()
                     $("#stylepad .show-styling").hide()
                     $("#stylepad .hide-styling").show()
                 }
                 else if($(e.target).is("p[contenteditable=true]")){
-                    lastSelectedPageElement = $(":focus")
+                    lastSelectedPageElement = $(e.target)
                     $("#stylepad #setImage-disabled").show()
                     $("#stylepad #setImage").hide()
 
