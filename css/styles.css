@@ -10,3 +10,7 @@ A file for placing general styles for the projectportfolio.io website
 button{
     background-color: #F0F0F0;
 }
+
+html, body{/*TODO: move this to the navbar*/
+    height: 100%;
+}

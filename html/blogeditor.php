@@ -42,10 +42,8 @@
     <![endif]-->
 
     <style>
-        html, body{/*TODO: move this to the navbar*/
-            height: 100%;
-        }
-        p[contenteditable=true]:hover{
+        p[contenteditable=true]:hover,
+        img[contenteditable=true]:hover{
             max-width: 800px;
             outline: 1px dotted #337ab7;
         }
