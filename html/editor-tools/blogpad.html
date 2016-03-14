@@ -63,12 +63,14 @@
         }
 
         @media (max-width: 380px){
-            #blogpad table tr td button span.labels-md{
+            #blogpad table tr td button span.labels-md,
+            #blogpad div span span.labels-md{
                 display: none;
             }
         }
         @media (max-width: 330px){
-            #blogpad  table tr td button span.labels-lg{
+            #blogpad  table tr td button span.labels-lg,
+            #blogpad div span span.labels-lg{
                 display: none;
             }
         }
@@ -153,8 +155,9 @@
     <div id="blogpad">
         <div>
             <span>
-                <i class="fa fa-cog"></i> Blog
-                <span class="labels-md">control</span>
+                <i class="fa fa-cog"></i>
+                <span class="labels-lg"> Blog </span>
+                <span class="labels-md"> control</span>
             </span>
             <span id="minimize-pads" class="visible-xs">
                 <i class="fa fa-minus-square-o"></i>

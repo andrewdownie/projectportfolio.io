@@ -38,7 +38,7 @@
     <![endif]-->
 
     <style>
-    
+
     </style>
 
     <script>
@@ -57,6 +57,13 @@
     <!-- Page Content -->
     <div class="container">
         <?php include "/var/www/projectportfolio/pagebars/navbar.php";?>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">pooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div>
+            <div class="col-md-6">peeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
+        </div>
     </div>
 
 </body>
