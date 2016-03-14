@@ -65,6 +65,7 @@
             //Also could be useful for when you want to check that certain elements
             //were not selected (which is done here in the else)
             $('body').on('mousedown', function(e){
+
                 if($(e.target).is("img[contenteditable=true]")){
                     lastSelectedPageElement = $(e.target)
                     $("#stylepad #setImage-disabled").hide()
@@ -72,7 +73,7 @@
                     $("#stylepad .show-styling").hide()
                     $("#stylepad .hide-styling").show()
                 }
-                else if($(e.target).is("p[contenteditable=true]")){
+                else if(IsEditableParagraph( $(e.target) )){
                     lastSelectedPageElement = $(e.target)
                     $("#stylepad #setImage-disabled").show()
                     $("#stylepad #setImage").hide()
@@ -94,6 +95,8 @@
             //    lastSelectedPageElement = null
             });
         });
+
+        
     </script>
 
     <style>

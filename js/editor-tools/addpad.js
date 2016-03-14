@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('#addpad #title').mousedown(function(e){
         $(this).blur()
         if(typeof(focusElement) === 'undefined'){ return; }
-        focusElement.after("<p contenteditable='true' class='title'> title </p>").next("p").focus()
+        focusElement.after("<p contenteditable='true' class='title'> <span class='bold'> title </span> </p>").next("p").focus()
         return false;
     });
 
@@ -32,7 +32,7 @@ $(document).ready(function() {
             EnableAddpad()
 
         }
-        else if($(e.target).is("p[contenteditable=true]")){
+        else if(IsEditableParagraph( $(e.target) )){
             focusElement = $(e.target)
             EnableAddpad()
         }

@@ -134,3 +134,17 @@ function ToggleElements(toggleElement, closedClasses, openClasses, target) {
     }
     return true;
 }
+
+
+/*TODO: create header description*/
+function IsEditableParagraph(target){
+    //Check if the selected element is an editable paragraph
+    if(target.is("p[contenteditable=true]")){
+        return true
+
+    }//check if any child element is an editable paragraph
+    else if(target.parents("p[contenteditable=true]").length){
+        return true
+    }
+    return false
+}
