@@ -148,3 +148,12 @@ function IsEditableParagraph(target){
     }
     return false
 }
+
+/*TODO: create header description*/
+function GetNearestEditable(focusElement){
+    if(focusElement.is("[contenteditable=true]")){
+        return focusElement
+    }
+
+    return focusElement.parents("[contenteditable=true]")
+}
