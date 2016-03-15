@@ -42,7 +42,10 @@
             $("#removeStyles").mousedown(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
-                $(lastSelectedPageElement).html($(lastSelectedPageElement).text())
+
+                var editableElement = GetNearestEditable(lastSelectedPageElement)
+
+                $(editableElement).html($(editableElement).text())
                 return false;
             });
 
@@ -96,7 +99,7 @@
             });
         });
 
-        
+
     </script>
 
     <style>
