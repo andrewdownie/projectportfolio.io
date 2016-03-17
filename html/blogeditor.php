@@ -120,11 +120,13 @@
             if($(this).width() < 768 && inXsMode == false){
                 //this code will be run when entering xs mode
                 WindowSizeChanged()
+                $(".editortools-topspace").css("padding-top", "85px")
                 inXsMode = true
             }
             else if($(this).width() >= 768 && inXsMode == true){
                 //this code will be run when leaving xs mode
                 WindowSizeChanged()
+                $(".editortools-topspace").css("padding-top", "20px")
                 inXsMode = false
             }
         };
