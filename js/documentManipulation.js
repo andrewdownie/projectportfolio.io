@@ -170,3 +170,16 @@ function GetNearestEditable(focusElement){
 
     return focusElement.parents("[contenteditable=true]")
 }
+
+//returns true if a parent of the parameter 'target' is one of the side panel pads (addpad, stylepad or blogpad)
+function IsInPad(target){
+    alert('check')
+    if(target.is("#addpad") || target.is("#stylepad") || target.is("#blogpad")){
+        return true
+    }
+    else if(target.parents("#addpad").length > 0 || target.parents("#stylepad").length > 0 || target.parents("#blogpad").length > 0){
+        return true
+    }
+
+    return false
+}

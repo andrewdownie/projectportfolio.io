@@ -1,8 +1,15 @@
 $(document).ready(function() {
     var selectedBlogElement
 
-    $("body").click(function(e){
+    $("body").on("click", function(e){
+        alert('wat')
         var target = $(e.target)
+
+        if(IsInPad(target)){
+            alert('in da pad')
+            return
+        }
+
         if(target.is("[contenteditable='true']") == false && mrmp_isUpOrDown(target) == false){
             $(".moveremovepad").hide()
         }
@@ -11,6 +18,7 @@ $(document).ready(function() {
         }
     });
     $("body").on("click", "p, img", function(e){
+            alert('wat2')
         selectedBlogElement = $(e.target)
         move_moveremovepad(selectedBlogElement)
     });
