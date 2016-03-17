@@ -107,6 +107,29 @@
             }
         });
 
+        //Keep track of the current bootstrap screen size, and if the screen size changes, toggle our pads to be shown
+        var inXsMode
+        //initialize inXsMode
+        if($(this).width() < 768)){
+            inXsMode = true
+        }
+        else{
+            inXsMode = false
+        }
+
+        window.onresize = function(){
+            if($(this).width() < 768 && inXsMode == false){
+                //this code will be run when entering xs mode
+                console.log("you are now in xs mode")
+                inXsMode = true
+            }
+            else if($(this).width() >= 768 && inXsMode == true){
+                //this code will be run when leaving xs mode
+                console.log("you are now in a non xs mode")
+                inXsMode = false
+            }
+        };
+
 
     });
 
