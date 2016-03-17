@@ -135,6 +135,19 @@ function ToggleElements(toggleElement, closedClasses, openClasses, target) {
     return true;
 }
 
+function ShowElements(toggleElement, openClasses, target){
+    var arrLen = arguments.length
+    if (arrLen < 3) {
+        console.log(">> Error: 'ShowElements' does not have enough parameters")
+    }
+    toggleElement.removeClass()
+    toggleElement.addClass(openClasses)
+
+    for (var i = 2; i < arrLen; i++) {
+        arguments[i].show()
+    }
+}
+
 
 /*TODO: create header description*/
 function IsEditableParagraph(target){

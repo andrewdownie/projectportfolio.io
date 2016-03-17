@@ -107,29 +107,31 @@
             }
         });
 
+
         //Keep track of the current bootstrap screen size, and if the screen size changes, toggle our pads to be shown
         var inXsMode
-        //initialize inXsMode
-        if($(this).width() < 768)){
+        if($(this).width() < 768){//initialize inXsMode
             inXsMode = true
-        }
-        else{
+        }else{
             inXsMode = false
         }
 
         window.onresize = function(){
             if($(this).width() < 768 && inXsMode == false){
                 //this code will be run when entering xs mode
-                console.log("you are now in xs mode")
+                WindowSizeChanged()
                 inXsMode = true
             }
             else if($(this).width() >= 768 && inXsMode == true){
                 //this code will be run when leaving xs mode
-                console.log("you are now in a non xs mode")
+                WindowSizeChanged()
                 inXsMode = false
             }
         };
-
+        function WindowSizeChanged(){
+            ShowElements($("#editor-tools i"), "fa fa-folder-open", $("#addpad"), $("#stylepad"), $("#blogpad") )
+            ShowElements($("#minimize-pads i"), "fa fa-minus-square-o", $("#addpad table"), $("#stylepad #content"), $("#blogpad table") )
+        }
 
     });
 
