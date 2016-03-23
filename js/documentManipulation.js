@@ -49,12 +49,22 @@ PARAMETERS:
 RETURN: VOID
 ------------------------------------------------------------------------------*/
 function addClassToText(classes) {
+
     var text = wrapText('span')
+    if(text == null){
+        return
+    }
     text.setAttribute("class", classes)
+
+
+
 }
 
 function linkText(href, id) {
     var text = wrapText('a')
+    if(text == null){
+        return
+    }
     text.setAttribute("href", href)
     text.setAttribute("id", id)
 }
@@ -64,7 +74,7 @@ function wrapText(wrapperType) {
     var selection_text = selection
 
     if (selection_text == "") {
-        return;
+        return null
     }
 
     var wrapper = document.createElement(wrapperType)
@@ -78,7 +88,7 @@ function wrapText(wrapperType) {
 
 
 /*------------------------------------------------------------------------------
-FUNCTION NAME: getSelectedText()
+FUNCTION NAME: getSelection()
 SOURCE:
 RETURN: the text currently selected by the user.
 ------------------------------------------------------------------------------*/
@@ -86,9 +96,6 @@ function getSelection() {
     t = (document.all) ? document.selection.createRange().text : document.getSelection();
     return t;
 }
-
-
-
 
 
 
