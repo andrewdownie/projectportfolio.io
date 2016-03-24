@@ -157,7 +157,7 @@
             text-decoration: underline;
         }
 
-        /*Why doesn't this work???????*/
+        /*
         #stylepad #setImage-disabled button i,
         #stylepad table tr td.hide-styling button i{
             color: #aaa;
@@ -166,7 +166,7 @@
         #stylepad table tr td.hide-styling button:hover,
         #stylepad #setImage-disabled button:hover{
             background-color: #F0F0F0;
-        }
+        }*/
 
         #stylepad #divider{
             height: 4px;
@@ -175,32 +175,31 @@
         }
 
         #stylepad div{
-            background-color: white;
+            /*background-color: white;*/
             padding: 0;
             margin: 0;
             border: 0;
         }
-        #stylepad #titlebar{
+        #stylepad .titlebar{
             background-color: black;
             padding-left: 5px;
             padding-right: 5px;
             background-color: black;
-            color: white;
         }
 
         #stylepad .hide-styling i,
         #stylepad #setImage-disabled{
             color: #aaa;
         }
+
+
     </style>
 </head>
 
 <body>
     <div id="stylepad">
-        <div id="titlebar">
-            <span>
-                <i class="fa fa-font"></i> Style element
-            </span>
+        <div class="titlebar">
+            <i class="fa fa-font"></i> Style element
         </div>
 
 
