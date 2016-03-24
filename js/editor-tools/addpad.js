@@ -6,7 +6,12 @@ $(document).ready(function() {
         $(this).blur()
         if(typeof(focusElement) === 'undefined'){ return; }
         focusElement = GetNearestEditable(focusElement).after("<p contenteditable='true' class='title'> title  </p>").next("p").focus()
-        move_moveremovepad(focusElement)//for some reason this disappears the instant it is shown
+        move_moveremovepad(focusElement)
+
+        $("#stylepad #setImage-disabled").show()
+        $("#stylepad #setImage").hide()
+        $("#stylepad .show-styling").show()
+        $("#stylepad .hide-styling").hide()
         return false;
     });
 
@@ -15,6 +20,11 @@ $(document).ready(function() {
         if(typeof(focusElement) === 'undefined'){ return; }
         focusElement = GetNearestEditable(focusElement).after("<p contenteditable='true'> text </p>").next("p").focus()
         move_moveremovepad(focusElement)
+
+        $("#stylepad #setImage-disabled").show()
+        $("#stylepad #setImage").hide()
+        $("#stylepad .show-styling").show()
+        $("#stylepad .hide-styling").hide()
         return false;
     });
 

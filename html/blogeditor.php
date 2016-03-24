@@ -146,7 +146,7 @@
 
     <!-- Page Content -->
     <div class="container">
-        <?php include "/var/www/projectportfolio/pagebars/navbar.php";?>
+        <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
     </div>
 
     <div class="container-fluid" style="margin-top: -10px;">
