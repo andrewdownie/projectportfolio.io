@@ -23,7 +23,7 @@ html, body{/*TODO: move this to the navbar*/
 #stylepad .titlebar,
 #addpad .titlebar,
 #blogpad .titlebar{
-    color: #48c;
+    /*color: #48c;*/
 }
 /*#337ab7  <- the regular blue*/
 /*#539ad7  <- lighter variant of the above*/
