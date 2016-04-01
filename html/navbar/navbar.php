@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="#">ProjectPortfolio</a>
+                <a class="navbar-brand" href="/">ProjectPortfolio</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -69,10 +69,7 @@
                 <div class="col-sm-3 col-md-3 pull-right">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="#">Login</a>
-                        </li>
-                        <li>
-                            <a href="#">Sign up</a>
+                            <a href="/login-signup.php">Login</a>
                         </li>
                     </ul>
                 </div>

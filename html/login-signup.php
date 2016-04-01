@@ -52,20 +52,36 @@
             color: #444;
         }
 
-        #login-signup .row .col-md-5{
-            min-height: 250px;
-            height: 250px;
+        #login-signup .row #signup{
+            min-height: 350px;
+            height: 350px;
         }
 
-        @media (max-width: 767px){
-
+        @media (max-width: 981px){
+            #login-signup #signup{
+                padding-top: 10px;
+                border-top: 1px #c0c0c0 solid;
+            }
+            #login-signup #login{
+                padding-bottom: 30px;
+            }
         }
         @media (min-width: 982px){
             #login-signup #signup{
-                border-left: solid #555 1px;
+                border-left: solid #bcbcbc 1px;
             }
         }
 
+        #login-signup h2{
+            padding-bottom: 20px;
+        }
+        #login-signup h4{
+            margin-bottom: 3px;
+        }
+        #login-signup input[type="text"],
+        #login-signup input[type="password"]{
+            margin-bottom: 10px;
+        }
 
     </style>
 </head>
@@ -81,10 +97,33 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-5" id="login">
-                <h2>Login</h2>
+                <div style="margin-left: 30px;">
+                    <h2>Login</h2>
+                    <div style="margin-left: 30px;">
+                        <h4>Username or email:</h4>
+                        <input type="text">
+                        <h4>Password:</h4>
+                        <input type="password">
+                        <br/>
+                        <input type="submit" value="Login">
+                        <a href="#" style="padding-left: 20px;">Forgot password?</a>
+                    </div>
+                </div>
             </div>
             <div class="col-md-5" id="signup">
+                <div style="margin-left: 30px;">
                 <h2>Sign up</h2>
+                    <div style="margin-left: 30px;">
+                        <h4>Username:</h4>
+                        <input type="text">
+                        <h4>Email:</h4>
+                        <input type="text">
+                        <h4>Password:</h4>
+                        <input type="password">
+                        <br/>
+                        <input type="submit" value="Sign up">
+                    </div>
+                </div>
             </div>
             <div class="col-md-1"></div>
         </div>

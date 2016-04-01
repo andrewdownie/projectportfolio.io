@@ -32,14 +32,15 @@
     <!-- /.container -->
 
     <div class="container">
-
-        <hr>
+        <div class="container">
+            <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
+        </div>
 
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>ProjectPortfolio 2016</p>
+                    <p>Home page, nothing here yet.</p>
                 </div>
             </div>
         </footer>
