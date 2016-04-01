@@ -58,11 +58,14 @@
                 </div>
 
                 <ul class="nav navbar-nav">
-                    <li>
+                    <!--<li>
                         <a href="#">Top Rated</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a href="#">Most Active</a>
+                    </li>
+                    <li>
+                        <a href="/blogeditor.php">Editor</a>
                     </li>
                 </ul>
 

@@ -98,11 +98,21 @@
             <div class="col-md-1"></div>
             <div class="col-md-5" id="login">
                 <div style="margin-left: 30px;">
-                    <h2>Login</h2>
+                    <h2>
+                        <i class="fa fa-sign-in"></i>
+
+                        Login
+                    </h2>
                     <div style="margin-left: 30px;">
-                        <h4>Username or email:</h4>
+                        <h4>
+                            <i class="fa fa-user"></i>
+                            Username or email
+                        </h4>
                         <input type="text">
-                        <h4>Password:</h4>
+                        <h4>
+                            <i class="fa fa-asterisk"></i>
+                            Password
+                        </h4>
                         <input type="password">
                         <br/>
                         <input type="submit" value="Login">
@@ -112,13 +122,25 @@
             </div>
             <div class="col-md-5" id="signup">
                 <div style="margin-left: 30px;">
-                <h2>Sign up</h2>
+                <h2>
+                    <i class="fa fa-user-plus"></i>
+                    Sign up
+                </h2>
                     <div style="margin-left: 30px;">
-                        <h4>Username:</h4>
+                        <h4>
+                            <i class="fa fa-user"></i>
+                            Username
+                        </h4>
                         <input type="text">
-                        <h4>Email:</h4>
+                        <h4>
+                            <i class="fa fa-at"></i>
+                            Email
+                        </h4>
                         <input type="text">
-                        <h4>Password:</h4>
+                        <h4>
+                            <i class="fa fa-asterisk"></i>
+                            Password
+                        </h4>
                         <input type="password">
                         <br/>
                         <input type="submit" value="Sign up">
