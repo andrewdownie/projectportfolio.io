@@ -37,9 +37,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <style>
 
-    </style>
 
     <script>
     $(document).ready(function(){
@@ -49,20 +47,46 @@
 
     </script>
 
+    <style>
+        #login-signup{
+            color: #444;
+        }
 
+        #login-signup .row .col-md-5{
+            min-height: 250px;
+            height: 250px;
+        }
+
+        @media (max-width: 767px){
+
+        }
+        @media (min-width: 982px){
+            #login-signup #signup{
+                border-left: solid #555 1px;
+            }
+        }
+
+
+    </style>
 </head>
 
 <body>
 
     <!-- Page Content -->
     <div class="container">
-        <?php include "/var/www/projectportfolio/pagebars/navbar.php";?>
+        <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
     </div>
 
-    <div class="container">
+    <div class="container" id="login-signup">
         <div class="row">
-            <div class="col-md-6">pooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div>
-            <div class="col-md-6">peeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5" id="login">
+                <h2>Login</h2>
+            </div>
+            <div class="col-md-5" id="signup">
+                <h2>Sign up</h2>
+            </div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 
