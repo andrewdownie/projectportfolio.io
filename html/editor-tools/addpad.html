@@ -100,8 +100,11 @@
         #addpad div span::selection {background-color: transparent;}
         #addpad div span{cursor: default;}
         /**/
-        #addpad table tr td span::selection {background-color: transparent;}
-        #addpad table tr td::selection {background-color: transparent;}
+        #addpad table tr td span::selection,
+        #addpad table tr td::selection,
+        #addpad .titlebar::selection {
+            background-color: transparent;
+        }
         #addpad table tr td{cursor: default;}
     </style>
 </head>
