@@ -12,8 +12,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- Hint.css for hover tooltip text -->
     <link rel="stylesheet" href="/css/hint.css">
 
@@ -21,11 +19,10 @@
     <link href="/css/navbar.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
 
-    <!-- jQuery -->
+    <!-- REQUIRED INCLUDES (SHOULD BE IN NAV BAR)
     <script src="/js/lib/jquery-2.2.0.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/js/lib/bootstrap.min.js"></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/js/lib/bootstrap.min.js"></script>-->
 
 
     <script src="/js/documentManipulation.js"></script>

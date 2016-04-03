@@ -12,18 +12,17 @@
 
     <title>ProjectPortfolio</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Custom CSS
     <link href="css/shop-item.css" rel="stylesheet"> TODO: DELETE THIS-->
     <link href="/css/navbar.css" rel="stylesheet">
 
-    <!-- jQuery -->
+    <!-- COMMON LIBRARIES -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <script src="/js/lib/jquery-2.2.0.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
     <script src="/js/lib/bootstrap.min.js"></script>
+    
 </head>
 <body>
     <!-- Navigation -->
@@ -45,7 +44,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <!-- Search area -->
-                <div class="col-sm-3 col-md-3 pull-left">
+                <!--<div class="col-sm-3 col-md-3 pull-left">
                     <form class="navbar-form" role="search">
                         <div class="input-group input-group-sm">
                             <div class="input-group-btn">
@@ -55,21 +54,21 @@
 
                         </div>
                     </form>
-                </div>
+                </div>-->
 
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav  pull-left">
                     <!--<li>
                         <a href="#">Top Rated</a>
                     </li>-->
                     <li>
-                        <a href="#">Most Active</a>
+                        <a href="#">Database test</a>
                     </li>
                     <li>
                         <a href="/blogeditor.php">Editor</a>
                     </li>
                 </ul>
 
-                <div class="col-sm-3 col-md-3 pull-right">
+                <div class="pull-right">
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="/login-signup.php">Login</a>
