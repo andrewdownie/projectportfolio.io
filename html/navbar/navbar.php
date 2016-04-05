@@ -22,11 +22,11 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <script src="/js/lib/jquery-2.2.0.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
-    
+
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-bottom: 1px solid white;">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-bottom: 1px solid white; z-index: 100000;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">

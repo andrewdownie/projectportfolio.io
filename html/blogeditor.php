@@ -20,11 +20,11 @@
     <link href="/css/styles.css" rel="stylesheet">
 
     <!-- REQUIRED INCLUDES (SHOULD BE IN NAV BAR)
-    <script src="/js/lib/jquery-2.2.0.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
     <link href="/css/bootstrap.min.css" rel="stylesheet">-->
 
 
+    <script src="/js/lib/jquery-2.2.0.min.js"></script><!--JQuery needs to come before anything that uses it...-->
     <script src="/js/documentManipulation.js"></script>
 
     <script src="/js/modalinput.js"></script>

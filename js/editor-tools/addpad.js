@@ -44,7 +44,6 @@ $(document).ready(function() {
 
     $('body').on('mousedown', function(e){
 
-
         if($(e.target).is("img[contenteditable=true]")){
             focusElement = $(e.target)
             EnableAddpad()
