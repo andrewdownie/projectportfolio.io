@@ -61,7 +61,7 @@
                         <a href="#">Top Rated</a>
                     </li>-->
                     <li>
-                        <a href="#">Database test</a>
+                        <a href="/dbtest.php">Database test</a>
                     </li>
                     <li>
                         <a href="/blogeditor.php">Editor</a>

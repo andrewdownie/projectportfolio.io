@@ -24,7 +24,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <script src="/js/lib/bootstrap.min.js"></script>-->
 
-
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
     <script src="/js/documentManipulation.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -38,7 +38,7 @@
 
     <script>
     $(document).ready(function(){
-
+        //$("#login-signup i").toggle({ effect: "scale", direction: "horizontal" })
 
     });
 
@@ -47,6 +47,12 @@
     <style>
         #login-signup{
             color: #444;
+        }
+
+        #login-signup i{
+        /*    display: none;
+            box-sizing: border-box;*/
+
         }
 
         #login-signup .row #signup{
