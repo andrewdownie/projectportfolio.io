@@ -64,14 +64,14 @@
                         <a href="/dbtest.php">Database test</a>
                     </li>
                     <li>
-                        <a href="/blogeditor.php">Editor</a>
+                        <a href="/editor.php">Editor</a>
                     </li>
                 </ul>
 
                 <div class="pull-right">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="/login-signup.php">Login</a>
+                            <a href="/login.php">Login</a>
                         </li>
                     </ul>
                 </div>

@@ -45,6 +45,7 @@
 
                     <?php
                         // Create connection
+                        //echo getenv('database');
                         $conn = new mysqli('dbtest.csrytxfcb9xf.us-east-1.rds.amazonaws.com', 'dbtest', 'db__test', 'dbtest');
                         // Check connection
                         if ($conn->connect_error) {
