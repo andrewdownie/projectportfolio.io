@@ -55,6 +55,16 @@
 
         }
 
+        #login-signup button{
+            color: black;
+            background-color: #F0F0F0;
+            border: none;
+            padding: 4px 10px;
+        }
+        #login-signup button:hover{
+            background-color: #D0D0D0;
+        }
+
         #login-signup .row #signup{
             min-height: 350px;
             height: 350px;
@@ -84,6 +94,9 @@
         #login-signup input[type="text"],
         #login-signup input[type="password"]{
             margin-bottom: 10px;
+            border: #999 1px solid;
+            width: 190px;
+            height: 25px;
         }
 
     </style>
@@ -118,7 +131,7 @@
                         </h4>
                         <input type="password">
                         <br/>
-                        <input type="submit" value="Login">
+                        <button>Login</button>
                         <a href="#" style="padding-left: 20px;">Forgot password?</a>
                     </div>
                 </div>
@@ -146,7 +159,7 @@
                         </h4>
                         <input type="password">
                         <br/>
-                        <input type="submit" value="Sign up">
+                        <button>Sign up</button>
                     </div>
                 </div>
             </div>
