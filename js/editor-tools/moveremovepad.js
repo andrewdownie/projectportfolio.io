@@ -50,8 +50,11 @@ $(document).ready(function() {
         move_moveremovepad($(":focus"))
     });*/
 
+    $(window).on('resize', function(e) {
+        move_moveremovepad(selectedBlogElement)
+    });
 
-});
+});//Document ready
 
 function move_moveremovepad(targetElement){
     var editableTarget = GetNearestEditable(targetElement)
