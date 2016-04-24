@@ -1,10 +1,18 @@
+var selectedBlogElement
+
 $(document).ready(function() {
-    var selectedBlogElement
+
+
 
     $("body").click(function(e){
         var target = $(e.target)
         if(IsInPad(target)){
             return
+        }
+
+        if(target.is("p") || target.is("img")){
+            selectedBlogElement = $(e.target)
+            move_moveremovepad(selectedBlogElement)
         }
 
         if(target.is("[contenteditable='true']") == false && mrmp_isUpOrDown(target) == false){
@@ -17,10 +25,10 @@ $(document).ready(function() {
             //selectedBlogElement = target
         }
     });
-    $("body").on("click", "p, img", function(e){
+    /*$("body").on("click", "p, img", function(e){
         selectedBlogElement = $(e.target)
         move_moveremovepad(selectedBlogElement)
-    });
+    });*/
 
     $("#moveremovepad #up").click(function(){
         selectedBlogElement.prev().before(selectedBlogElement)
@@ -47,6 +55,8 @@ $(document).ready(function() {
 
 function move_moveremovepad(targetElement){
     var editableTarget = GetNearestEditable(targetElement)
+    selectedBlogElement = targetElement
+
 
     var offset = editableTarget.offset()
     var width = editableTarget.width()

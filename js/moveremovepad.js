@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var selectedBlogElement
+    alert('pls')
 
     $("body").on("click", function(e){
         alert('wat')
@@ -24,6 +25,7 @@ $(document).ready(function() {
     });
 
     $(".moveremovepad #up").click(function(){
+        alert('fart')
         selectedBlogElement.prev().before(selectedBlogElement)
         move_moveremovepad(selectedBlogElement)
     });

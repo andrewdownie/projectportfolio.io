@@ -86,7 +86,6 @@
 
     <script>
     $(document).ready(function(){
-
         /*Toggle pads when not in xs mode*/
         $("#editor-tools").click(function(){
             //LinkToggle($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#editor-pads"))
