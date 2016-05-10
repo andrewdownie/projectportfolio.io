@@ -61,17 +61,20 @@
                         <a href="#">Top Rated</a>
                     </li>-->
                     <li>
-                        <a href="/dbtest.php">Database test</a>
+                        <a href="/dbtest">Database test</a>
                     </li>
                     <li>
-                        <a href="/editor.php">Editor</a>
+                        <a href="/editor">Editor</a>
+                    </li>
+                    <li>
+                        <a href="/projects">Projects</a>
                     </li>
                 </ul>
 
                 <div class="pull-right">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="/login.php">Login</a>
+                            <a href="/login">Login</a>
                         </li>
                     </ul>
                 </div>
