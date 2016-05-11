@@ -67,7 +67,7 @@
                         <a href="/editor">Editor</a>
                     </li>
                     <li>
-                        <a href="/projects">Projects</a>
+                        <a href="/projects/browse">Projects</a>
                     </li>
                 </ul>
 
