@@ -114,7 +114,7 @@
             height: 100%;
             text-align: center;
         }
-        #project .spec-icon{
+        #project .team-icon{
             color: black;
             width: 100%;
             height: 100%;
@@ -125,10 +125,8 @@
             margin-bottom: 15px;
         }
         #project .delete-btn{
-            height: 30px;
-            margin: 5;
-            margin-top: 15px;
-            padding: 0;
+            height: 40px;
+            padding: 5px;
             padding-left: 15px;
             padding-right: 15px;
             background-color: #e74c3c;
@@ -138,6 +136,9 @@
         }
         #project .delete-btn:hover{
             background-color: #f75c4c;
+        }
+        #project h3{
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -150,6 +151,7 @@
 
     <div class="container" id="project">
         <button class="btn btn-link" id="all-projects"><h3><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;All Projects</h3></button>
+        <button style="float: right; margin-top: 22px;" id="delete-project" type="button" class="delete-btn"><i class="fa fa-close" aria-hidden="true"></i> Delete project</button>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -167,23 +169,25 @@
                     </div>
                     <div class="panel-body" >
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
                             </div>
-                            <div class="col-md-6" style="padding: 0 20px 20px 20px;">
-                                <h3>Project Name</h3>
+                            <div class="col-md-5" style="padding: 0 20px 20px 20px;">
+                                <h3><i class="fa fa-terminal" aria-hidden="true"></i>&nbsp;Project Name</h3>
                                 <input type="text" value="Project A">
                                 <button class="button full">Save</button>
                                 <button class="button full">Clear</button>
 
-                                <h3>Image source</h3>
+                                <h3><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Image Source</h3>
                                 <input type="text" value="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30">
                                 <button class="button full">Save</button>
                                 <button class="button full">Clear</button>
 
-                                <div>
-                                    <button id="delete-project" type="button" class="delete-btn"><i class="fa fa-close" aria-hidden="true"></i> Delete project</button>
-                                </div>
+                                <h3><i class="fa fa-link" aria-hidden="true" ></i>&nbsp;Project Spec</h3>
+                                <input type="text" value="docs.google.com/project-spec-here">
+                                <button class="button full">Save</button>
+                                <button class="button full">Clear</button>
+
                             </div>
                         </div>
                     </div>
@@ -196,10 +200,11 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Project Spec</h3>
+                            <p class="panel-title">Team (3)</p>
                         </div>
                         <div class="panel-body">
-                            <i class="fa fa-file spec-icon" aria-hidden="true" ></i>
+                            <i class="fa fa-users team-icon" aria-hidden="true"></i>
+
                         </div>
                     </div>
                 </a>
@@ -209,7 +214,7 @@
                 <a href="/projects/blogs">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Blogs (6)</h3>
+                            <p class="panel-title">Blogs (6)</p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-pencil-square-o section-icon" aria-hidden="true" ></i>
@@ -222,7 +227,7 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Goals (34)</h3>
+                            <p class="panel-title">Goals (34)</p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-check section-icon" aria-hidden="true" ></i>
@@ -235,7 +240,7 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Builds (11)</h3>
+                            <p class="panel-title">Builds (11)</p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-home section-icon" aria-hidden="true" ></i>
