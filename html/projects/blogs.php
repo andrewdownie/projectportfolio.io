@@ -38,20 +38,28 @@
 
     <script>
     $(document).ready(function(){
-        $("#create-new").click(function(){
+        $("#blogs #create-new").click(function(){
             window.location = "/editor";
+        });
+
+        $("#blogs #back-to-project").click(function(){
+            window.location = "/projects/edit-project";
+        });
+
+        $("#blogs .editButton").click(function(){
+            window.location = "/editor"
         });
     });
     </script>
 
     <style>
-    #projects .panel-heading{
+    #blogs .panel-heading{
         background-color: white;
         box-shadow: 2px 2px 2px #888888;
         border: 1px solid #777;
         border-bottom: 1px solid #ccc;
     }
-    #projects .panel-body{
+    #blogs .panel-body{
         box-shadow: 2px 2px 2px #888888;
         background-color: #eee;
         border: 1px solid #777;
@@ -60,12 +68,12 @@
         padding: 0;
         margin: 0;
     }
-    #projects .panel-body img{
+    #blogs .panel-body img{
         object-fit: cover;
         width: 100%;
         height: 100%;
     }
-    #projects .info{
+    #blogs .info{
         position: absolute;
         bottom: 28px;
         left: 25px;
@@ -80,6 +88,23 @@
                         -1px 1px black,
                         -1px -1px black;
     }
+
+    #blogs .editButton{
+        position: absolute;
+        bottom: 28px;
+        right: 25px;
+        padding: 10px 35px;
+        border: none;
+        background-color: #004488;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px #000;
+    }
+    #blogs .editButton:hover{
+        background-color: #115599;
+        box-shadow: 0px 0px 8px #999;
+    }
+
     </style>
 </head>
 
@@ -89,7 +114,7 @@
         <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
     </div>
 
-    <div class="container" id="projects">
+    <div class="container" id="blogs">
         <div class = "page-header">
             <h1>
                 Blogs
@@ -97,11 +122,9 @@
             </h1>
         </div>
         <div class="row">
-            <div class="col-sm-4 col-md-4">
-                <button class="btn btn-link"><h3><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Project A</h3></button>
-            </div>
-            <div class="col-sm-4 col-md-4"></div>
-            <div class="col-sm-4 col-md-4">
+            <div class="col-sm-12 col-md-12">
+                <button class="btn btn-link" id="back-to-project"><h3><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Project A</h3></button>
+
                 <button style="float:right; margin-top: 26px;" id="create-new" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create new blog</button>
             </div>
         </div>
@@ -111,7 +134,8 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <a href="/projects/project">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Blog 6 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
@@ -126,7 +150,8 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <a href="/projects/project">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Blog 5 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
@@ -141,7 +166,8 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <a href="/projects/project">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Blog 4 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
@@ -156,7 +182,8 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <a href="/projects/project">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Blog 3 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
@@ -171,7 +198,8 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <a href="/projects/project">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Blog 2 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
@@ -186,7 +214,8 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <a href="/projects/project">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Blog 1 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>

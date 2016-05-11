@@ -39,19 +39,22 @@
     <script>
     $(document).ready(function(){
         $("#create-new").click(function(){
-            window.location = "/projects/project";
+            window.location = "/projects/edit-project";
+        });
+        $("button").click(function(){
+            window.location = "/projects/edit-project";
         });
     });
     </script>
 
     <style>
-    #projects .panel-heading{
+    #browse-projects .panel-heading{
         background-color: white;
         box-shadow: 2px 2px 2px #888888;
         border: 1px solid #777;
         border-bottom: 1px solid #ccc;
     }
-    #projects .panel-body{
+    #browse-projects .panel-body{
         box-shadow: 2px 2px 2px #888888;
         background-color: #eee;
         border: 1px solid #777;
@@ -60,12 +63,12 @@
         padding: 0;
         margin: 0;
     }
-    #projects .panel-body img{
+    #browse-projects .panel-body img{
         object-fit: cover;
         width: 100%;
         height: 100%;
     }
-    #projects .info{
+    #browse-projects .info{
         position: absolute;
         bottom: 28px;
         left: 25px;
@@ -80,6 +83,24 @@
                         -1px 1px black,
                         -1px -1px black;
     }
+
+    #browse-projects .editButton{
+        position: absolute;
+        bottom: 28px;
+        right: 25px;
+        padding: 10px 35px;
+        border: none;
+        background-color: #004488;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px #000;
+    }
+    #browse-projects .editButton:hover{
+        background-color: #115599;
+        box-shadow: 0px 0px 8px #999;
+    }
+
+
     </style>
 </head>
 
@@ -89,10 +110,10 @@
         <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
     </div>
 
-    <div class="container" id="projects">
+    <div class="container" id="browse-projects">
         <div class = "page-header">
             <h1>
-                Projects
+                browse-projects
                 <small>andrewdownie</small>
             </h1>
         </div>
@@ -110,6 +131,7 @@
 
 
             <div class="col-sm-6 col-md-4">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -130,6 +152,7 @@
 
 
             <div class="col-sm-6 col-md-4">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -150,6 +173,7 @@
 
 
             <div class="col-sm-6 col-md-4">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -170,6 +194,7 @@
 
 
             <div class="col-sm-6 col-md-4">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -190,6 +215,7 @@
 
 
             <div class="col-sm-6 col-md-4">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -210,6 +236,7 @@
 
 
             <div class="col-sm-6 col-md-4">
+                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">

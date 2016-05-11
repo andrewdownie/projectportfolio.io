@@ -8,7 +8,7 @@
             });
             $("#blogpad-exit").click(function(){
                 $(this).blur()
-                alert("exit blurg")
+                window.location = "/projects/blogs";
             });
         });
     </script>
@@ -166,9 +166,10 @@
             <tr>
                 <td>
                     <button data-hint="Save without exiting." class="hint--right hint--bounce" id="blogpad-save">
-                        <i class="fa fa-floppy-o"></i>
-                        <span class="labels-lg">&nbsp;&nbsp;Save</span>
-                        <span class="labels-md">blog</span>
+                            <i class="fa fa-floppy-o"></i>
+                            <span class="labels-lg">&nbsp;&nbsp;Save</span>
+                            <span class="labels-md"></span>
+                        </div>
                     </button>
                 </td>
             </tr>
