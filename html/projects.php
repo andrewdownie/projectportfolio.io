@@ -30,8 +30,8 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 
@@ -61,20 +61,30 @@
         border: 1px solid #777;
         border-top: none;
         height: 250px;
+        padding: 0;
+        margin: 0;
     }
     #projects .panel-body img{
-
-              object-fit: cover;
-              width: 100%;
-              height: 100%;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
     }
 
-    #projects .cover{
+    #projects .info{
+        position: absolute;
+        bottom: 28px;
+        left: 25px;
+        color: white;
+        z-index: 1000;
 
-      object-fit: cover;
-      width: 50px;
-      height: 100px;
-
+        text-shadow:    1px 0px black,
+                        0px 1px black,
+                        -1px 0px black,
+                        0px -1px black,
+                        1px 1px 1px black,
+                        1px -1px black,
+                        -1px 1px black,
+                        -1px -1px black;
     }
     </style>
 </head>
@@ -98,71 +108,123 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
-                </div>
-                <div class="panel-body" style="padding: 0; margin: 0;">
-                    <img src="https://picjumbo.imgix.net/HNCK0852.jp" alt="img y u no lod" style="width: 100%; min-width: 100%;">
-                </div>
-                </div>
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jp" alt="img y u no lod">
+                            <span class="info">
+                                <div>Blogs: 11</div>
+                                <div>Goals: 43</div>
+                                <div>Builds: 5</div>
+                            </span>
+                        </div>
+                    </div>
+                </a>
             </div>
 
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
-                </div>
-                <div class="panel-body" style="padding: 0; margin: 0;">
-                    <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod" style="width: 100%; min-width: 100%;">
-                </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
-                </div>
-                <div class="panel-body" style="padding: 0; margin: 0;">
-                    <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod" style="width: 100%; min-width: 100%;">
-                </div>
-                </div>
-            </div>
 
 
             <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
-                </div>
-                <div class="panel-body" style="padding: 0; margin: 0;">
-                    <img src="https://picjumbo.imgix.net/HNCK0852.jp" alt="img y u no lod" >
-                </div>
-                </div>
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                            <span class="info">
+                                <div>Blogs: 11</div>
+                                <div>Goals: 43</div>
+                                <div>Builds: 5</div>
+                            </span>
+                        </div>
+                    </div>
+                </a>
             </div>
 
-            <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
-                </div>
-                <div class="panel-body" style="padding: 0; margin: 0;">
-                    <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
-                </div>
-                </div>
-            </div>
+
 
             <div class="col-sm-6 col-md-4">
-                <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
-                </div>
-                <div class="panel-body" style="padding: 0; margin: 0;">
-                    <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
-                </div>
-                </div>
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                            <span class="info">
+                                <div>Blogs: 11</div>
+                                <div>Goals: 43</div>
+                                <div>Builds: 5</div>
+                            </span>
+                        </div>
+                    </div>
+                </a>
             </div>
+
+
+
+            <div class="col-sm-6 col-md-4">
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jp" alt="img y u no lod" >
+                            <span class="info">
+                                <div>Blogs: 11</div>
+                                <div>Goals: 43</div>
+                                <div>Builds: 5</div>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-sm-6 col-md-4">
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                            <span class="info">
+                                <div>Blogs: 11</div>
+                                <div>Goals: 43</div>
+                                <div>Builds: 5</div>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-sm-6 col-md-4">
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                            <span class="info">
+                                <div>Blogs: 11</div>
+                                <div>Goals: 43</div>
+                                <div>Builds: 5</div>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
 
 
 
