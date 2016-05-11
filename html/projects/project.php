@@ -46,13 +46,13 @@
             width: 100%;
             height: 100%;
         }
-        #project .panel-heading{
+        #project .height50{
             height: 50px;
         }
         #project input[type="text"]{
             margin-bottom: 10px;
             border: #999 1px solid;
-            width: 75%;
+            width: 100%;
             height: 25px;
             padding-right: 0px;
             margin-right: 0px;
@@ -61,31 +61,46 @@
 
 
         #project .button.full{
-            width: 23%;
+            width: 22%;
         }
-        #project .button.small{
-            width: 5%;
+        @media (max-width: 570px){
+            #project .button.full{
+                width: 40%;
+            }
         }
-        #project .button.big{
-            width: 17%;
-        }
+
+
         #project .button{
             height: 25px;
             padding: 0px;
             margin: 0px;
-            background-color: #eee;
-            border: none;
+            background-color: white;
+            border: 1px solid #777;
+            border-radius: 5px;
         }
         #project .button:hover{
             background-color: #bbb;
         }
-        #project .white-space{
-            margin-bottom: 30px;
+
+        #project .panel-heading{
+            background-color: white;
+            box-shadow: 2px 2px 2px #888888;
+            border: 1px solid #777;
+            border-bottom: 1px solid #ccc;
         }
-        @media (max-width: 991px){
-            #project .white-space{
-                margin-bottom: 0px;
-            }
+        #project .panel-body{
+            box-shadow: 2px 2px 2px #888888;
+            background-color: #f5f5f5;
+            border: 1px solid #777;
+            border-top: none;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        #project .panel-body img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -97,57 +112,100 @@
     </div>
 
     <div class="container" id="project">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h1 class="panel-title">
-                        Project A
-                        <span style="float:right; font-size:12px;padding-right: 20px;">
-                            Modified: May 11th, 2016
-                        </span>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading height50">
+                        <h1 class="panel-title">
+                            Project A
+                            <span style="float:right; font-size:12px;padding-right: 20px;">
+                                Modified: May 11th, 2016
+                            </span>
 
-                        <span style="float:right; font-size:12px; padding-right: 20px;">
-                            Created: May 10th, 2016
-                        </span>
-                    </h1>
-                </div>
-                <div class="panel-body" >
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
-                        </div>
-                        <div class="col-md-6">
-                            <h3>Project Name</h3>
-                            <input type="text" value="Project A">
-                            <button class="button full">Save</button>
-
-                            <h3>Image source</h3>
-                            <input type="text" value="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30">
-                            <button class="button small">x</button>
-                            <button class="button big">Save</button>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="white-space"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <h4 class="col-md-4">
-                                    Blogs: 11
-                                </h4>
-                                <h4 class="col-md-4">
-                                    Goals: 43
-                                </h4>
-                                <h4 class="col-md-4">
-                                    Builds: 5
-                                </h4>
-                            </div>
-                        <div>
+                            <span style="float:right; font-size:12px; padding-right: 20px;">
+                                Created: May 10th, 2016
+                            </span>
+                        </h1>
                     </div>
+                    <div class="panel-body" >
+                        <div class="row">
+                            <div class="col-md-5">
+                                <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                            </div>
+                            <div class="col-md-6" style="padding: 0 20px 20px 20px;">
+                                <h3>Project Name</h3>
+                                <input type="text" value="Project A">
+                                <button class="button full">Save</button>
+                                <button class="button full">Clear</button>
+
+                                <h3>Image source</h3>
+                                <input type="text" value="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30">
+                                <button class="button full">Save</button>
+                                <button class="button full">Clear</button>
 
 
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Project Spec</h3>
+                        </div>
+                        <div class="panel-body" >
+                            <i style="color: black; font-size: 150px;" class="fa fa-file" aria-hidden="true" ></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blogs</h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Goals</h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="#">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Builds</h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
 
     </div>
 </body>
