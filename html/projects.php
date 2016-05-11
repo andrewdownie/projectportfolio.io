@@ -25,7 +25,7 @@
     <script src="/js/lib/bootstrap.min.js"></script>-->
 
     <script src="/js/lib/jquery-2.2.0.min.js"></script>
-    <script src="/js/documentManipulation.js"></script>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,19 +38,138 @@
 
     <script>
     $(document).ready(function(){
-        alert('project admin dood')
+
 
     });
 
     </script>
 
     <style>
+    #projects .crop-img{
+        object-fit: cover;
+    }
 
+    #projects .panel-heading{
+        background-color: white;
+        box-shadow: 2px 2px 2px #888888;
+        border: 1px solid #777;
+        border-bottom: 1px solid #ccc;
+    }
+    #projects .panel-body{
+        box-shadow: 2px 2px 2px #888888;
+        background-color: #eee;
+        border: 1px solid #777;
+        border-top: none;
+        height: 250px;
+    }
+    #projects .panel-body img{
+
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+    }
+
+    #projects .cover{
+
+      object-fit: cover;
+      width: 50px;
+      height: 100px;
+
+    }
     </style>
 </head>
 
 <body>
+    <!-- Page Content -->
+    <div class="container">
+        <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
+    </div>
 
+    <div class="container" id="projects">
+
+        <div class="row" style="margin-bottom: 12px;">
+            <div class="col-sm-4 col-md-4">
+                <button type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                </div>
+                <div class="panel-body" style="padding: 0; margin: 0;">
+                    <img src="https://picjumbo.imgix.net/HNCK0852.jp" alt="img y u no lod" style="width: 100%; min-width: 100%;">
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                </div>
+                <div class="panel-body" style="padding: 0; margin: 0;">
+                    <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod" style="width: 100%; min-width: 100%;">
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                </div>
+                <div class="panel-body" style="padding: 0; margin: 0;">
+                    <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod" style="width: 100%; min-width: 100%;">
+                </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                </div>
+                <div class="panel-body" style="padding: 0; margin: 0;">
+                    <img src="https://picjumbo.imgix.net/HNCK0852.jp" alt="img y u no lod" >
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                </div>
+                <div class="panel-body" style="padding: 0; margin: 0;">
+                    <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                </div>
+                <div class="panel-body" style="padding: 0; margin: 0;">
+                    <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
 </body>
-
 </html>

@@ -57,12 +57,13 @@
 
         #login-signup button{
             color: black;
-            background-color: #F0F0F0;
-            border: none;
+            background-color: #eee;
             padding: 4px 10px;
+            margin-top: 3px;
+            border: none;
         }
         #login-signup button:hover{
-            background-color: #D0D0D0;
+            background-color: #bbb;
         }
 
         #login-signup .row #signup{
@@ -131,8 +132,8 @@
                         </h4>
                         <input type="password">
                         <br/>
-                        <button>Login</button>
-                        <a href="#" style="padding-left: 20px;">Forgot password?</a>
+                        <button class="btn btn-primary">Login</button>
+                        <a href="#" style="padding-left: 8px;">Forgot password?</a>
                     </div>
                 </div>
             </div>
@@ -159,7 +160,7 @@
                         </h4>
                         <input type="password">
                         <br/>
-                        <button>Sign up</button>
+                        <button class="btn btn-primary">Sign up</button>
                     </div>
                 </div>
             </div>
