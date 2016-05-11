@@ -38,6 +38,9 @@
 
     <script>
     $(document).ready(function(){
+        $("#create-new").click(function(){
+            window.location = "/projects/project";
+        });
     });
     </script>
 
@@ -90,7 +93,7 @@
 
         <div class="row" style="margin-bottom: 12px;">
             <div class="col-sm-4 col-md-4">
-                <button type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
+                <button id="create-new" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
             </div>
         </div>
 
@@ -217,8 +220,7 @@
             </div>
 
 
-
-
+            
 
 
 

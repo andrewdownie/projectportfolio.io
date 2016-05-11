@@ -121,6 +121,21 @@
             margin-top: 15px;
             margin-bottom: 15px;
         }
+        #project .delete-btn{
+            height: 30px;
+            margin: 5;
+            margin-top: 15px;
+            padding: 0;
+            padding-left: 15px;
+            padding-right: 15px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #project .delete-btn:hover{
+            background-color: #f75c4c;
+        }
     </style>
 </head>
 
@@ -162,8 +177,9 @@
                                 <button class="button full">Save</button>
                                 <button class="button full">Clear</button>
 
-
-
+                                <div>
+                                    <button id="delete-project" type="button" class="delete-btn"><i class="fa fa-minus" aria-hidden="true"></i> Delete project</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -186,7 +202,7 @@
             </div>
 
             <div class="col-md-3">
-                <a href="#">
+                <a href="/projects/blogs">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Blogs</h3>
