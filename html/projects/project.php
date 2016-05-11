@@ -102,6 +102,25 @@
             width: 100%;
             height: 100%;
         }
+        #project .section-icon{
+            color: black;
+            font-size: 150px;
+
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        #project .spec-icon{
+            color: black;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+
+            font-size: 120px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
@@ -159,8 +178,8 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">Project Spec</h3>
                         </div>
-                        <div class="panel-body" >
-                            <i style="color: black; font-size: 150px;" class="fa fa-file" aria-hidden="true" ></i>
+                        <div class="panel-body">
+                            <i class="fa fa-file spec-icon" aria-hidden="true" ></i>
                         </div>
                     </div>
                 </a>
@@ -173,7 +192,7 @@
                             <h3 class="panel-title">Blogs</h3>
                         </div>
                         <div class="panel-body" >
-                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                            <i class="fa fa-pencil-square-o section-icon" aria-hidden="true" ></i>
                         </div>
                     </div>
                 </a>
@@ -186,7 +205,7 @@
                             <h3 class="panel-title">Goals</h3>
                         </div>
                         <div class="panel-body" >
-                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                            <i class="fa fa-check section-icon" aria-hidden="true" ></i>
                         </div>
                     </div>
                 </a>
@@ -199,7 +218,7 @@
                             <h3 class="panel-title">Builds</h3>
                         </div>
                         <div class="panel-body" >
-                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                            <i class="fa fa-home section-icon" aria-hidden="true" ></i>
                         </div>
                     </div>
                 </a>
