@@ -90,10 +90,18 @@
     </div>
 
     <div class="container" id="projects">
-
+        <div class = "page-header">
+            <h1>
+                Projects
+                <small>andrewdownie</small>
+            </h1>
+        </div>
         <div class="row" style="margin-bottom: 12px;">
+            <div class="col-sm-8 col-md-8">
+            </div>
+
             <div class="col-sm-4 col-md-4">
-                <button id="create-new" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
+                <button style="float: right;" id="create-new" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
             </div>
         </div>
 
@@ -220,7 +228,7 @@
             </div>
 
 
-            
+
 
 
 

@@ -178,7 +178,7 @@
                                 <button class="button full">Clear</button>
 
                                 <div>
-                                    <button id="delete-project" type="button" class="delete-btn"><i class="fa fa-minus" aria-hidden="true"></i> Delete project</button>
+                                    <button id="delete-project" type="button" class="delete-btn"><i class="fa fa-close" aria-hidden="true"></i> Delete project</button>
                                 </div>
                             </div>
                         </div>

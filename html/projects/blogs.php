@@ -38,12 +38,48 @@
 
     <script>
     $(document).ready(function(){
-
+        $("#create-new").click(function(){
+            window.location = "/editor";
+        });
     });
     </script>
 
     <style>
-
+    #projects .panel-heading{
+        background-color: white;
+        box-shadow: 2px 2px 2px #888888;
+        border: 1px solid #777;
+        border-bottom: 1px solid #ccc;
+    }
+    #projects .panel-body{
+        box-shadow: 2px 2px 2px #888888;
+        background-color: #eee;
+        border: 1px solid #777;
+        border-top: none;
+        height: 250px;
+        padding: 0;
+        margin: 0;
+    }
+    #projects .panel-body img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    #projects .info{
+        position: absolute;
+        bottom: 28px;
+        left: 25px;
+        color: white;
+        z-index: 1000;
+        text-shadow:    1px 0px black,
+                        0px 1px black,
+                        -1px 0px black,
+                        0px -1px black,
+                        1px 1px 1px black,
+                        1px -1px black,
+                        -1px 1px black,
+                        -1px -1px black;
+    }
     </style>
 </head>
 
@@ -54,7 +90,120 @@
     </div>
 
     <div class="container" id="projects">
-        This is blurgs
+        <div class = "page-header">
+            <h1>
+                Blogs
+                <small>andrewdownie</small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-4">
+                <button class="btn btn-link"><h3><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Project A</h3></button>
+            </div>
+            <div class="col-sm-4 col-md-4"></div>
+            <div class="col-sm-4 col-md-4">
+                <button style="float:right; margin-top: 26px;" id="create-new" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create new blog</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+
+            <div class="col-sm-6 col-md-4">
+                <a href="/projects/project">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blog 6 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-sm-6 col-md-4">
+                <a href="/projects/project">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blog 5 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-sm-6 col-md-4">
+                <a href="/projects/project">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blog 4 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-sm-6 col-md-4">
+                <a href="/projects/project">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blog 3 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod" >
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-sm-6 col-md-4">
+                <a href="/projects/project">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blog 2 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+            <div class="col-sm-6 col-md-4">
+                <a href="/projects/project">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Blog 1 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                        </div>
+                        <div class="panel-body" >
+                            <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+
+
+
+        </div>
     </div>
 </body>
 </html>
