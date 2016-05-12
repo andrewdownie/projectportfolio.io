@@ -49,9 +49,7 @@
             width: 100%;
             height: 100%;
         }
-        #project .height50{
-            height: 50px;
-        }
+
         #project input[type="text"]{
             margin-bottom: 10px;
             border: #999 1px solid;
@@ -133,6 +131,8 @@
             color: white;
             border: none;
             border-radius: 5px;
+            float: right;
+            margin-top: 22px;
         }
         #project .delete-btn:hover{
             background-color: #f75c4c;
@@ -140,6 +140,32 @@
         #project h3{
             margin-top: 15px;
         }
+
+        #project .date{
+            float: right;
+            padding-right: 20px;
+            font-size:12px;
+        }
+
+        #project .height50{
+            height: 50px;
+        }
+        @media (max-width: 387px){
+            #project .height50{
+                height: 65px;
+            }
+            #project .delete-btn{
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
+        }
+        @media (max-width: 991px){
+            #project .date{
+                float: left;
+            }
+        }
+
+
     </style>
 </head>
 
@@ -150,21 +176,33 @@
     </div>
 
     <div class="container" id="project">
-        <button class="btn btn-link" id="all-projects"><h3><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;All Projects</h3></button>
-        <button style="float: right; margin-top: 22px;" id="delete-project" type="button" class="delete-btn"><i class="fa fa-close" aria-hidden="true"></i> Delete project</button>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-link" style="float: left;" id="all-projects"><h3><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;All Projects</h3></button>
+                <button id="delete-project" type="button" class="delete-btn"><i class="fa fa-close" aria-hidden="true"></i> Delete project</button>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading height50">
                         <h1 class="panel-title">
-                            Project A
-                            <span style="float:right; font-size:12px;padding-right: 20px;">
-                                Modified: May 11th, 2016
-                            </span>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Project A
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <span class="date">
+                                        Modified: May 11th, 2016
+                                    </span>
 
-                            <span style="float:right; font-size:12px; padding-right: 20px;">
-                                Created: May 10th, 2016
-                            </span>
+                                    <span class="date">
+                                        Created: May 10th, 2016
+                                    </span>
+                                </div>
+                            </div>
                         </h1>
                     </div>
                     <div class="panel-body" >
