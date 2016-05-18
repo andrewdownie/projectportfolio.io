@@ -30,77 +30,117 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 
 
-    <script>
-    $(document).ready(function(){
-        //$("#login-signup i").toggle({ effect: "scale", direction: "horizontal" })
 
+    <!--
+    STYLE
+-->
+<style>
+#login-signup{
+    color: #444;
+}
+
+#login-signup i{
+    /*    display: none;
+    box-sizing: border-box;*/
+
+}
+
+#login-signup button{
+    color: black;
+    background-color: #eee;
+    padding: 4px 10px;
+    margin-top: 3px;
+    border: none;
+}
+#login-signup button:hover{
+    background-color: #bbb;
+}
+
+#login-signup .row #signup{
+    min-height: 350px;
+    height: 350px;
+}
+
+@media (max-width: 981px){
+    #login-signup #signup{
+        padding-top: 10px;
+        border-top: 1px #c0c0c0 solid;
+    }
+    #login-signup #login{
+        padding-bottom: 30px;
+    }
+}
+@media (min-width: 982px){
+    #login-signup #signup{
+        border-left: solid #bcbcbc 1px;
+    }
+}
+
+#login-signup h2{
+    padding-bottom: 20px;
+}
+#login-signup h4{
+    margin-bottom: 3px;
+}
+#login-signup input[type="text"],
+#login-signup input[type="password"]{
+    margin-bottom: 10px;
+    border: #999 1px solid;
+    width: 190px;
+    height: 25px;
+}
+
+</style>
+
+<?php
+if($_POST['action'] == "follow") {
+  /**
+   * we can pass any action like block, follow, unfollow, send PM....
+   * if we get a 'follow' action then we could take the user ID and create a SQL command
+   * but with no database, we can simply assume the follow action has been completed and return 'ok'
+  **/
+
+  echo "ok";
+}
+?>
+
+<!--
+SCRIPT
+-->
+<script>
+$(document).ready(function(){
+    $("#login-button").click(function(){
+        $.ajax({
+            url: 'http://projectportfolio.io/restful_api.php',
+            type: 'post',
+            data: {'action': 'follow', 'userid': '11239528343'},
+            success: function(data, status) {
+                alert('poo to the moon (and back)')
+
+                if(data == "ok") {
+                    $('#followbtncontainer').html('<p><em>Following!</em></p>');
+                    var numfollowers = parseInt($('#followercnt').html()) + 1;
+                    $('#followercnt').html(numfollowers);
+                }
+            },
+            error: function(xhr, desc, err) {
+                alert('no poo for u')
+                console.log(xhr);
+                console.log("Details: " + desc + "\nError:" + err);
+            }
+        }); // end ajax call
     });
 
-    </script>
 
-    <style>
-        #login-signup{
-            color: #444;
-        }
+});
 
-        #login-signup i{
-        /*    display: none;
-            box-sizing: border-box;*/
-
-        }
-
-        #login-signup button{
-            color: black;
-            background-color: #eee;
-            padding: 4px 10px;
-            margin-top: 3px;
-            border: none;
-        }
-        #login-signup button:hover{
-            background-color: #bbb;
-        }
-
-        #login-signup .row #signup{
-            min-height: 350px;
-            height: 350px;
-        }
-
-        @media (max-width: 981px){
-            #login-signup #signup{
-                padding-top: 10px;
-                border-top: 1px #c0c0c0 solid;
-            }
-            #login-signup #login{
-                padding-bottom: 30px;
-            }
-        }
-        @media (min-width: 982px){
-            #login-signup #signup{
-                border-left: solid #bcbcbc 1px;
-            }
-        }
-
-        #login-signup h2{
-            padding-bottom: 20px;
-        }
-        #login-signup h4{
-            margin-bottom: 3px;
-        }
-        #login-signup input[type="text"],
-        #login-signup input[type="password"]{
-            margin-bottom: 10px;
-            border: #999 1px solid;
-            width: 190px;
-            height: 25px;
-        }
-
-    </style>
+</script>
 </head>
 
 <body>
@@ -132,17 +172,17 @@
                         </h4>
                         <input type="password">
                         <br/>
-                        <button class="btn btn-primary">Login</button>
+                        <button class="btn btn-primary" id="login-button">Login</button>
                         <a href="#" style="padding-left: 8px;">Forgot password?</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-5" id="signup">
                 <div style="margin-left: 30px;">
-                <h2>
-                    <i class="fa fa-user-plus"></i>
-                    Sign up
-                </h2>
+                    <h2>
+                        <i class="fa fa-user-plus"></i>
+                        Sign up
+                    </h2>
                     <div style="margin-left: 30px;">
                         <h4>
                             <i class="fa fa-user"></i>
