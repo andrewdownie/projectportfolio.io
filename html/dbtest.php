@@ -3,6 +3,7 @@
 
 <head>
     <?php include "/etc/apache2/dbconf.php" ?>
+    <?php include "/var/www/projectportfolio/backend/organize_me.php" ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +23,7 @@
 
 <body>
     <?php include "/var/www/projectportfolio/navbar/navbar.php";?>
-
+    <?php poop(); ?>
 
     <!-- Page Content -->
     <div class="container">
