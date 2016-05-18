@@ -98,32 +98,23 @@
 
 </style>
 
-<?php
-if($_POST['action'] == "follow") {
-  /**
-   * we can pass any action like block, follow, unfollow, send PM....
-   * if we get a 'follow' action then we could take the user ID and create a SQL command
-   * but with no database, we can simply assume the follow action has been completed and return 'ok'
-  **/
-
-  echo "ok";
-}
-?>
-
 <!--
 SCRIPT
 -->
 <script>
+var request
 $(document).ready(function(){
     $("#login-button").click(function(){
         $.ajax({
-            url: 'http://projectportfolio.io/restful_api.php',
+            url: '/restful_api.php',
             type: 'post',
-            data: {'action': 'follow', 'userid': '11239528343'},
+            data: {'meow': '123', 'userid': '11239528343'},
             success: function(data, status) {
-                alert('poo to the moon (and back)')
+            //    alert('poo to the moon (and back)')
+                alert("Data: (" + data + ")")
 
                 if(data == "ok") {
+                    alert('data ok')
                     $('#followbtncontainer').html('<p><em>Following!</em></p>');
                     var numfollowers = parseInt($('#followercnt').html()) + 1;
                     $('#followercnt').html(numfollowers);
@@ -135,9 +126,10 @@ $(document).ready(function(){
                 console.log("Details: " + desc + "\nError:" + err);
             }
         }); // end ajax call
+
+
+
     });
-
-
 });
 
 </script>
