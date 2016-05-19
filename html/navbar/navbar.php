@@ -69,6 +69,9 @@
                     <li>
                         <a href="/projects/browse-projects">Projects</a>
                     </li>
+                    <li>
+                        <a href="#"><?php echo $_COOKIE['session']; ?> </a>
+                    </li>
                 </ul>
 
                 <div class="pull-right">

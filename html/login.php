@@ -124,7 +124,7 @@ $(document).ready(function(){
                 if(data === "login-success"){
                     $("#login-invalid-email-password").hide();
                 }
-                else if(data === "login-failure"){
+                else if(data === "login-invalid"){
                     $("#login-invalid-email-password").show();
                 }
                 else{
@@ -158,16 +158,16 @@ $(document).ready(function(){
 
                 <div style="margin-left: 30px;">
                     <h2>
-                        <i class="fa fa-sign-in"></i>
+                        <i class="fa fa-user"></i>
                         Login
                     </h2>
                     <div id="login-invalid-email-password">
-                        Invalid email or credentials entered
-                        <br> example login: user@example, pass: 123
+                        Invalid email or password entered
+                        <br> <span class="small">-- example login: user@example, pass: 123 --</span>
                     </div>
                     <div style="margin-left: 30px;">
                         <h4>
-                            <i class="fa fa-user"></i>
+                            <i class="fa fa-at"></i>
                             Email
                         </h4>
                         <input type="text" id="login-email">
@@ -193,13 +193,13 @@ $(document).ready(function(){
                     </h2>
                     <div style="margin-left: 30px;">
                         <h4>
-                            <i class="fa fa-user"></i>
-                            Username
+                            <i class="fa fa-at"></i>
+                            Email
                         </h4>
                         <input type="text">
                         <h4>
                             <i class="fa fa-at"></i>
-                            Email
+                            Confirm Email
                         </h4>
                         <input type="text">
                         <h4>
