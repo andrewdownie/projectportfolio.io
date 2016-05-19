@@ -11,7 +11,15 @@ else if($_POST['meow'] === "456"){
     echo "second option";
 }
 else{
-    echo $_POST['meow'];
+    //echo "fart nugget";
+    $arrMagic = "";
+    foreach ($_POST as $key => $entry)
+    {
+        $arrMagic .= $key . ": " . $entry . "<br>";
+    }
+    $arrMagic .= "<h1>pee</h1>";
+    //echo $arrMagic;
+    print_r($_POST['meow']);
 }
 
 

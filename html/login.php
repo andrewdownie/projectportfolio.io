@@ -106,11 +106,14 @@ var request
 $(document).ready(function(){
     $("#login-button").click(function(){
         $.ajax({
-            url: '/restful_api.php',
-            type: 'post',
-            data: {'meow': '123', 'userid': '11239528343'},
+            url: '/restful_api',
+            type: "POST",
+            data: {
+                "meow": "456",
+                "fart": "fromDaButt"
+            },
             success: function(data, status) {
-            //    alert('poo to the moon (and back)')
+                //    alert('poo to the moon (and back)')
                 alert("Data: (" + data + ")")
 
                 if(data == "ok") {
