@@ -24,17 +24,20 @@ No functions, just four giant switches.
 //===== POST -------------------------------------------------------------------
 //=====
 if($_SERVER['REQUEST_METHOD'] == "POST") {
-    switch($_POST['function']){
-        case "login":
+    $function = $_POST['function'];
+
+    if($function === 'login'){
         login($_POST['email'], $_POST['password']);
-        break;
-        case "logout":
+
+    }
+    else if($function === 'logout'){
         logout();
-        break;
-        case "signup":
+
+    }
+    else if($function === 'signup'){
         echo "k enter info here pls";
-        break;
-        default:
+    }
+    else{
         echo "ARE YOU A WIZARD?!\n     (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n\n Unrecognized function, how did you do that?";
     }
 

@@ -8,7 +8,7 @@ $(document).ready(function(){
             },
             success: function(data) {
                 if(data === "logout-success"){
-                    window.location = "index"
+                    window.location = "/index"
                 }
                 else{
                     alert("Something went wrong\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")

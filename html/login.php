@@ -122,7 +122,7 @@ $(document).ready(function(){
             success: function(data) {
                 if(data === "login-success"){
                     $("#login-invalid-email-password").hide();
-                    window.location = "index"
+                    window.location = "/index"
                 }
                 else if(data === "login-invalid"){
                     $("#login-invalid-email-password").show();
