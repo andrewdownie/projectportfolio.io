@@ -96,6 +96,13 @@
     height: 25px;
 }
 
+#login-invalid-email-password{
+    display: none;
+    color: red;
+    padding-left: 30px;
+    padding-top: 0px;
+}
+
 </style>
 
 <!--
@@ -109,13 +116,20 @@ $(document).ready(function(){
             url: '/ajax_api',
             type: "POST",
             data: {
-                "function": "f",
+                "function": "login",
                 "email": $("#login-email").val(),
                 "password": $("#login-password").val()
             },
             success: function(data) {
-                //    alert('poo to the moon (and back)')
-                alert(data)
+                if(data === "login-success"){
+                    $("#login-invalid-email-password").hide();
+                }
+                else if(data === "login-failure"){
+                    $("#login-invalid-email-password").show();
+                }
+                else{
+                    alert("Something went wrong\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                }
             },
             error: function(xhr, desc, err) {
                 alert('There was an error :( ')
@@ -141,12 +155,16 @@ $(document).ready(function(){
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-5" id="login">
+
                 <div style="margin-left: 30px;">
                     <h2>
                         <i class="fa fa-sign-in"></i>
-
                         Login
                     </h2>
+                    <div id="login-invalid-email-password">
+                        Invalid email or credentials entered
+                        <br> example login: user@example, pass: 123
+                    </div>
                     <div style="margin-left: 30px;">
                         <h4>
                             <i class="fa fa-user"></i>
@@ -158,11 +176,14 @@ $(document).ready(function(){
                             Password
                         </h4>
                         <input type="password" id="login-password">
+
                         <br/>
                         <button class="btn btn-primary" id="login-button">Login</button>
                         <a href="#" style="padding-left: 8px;">Forgot password?</a>
                     </div>
                 </div>
+
+
             </div>
             <div class="col-md-5" id="signup">
                 <div style="margin-left: 30px;">
