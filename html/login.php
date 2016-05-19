@@ -106,27 +106,19 @@ var request
 $(document).ready(function(){
     $("#login-button").click(function(){
         $.ajax({
-            url: '/restful_api',
+            url: '/ajax_api',
             type: "POST",
             data: {
-                "meow": "456",
-                "fart": "fromDaButt"
+                "function": "login",
+                "email": $("#login-email").val(),
+                "password": $("#login-password").val()
             },
-            success: function(data, status) {
+            success: function(data) {
                 //    alert('poo to the moon (and back)')
                 alert("Data: (" + data + ")")
-
-                if(data == "ok") {
-                    alert('data ok')
-                    $('#followbtncontainer').html('<p><em>Following!</em></p>');
-                    var numfollowers = parseInt($('#followercnt').html()) + 1;
-                    $('#followercnt').html(numfollowers);
-                }
             },
             error: function(xhr, desc, err) {
-                alert('no poo for u')
-                console.log(xhr);
-                console.log("Details: " + desc + "\nError:" + err);
+                alert('There was an error :( ')
             }
         }); // end ajax call
 
@@ -158,14 +150,14 @@ $(document).ready(function(){
                     <div style="margin-left: 30px;">
                         <h4>
                             <i class="fa fa-user"></i>
-                            Username or email
+                            Email
                         </h4>
-                        <input type="text">
+                        <input type="text" id="login-email">
                         <h4>
                             <i class="fa fa-asterisk"></i>
                             Password
                         </h4>
-                        <input type="password">
+                        <input type="password" id="login-password">
                         <br/>
                         <button class="btn btn-primary" id="login-button">Login</button>
                         <a href="#" style="padding-left: 8px;">Forgot password?</a>
