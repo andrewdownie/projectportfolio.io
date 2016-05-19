@@ -109,13 +109,13 @@ $(document).ready(function(){
             url: '/ajax_api',
             type: "POST",
             data: {
-                "function": "login",
+                "function": "f",
                 "email": $("#login-email").val(),
                 "password": $("#login-password").val()
             },
             success: function(data) {
                 //    alert('poo to the moon (and back)')
-                alert("Data: (" + data + ")")
+                alert(data)
             },
             error: function(xhr, desc, err) {
                 alert('There was an error :( ')

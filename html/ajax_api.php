@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         echo "k enter info here pls";
         break;
         default:
-        echo "Something bad :(";
+        echo "ARE YOU A WIZARD?!\n     (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n\n Unrecognized function, how did you do that?";
     }
 
     return;
