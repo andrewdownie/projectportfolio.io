@@ -1,0 +1,25 @@
+//=====
+//===== CREATE TABLE -----------------------------------------------------------
+//=====
+CREATE TABLE users
+(
+    email varchar(255),
+    password varchar(255),
+    salt varchar(255),
+    PPSESSID varchar(255),
+    PPSESSID_expiry date,
+    login_status varchar(255),
+    account_status varchar(255)
+);
+
+//=====
+//===== INSERT INTO TABLE ------------------------------------------------------
+//=====
+INSERT INTO user (email, password, salt, PPSESSID, PPSESSID_expiry, login_status, account_status)
+VALUES ($email, $password, $salt, null, null, "logged-out", "unverified");
+
+//=====
+//===== UPDATE login_status ----------------------------------------------------
+//=====
+INSERT INTO user (email, password, PPSESSID, PPSESSID_expiry, login_status, account_status)
+VALUES ($email, $password, null, null, "logged-out", "unverified");

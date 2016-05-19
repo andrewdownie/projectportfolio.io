@@ -102,7 +102,10 @@
     padding-left: 30px;
     padding-top: 0px;
 }
-
+#login-loading,
+#signup-loading{
+    display: none;
+}
 </style>
 
 <!--
@@ -111,6 +114,8 @@ SCRIPT
 <script>
 $(document).ready(function(){
     $("#login-button").click(function(){
+        $("#login-loading").show();
+
         $.ajax({
             url: '/ajax_api',
             type: "POST",
@@ -120,6 +125,7 @@ $(document).ready(function(){
                 "password": $("#login-password").val()
             },
             success: function(data) {
+                alert(data)
                 if(data === "login-success"){
                     $("#login-invalid-email-password").hide();
                     window.location = "/index"
@@ -133,6 +139,9 @@ $(document).ready(function(){
             },
             error: function(xhr, desc, err) {
                 alert('There was an error :( ')
+            },
+            complete: function(){
+                $("#login-loading").hide();
             }
         }); // end ajax call
 
@@ -160,6 +169,8 @@ $(document).ready(function(){
                     <h2>
                         <i class="fa fa-user"></i>
                         Login
+                        <img id="login-loading" src="http://i.imgur.com/G0Ot284.gif"/>
+
                     </h2>
                     <div id="login-invalid-email-password">
                         Invalid email or password entered
@@ -190,6 +201,7 @@ $(document).ready(function(){
                     <h2>
                         <i class="fa fa-user-plus"></i>
                         Sign up
+                        <img id="signup-loading" src="http://i.imgur.com/G0Ot284.gif"/>
                     </h2>
                     <div style="margin-left: 30px;">
                         <h4>

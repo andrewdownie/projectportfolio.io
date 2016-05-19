@@ -36,9 +36,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     }
     else if($function === 'signup'){
         echo "k enter info here pls";
+        
     }
     else{
         echo "ARE YOU A WIZARD?!\n     (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n\n Unrecognized function, how did you do that?";
+
     }
 
     return;

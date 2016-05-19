@@ -1,0 +1,3 @@
+$rds_url                = 'onmyown.csrytxfcb9xf.us-east-1.rds.amazonaws.com';
+$rds_database           = 'projectportfolio';
+$rds_testtable          = "meow";
