@@ -1,8 +1,6 @@
 <?php
 function login($email, $password){
-    echo "HI".$email.$password;
-    return;
-
+    
     if($email === "user@example" && $password === "123"){
 
         $session_value = md5($password.time());

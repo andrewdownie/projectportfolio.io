@@ -115,13 +115,14 @@ $(document).ready(function(){
             url: '/ajax_api',
             type: "POST",
             data: {
-                "function": "login"
+                "function": "login",
+                "email": $("#login-email").val(),
+                "password": $("#login-password").val()
             },
             success: function(data) {
-                alert(data);
-
                 if(data === "login-success"){
                     $("#login-invalid-email-password").hide();
+                    window.location = "index"
                 }
                 else if(data === "login-invalid"){
                     $("#login-invalid-email-password").show();

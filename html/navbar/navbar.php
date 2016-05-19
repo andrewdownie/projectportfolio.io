@@ -33,9 +33,8 @@
                     "function": "logout"
                 },
                 success: function(data) {
-                    alert(data)
                     if(data === "logout-success"){
-                        window.location = "projectportfolio.io/login"
+                        window.location = "index"
                     }
                     else{
                         alert("Something went wrong\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
