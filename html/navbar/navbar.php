@@ -23,6 +23,32 @@
     <script src="/js/lib/jquery-2.2.0.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
 
+    <script>
+    $(document).ready(function(){
+        $("#navbar-logout").click(function(){
+            $.ajax({
+                url: '/ajax_api',
+                type: "POST",
+                data: {
+                    "function": "logout"
+                },
+                success: function(data) {
+                    alert(data)
+                    if(data === "logout-success"){
+                        window.location = "projectportfolio.io/login"
+                    }
+                    else{
+                        alert("Something went wrong\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                    }
+                },
+                error: function(xhr, desc, err) {
+                    alert('There was an error :( ')
+                }
+            }); // end ajax call
+        });
+    });
+
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -70,14 +96,22 @@
                         <a href="/projects/browse-projects">Projects</a>
                     </li>
                     <li>
-                        <a href="#"><?php echo $_COOKIE['session']; ?> </a>
+                        <a href="#"> <?php echo $_COOKIE['PPSESSID']; ?> </a>
                     </li>
                 </ul>
 
                 <div class="pull-right">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="/login">Login</a>
+                            <?php
+                                if(isset($_COOKIE['PPSESSID'])){
+                                    echo "<a id='navbar-logout' href='#'>Logout</a>";
+                                }
+                                else{
+                                    echo "<a href='/login'>Login</a>";
+                                }
+                             ?>
+
                         </li>
                     </ul>
                 </div>

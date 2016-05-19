@@ -1,5 +1,5 @@
 <?php
-include ("/var/www/projectportfolio/backend/auth.php");
+include ("/var/www/projectportfolio/backend/_backend_includes.php");
 /*------------------------------------------------------------------------------
 DOCUMENT NAME: ajax_api.php
 DATE  CREATED: 2016-05-18
@@ -27,6 +27,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     switch($_POST['function']){
         case "login":
         login($_POST['email'], $_POST['password']);
+        break;
+        case "logout":
+        logout();
         break;
         case "signup":
         echo "k enter info here pls";

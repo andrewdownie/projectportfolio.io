@@ -109,18 +109,17 @@
 SCRIPT
 -->
 <script>
-var request
 $(document).ready(function(){
     $("#login-button").click(function(){
         $.ajax({
             url: '/ajax_api',
             type: "POST",
             data: {
-                "function": "login",
-                "email": $("#login-email").val(),
-                "password": $("#login-password").val()
+                "function": "login"
             },
             success: function(data) {
+                alert(data);
+
                 if(data === "login-success"){
                     $("#login-invalid-email-password").hide();
                 }
