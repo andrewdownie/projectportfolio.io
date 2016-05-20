@@ -1,7 +1,5 @@
 <?php
 function login($email, $password){
-    print_r (user_exists("user@example")); return;
-
 
     if($email === "user@example" && $password === "123"){
 
@@ -25,7 +23,7 @@ function login($email, $password){
     else{
         echo "login-invalid";
     }
-    //echo "Email: ".$email." Password: ".$password;
+
 }
 
 function logout(){
@@ -40,7 +38,7 @@ function logout(){
 
 
 function valid_login($cookie){
-
+    return False;
 }
 
 function expire_ppsessid(){

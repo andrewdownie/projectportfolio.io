@@ -26,6 +26,7 @@
 
     <script src="/js/lib/jquery-2.2.0.min.js"></script>
     <script src="/js/documentManipulation.js"></script>
+    <script src="/js/login.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -108,49 +109,7 @@
 }
 </style>
 
-<!--
-SCRIPT
--->
-<script>
-$(document).ready(function(){
-    $("#login-button").click(function(){
-        $("#login-loading").show();
 
-        $.ajax({
-            url: '/ajax_api',
-            type: "POST",
-            data: {
-                "function": "login",
-                "email": $("#login-email").val(),
-                "password": $("#login-password").val()
-            },
-            success: function(data) {
-                alert(data)
-                if(data === "login-success"){
-                    $("#login-invalid-email-password").hide();
-                    window.location = "/index"
-                }
-                else if(data === "login-invalid"){
-                    $("#login-invalid-email-password").show();
-                }
-                else{
-                    alert("Something went wrong\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
-                }
-            },
-            error: function(xhr, desc, err) {
-                alert('There was an error :( ')
-            },
-            complete: function(){
-                $("#login-loading").hide();
-            }
-        }); // end ajax call
-
-
-
-    });
-});
-
-</script>
 </head>
 
 <body>
@@ -220,7 +179,7 @@ $(document).ready(function(){
                         </h4>
                         <input type="password">
                         <br/>
-                        <button class="btn btn-primary">Sign up</button>
+                        <button class="btn btn-primary" id="signup-button">Sign up</button>
                     </div>
                 </div>
             </div>
