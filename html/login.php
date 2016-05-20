@@ -97,7 +97,8 @@
     height: 25px;
 }
 
-#login-invalid-email-password{
+#login-invalid-email-password,
+#signup-emails-dont-match{
     display: none;
     color: red;
     padding-left: 30px;
@@ -162,24 +163,28 @@
                         Sign up
                         <img id="signup-loading" src="http://i.imgur.com/G0Ot284.gif"/>
                     </h2>
+
                     <div style="margin-left: 30px;">
                         <h4>
                             <i class="fa fa-at"></i>
                             Email
                         </h4>
-                        <input type="text">
+                        <input id="signup-email" type="text">
                         <h4>
                             <i class="fa fa-at"></i>
                             Confirm Email
                         </h4>
-                        <input type="text">
+                        <input id="signup-confirm-email" type="text">
                         <h4>
                             <i class="fa fa-asterisk"></i>
                             Password
                         </h4>
-                        <input type="password">
+                        <input id="signup-password" type="password">
                         <br/>
                         <button class="btn btn-primary" id="signup-button">Sign up</button>
+                        <div id="signup-emails-dont-match">
+                            Emails must match
+                        </div>
                     </div>
                 </div>
             </div>

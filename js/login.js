@@ -4,7 +4,14 @@ $(document).ready(function(){
     });
 
 
-    //check if emails match
+    $("#signup-email, #signup-confirm-email").on('input',function(e){
+        if($("#signup-email").val() == $("#signup-confirm-email").val()){
+            $("#signup-emails-dont-match").hide();
+        }
+        else{
+            $("#signup-emails-dont-match").show();
+        }
+    });
 
     $("#signup-button").click(function(){
         ajaxcall_signup();
@@ -28,7 +35,7 @@ function ajaxcall_login(){
             "password": $("#login-password").val()
         },
         success: function(data) {
-            alert(data)
+            //alert(data)
             if(data === "login-success"){
                 $("#login-invalid-email-password").hide();
                 window.location = "/index"
@@ -37,7 +44,7 @@ function ajaxcall_login(){
                 $("#login-invalid-email-password").show();
             }
             else{
-                alert("Something went wrong\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                alert("Unable to connect\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
             }
         },
         error: function(xhr, desc, err) {
@@ -61,20 +68,21 @@ function ajaxcall_signup(){
         type: "POST",
         data: {
             "function": "signup",
-            "email": $("#login-email").val(),
-            "password": $("#login-password").val()
+            "email": $("#signup-email").val(),
+            "password": $("#signup-password").val()
         },
         success: function(data) {
-            alert(data)
+            //alert(data)
+
             if(data === "login-success"){
-                $("#login-invalid-email-password").hide();
+                //$("#signup-emails-dont-match").hide();
                 window.location = "/index"
             }
             else if(data === "login-invalid"){
-                $("#login-invalid-email-password").show();
+                //$("#login-invalid-email-password").show();
             }
             else{
-                alert("Something went wrong\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                alert("Unable to connect\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
             }
         },
         error: function(xhr, desc, err) {

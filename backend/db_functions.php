@@ -28,7 +28,7 @@ function create_user($email, $password){
     $password = escape($password);
 
     if(user_exists($email) === True){
-        return;
+        return False;
     }
 
     $salt = generate_string().'projectportfolio'.time();
