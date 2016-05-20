@@ -7,9 +7,11 @@ $(document).ready(function(){
     $("#signup-email, #signup-confirm-email").on('input',function(e){
         if($("#signup-email").val() == $("#signup-confirm-email").val()){
             $("#signup-emails-dont-match").hide();
+            $("#signup-button").show();
         }
         else{
             $("#signup-emails-dont-match").show();
+            $("#signup-button").hide();
         }
     });
 
@@ -24,6 +26,9 @@ $(document).ready(function(){
 //===== ajaxcall_login ---------------------------------------------------------
 //=====
 function ajaxcall_login(){
+    if($("#login-email").val() == "" || $("#login-password").val() == ""){
+        return;
+    }
     $("#login-loading").show();
 
     $.ajax({
@@ -44,11 +49,11 @@ function ajaxcall_login(){
                 $("#login-invalid-email-password").show();
             }
             else{
-                alert("Unable to connect\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
             }
         },
         error: function(xhr, desc, err) {
-            alert('No response from server :( ')
+            alert('No response from server >:( ')
         },
         complete: function(){
             $("#login-loading").hide();
@@ -61,6 +66,10 @@ function ajaxcall_login(){
 //===== ajaxcall_signup --------------------------------------------------------
 //=====
 function ajaxcall_signup(){
+    if($("#signup-email").val() == "" || $("#signup-password").val() == ""){
+        return;
+    }
+
     $("#signup-loading").show();
 
     $.ajax({
@@ -74,19 +83,22 @@ function ajaxcall_signup(){
         success: function(data) {
             //alert(data)
 
-            if(data === "login-success"){
+            if(data === "signup-success"){
                 //$("#signup-emails-dont-match").hide();
                 window.location = "/index"
             }
-            else if(data === "login-invalid"){
-                //$("#login-invalid-email-password").show();
+            else if(data === "signup-failure"){
+                alert("There was a problem signing you up :( Maybe try again later?")
+            }
+            else if(data === "signup-exists"){
+                alert("An account with that email already exists")
             }
             else{
-                alert("Unable to connect\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                alert("Unexpect response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
             }
         },
         error: function(xhr, desc, err) {
-            alert('No response from server :( ')
+            alert('No response from server >:( ')
         },
         complete: function(){
             $("#signup-loading").hide();

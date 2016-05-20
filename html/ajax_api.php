@@ -11,7 +11,7 @@ This is the file for ajax api calls to go to. Once the call is here, the
 call will be redirected to the appropriate backend function.
 --------------------------------------------------------------------------------
 FUNCTION LIST:
-No functions, just four giant switches.
+No functions, just a giant if statement.
 ------------------------------------------------------------------------------*/
 
 //=====

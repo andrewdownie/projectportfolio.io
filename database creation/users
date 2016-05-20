@@ -15,11 +15,11 @@ CREATE TABLE users
 //=====
 //===== INSERT INTO TABLE ------------------------------------------------------
 //=====
-INSERT INTO user (email, password, salt, PPSESSID, PPSESSID_expiry, login_status, account_status)
+INSERT INTO users (email, password, salt, PPSESSID, PPSESSID_expiry, login_status, account_status)
 VALUES ($email, $password, $salt, null, null, "logged-out", "unverified");
 
 //=====
 //===== UPDATE login_status ----------------------------------------------------
 //=====
-INSERT INTO user (email, password, PPSESSID, PPSESSID_expiry, login_status, account_status)
+INSERT INTO users (email, password, PPSESSID, PPSESSID_expiry, login_status, account_status)
 VALUES ($email, $password, null, null, "logged-out", "unverified");
