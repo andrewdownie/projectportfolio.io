@@ -175,11 +175,11 @@
                             Confirm Email
                         </h4>
                         <input id="signup-confirm-email" type="text">
-                        <h4>
+                    <!--    <h4>
                             <i class="fa fa-asterisk"></i>
                             Password
                         </h4>
-                        <input id="signup-password" type="password">
+                        <input id="signup-password" type="password">-->
                         <br/>
                         <button class="btn btn-primary" id="signup-button">Sign up</button>
                         <div id="signup-emails-dont-match">
