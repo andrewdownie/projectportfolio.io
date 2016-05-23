@@ -1,115 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<?php include("head.php"); ?>
+
+    <title>Login - ProjectPortfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Editor: ProjectPortfolio</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <!-- Hint.css for hover tooltip text -->
-    <link rel="stylesheet" href="/css/hint.css">
-
-    <!-- Custom CSS-->
-    <link href="/css/navbar.css" rel="stylesheet">
-    <link href="/css/styles.css" rel="stylesheet">
-
-    <!-- REQUIRED INCLUDES (SHOULD BE IN NAV BAR)
-    <script src="/js/lib/jquery-2.2.0.min.js"></script>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/js/lib/bootstrap.min.js"></script>-->
-
-    <script src="/js/lib/jquery-2.2.0.min.js"></script>
-    <script src="/js/documentManipulation.js"></script>
+    <link href="/css/login.css" rel="stylesheet">
     <script src="/js/login.js"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
-
-
-    <!--
-    STYLE
--->
-<style>
-#login-signup{
-    color: #444;
-}
-
-#login-signup i{
-    /*    display: none;
-    box-sizing: border-box;*/
-
-}
-
-#login-signup button{
-    color: black;
-    background-color: #eee;
-    padding: 4px 10px;
-    margin-top: 3px;
-    border: none;
-}
-#login-signup button:hover{
-    background-color: #bbb;
-}
-
-#login-signup .row #signup{
-    min-height: 350px;
-    height: 350px;
-}
-
-@media (max-width: 981px){
-    #login-signup #signup{
-        padding-top: 10px;
-        border-top: 1px #c0c0c0 solid;
-    }
-    #login-signup #login{
-        padding-bottom: 30px;
-    }
-}
-@media (min-width: 982px){
-    #login-signup #signup{
-        border-left: solid #bcbcbc 1px;
-    }
-}
-
-#login-signup h2{
-    padding-bottom: 20px;
-}
-#login-signup h4{
-    margin-bottom: 3px;
-}
-#login-signup input[type="text"],
-#login-signup input[type="password"]{
-    margin-bottom: 10px;
-    border: #999 1px solid;
-    width: 190px;
-    height: 25px;
-}
-
-#login-invalid-email-password,
-#signup-emails-dont-match{
-    display: none;
-    color: red;
-    padding-left: 30px;
-    padding-top: 0px;
-}
-#login-loading,
-#signup-loading{
-    display: none;
-}
-</style>
-
 
 </head>
 

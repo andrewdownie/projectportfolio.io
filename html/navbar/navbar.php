@@ -20,9 +20,7 @@
     <link href="/css/navbar.css" rel="stylesheet">
 
     <!-- COMMON LIBRARIES -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/js/lib/jquery-2.2.0.min.js"></script>
-    <script src="/js/lib/bootstrap.min.js"></script>
+
 
     <script src="/js/navbar/logout.js"></script>
 
