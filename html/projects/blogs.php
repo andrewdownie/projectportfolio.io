@@ -33,7 +33,7 @@
             <div class="col-sm-12 col-md-12">
                 <button class="btn btn-link" id="back-to-project"><h3><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Project A</h3></button>
 
-                <button style="float:right; margin-top: 26px;" id="create-new" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create new blog</button>
+                <button class="header-button btn btn-success" id="create-new" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Create new blog</button>
             </div>
         </div>
 
@@ -42,11 +42,11 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <button class="card-edit-button"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Blog 6 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Blog 6 <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
@@ -58,11 +58,11 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <button class="card-edit-button"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Blog 5 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Blog 5 <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
@@ -74,11 +74,11 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <button class="card-edit-button"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Blog 4 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Blog 4 <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
@@ -90,11 +90,11 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <button class="card-edit-button"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Blog 3 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Blog 3 <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod" >
@@ -106,11 +106,11 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <button class="card-edit-button"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Blog 2 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Blog 2 <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
@@ -122,11 +122,11 @@
 
 
             <div class="col-sm-6 col-md-4">
-                <button class="editButton"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
+                <button class="card-edit-button"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Edit</button>
                 <a href="/projects/blog">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Blog 1 <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Blog 1 <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">

@@ -29,13 +29,13 @@
         <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
     </div>
 
-    <div class="container-fluid" style="margin-top: -10px;">
+    <div class="container-fluid" class="margin-top-m10;">
         <div class="row">
 
-            <div class="col-sm-2 col-xs-12 editor-tools-col " style="position:fixed; z-index: 99999;  border-top: 1px white solid;">
-                <div style="padding-top: 10px;"></div>
+            <div class="col-sm-2 col-xs-12" id="editor-tools-col">
+                <div class="padding-top-10;"></div>
 
-                <div style="width: 100%;"class="hidden-xs"><a id="editor-tools" class="button-link"><i class="fa fa-folder-open"></i> Editor Tools</a></div>
+                <div class="width-100; hidden-xs"><a id="editor-tools" class="button-link"><i class="fa fa-folder-open"></i> Editor Tools</a></div>
 
                 <?php include "/var/www/projectportfolio/html/editor-tools/addpad.html";?>
                 <div class="visible-lg">
@@ -58,7 +58,7 @@
 
     <div class="container">
         <div class="row">
-            <div style="padding-top: 10px;" ></div>
+            <div class="padding-top-10;" ></div>
             <div class="col-md-8 col-sm-10 col-xs-12 col-sm-push-2" id="content-area">
                 <p id="blog-title" contenteditable="true">Page Title</p>
             </div>

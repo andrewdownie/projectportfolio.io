@@ -29,12 +29,12 @@
                 <small>andrewdownie</small>
             </h1>
         </div>
-        <div class="row" style="margin-bottom: 12px;">
+        <div class="row" style="margin-bottom: 12px">
             <div class="col-sm-8 col-md-8">
             </div>
 
             <div class="col-sm-4 col-md-4">
-                <button style="float: right;" id="create-new" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
+                <button class="header-button btn btn-success" id="create-new" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
             </div>
         </div>
 
@@ -47,7 +47,7 @@
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Project A <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
@@ -68,7 +68,7 @@
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Project A <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
@@ -89,7 +89,7 @@
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Project A <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
@@ -110,7 +110,7 @@
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Project A <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod" >
@@ -131,7 +131,7 @@
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Project A <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
@@ -152,7 +152,7 @@
                 <a href="/projects/project">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Project A <span style="float:right; font-size:12px;">May 10th, 2016</span></h3>
+                            <h3 class="panel-title">Project A <span class="card-date">May 10th, 2016</span></h3>
                         </div>
                         <div class="panel-body" >
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">

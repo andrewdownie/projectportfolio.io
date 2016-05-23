@@ -13,8 +13,14 @@ img[contenteditable=true]:hover{
 
 @media (max-width: 844px){
     .editortools-topspace{
-        padding-top: 85px;/*Pads are stack one by one at this point, need to match the number of pads there are here.*/
+        padding-top: 85px;
     }
+}
+
+#editor-tools-col{
+    position:fixed;
+    z-index: 99999;
+    border-top: 1px white solid;"
 }
 
 @media (max-width: 767px){
@@ -27,7 +33,7 @@ img[contenteditable=true]:hover{
         flex-grow: 100;
     }
     .editor-tools-col{
-         display: flex;
+        display: flex;
     }
 }
 @media (min-width: 768px){

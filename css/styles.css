@@ -1,7 +1,3 @@
-/*
-A file for placing general styles for the projectportfolio.io website
-*/
-
 .button-link{
     cursor: pointer;
     font-size: 15px;
@@ -20,12 +16,40 @@ html, body{/*TODO: move this to the navbar*/
     margin-bottom: 10px;
 }
 
-#stylepad .titlebar,
-#addpad .titlebar,
-#blogpad .titlebar{
-    /*color: #48c;*/
+/*login.php*/
+.margin-left-30{
+    margin-left: 30px;
 }
-/*#337ab7  <- the regular blue*/
-/*#539ad7  <- lighter variant of the above*/
 
-/**/
+/*editor.php*/
+.margin-top-m10{
+    margin-top: -10px;
+}
+.padding-top-10{
+    padding-top: 10px;
+}
+.width-100{
+    width: 100%;
+}
+
+/*blogs.php
+  projects.php*/
+.header-button{
+      float:right;
+      margin-top: 26px;
+  }
+
+ .card-date{
+     float:right; font-size:12px;
+ }
+.card-edit-button{
+     position: absolute;
+     bottom: 28px;
+     right: 25px;
+     padding: 10px 35px;
+     border: none;
+     background-color: #004488;
+     color: white;
+     border-radius: 5px;
+     box-shadow: 2px 2px 2px #000;
+ }

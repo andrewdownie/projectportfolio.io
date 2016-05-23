@@ -27,7 +27,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-5" id="login">
 
-                <div style="margin-left: 30px;">
+                <div class="margin-left-30">
                     <h2>
                         <i class="fa fa-user"></i>
                         Login
@@ -38,7 +38,7 @@
                         Invalid email or password entered
                         <br> <span class="small">-- example login: user@example, pass: 123 --</span>
                     </div>
-                    <div style="margin-left: 30px;">
+                    <div class="margin-left-30">
                         <h4>
                             <i class="fa fa-at"></i>
                             Email
@@ -52,21 +52,21 @@
 
                         <br/>
                         <button class="btn btn-primary" id="login-button">Login</button>
-                        <a href="#" style="padding-left: 8px;">Forgot password?</a>
+                        <a href="#" class="forgot-password">Forgot password?</a>
                     </div>
                 </div>
 
 
             </div>
             <div class="col-md-5" id="signup">
-                <div style="margin-left: 30px;">
+                <div  class="margin-left-30">
                     <h2>
                         <i class="fa fa-user-plus"></i>
                         Sign up
                         <img id="signup-loading" src="http://i.imgur.com/G0Ot284.gif"/>
                     </h2>
 
-                    <div style="margin-left: 30px;">
+                    <div  class="margin-left-30">
                         <h4>
                             <i class="fa fa-at"></i>
                             Email

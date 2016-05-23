@@ -53,8 +53,8 @@ width: 190px;
 height: 25px;
 }
 
-#login-invalid-email-password,
-#signup-emails-dont-match{
+#login-signup #login-invalid-email-password,
+#login-signup #signup-emails-dont-match{
 display: none;
 color: red;
 padding-left: 30px;
@@ -63,4 +63,8 @@ padding-top: 0px;
 #login-loading,
 #signup-loading{
 display: none;
+}
+
+#login-signup .forgot-password{
+    padding-left: 8px;
 }
