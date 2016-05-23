@@ -1,32 +1,21 @@
-<?php session_start() ?>
-<!DOCTYPE html>
-<html lang="en">
+<?php include("head.php"); ?>
 
-<head>
-
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- PAGE SPECIFIC INFO -->
+    <title>Verification Requried - ProjectPortfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>ProjectPortfolio</title>
-
-
-
-    <!-- Custom CSS
-    <link href="css/shop-item.css" rel="stylesheet"> TODO: DELETE THIS-->
+    <!-- PAGE SPECIFIC CSS -->
     <link href="/css/navbar.css" rel="stylesheet">
 
-    <!-- COMMON LIBRARIES -->
-
-
+    <!-- PAGE SPECIFIC JS -->
     <script src="/js/navbar/logout.js"></script>
 
-
-
+    <!-- PAGE SPECIFIC OTHER -->
+    
 </head>
+
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-bottom: 1px solid white; z-index: 100000;">

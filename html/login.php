@@ -1,12 +1,17 @@
-
 <?php include("head.php"); ?>
 
+    <!-- PAGE SPECIFIC INFO -->
     <title>Login - ProjectPortfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
+    <!-- PAGE SPECIFIC CSS -->
     <link href="/css/login.css" rel="stylesheet">
+
+    <!-- PAGE SPECIFIC JS -->
     <script src="/js/login.js"></script>
+
+    <!-- PAGE SPECIFIC OTHER -->
 
 </head>
 

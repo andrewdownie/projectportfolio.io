@@ -1,0 +1,42 @@
+p[contenteditable=true]:hover,
+img[contenteditable=true]:hover{
+    max-width: 800px;
+    outline: 1px dotted #337ab7;
+}
+#blog-title{
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+
+@media (max-width: 844px){
+    .editortools-topspace{
+        padding-top: 85px;/*Pads are stack one by one at this point, need to match the number of pads there are here.*/
+    }
+}
+
+@media (max-width: 767px){
+    .container-fluid {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    #blogpad{
+        flex-grow: 100;
+    }
+    .editor-tools-col{
+         display: flex;
+    }
+}
+@media (min-width: 768px){
+    .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+#editor-tools::selection {
+    background-color: transparent;
+}
