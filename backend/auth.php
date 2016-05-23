@@ -5,10 +5,13 @@ function login($email, $password){
 
         //====== check if user is in database,
         //---- check if password is correct
-        //---- update user profile, so they have the php sess id saved
 
 
-        if($cookie_set){
+
+        if(True){//if the user was found in the DB and their password is correct
+            session_regenerate_id();
+            //---- update user profile, so they have the php sess id saved as their current login
+            setcookie('LOGGED_IN', "True", time() + 3600);
             echo "login-success";
         }
         else{
@@ -24,14 +27,9 @@ function login($email, $password){
 
 function logout(){
     //sign the user out that has that session id on their account
-    //redirect("index");
 
-
+    setcookie('LOGGED_IN', null, 1);
     session_regenerate_id();
-    $_SESSION = array();
-    session_destroy();
-
-
 
     echo "logout-success";
 }

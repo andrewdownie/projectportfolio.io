@@ -12,7 +12,7 @@
     <script src="/js/navbar/logout.js"></script>
 
     <!-- PAGE SPECIFIC OTHER -->
-    
+
 </head>
 
 
@@ -70,7 +70,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <?php
-                                if(isset($_COOKIE['PHPSESSID'])){
+                                if(isset($_COOKIE['LOGGED_IN'])){
                                     echo "<a id='navbar-logout' href='#'>Logout</a>";
                                 }
                                 else{

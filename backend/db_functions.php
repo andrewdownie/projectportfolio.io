@@ -27,7 +27,7 @@ function create_user($dirty_email, $dirty_password){
     if(user_count($email) == 0){
 
         $salt = generate_string().'projectportfolio'.time();
-        $salted_pass = md5($password.$salt);
+        $salted_pass = md5($password.$salt);//TO DO: create strong hashing method
 
         $activation_code = md5(generate_string().'projectportfolio'.time());
 
