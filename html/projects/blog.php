@@ -8,20 +8,11 @@
     <!-- PAGE SPECIFIC CSS -->
 
     <!-- PAGE SPECIFIC JS -->
+    <script src="/js/blog.js"></script>
 
     <!-- PAGE SPECIFIC OTHER -->
 
 
-
-    <script>
-    $(document).ready(function(){
-
-        $("#blog #back-to-blogs").click(function(){
-            window.location = "/projects/blogs";
-        });
-
-    });
-    </script>
 
 </head>
 

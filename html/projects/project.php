@@ -8,16 +8,10 @@
     <!-- PAGE SPECIFIC CSS -->
 
     <!-- PAGE SPECIFIC JS -->
+    <script src="/js/project.js"></script>
 
     <!-- PAGE SPECIFIC OTHER -->
 
-    <script>
-    $(document).ready(function(){
-        $("#project #back-to-projects").click(function(){
-            window.location = "/projects/browse-projects"
-        });
-    });
-    </script>
 </head>
 
 <body>

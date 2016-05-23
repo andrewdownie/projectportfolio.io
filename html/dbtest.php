@@ -17,12 +17,6 @@
 <body>
 
 
-    <!-- Page Content -->
-    <div class="container">
-
-
-    </div>
-    <!-- /.container -->
 
     <div class="container">
         <div class="container">

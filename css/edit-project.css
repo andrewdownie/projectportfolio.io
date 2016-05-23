@@ -1,0 +1,119 @@
+#project img{
+    width: 100%;
+    height: 100%;
+}
+
+#project input[type="text"]{
+    margin-bottom: 10px;
+    border: #999 1px solid;
+    width: 100%;
+    height: 25px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+
+
+#project .button.full{
+    width: 22%;
+}
+@media (max-width: 570px){
+    #project .button.full{
+        width: 40%;
+    }
+}
+
+
+#project .button{
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+    border: 1px solid #777;
+    border-radius: 5px;
+}
+#project .button:hover{
+    background-color: #bbb;
+}
+
+#project .panel-heading{
+    background-color: white;
+    box-shadow: 2px 2px 2px #888888;
+    border: 1px solid #777;
+    border-bottom: 1px solid #ccc;
+}
+#project .panel-body{
+    box-shadow: 2px 2px 2px #888888;
+    background-color: #f5f5f5;
+    border: 1px solid #777;
+    border-top: none;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+#project .panel-body img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+#project .section-icon{
+    color: black;
+    font-size: 150px;
+
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#project .team-icon{
+    color: black;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    font-size: 120px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#project .delete-btn{
+    height: 40px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    float: right;
+    margin-top: 22px;
+}
+#project .delete-btn:hover{
+    background-color: #f75c4c;
+}
+#project h3{
+    margin-top: 15px;
+}
+
+#project .date{
+    float: right;
+    padding-right: 20px;
+    font-size:12px;
+}
+
+#project .height50{
+    height: 50px;
+}
+@media (max-width: 387px){
+    #project .height50{
+        height: 65px;
+    }
+    #project .delete-btn{
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 991px){
+    #project .date{
+        float: left;
+    }
+}
