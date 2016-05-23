@@ -8,14 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="">
 
+    <!-- PAGE SPECIFIC JS -->
+    <script src="/js/lib/jquery-2.2.0.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+
     <!-- PAGE SPECIFIC CSS -->
     <link href="/css/navbar.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- PAGE SPECIFIC JS -->
-    <script src="/js/lib/jquery-2.2.0.min.js"></script>
-    <script src="/js/lib/bootstrap.min.js"></script>
 
     <!-- PAGE SPECIFIC OTHER -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">

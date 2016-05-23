@@ -1,10 +1,10 @@
-<?php include("head.php"); ?>
+<?php include("/var/www/projectportfolio/html/head.php"); ?>
 
     <!-- PAGE SPECIFIC INFO -->
     <title>Login - ProjectPortfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    
+
     <!-- PAGE SPECIFIC CSS -->
     <link href="/css/navbar.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
