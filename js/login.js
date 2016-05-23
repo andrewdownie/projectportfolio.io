@@ -1,22 +1,44 @@
 $(document).ready(function(){
+    $("#login-email, #login-password").on('input',function(e){
+        if( $("#login-email").val().length > 0  && !validEmail($("#login-email").val()) ){
+            $("#login-error").text("Invalid email")
+            $("#login-button").hide()
+        }
+        else if( $("#login-password").val().length > 0  && !validPassword($("#login-password").val()) ){
+            $("#login-error").text("Invalid password")
+            $("#login-button").hide()
+        }
+        else{
+            $("#login-error").text("")
+            $("#login-button").show()
+        }
+    });
+
+
     $("#login-button").click(function(){
         ajaxcall_login();
     });
 
 
     $("#signup-email, #signup-confirm-email").on('input',function(e){
-        if($("#signup-email").val() == $("#signup-confirm-email").val()){
-            $("#signup-emails-dont-match").hide();
-            $("#signup-button").show();
+        if( $("#signup-email").val().length > 0 && !validEmail( $("#signup-email").val() )){
+            $("#signup-error").text("Invalid email")
+            $("#signup-button").hide()
+
+        }
+        else if($("#signup-email").val() != $("#signup-confirm-email").val()){
+            $("#signup-error").text("Emails must match")
+            $("#signup-button").hide()
+
         }
         else{
-            $("#signup-emails-dont-match").show();
-            $("#signup-button").hide();
+            $("#signup-error").text("")
+            $("#signup-button").show()
         }
     });
 
     $("#signup-button").click(function(){
-        ajaxcall_signup();
+        ajaxcall_signup()
     });
 
 
@@ -46,7 +68,7 @@ function ajaxcall_login(){
                 window.location = "/index"
             }
             else if(data === "login-invalid"){
-                $("#login-invalid-email-password").show();
+                $("#login-error").val("That email password combo does not exist");
             }
             else{
                 alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")

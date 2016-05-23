@@ -1,70 +1,68 @@
 #login-signup{
-color: #444;
+    color: #444;
 }
 
 #login-signup i{
-/*    display: none;
-box-sizing: border-box;*/
+    /*    display: none;
+    box-sizing: border-box;*/
 
 }
 
 #login-signup button{
-color: black;
-background-color: #eee;
-padding: 4px 10px;
-margin-top: 3px;
-border: none;
+    color: black;
+    background-color: #eee;
+    padding: 4px 10px;
+    margin-top: 3px;
+    border: none;
 }
 #login-signup button:hover{
-background-color: #bbb;
+    background-color: #bbb;
 }
 
 #login-signup .row #signup{
-min-height: 350px;
-height: 350px;
+    min-height: 350px;
+    height: 350px;
 }
 
 @media (max-width: 981px){
-#login-signup #signup{
-    padding-top: 10px;
-    border-top: 1px #c0c0c0 solid;
-}
-#login-signup #login{
-    padding-bottom: 30px;
-}
+    #login-signup #signup{
+        padding-top: 10px;
+        border-top: 1px #c0c0c0 solid;
+    }
+    #login-signup #login{
+        padding-bottom: 30px;
+    }
 }
 @media (min-width: 982px){
-#login-signup #signup{
-    border-left: solid #bcbcbc 1px;
-}
+    #login-signup #signup{
+        border-left: solid #bcbcbc 1px;
+    }
 }
 
 #login-signup h2{
-padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 #login-signup h4{
-margin-bottom: 3px;
+    margin-bottom: 3px;
 }
 #login-signup input[type="text"],
 #login-signup input[type="password"]{
-margin-bottom: 10px;
-border: #999 1px solid;
-width: 190px;
-height: 25px;
+    margin-bottom: 10px;
+    border: #999 1px solid;
+    width: 190px;
+    height: 25px;
 }
 
-#login-signup #login-invalid-email-password,
-#login-signup #signup-emails-dont-match{
-display: none;
-color: red;
-padding-left: 30px;
-padding-top: 0px;
+#login-signup #login-error,
+#login-signup #signup-error{
+    color: red;
+    padding-top: 0px;
+    text-align: left;
+
 }
+
+
 #login-loading,
 #signup-loading{
-display: none;
-}
-
-#login-signup .forgot-password{
-    padding-left: 8px;
+    display: none;
 }
