@@ -38,7 +38,7 @@
                 <p class="well">Didn't get the email? You'll have to <a href="/login">try signing up again.</a></p>
                 <ul>
                     <li>Click the link in the email we sent you to verify your account</li>
-                    <li>You will set your password when you verify your account</li>
+                    <li>You will set your username and password when you verify your account</li>
                 </ul>
             </div>
 

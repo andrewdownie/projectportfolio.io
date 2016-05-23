@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,9 @@
     <script src="/js/lib/bootstrap.min.js"></script>
 
     <script src="/js/navbar/logout.js"></script>
+
+
+
 </head>
 <body>
     <!-- Navigation -->
@@ -71,7 +75,7 @@
                         <a href="/projects/browse-projects">Projects</a>
                     </li>
                     <li>
-                        <a href="#"> <?php echo $_COOKIE['PPSESSID']; ?> </a>
+                        <a href="#"> <?php echo $_COOKIE['PHPSESSID']; ?> </a>
                     </li>
                 </ul>
 
@@ -79,7 +83,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <?php
-                                if(isset($_COOKIE['PPSESSID'])){
+                                if(isset($_COOKIE['PHPSESSID'])){
                                     echo "<a id='navbar-logout' href='#'>Logout</a>";
                                 }
                                 else{

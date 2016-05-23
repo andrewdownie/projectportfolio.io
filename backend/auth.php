@@ -32,7 +32,15 @@ function logout(){
     //$cookie_data[1] = user session id,
     //use the above two items to know who to signout from the database
     //redirect("index");
-    expire_ppsessid();
+    //expire_ppsessid();
+
+    session_regenerate_id();
+    //unset_cookie("PHPSESSID");
+    $_SESSION = array();
+    session_destroy();
+
+
+
     echo "logout-success";
 }
 
@@ -42,7 +50,7 @@ function valid_login($cookie){
 }
 
 function expire_ppsessid(){
-    setcookie("PPSESSID", "", 1);
+    expire_cookie("PPSESSID");
 }
 
 function generate_string(){

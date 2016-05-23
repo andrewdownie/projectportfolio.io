@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +41,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    Home 
+                    Home
                 </div>
             </div>
         </footer>
