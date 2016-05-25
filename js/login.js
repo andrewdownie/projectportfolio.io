@@ -25,7 +25,7 @@ $(document).ready(function(){
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if(keycode == '13'){
             if(validate_signup_inputs()){
-                ajaxcall_login();
+                ajaxcall_signup();
             }
         }
     });
