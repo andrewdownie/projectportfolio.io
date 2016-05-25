@@ -1,5 +1,7 @@
 <?php
 function login($email, $password){
+    $email = escape($email);
+    $password = escape($password);
 
     if($email === "user@example" && $password === "123"){
 
@@ -49,6 +51,23 @@ function generate_string(){
     fclose($fp);
 
     return base64_encode($randomString);
+}
+
+function valid_email_format($email){
+    $atCount = 0;
+    $charsBeforeAfter = False;
+
+    for($i = 0; $i < $email.length; $i++){
+        if($email[i] == "@"){
+            $atCount++;
+
+            if($i > 0 && $i < $email.length){
+                $charsBeforeAfter = True;
+            }
+        }
+    }
+
+    return $atCount == 1 && $charsBeforeAfter;
 }
 
 ?>

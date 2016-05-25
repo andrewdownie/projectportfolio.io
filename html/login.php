@@ -57,7 +57,7 @@
                         <br>
                         <a href="#">Forgot password?</a>
                         <br>
-                        <span class="small">-- example login: user@example, pass: 123 --</span>
+                        
 
                     </div>
 

@@ -56,7 +56,6 @@
 #login-signup #login-error,
 #login-signup #signup-error{
     color: red;
-    padding-top: 0px;
     text-align: left;
 
 }
