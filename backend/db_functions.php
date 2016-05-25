@@ -20,9 +20,11 @@ function refresh_logon($email, $old_PPSESSID){
     return False;
 }
 
-function create_user($dirty_email, $dirty_password){
-    $email = escape($dirty_email);
-    $password = escape($dirty_password);
+function create_user($dirty_email){
+    //$email = escape($dirty_email);
+
+    echo "signup-success";
+    return;
 
     if(user_count($email) == 0){
 

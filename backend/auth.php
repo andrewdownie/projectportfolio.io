@@ -3,11 +3,15 @@ function login($email, $password){
     $email = escape($email);
     $password = escape($password);
 
+    if(!valid_email_format($email)){
+        echo "login-invalid-email";
+        return;
+    }
+
     if($email === "user@example" && $password === "123"){
 
         //====== check if user is in database,
         //---- check if password is correct
-
 
 
         if(True){//if the user was found in the DB and their password is correct
@@ -24,6 +28,18 @@ function login($email, $password){
     else{
         echo "login-invalid";
     }
+
+}
+
+function signup($dirty_email){
+    $email = escape($dirty_email);
+
+    if(!valid_email_format($email)){
+        echo "login-invalid-email";
+        return;
+    }
+
+    create_user($dirty_email);
 
 }
 
@@ -57,15 +73,17 @@ function valid_email_format($email){
     $atCount = 0;
     $charsBeforeAfter = False;
 
-    for($i = 0; $i < $email.length; $i++){
-        if($email[i] == "@"){
-            $atCount++;
+    for($i = 0; $i < strlen($email); $i++){
 
-            if($i > 0 && $i < $email.length){
+        if($email[$i] == "@"){
+            $atCount = $atCount + 1;
+
+            if($i > 0 && $i < strlen($email)){
                 $charsBeforeAfter = True;
             }
         }
     }
+
 
     return $atCount == 1 && $charsBeforeAfter;
 }

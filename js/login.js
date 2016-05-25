@@ -32,12 +32,14 @@ $(document).ready(function(){
 
 
     $("#login-button").click(function(){
+        $("#login-button").blur()
         if(validate_login_inputs()){
             ajaxcall_login();
         }
     });
 
     $("#signup-button").click(function(){
+        $("#signup-button").blur()
         if(validate_signup_inputs()){
             ajaxcall_signup()
         }
@@ -49,6 +51,8 @@ $(document).ready(function(){
 //===== validiate login inputs -------------------------------------------------
 //=====
 function validate_login_inputs(){
+    //return true
+
     if( $("#login-email").val().length > 0  && !validEmail($("#login-email").val()) ){
         $("#login-error").text("Invalid email")
         $("#login-button").hide()
@@ -68,6 +72,8 @@ function validate_login_inputs(){
 //===== validiate signup inputs ------------------------------------------------
 //=====
 function validate_signup_inputs(){
+    //return true
+
     if( $("#signup-email").val().length > 0 && !validEmail( $("#signup-email").val() )){
         $("#signup-error").text("Invalid email")
         $("#signup-button").hide()
@@ -86,7 +92,7 @@ function validate_signup_inputs(){
 
 
 //=====
-//===== ajaxcall_login ---------------------------------------------------------
+//===== LOGIN AJAX CALL --------------------------------------------------------
 //=====
 function ajaxcall_login(){
     if($("#login-email").val() == ""){
@@ -117,6 +123,12 @@ function ajaxcall_login(){
             else if(data === "login-invalid"){
                 $("#login-error").text("Invalid email/pass combo")
                 $("#login-button").hide()
+                $("#login-password").val("")
+            }
+            else if(data === "login-invalid-email"){
+                $("#login-error").text("Invalid email")
+                $("#login-button").hide()
+                $("#login-password").val("")
             }
             else{
                 alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
@@ -133,7 +145,7 @@ function ajaxcall_login(){
 
 
 //=====
-//===== ajaxcall_signup --------------------------------------------------------
+//===== SIGNUP AJAX CALL -------------------------------------------------------
 //=====
 function ajaxcall_signup(){
     if($("#signup-email").val() == "" || $("#signup-password").val() == ""){
@@ -162,6 +174,10 @@ function ajaxcall_signup(){
             }
             else if(data === "signup-exists"){
                 alert("An account with that email already exists")
+            }
+            else if(data === "login-invalid-email"){
+                $("#signup-error").text("Invalid email")
+                $("#signup-button").hide()
             }
             else{
                 alert("Unexpect response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")

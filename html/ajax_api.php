@@ -17,8 +17,8 @@ No functions, just a giant if statement.
 //=====
 //===== WASH DATA FROM USER ----------------------------------------------------
 //=====
-//loop throgh all variables, and clean / escape them before doing anything else?
-//-->? is this a good idea?
+// - loop throgh all variables, and clean / escape them before doing anything else?
+//   -->? is this a good idea?
 
 //=====
 //===== POST -------------------------------------------------------------------
@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     }
     else if($function === 'signup'){
-        create_user($_POST['email'], $_POST['password']);
+        signup($_POST['email']);
 
     }
     else{
