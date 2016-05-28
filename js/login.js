@@ -58,6 +58,11 @@ function validate_login_inputs(){
         $("#login-button").hide()
         return false
     }
+    else if( $("#login-email").val().length == 0 && $("#login-password").val().length > 0){
+        $("#login-error").text("Email cannot be blank")
+        $("#login-button").hide()
+        return false
+    }
     else if( $("#login-email").val().length > 0 && $("#login-password").val().length == 0){
         $("#login-error").text("Password is blank")
         $("#login-button").hide()
