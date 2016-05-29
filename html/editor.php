@@ -29,7 +29,7 @@
         <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
     </div>
 
-    <div class="container-fluid" class="margin-top-m10;">
+    <div class="container-fluid">
         <div class="row">
 
             <div class="col-sm-2 col-xs-12" id="editor-tools-col">
