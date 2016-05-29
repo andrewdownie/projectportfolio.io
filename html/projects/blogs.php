@@ -1,7 +1,7 @@
 <?php include("/var/www/projectportfolio/html/head.php"); ?>
 
     <!-- PAGE SPECIFIC INFO -->
-    <title>Verification Requried - ProjectPortfolio</title>
+    <title>Browse Blogs - ProjectPortfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 

@@ -6,7 +6,6 @@
     <meta name="description" content="">
 
     <!-- PAGE SPECIFIC CSS -->
-    <link href="/css/navbar.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/editor.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/hint.css">

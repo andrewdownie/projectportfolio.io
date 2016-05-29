@@ -7,6 +7,7 @@
 
 <!-- PAGE SPECIFIC CSS -->
 <link href="/css/login.css" rel="stylesheet">
+<link href="/css/styles.css" rel="stylesheet">
 
 <!-- PAGE SPECIFIC JS -->
 <script src="/js/login.js"></script>
@@ -41,15 +42,15 @@
                             <i class="fa fa-at"></i>
                             Email
                         </h4>
-                        <input type="text" id="login-email">
+                        <input type="text" id="login-email" class="standard-input">
                         <h4>
                             <i class="fa fa-asterisk"></i>
                             Password
                         </h4>
-                        <input type="password" id="login-password">
+                        <input type="password" id="login-password" class="standard-input">
 
                         <br/>
-                        <button class="btn btn-primary" id="login-button">Login</button>
+                        <button class="btn btn-primary simple-button" id="login-button">Login</button>
 
 
                         <div id="login-error">
@@ -57,7 +58,7 @@
                         <br>
                         <a href="#">Forgot password?</a>
                         <br>
-                        
+
 
                     </div>
 
@@ -79,28 +80,24 @@
                             <i class="fa fa-at"></i>
                             Email
                         </h4>
-                        <input id="signup-email" type="text">
+                        <input id="signup-email" type="text" class="standard-input">
                         <h4>
                             <i class="fa fa-at"></i>
                             Confirm Email
                         </h4>
-                        <input id="signup-confirm-email" type="text">
-                        <!--    <h4>
-                        <i class="fa fa-asterisk"></i>
-                        Password
-                    </h4>
-                    <input id="signup-password" type="password">-->
-                    <br/>
-                    <button class="btn btn-primary" id="signup-button">Sign up</button>
-                    <div id="signup-error">
+                        <input id="signup-confirm-email" type="text" class="standard-input">
 
+                        <br/>
+                        <button class="btn btn-primary simple-button" id="signup-button">Sign up</button>
+                        <div id="signup-error">
+
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-1"></div>
     </div>
-</div>
 
 </body>
 

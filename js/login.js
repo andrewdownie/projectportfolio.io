@@ -172,7 +172,7 @@ function ajaxcall_signup(){
 
             if(data === "signup-success"){
                 //$("#signup-emails-dont-match").hide();
-                window.location = "/verification-required"
+                window.location = "/verification"
             }
             else if(data === "signup-failure"){
                 alert("There was a problem signing you up :( Maybe try again later?")

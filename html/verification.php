@@ -1,7 +1,7 @@
 <?php include("/var/www/projectportfolio/html/head.php"); ?>
 
     <!-- PAGE SPECIFIC INFO -->
-    <title>Verification Requried - ProjectPortfolio</title>
+    <title>Verification - ProjectPortfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
@@ -20,7 +20,7 @@
             <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
         </div>
 
-        <div class="row" id="verify">
+        <div class="row">
             <div class="col-lg-3"></div>
 
             <div class="col-lg-6">

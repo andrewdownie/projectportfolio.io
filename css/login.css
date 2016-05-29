@@ -2,23 +2,6 @@
     color: #444;
 }
 
-#login-signup i{
-    /*    display: none;
-    box-sizing: border-box;*/
-
-}
-
-#login-signup button{
-    color: black;
-    background-color: #eee;
-    padding: 4px 10px;
-    margin-top: 3px;
-    border: none;
-}
-#login-signup button:hover{
-    background-color: #bbb;
-}
-
 #login-signup .row #signup{
     min-height: 350px;
     height: 350px;
@@ -44,13 +27,6 @@
 }
 #login-signup h4{
     margin-bottom: 3px;
-}
-#login-signup input[type="text"],
-#login-signup input[type="password"]{
-    margin-bottom: 10px;
-    border: #999 1px solid;
-    width: 190px;
-    height: 25px;
 }
 
 #login-signup #login-error,

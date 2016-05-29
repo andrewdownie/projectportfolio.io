@@ -16,9 +16,29 @@ html, body{/*TODO: move this to the navbar*/
     margin-bottom: 10px;
 }
 
-/*login.php*/
+/*login.php
+verify.php*/
 .margin-left-30{
     margin-left: 30px;
+}
+
+input[type="text"].standard-input,
+input[type="password"].standard-input{
+    margin-bottom: 10px;
+    border: #999 1px solid;
+    width: 190px;
+    height: 25px;
+}
+
+button.simple-button{
+    color: black;
+    background-color: #eee;
+    padding: 4px 10px;
+    margin-top: 3px;
+    border: none;
+}
+button.simple-button:hover{
+    background-color: #bbb;
 }
 
 /*editor.php*/
@@ -30,23 +50,24 @@ html, body{/*TODO: move this to the navbar*/
 }
 
 /*blogs.php
-  projects.php*/
+projects.php*/
 .header-button{
-      float:right;
-      margin-top: 26px;
-  }
+    float:right;
+    margin-top: 26px;
+}
 
- .card-date{
-     float:right; font-size:12px;
- }
+.card-date{
+    float:right;
+    font-size:12px;
+}
 .card-edit-button{
-     position: absolute;
-     bottom: 28px;
-     right: 25px;
-     padding: 10px 35px;
-     border: none;
-     background-color: #004488;
-     color: white;
-     border-radius: 5px;
-     box-shadow: 2px 2px 2px #000;
- }
+    position: absolute;
+    bottom: 28px;
+    right: 25px;
+    padding: 10px 35px;
+    border: none;
+    background-color: #004488;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #000;
+}
