@@ -21,7 +21,6 @@ $(document).ready(function() {
     $("#modalinput #wrapper #close").click(function() {
         $("#waiting-for-modal").contents().unwrap()
 
-        console.log("meow")
         $("#modalinput").css("opacity", 0)
         $("#modalinput").css("pointer-events", "none")
         $(this).blur()

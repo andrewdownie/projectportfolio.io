@@ -1,7 +1,7 @@
 <?php include("/var/www/projectportfolio/html/head.php"); ?>
 
     <!-- PAGE SPECIFIC INFO -->
-    <title>Login - ProjectPortfolio</title>
+    <title>DB Test - ProjectPortfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 

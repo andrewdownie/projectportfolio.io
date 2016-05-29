@@ -1,4 +1,4 @@
-<?php include("head.php"); ?>
+<head>
 
     <!-- PAGE SPECIFIC INFO -->
     <title>Verification Requried - ProjectPortfolio</title>

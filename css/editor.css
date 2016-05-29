@@ -32,7 +32,7 @@ img[contenteditable=true]:hover{
     #blogpad{
         flex-grow: 100;
     }
-    .editor-tools-col{
+    #editor-tools-col{
         display: flex;
     }
 }

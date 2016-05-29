@@ -3,23 +3,6 @@
         var lastSelectedPageElement
         $(document).ready(function() {
 
-            //var stylepadFocusElement = null
-
-            /*$('body').click(function(){
-                temp = $('p[contenteditable=true]:focus')
-
-                if(typeof(temp) !== 'undefined' && temp.length == 1){
-                    stylepadFocusElement = temp
-                }
-                else{
-                    stylepadFocusElement = null
-                }
-
-            });*/
-
-
-
-
             $("#bold").mousedown(function() {
                 $(this).blur()
                 if(lastSelectedPageElement === null){return;}
@@ -218,9 +201,6 @@
                 <button id="underline" class="show-styling" style="display:none;" data-hint="Underline the selected text." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
                 <button class="hide-styling" data-hint="You must select a blog element first." class="hint--right hint--bounce"><i class="fa fa-underline"></i></button>
             </div>
-            <!-- WHITE DIVIDER -->
-            <div id="divider"></div>
-            <!-- ROW TWO -->
             <div>
                 <button id="setImage" style="margin-top: -1px; display:none;" data-hint="Set the image of the selected image." class="hint--right hint--bounce" style="font-size: 13px;"><i class="fa fa-picture-o"></i></button>
                 <button id="setImage-disabled" style="margin-top: -1px;" data-hint="You must select an image blog element first." class="hint--right hint--bounce" style="font-size: 13px;"><i class="fa fa-picture-o"></i></button>
