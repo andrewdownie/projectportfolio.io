@@ -34,15 +34,13 @@ function create_user($dirty_email){
     }
 
 
-
-
     $unactivated = "unactivated";
     $sql = "INSERT INTO account_head (account, email, status)";
     $sql .= " VALUES (null, '$email', '$unactivated');";
     query($sql);
 
     if(user_count($email) == 1){
-        echo "last inserted id is: " . last_auto_id();
+        echo "last inserted id is: " . account_id($email);
         return;
         //select the row we just created, and then get the account#
         //insert the account number into the signup table, along
@@ -62,8 +60,17 @@ function query($query){
     return mysqli_query($con, $query);
 }
 
-function get_id_from_email($email){
-    return 'poo';
+function account_id($email){
+    $sql = "select account from account_head where email='$email'";
+    $result = query($sql);
+    $id = -1;
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $id = $row["account"];
+    }
+
+    return $id;
 }
 
 function escape($string){
