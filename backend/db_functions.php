@@ -41,9 +41,14 @@ function create_user($dirty_email){
 
     if(user_count($email) == 1){
         echo "last inserted id is: " . account_id($email);
-        return;
-        //select the row we just created, and then get the account#
-        //insert the account number into the signup table, along
+        $new_account_num = account_id($email);
+
+
+        $sql = "INSERT INTO account_signup (account, code, date_requested)";
+        $sql .= " VALUES ($new_account_num, '".generate_string()."', NOW());";//TODO: figure out how to get date informat yy-mm-dd-hh
+        query($sql);
+
+
     }
     else{
         echo "signup-failure";

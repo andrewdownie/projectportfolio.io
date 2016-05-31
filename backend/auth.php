@@ -69,6 +69,7 @@ function generate_string(){
     return base64_encode($randomString);
 }
 
+
 function valid_email_format($email){
     $atCount = 0;
     $charsBeforeAfter = False;
