@@ -168,7 +168,7 @@ function ajaxcall_signup(){
             "password": $("#signup-password").val()
         },
         success: function(data) {
-            //alert(data)
+            alert(data)
 
             if(data === "signup-success"){
                 //$("#signup-emails-dont-match").hide();

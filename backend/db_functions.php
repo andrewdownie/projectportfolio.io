@@ -5,7 +5,7 @@ $con = mysqli_connect($rds_url, $rds_usr, $rds_pwd, $rds_database);
 function user_count($dirty_email){
     $email = escape($dirty_email);
 
-    $sql = "SELECT * FROM users WHERE email = '".$email."';";
+    $sql = "SELECT * FROM account_head WHERE email = '".$email."';";
     $result = query($sql);
     $count = mysqli_num_rows($result);
 
@@ -21,33 +21,35 @@ function refresh_logon($email, $old_PPSESSID){
 }
 
 function create_user($dirty_email){
-    //$email = escape($dirty_email);
+    $email = escape($dirty_email);
 
-    echo "signup-success";
-    return;
-
-    if(user_count($email) == 0){
-
-        $salt = generate_string().'projectportfolio'.time();
-        $salted_pass = md5($password.$salt);//TO DO: create strong hashing method
-
-        $activation_code = md5(generate_string().'projectportfolio'.time());
-
-        $sql = "INSERT INTO users (email, password, salt, PPSESSID, PPSESSID_expiry, login_status, account_status)";
-        $sql .= "VALUES ('$email', '$salted_pass', '$salt', '$activation_code', ".(time() + 3600).", 'logged-out', 'unactivated');";
-        $result = query($sql);
-
-        if(user_count($email) == 1){
-            echo "signup-success";
-        }
-        else{
-            echo "signup-failure";
-        }
-    }
-    else{//The email already exists, so we can't create_user
-        echo "signup-exists";
+    if(user_count($email) != 0){
+        echo "signup-failure";
+        return;
     }
 
+    if(valid_email_format($email) == false){
+        echo "signup-failure";
+        return;
+    }
+
+
+
+
+    $unactivated = "unactivated";
+    $sql = "INSERT INTO account_head (account, email, status)";
+    $sql .= " VALUES (null, '$email', '$unactivated');";
+    query($sql);
+
+    if(user_count($email) == 1){
+        echo "last inserted id is: " . last_auto_id();
+        return;
+        //select the row we just created, and then get the account#
+        //insert the account number into the signup table, along
+    }
+    else{
+        echo "signup-failure";
+    }
 }
 
 function activate_user($email, $activation_code){
@@ -58,6 +60,10 @@ function activate_user($email, $activation_code){
 function query($query){
     global $con;
     return mysqli_query($con, $query);
+}
+
+function get_id_from_email($email){
+    return 'poo';
 }
 
 function escape($string){

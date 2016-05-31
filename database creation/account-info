@@ -1,0 +1,8 @@
+create TABLE account_info
+    (
+        account INT REFERENCES account_head(account),
+        username VARCHAR(15),
+        password VARCHAR(40),
+        last_seen DATE
+
+    );

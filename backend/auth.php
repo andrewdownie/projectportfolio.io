@@ -34,10 +34,10 @@ function login($email, $password){
 function signup($dirty_email){
     $email = escape($dirty_email);
 
-    if(!valid_email_format($email)){
+    /*if(!valid_email_format($email)){
         echo "login-invalid-email";
         return;
-    }
+    }*/
 
     create_user($dirty_email);
 
