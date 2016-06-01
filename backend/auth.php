@@ -32,13 +32,6 @@ function login($email, $password){
 }
 
 function signup($dirty_email){
-    $email = escape($dirty_email);
-
-    /*if(!valid_email_format($email)){
-        echo "login-invalid-email";
-        return;
-    }*/
-
     create_user($dirty_email);
 
 }
@@ -70,6 +63,7 @@ function generate_string(){
 }
 
 
+//TODO: need to exclude special characters....
 function valid_email_format($email){
     $atCount = 0;
     $charsBeforeAfter = False;
