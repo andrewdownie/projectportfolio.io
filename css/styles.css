@@ -31,14 +31,14 @@ input[type="password"].standard-input{
 }
 
 button.simple-button{
-    color: black;
-    background-color: #eee;
+    color: white;
+    background-color: black;
     padding: 4px 10px;
     margin-top: 3px;
     border: none;
 }
 button.simple-button:hover{
-    background-color: #bbb;
+    background-color: #333;
 }
 
 /*editor.php*/

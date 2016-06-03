@@ -13,6 +13,7 @@
 </style>
 
 <!-- PAGE SPECIFIC JS -->
+<script src="/js/verify.js"></script>
 
 <!-- PAGE SPECIFIC OTHER -->
 
@@ -24,7 +25,7 @@
     <div class="container">
         <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
     </div>
-    <div class="row">
+    <div class="row" id="verify">
         <div class="col-lg-3">
         </div>
 
@@ -42,22 +43,19 @@
                         <i class="fa fa-at"></i>
                         Username
                     </h4>
-                    <input type="text" id="login-email" class="standard-input">
+                    <input type="text" id="verify-username" class="standard-input">
                     <h4>
                         <i class="fa fa-asterisk"></i>
                         Password
                     </h4>
-                    <input type="password" id="login-password" class="standard-input">
+                    <input type="password" id="verify-password" class="standard-input">
 
                     <br/>
-                    <button class="btn btn-primary simple-button" id="login-button">Complete</button>
+                    <button class="btn btn-primary simple-button" id="verify-button">Complete</button>
 
 
-                    <div id="login-error">
+                    <div id="verify-error">
                     </div>
-                    <br>
-                    <a href="#">Forgot password?</a>
-                    <br>
 
 
                 </div>

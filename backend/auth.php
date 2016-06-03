@@ -33,7 +33,10 @@ function login($email, $password){
 
 function signup($dirty_email){
     create_user($dirty_email);
+}
 
+function verify_account($username, $password){
+    echo "CODE: ". $_SERVER["REQUEST_URI"].$username;
 }
 
 function logout(){

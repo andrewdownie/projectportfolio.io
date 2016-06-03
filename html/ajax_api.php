@@ -38,6 +38,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         signup($_POST['email']);
 
     }
+    else if($function === 'verify-account'){
+        verify_account($_POST['username'], $_POST['password']);
+    }
     else{
         echo "ARE YOU A WIZARD?!\n     (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n\n Unrecognized function, how did you do that?";
 

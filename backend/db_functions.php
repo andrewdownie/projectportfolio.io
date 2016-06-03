@@ -12,7 +12,7 @@ function user_count($dirty_email){
     return $count;
 }
 
-function new_logon($email, $password, $new_PPSESSID){
+function fresh_logon($email, $password, $new_PPSESSID){
     return False;
 }
 
@@ -69,7 +69,7 @@ function create_user($dirty_email){
     echo "signup-failure";
 }
 
-function activate_user($email, $activation_code){
+function activate_user($username, $password, $activation_code){
     //yep
     return False;
 }
