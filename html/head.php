@@ -3,9 +3,9 @@
 <html lang="en">
 
 <head>
-    <!------------------->
-    <!-- /*HEADER FILE -->
-    <!------------------->
+    <!------------------------->
+    <!-- /*HEADER FILE START -->
+    <!------------------------->
 
     <!-- UNIVERSAL DATA -->
     <meta charset="utf-8">
@@ -32,6 +32,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!------------------->
-    <!-- HEADER FILE*/ -->
-    <!------------------->
+    <!------------------------>
+    <!-- HEADER FILE END */ -->
+    <!------------------------>

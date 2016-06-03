@@ -13,6 +13,7 @@
 </style>
 
 <!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/get_url_vars.js"></script>
 <script src="/js/verify.js"></script>
 
 <!-- PAGE SPECIFIC OTHER -->

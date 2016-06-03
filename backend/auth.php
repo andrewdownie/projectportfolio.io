@@ -35,8 +35,8 @@ function signup($dirty_email){
     create_user($dirty_email);
 }
 
-function verify_account($username, $password){
-    echo "CODE: ". $_SERVER["REQUEST_URI"].$username;
+function verify_account($username, $password, $verify_code){
+    echo "CODE: ".$verify_code;
 }
 
 function logout(){
@@ -57,33 +57,7 @@ function expire_ppsessid(){
     expire_cookie("PPSESSID");
 }
 
-function generate_string(){
-    $fp = fopen('/dev/urandom', 'r');
-    $randomString = fread($fp, 32);
-    fclose($fp);
-
-    return base64_encode($randomString);
-}
 
 
-//TODO: need to exclude special characters....
-function valid_email_format($email){
-    $atCount = 0;
-    $charsBeforeAfter = False;
-
-    for($i = 0; $i < strlen($email); $i++){
-
-        if($email[$i] == "@"){
-            $atCount = $atCount + 1;
-
-            if($i > 0 && $i < strlen($email)){
-                $charsBeforeAfter = True;
-            }
-        }
-    }
-
-
-    return $atCount == 1 && $charsBeforeAfter;
-}
 
 ?>

@@ -10,8 +10,10 @@
 <link href="/css/styles.css" rel="stylesheet">
 
 <!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/valid_email.js"></script>
 <script src="/js/login.js"></script>
-<script src="js/simple/login-validation.js"></script>
+
+
 
 <!-- PAGE SPECIFIC OTHER -->
 

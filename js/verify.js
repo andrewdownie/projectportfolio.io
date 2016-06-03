@@ -23,7 +23,8 @@ function ajaxcall_verify(){
         data: {
             "function": "verify-account",
             "username": $("#verify-username").val(),
-            "password": $("#verify-password").val()
+            "password": $("#verify-password").val(),
+            "verify_code": get_url_vars()['code']
         },
         success: function(data) {
             alert(data)
