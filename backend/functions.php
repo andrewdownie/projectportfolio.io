@@ -30,4 +30,13 @@ function valid_email_format($email){
 function valid_password_format($password){
     return false;
 }
+
+function timestampify($time){
+    return date('m/d/Y h:i:s', $time);
+}
+
+function encrypt_password($password){
+    //TODO: ...this
+    return $password;
+}
 ?>

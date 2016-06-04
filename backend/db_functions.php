@@ -34,15 +34,17 @@ function create_user($dirty_email){
     }
 
 
-    $unactivated = "unactivated";
+    $pending_verification = "pending-verification";
     $sql1 = "INSERT INTO account_head (account, email, status)";
-    $sql1 .= " VALUES (null, '$email', '$unactivated');";
+    $sql1 .= " VALUES (null, '$email', '$pending_verification');";
     query($sql1);
 
     if(user_count($email) == 1){
-        $new_account_num = account_id($email);
+        $new_account_num = account_id_from_email($email);
+
+        $time = time();
         $sql2 = "INSERT INTO account_signup (account, code, date_requested)";
-        $sql2 .= " VALUES ($new_account_num, '".generate_string()."', NOW());";
+        $sql2 .= " VALUES ($new_account_num, '".generate_string()."', $time);";
         query($sql2);
 
         $sql3 = "SELECT * FROM account_signup WHERE account=$new_account_num";
@@ -74,27 +76,49 @@ function activate_user($dirty_username, $dirty_password, $dirty_activation_code)
     $password = escape($dirty_password);
     $code = escape($dirty_activation_code);
 
+
+    //TODO: validate username and password (having an empty username or password
+    //      screws the sql queries up atm.)
+
+
+    $account_id = account_id_from_code($code);
+
     $sql1 = "SELECT * FROM account_signup WHERE code='$code'";
     $result = query($sql1);
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        $found_code = $row["account"];
-        echo "found it";
+        $date_requested = $row["date_requested"];
+        $expires = $date_requested + 86400;
 
-        //TODO: do validation on the date_requested column, to make sure the
-        //      the validation request has not expired
+        if(time() > $expires){
+            echo "validation-expired";
+            return;
+        }
 
-        //TODO: hash the users password
-        //TODO: store the users password and username in account_credentials
-        //TODO: update the users account_head
-        //TODO: drop the users record from the account_signup
+        $encrypted_password = encrypt_password($password);
+
+        $sql2 = "UPDATE account_head SET status='logged-out' WHERE account=$account_id;";
+        query($sql2);
+
+        $sql3 = "INSERT INTO account_credentials (account, username, password)";
+        $sql3 .= " VALUES ($account_id, '$username', '$encrypted_password');";
+        query($sql3);
+
+        $sql4 = "DELETE FROM account_signup WHERE account=$account_id;";
+        query($sql4);
+
+        //TODO: validate that there are the correct number of rows for this account
+        //      in each of the tables
+        // head -> 1 row, status='logged-out'
+        // credentials -> 1 row, username + password match
+        // signup -> 0 rows
+
+        echo "validation-success";
+        return;
     }
-    else{
-        echo "invalid-validation";
-    }
 
-    return;
+    echo "validation-expired";
 }
 
 function query($query){
@@ -102,7 +126,20 @@ function query($query){
     return mysqli_query($con, $query);
 }
 
-function account_id($email){
+function account_id_from_code($verification_code){
+    $sql = "select account from account_signup where code='$verification_code'";
+    $result = query($sql);
+    $id = -1;
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $id = $row["account"];
+    }
+
+    return $id;
+}
+
+function account_id_from_email($email){
     $sql = "select account from account_head where email='$email'";
     $result = query($sql);
     $id = -1;
