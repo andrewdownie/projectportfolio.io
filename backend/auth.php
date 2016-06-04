@@ -36,7 +36,7 @@ function signup($dirty_email){
 }
 
 function verify_account($username, $password, $verify_code){
-    echo "CODE: ".$verify_code;
+    activate_user($username, $password, $verify_code);
 }
 
 function logout(){

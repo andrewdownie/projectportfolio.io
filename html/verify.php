@@ -41,7 +41,7 @@
                 </h2>
                 <div class="margin-left-30">
                     <h4>
-                        <i class="fa fa-at"></i>
+                        <i class="fa fa-tag"></i>
                         Username
                     </h4>
                     <input type="text" id="verify-username" class="standard-input">

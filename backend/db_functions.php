@@ -12,11 +12,11 @@ function user_count($dirty_email){
     return $count;
 }
 
-function fresh_logon($email, $password, $new_PPSESSID){
+function fresh_logon($dirty_email, $dirty_password, $dirty_new_PPSESSID){
     return False;
 }
 
-function refresh_logon($email, $old_PPSESSID){
+function refresh_logon($dirty_email, $dirty_old_PPSESSID){
     return False;
 }
 
@@ -69,9 +69,32 @@ function create_user($dirty_email){
     echo "signup-failure";
 }
 
-function activate_user($username, $password, $activation_code){
-    //yep
-    return False;
+function activate_user($dirty_username, $dirty_password, $dirty_activation_code){
+    $username = escape($dirty_username);
+    $password = escape($dirty_password);
+    $code = escape($dirty_activation_code);
+
+    $sql1 = "SELECT * FROM account_signup WHERE code='$code'";
+    $result = query($sql1);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $found_code = $row["account"];
+        echo "found it";
+
+        //TODO: do validation on the date_requested column, to make sure the
+        //      the validation request has not expired
+
+        //TODO: hash the users password
+        //TODO: store the users password and username in account_credentials
+        //TODO: update the users account_head
+        //TODO: drop the users record from the account_signup
+    }
+    else{
+        echo "invalid-validation";
+    }
+
+    return;
 }
 
 function query($query){
