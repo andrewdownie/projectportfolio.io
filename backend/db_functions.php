@@ -107,24 +107,75 @@ function activate_user($dirty_username, $dirty_password, $dirty_activation_code)
         $sql2 = "UPDATE account_head SET status='logged-out' WHERE account=$account_id;";
         query($sql2);
 
+        if(user_has_status($account_id, 'logged-out') == false){
+            echo 'validation-error';
+            return;
+        }
+
         $sql3 = "INSERT INTO account_credentials (account, username, password)";
         $sql3 .= " VALUES ($account_id, '$username', '$encrypted_password');";
         query($sql3);
 
+        if(user_has_credentials($account_id, $username, $encrypted_password) == false){
+            echo 'validation-error';
+            return;
+        }
+
         $sql4 = "DELETE FROM account_signup WHERE account=$account_id;";
         query($sql4);
 
-        //TODO: validate that there are the correct number of rows for this account
-        //      in each of the tables
-        // head -> 1 row, status='logged-out'
-        // credentials -> 1 row, username + password match
-        // signup -> 0 rows
+        if(user_has_signup_pending($account_id)){
+            echo 'validation-error';
+            return;
+        }
 
         echo "validation-success";
         return;
     }
 
-    echo "validation-expired";
+    echo 'validation-error';
+}
+
+function user_has_status($account_num, $status){
+    $sql1 = "SELECT * FROM account_head WHERE account=$account_num";
+    $result = query($sql1);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $stored_status = $row["status"];
+        if($stored_status == $status){
+            return true;
+        }
+    }
+    return false;
+}
+
+function user_has_credentials($account_num, $username, $encrypted_password){
+    $sql1 = "SELECT * FROM account_credentials WHERE account=$account_num";
+    $result = query($sql1);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $stored_username = $row["username"];
+        $stored_password = $row["password"];
+
+        if($stored_username == $username){
+            if($stored_password == $encrypted_password){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function user_has_signup_pending($account_num){
+    $sql1 = "SELECT * FROM account_signup";
+    $result = query($sql1);
+
+    if (mysqli_num_rows($result) == 1) {
+        return true;
+    }
+    return false;
 }
 
 function query($query){
