@@ -28,7 +28,11 @@ function valid_email_format($email){
 }
 
 function valid_password_format($password){
-    return false;
+    return true;
+}
+
+function valid_username_format($username){
+    return true;
 }
 
 function timestampify($time){
@@ -39,4 +43,5 @@ function encrypt_password($password){
     //TODO: ...this
     return $password;
 }
+
 ?>

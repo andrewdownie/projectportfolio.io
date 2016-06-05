@@ -76,9 +76,15 @@ function activate_user($dirty_username, $dirty_password, $dirty_activation_code)
     $password = escape($dirty_password);
     $code = escape($dirty_activation_code);
 
+    if(!valid_username_format($username)){
+        echo "validation-expired";
+        return false;
+    }
 
-    //TODO: validate username and password (having an empty username or password
-    //      screws the sql queries up atm.)
+    if(!valid_password_format($password)){
+        echo "validation-expired";
+        return false;
+    }
 
 
     $account_id = account_id_from_code($code);
