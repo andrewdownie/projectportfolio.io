@@ -10,9 +10,14 @@
 #verify-loading{
     display: none;
 }
+#verify-error{
+    color: red;
+}
 </style>
 
 <!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/valid_username.js"></script>
+<script src="/js/functions/valid_password.js"></script>
 <script src="/js/functions/get_url_vars.js"></script>
 <script src="/js/verify.js"></script>
 

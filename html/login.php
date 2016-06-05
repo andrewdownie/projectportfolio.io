@@ -11,6 +11,7 @@
 
 <!-- PAGE SPECIFIC JS -->
 <script src="/js/functions/valid_email.js"></script>
+<script src="/js/functions/valid_password.js"></script>
 <script src="/js/login.js"></script>
 
 

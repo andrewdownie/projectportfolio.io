@@ -19,6 +19,7 @@ No functions, just a giant if statement.
 //=====
 // - loop throgh all variables, and clean / escape them before doing anything else?
 //   -->? is this a good idea?
+//   --> I dont know, is it possible to by pass this... or?
 
 //=====
 //===== POST -------------------------------------------------------------------

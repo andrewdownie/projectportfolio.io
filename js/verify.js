@@ -1,13 +1,70 @@
 $(document).ready(function(){
+    validate_verify_inputs();
 
-    $("#verify #verify-button").click(function(){
-        ajaxcall_verify()
+    $("#verify-username, #verify-password").on('input',function(e){
+        validate_verify_inputs()
     });
 
+    $("#verify-username, #verify-password").keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){
+            if(validate_verify_inputs()){
+                ajaxcall_verify();
+            }
+        }
+    });
+
+    $("#verify #verify-button").click(function(){
+        $("#verify #verify-button").blur()
+        if(validate_verify_inputs()){
+            ajaxcall_verify();
+        }
+    });
 
 });
 
 
+//=====
+//===== VALIDATE VERIFY INPUTS -------------------------------------------------
+//=====
+function validate_verify_inputs(){
+    if($("#verify-username").val().length > 0 && !validUsername($("#verify-username").val())){
+        var length = $("#verify-username").val().length
+        var msg = ""
+
+        if(length < 4){
+            msg = "Username too short"
+        }
+        else if(length > 15){
+            msg = "Username too long"
+        }
+        else if($("#verify-password").val().length == 0){
+            msg = "Password is blank"
+        }
+
+        if(msg != ""){
+            $("#verify-button").hide()
+            $("#verify-error").text(msg)
+            return false
+        }
+    }
+
+    if( $("#verify-username").val().length == 0 && $("#verify-password").val().length > 0){
+        $("#verify-error").text("Username is blank")
+        $("#verify-button").hide()
+        return false
+    }
+
+    if( $("#verify-password").val().length == 0 && $("#verify-username").val().length > 0){
+        $("#verify-error").text("Password is blank")
+        $("#verify-button").hide()
+        return false
+    }
+
+    $("#verify-error").text("")
+    $("#verify-button").show()
+    return true
+}
 
 //=====
 //===== VERIFY AJAX CALL -------------------------------------------------------
