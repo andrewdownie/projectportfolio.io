@@ -38,6 +38,9 @@
 
 
 #login-loading,
-#signup-loading{
+#signup-loading,
+#verify-failure,
+#verify-success,
+#verify-expired{
     display: none;
 }

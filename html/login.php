@@ -10,6 +10,7 @@
 <link href="/css/styles.css" rel="stylesheet">
 
 <!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/get_url_vars.js"></script>
 <script src="/js/functions/valid_email.js"></script>
 <script src="/js/functions/valid_password.js"></script>
 <script src="/js/login.js"></script>
@@ -30,7 +31,27 @@
     <div class="container" id="login-signup">
         <div class="row">
             <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div id="verify-failure" class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Verification failed,</strong> you'll have to try signing up again :(
+                </div>
+                <div id="verify-success" class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Verification successful,</strong> You can now login to your account
+                </div>
+                <div id="verify-expired" class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Verification expired,</strong> you will have to signup again
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
             <div class="col-md-5" id="login">
+
+
 
                 <div class="margin-left-30">
                     <h2>

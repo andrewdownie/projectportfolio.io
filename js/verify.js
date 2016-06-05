@@ -88,19 +88,13 @@ function ajaxcall_verify(){
             //TODO: none of these conditions make sense for verifying
             if(data === "verify-success"){
                 $("#verify-error").hide();
-
-                alert("Your account is ready! You will now be able to login.")
-                window.location = "/login"
+                window.location = "/login?verify=success"
             }
             else if(data === "verify-expired"){
-                $("#verify-error").text("Validation expired: you will have to signup again")
-                $("#verify-button").hide()
-                $("#verify-password").val("")
+                window.location = "/login?verify=expired"
             }
             else if(data === "verify-error"){
-                $("#verify-error").text("Verification Error: you may have to signup again")
-                $("#verify-button").hide()
-                $("#verify-password").val("")
+                window.location = "/login?verify=failure"
             }
             else{
                 alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")

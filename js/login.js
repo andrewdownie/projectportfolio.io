@@ -1,4 +1,20 @@
 $(document).ready(function(){
+    //__VERIFY stuff__//
+    var verify =  get_url_vars()['verify']
+    if(verify == "success"){
+        $("#verify-success").show()
+        $("#login-email").focus()
+    }
+    else if(verify == "failure"){
+        $("#verify-failure").show()
+        $("#signup-email").focus()
+    }
+    else if(verify == "expired"){
+        $("#verify-expired").show()
+        $("#signup-email").focus()
+    }
+
+    //__AJAX and input stuff below__//
     validate_login_inputs();
     validate_signup_inputs();
 
