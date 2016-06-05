@@ -84,22 +84,23 @@ function ajaxcall_verify(){
             "verify_code": get_url_vars()['code']
         },
         success: function(data) {
-            alert(data)
 
             //TODO: none of these conditions make sense for verifying
-            if(data === "login-success"){
-                $("#login-invalid-email-password").hide();
-                window.location = "/index"
+            if(data === "verify-success"){
+                $("#verify-error").hide();
+
+                alert("Your account is ready! You will now be able to login.")
+                window.location = "/login"
             }
-            else if(data === "login-invalid"){
-                $("#login-error").text("Invalid email/pass combo")
-                $("#login-button").hide()
-                $("#login-password").val("")
+            else if(data === "verify-expired"){
+                $("#verify-error").text("Validation expired: you will have to signup again")
+                $("#verify-button").hide()
+                $("#verify-password").val("")
             }
-            else if(data === "login-invalid-email"){
-                $("#login-error").text("Invalid email")
-                $("#login-button").hide()
-                $("#login-password").val("")
+            else if(data === "verify-error"){
+                $("#verify-error").text("Verification Error: you may have to signup again")
+                $("#verify-button").hide()
+                $("#verify-password").val("")
             }
             else{
                 alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")

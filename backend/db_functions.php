@@ -77,13 +77,13 @@ function activate_user($dirty_username, $dirty_password, $dirty_activation_code)
     $code = escape($dirty_activation_code);
 
     if(!valid_username_format($username)){
-        echo "validation-expired";
-        return false;
+        echo "verify-expired";
+        return;
     }
 
     if(!valid_password_format($password)){
-        echo "validation-expired";
-        return false;
+        echo "verify-expired";
+        return;
     }
 
 
@@ -108,7 +108,7 @@ function activate_user($dirty_username, $dirty_password, $dirty_activation_code)
         query($sql2);
 
         if(user_has_status($account_id, 'logged-out') == false){
-            echo 'validation-error';
+            echo 'verify-error';
             return;
         }
 
@@ -117,7 +117,7 @@ function activate_user($dirty_username, $dirty_password, $dirty_activation_code)
         query($sql3);
 
         if(user_has_credentials($account_id, $username, $encrypted_password) == false){
-            echo 'validation-error';
+            echo 'verify-error';
             return;
         }
 
@@ -125,15 +125,15 @@ function activate_user($dirty_username, $dirty_password, $dirty_activation_code)
         query($sql4);
 
         if(user_has_signup_pending($account_id)){
-            echo 'validation-error';
+            echo 'verify-error';
             return;
         }
 
-        echo "validation-success";
+        echo "verify-success";
         return;
     }
 
-    echo 'validation-error';
+    echo 'verify-error';
 }
 
 function user_has_status($account_num, $status){
