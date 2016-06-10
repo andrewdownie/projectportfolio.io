@@ -35,9 +35,6 @@ function signup($dirty_email){
     create_user($dirty_email);
 }
 
-function verify_account($username, $password, $verify_code){
-    activate_user($username, $password, $verify_code);
-}
 
 function logout(){
     //sign the user out that has that session id on their account

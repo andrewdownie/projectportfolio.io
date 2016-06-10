@@ -28,6 +28,7 @@ function valid_email_format($email){
 }
 
 function valid_password_format($password){
+    //use regex
     return true;
 }
 
@@ -40,8 +41,16 @@ function timestampify($time){
 }
 
 function encrypt_password($password){
-    //TODO: ...this
-    return $password;
+//TODO: ...this
+return $password;
 }
 
+/*function encrypt_password($password) {
+    if (defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH) {
+        //TODO: what does the $2y$11$ do? does that describe the following string??
+        $salt = '$2y$11$' . substr(md5(uniqid(rand(), true)), 0, 22);
+        return crypt($password, $salt);
+    }
+}*/
+//TODO: decrypt password
 ?>

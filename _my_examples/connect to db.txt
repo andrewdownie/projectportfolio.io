@@ -1,3 +1,8 @@
 $rds_url                = 'onmyown.csrytxfcb9xf.us-east-1.rds.amazonaws.com';
 $rds_database           = 'projectportfolio';
 $rds_testtable          = "meow";
+
+Truncate tables:
+truncate table account_signup;
+truncate table account_head;
+truncate table account_credentials;
