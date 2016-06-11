@@ -34,35 +34,35 @@ function valid_password_format($password){
 }
 
 function valid_username_format($username){
-    /*$eightToTwenty = "^(?=.{8,20}$)";
-    $noUnderDotStart = "(?![_.])";
-    $noDoubleUnderDot = "(?!.*[_.]{2})";
-    $noUnderDotEnd = "+(?<![_.])$";
-    $allowedCharacters = "^([a-zA-Z0-9._])*";
+    $fourToFifteen = "(^(.{4,15}$))";
+    $underDotStart = "(^([_.]))";
+    $doubleUnderDot = "(.*[_.]{2})";
+    $underDotEnd = "(([_.])$)";
+    $allowedCharacters = "(^(([a-zA-Z0-9._])+)$)";
 
-    if(!preg_match($eightToTwenty, $username)){
+    if(preg_match($fourToFifteen, $username) === 0){
         return "invalid-username-length";
     }
 
-    if(preg_match($noUnderDotStart, $username)){
+    if(preg_match($underDotStart, $username) === 1){
         return "invalid-username-dotunder-start";
     }
 
-    if(preg_match($noDoubleUnderDot, $username)){
+    if(preg_match($doubleUnderDot, $username) === 1){
         return "invalid-username-double-dotunder";
     }
 
-    if(preg_match($noUnderDotEnd, $username)){
+    if(preg_match($underDotEnd, $username) === 1){
         return "invalid-username-dotunder-end";
     }
 
-    if(preg_match($allowedCharacters, $username)){
+    if(preg_match($allowedCharacters, $username) === 1){//TODO: this isn't working...
+        echo "valid.";
         return "valid-username";
     }
 
-    return "invalid-username-allowed-characters";*/
+    return "invalid-username-allowed-characters";
 
-    return "valid-username";
 }
 
 function timestampify($time){
