@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var focusElement
+    DisableAddpad()
 
     //TODO: change "#addpad-title" to "#addpad #title"
     $('#addpad #title').mousedown(function(e){
@@ -63,10 +64,10 @@ $(document).ready(function() {
 
 });
 function EnableAddpad(){
-    $("#addpad table tr#enabled").show()
-    $("#addpad table tr#disabled").hide()
+    $("#addpad #clickable").show()
+    $("#addpad #unclickable").hide()
 }
 function DisableAddpad(){
-    $("#addpad table tr#disabled").show()
-    $("#addpad table tr#enabled").hide()
+    $("#addpad #unclickable").show()
+    $("#addpad #clickable").hide()
 }
