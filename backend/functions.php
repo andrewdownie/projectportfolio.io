@@ -27,13 +27,45 @@ function valid_email_format($email){
     return $atCount == 1 && $charsBeforeAfter;
 }
 
-function valid_password_format($password){
-    //REGEX: http://stackoverflow.com/questions/12018245/regular-expression-to-validate-username
-    //might be a good idea to return an enum, or string describing why it didn't work
-    return true;
+//TODO: do this with regex
+function validate_password($password){
+    $eightToTwenty = "(^(.{8,20}$))";
+    $uppercase = "([A-Z])";
+    $lowercase = "([a-z])";
+    $number = "([0-9])";
+    $symbol = "([^A-Za-z0-9])";
+    $invalidCharacters = "([^A-Za-z0-9!()$%^&*+=.?\[\]_`~@# |,<>:;{}-])";
+
+
+    if(preg_match($invalidCharacters, $password) === 1){
+        return "invalid-password-characters";
+    }
+
+    if(preg_match($eightToTwenty, $password) === 0){
+        return "invalid-password-length";
+    }
+
+    if(preg_match($uppercase, $password) === 0){
+        return "invalid-password-uppercase";
+    }
+
+    if(preg_match($lowercase, $password) === 0){
+        return "invalid-password-lowercase";
+    }
+
+    if(preg_match($number, $password) === 0){
+        return "invalid-password-number";
+    }
+
+    if(preg_match($symbol, $password) === 0){
+        return "invalid-password-symbol";
+    }
+
+
+    return "valid-password";
 }
 
-function valid_username_format($username){
+function validate_username($username){
     $fourToFifteen = "(^(.{4,15}$))";
     $underDotStart = "(^([_.]))";
     $doubleUnderDot = "(.*[_.]{2})";
@@ -56,13 +88,11 @@ function valid_username_format($username){
         return "invalid-username-dotunder-end";
     }
 
-    if(preg_match($allowedCharacters, $username) === 1){//TODO: this isn't working...
-        echo "valid.";
+    if(preg_match($allowedCharacters, $username) === 1){
         return "valid-username";
     }
 
     return "invalid-username-allowed-characters";
-
 }
 
 function timestampify($time){

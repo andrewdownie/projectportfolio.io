@@ -4,14 +4,15 @@ function verify_account($dirty_username, $dirty_password, $dirty_activation_code
     $password = escape($dirty_password);
     $code = escape($dirty_activation_code);
 
-    if(!valid_password_format($password)){
-        echo "verify-error";
+    $validatePwdMsg = validate_password($password);
+    if($validatePwdMsg != "valid-password"){
+        echo $validatePwdMsg;//TODO: delete this
         return;
     }
 
-    $valid_username = valid_username_format($username);
-    if($valid_username != "valid-username"){
-        echo $valid_username;
+    $validateUsrMsg = validate_username($username);
+    if($validateUsrMsg != "valid-username"){
+        echo $validateUsrMsg;//TODO: delete this
         return;
     }
 
