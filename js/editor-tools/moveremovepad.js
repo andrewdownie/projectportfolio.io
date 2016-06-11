@@ -26,35 +26,38 @@ $(document).ready(function() {
         }
     });
     /*$("body").on("click", "p, img", function(e){
-        selectedBlogElement = $(e.target)
-        move_moveremovepad(selectedBlogElement)
-    });*/
+    selectedBlogElement = $(e.target)
+    move_moveremovepad(selectedBlogElement)
+});*/
 
-    $("#moveremovepad #up").click(function(){
-        selectedBlogElement.prev().before(selectedBlogElement)
+$("#moveremovepad #up").click(function(){
+    selectedBlogElement.prev().before(selectedBlogElement)
+    move_moveremovepad(selectedBlogElement)
+});
+$("#moveremovepad #down").click(function(){
+    selectedBlogElement.next().after(selectedBlogElement)
+    move_moveremovepad(selectedBlogElement)
+});
+$("#moveremovepad #delete").click(function(e){
+    if(selectedBlogElement.is("#blog-title") == false){
+        selectedBlogElement.remove()
+    }
+    else{
         move_moveremovepad(selectedBlogElement)
-    });
-    $("#moveremovepad #down").click(function(){
-        selectedBlogElement.next().after(selectedBlogElement)
-        move_moveremovepad(selectedBlogElement)
-    });
-    $("#moveremovepad #delete").click(function(e){
-        if(selectedBlogElement.is("#blog-title") == false){
-            selectedBlogElement.remove()
-        }
-        else{
-            move_moveremovepad(selectedBlogElement)
-        }
-    });
-    /*$('.addpad #title, .addpad #text, .addpad #image').click(function(e){
-        move_moveremovepad($(":focus"))
-    });*/
+    }
+});
+/*$('.addpad #title, .addpad #text, .addpad #image').click(function(e){
+move_moveremovepad($(":focus"))
+});*/
 
-    $(window).on('resize', function(e) {
-        move_moveremovepad(selectedBlogElement)
-    });
+$(window).on('resize', function(e) {
+    move_moveremovepad(selectedBlogElement)
+});
+
+
 
 });//Document ready
+
 
 function move_moveremovepad(targetElement){
     var editableTarget = GetNearestEditable(targetElement)

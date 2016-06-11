@@ -1,13 +1,14 @@
+//TODO: do I need this file? why is there two of them?
 $(document).ready(function() {
     var selectedBlogElement
-    alert('pls')
+    //alert('pls')
 
     $("body").on("click", function(e){
-        alert('wat')
+        //alert('wat')
         var target = $(e.target)
 
         if(IsInPad(target)){
-            alert('in da pad')
+            //alert('in da pad')
             return
         }
 
@@ -19,13 +20,13 @@ $(document).ready(function() {
         }
     });
     $("body").on("click", "p, img", function(e){
-            alert('wat2')
+            //alert('wat2')
         selectedBlogElement = $(e.target)
         move_moveremovepad(selectedBlogElement)
     });
 
     $(".moveremovepad #up").click(function(){
-        alert('fart')
+        //alert('fart')
         selectedBlogElement.prev().before(selectedBlogElement)
         move_moveremovepad(selectedBlogElement)
     });

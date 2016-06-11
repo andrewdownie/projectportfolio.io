@@ -3,17 +3,21 @@ $(document).ready(function(){
     $("#editor-tools").click(function(){
         //LinkToggle($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#editor-pads"))
         ToggleElements($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#addpad"), $("#stylepad"), $("#blogpad") )
+        $("#moveremovepad").hide()
     });
 
     /*Toggle pads when in xs mode*/
     $("#minimize-pads").click(function() {
         var visible = ToggleElements($("#minimize-pads i"), "fa fa-plus-square-o", "fa fa-minus-square-o", $("#addpad table"), $("#stylepad #content"), $("#blogpad table") )
         if(visible){
-            $(".editortools-topspace").css("padding-top", "85px")
+            $(".editortools-topspace").css("padding-top", "90px")
+
         }
         else{
-            $(".editortools-topspace").css("padding-top", "20px")
+            $(".editortools-topspace").css("padding-top", "30px")
         }
+        $("#moveremovepad").hide()
+    
     });
 
 
@@ -29,13 +33,13 @@ $(document).ready(function(){
         if($(this).width() < 768 && inXsMode == false){
             //this code will be run when entering xs mode
             WindowSizeChanged()
-            $(".editortools-topspace").css("padding-top", "85px")
+            $(".editortools-topspace").css("padding-top", "90px")
             inXsMode = true
         }
         else if($(this).width() >= 768 && inXsMode == true){
             //this code will be run when leaving xs mode
             WindowSizeChanged()
-            $(".editortools-topspace").css("padding-top", "20px")
+            $(".editortools-topspace").css("padding-top", "30px")
             inXsMode = false
         }
     };
