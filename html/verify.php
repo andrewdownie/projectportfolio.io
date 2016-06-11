@@ -47,12 +47,12 @@
                 <div class="margin-left-30">
                     <h4>
                         <i class="fa fa-tag"></i>
-                        New Username
+                        Set Username
                     </h4>
                     <input type="text" id="verify-username" class="standard-input">
                     <h4>
                         <i class="fa fa-asterisk"></i>
-                        New Password
+                        Set Password
                     </h4>
                     <input type="password" id="verify-password" class="standard-input">
 

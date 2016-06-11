@@ -32,6 +32,7 @@ function verify_account($dirty_username, $dirty_password, $dirty_activation_code
 
         $encrypted_password = encrypt_password($password);
 
+
         $sql2 = "UPDATE account_head SET status='logged-out' WHERE account=$account_id;";
         query($sql2);
 

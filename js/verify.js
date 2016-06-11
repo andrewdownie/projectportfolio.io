@@ -84,6 +84,7 @@ function ajaxcall_verify(){
             "verify_code": get_url_vars()['code']
         },
         success: function(data) {
+            alert(data)
 
             //TODO: none of these conditions make sense for verifying
             if(data === "verify-success"){

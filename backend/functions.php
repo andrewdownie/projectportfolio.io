@@ -7,7 +7,7 @@ function generate_string(){
     return base64_encode($randomString);
 }
 
-//TODO: need to exclude special characters....
+//TODO: use regex for this
 function valid_email_format($email){
     $atCount = 0;
     $charsBeforeAfter = False;
@@ -33,6 +33,7 @@ function valid_password_format($password){
 }
 
 function valid_username_format($username){
+    //use regex
     return true;
 }
 
@@ -40,17 +41,19 @@ function timestampify($time){
     return date('m/d/Y h:i:s', $time);
 }
 
-function encrypt_password($password){
+/*function encrypt_password($password){
 //TODO: ...this
 return $password;
-}
+}*/
 
-/*function encrypt_password($password) {
+function encrypt_password($password) {
     if (defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH) {
         //TODO: what does the $2y$11$ do? does that describe the following string??
         $salt = '$2y$11$' . substr(md5(uniqid(rand(), true)), 0, 22);
         return crypt($password, $salt);
     }
-}*/
-//TODO: decrypt password
+}
+
+
+//TODO: check if password entered by user matches the password in the db
 ?>
