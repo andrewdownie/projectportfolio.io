@@ -28,32 +28,58 @@ function valid_email_format($email){
 }
 
 function valid_password_format($password){
-    //use regex
+    //REGEX: http://stackoverflow.com/questions/12018245/regular-expression-to-validate-username
+    //might be a good idea to return an enum, or string describing why it didn't work
     return true;
 }
 
 function valid_username_format($username){
-    //use regex
-    return true;
+    /*$eightToTwenty = "^(?=.{8,20}$)";
+    $noUnderDotStart = "(?![_.])";
+    $noDoubleUnderDot = "(?!.*[_.]{2})";
+    $noUnderDotEnd = "+(?<![_.])$";
+    $allowedCharacters = "^([a-zA-Z0-9._])*";
+
+    if(!preg_match($eightToTwenty, $username)){
+        return "invalid-username-length";
+    }
+
+    if(preg_match($noUnderDotStart, $username)){
+        return "invalid-username-dotunder-start";
+    }
+
+    if(preg_match($noDoubleUnderDot, $username)){
+        return "invalid-username-double-dotunder";
+    }
+
+    if(preg_match($noUnderDotEnd, $username)){
+        return "invalid-username-dotunder-end";
+    }
+
+    if(preg_match($allowedCharacters, $username)){
+        return "valid-username";
+    }
+
+    return "invalid-username-allowed-characters";*/
+
+    return "valid-username";
 }
 
 function timestampify($time){
     return date('m/d/Y h:i:s', $time);
 }
 
-/*function encrypt_password($password){
-//TODO: ...this
-return $password;
-}*/
-
 function encrypt_password($password) {
+    //TAKEN FROM: https://www.sitepoint.com/password-hashing-in-php/
     if (defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH) {
-        //TODO: what does the $2y$11$ do? does that describe the following string??
         $salt = '$2y$11$' . substr(md5(uniqid(rand(), true)), 0, 22);
         return crypt($password, $salt);
     }
 }
 
 
-//TODO: check if password entered by user matches the password in the db
+function check_password($password, $hashedPassword) {
+    //TAKEN FROM: https://www.sitepoint.com/password-hashing-in-php/
+    return crypt($password, $hashedPassword) == $hashedPassword;
+}
 ?>
