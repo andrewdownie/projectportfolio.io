@@ -171,6 +171,10 @@ function IsEditableParagraph(target){
 
 /*TODO: create header description*/
 function GetNearestEditable(focusElement){
+    if(focusElement == null){
+        return 0;
+    }
+
     if(focusElement.is("[contenteditable=true]")){
         return focusElement
     }

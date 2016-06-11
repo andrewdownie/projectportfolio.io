@@ -60,6 +60,8 @@ $(window).on('resize', function(e) {
 
 
 function move_moveremovepad(targetElement){
+    if(targetElement == null){return;}
+
     var editableTarget = GetNearestEditable(targetElement)
     selectedBlogElement = targetElement
 
