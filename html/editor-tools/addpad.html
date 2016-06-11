@@ -5,11 +5,12 @@
             font-size: 20px;
         }
 
-        #addpad table {
+        #addpad table,
+        #addpad #icons {
             border-top: 2px solid white;
             border-collapse: collapse;
             border-spacing: 0;
-
+            color: black;
             background-color: white;
 
 
@@ -34,26 +35,32 @@
             }
         }
 
-        #addpad table tr td button {
+        #addpad table tr td button,
+        #addpad button {
             border: none;
             color: black;
-            max-width: 40px;
-            width: 40px;
+            max-width: 41px;
+            width: 41px;
             height: 22px;
             max-height: 22px;
             min-height: 22px;
-            height: 20px;
 
-            display: block;/*this fixes the 1px at bottom thing*/
+            /*display: inline-block;*/
+            display: inline;
+
+             float: left;
+             margin-left: -5px;
         }
-        #addpad table tr#enabled td button:hover{
+        #addpad table tr#enabled td button:hover,
+        #addpad button:hover{
             background-color: darkgrey;
         }
         #addpad table tr#disabled td button:hover{
             /*background-color: #F0F0F0; <-- this is now the default button color anyway*/
         }
 
-        #addpad table tr td button i {
+        #addpad table tr td button i,
+        #addpad button i {
             width: 10px;
         }
 
@@ -74,12 +81,14 @@
 
         }
 
-        #addpad table tr#icons td i {
+        #addpad table tr#icons td i,
+        #addpad #icons i {
             width: 40px;
             max-width: 40px;
             min-height: 25px;
             font-size: 16px;
             margin-top: 7px;
+            margin-bottom: 4px;
         }
         #addpad table tr#enabled td i{
             color: black;
@@ -118,13 +127,7 @@
 
         </div>
 
-        <table>
-            <!--<tr>
-                <td><button id="addpad-title-up" data-toggle="tooltip" title="Add title above currently selected blog element."><i class="fa fa-angle-up"></i></button></td>
-                <td><button id="addpad-text-up" data-toggle="tooltip" title="Add text above currently selected blog element."><i class="fa fa-angle-up"></i></button></td>
-                <td><button id="addpad-image-up" data-toggle="tooltip" title="Add image above currently selected blog element."><i class="fa fa-angle-up"></i></button></td>
-            </tr>-->
-            <!-- TODO: remove all the stuff related to the addpad's up buttons-->
+        <!--<table>
             <tr id="icons">
                 <td><i class="fa fa-header"></i></td>
                 <td><i class="fa fa-file-text"></i></td>
@@ -142,7 +145,18 @@
                 <td><button class="hint--right hint--bounce" data-hint="You must select a blog element first."><i class="fa fa-angle-down"></i></button></td>
                 <td><button class="hint--right hint--bounce" data-hint="You must select a blog element first."><i class="fa fa-angle-down"></i></button></td>
             </tr>
-        </table>
+        </table>-->
+
+        <div id="icons">
+            <td><i class="fa fa-header"></i></td>
+            <td><i class="fa fa-file-text"></i></td>
+            <!--<td><i class="fa fa-picture-o"></i></td>-->
+        </div>
+        <div>
+            <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="title"><i class="fa fa-angle-down"></i></button>
+            <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="title"><i class="fa fa-angle-down"></i></button>
+            <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="title"><i class="fa fa-angle-down"></i></button>
+        </div>
 
 
     </div>
