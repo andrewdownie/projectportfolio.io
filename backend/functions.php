@@ -8,23 +8,21 @@ function generate_string(){
 }
 
 //TODO: use regex for this
-function valid_email_format($email){
-    $atCount = 0;
-    $charsBeforeAfter = False;
+function validate_email($email){
+    $invalidCharacters = "([^a-zA-Z0-9._@])";
+    $singleAt = "(^([A-Za-z0-9._]+@[A-Za-z0-9._]+)$)";
 
-    for($i = 0; $i < strlen($email); $i++){
 
-        if($email[$i] == "@"){
-            $atCount = $atCount + 1;
-
-            if($i > 0 && $i < strlen($email)){
-                $charsBeforeAfter = True;
-            }
-        }
+    if(preg_match($invalidCharacters, $email) === 1){
+        return "invalid-email-characters";
     }
 
+    if(preg_match($singleAt, $email) === 0){
+        return "invalid-email-single-at";
+    }
 
-    return $atCount == 1 && $charsBeforeAfter;
+    return "valid-email";
+
 }
 
 //TODO: do this with regex

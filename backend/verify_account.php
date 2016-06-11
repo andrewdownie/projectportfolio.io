@@ -4,17 +4,19 @@ function verify_account($dirty_username, $dirty_password, $dirty_activation_code
     $password = escape($dirty_password);
     $code = escape($dirty_activation_code);
 
+    $validateUsrMsg = validate_email($username);
+    if($validateUsrMsg != "valid-email"){
+        echo $validateUsrMsg;//TODO: delete this
+        return;
+    }
+
     $validatePwdMsg = validate_password($password);
     if($validatePwdMsg != "valid-password"){
         echo $validatePwdMsg;//TODO: delete this
         return;
     }
 
-    $validateUsrMsg = validate_username($username);
-    if($validateUsrMsg != "valid-username"){
-        echo $validateUsrMsg;//TODO: delete this
-        return;
-    }
+
 
 
     $account_id = account_id_from_code($code);
