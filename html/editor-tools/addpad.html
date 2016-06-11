@@ -12,16 +12,29 @@
             border-spacing: 0;
             color: black;
             background-color: white;
-
-
+            padding: 0;
+            margin: 0;
         }
+        #addpad #icons #icon-text,
+        #addpad #icons #icon-image{
+            margin-left: -5px;
+        }
+        #addpad #icons i {
+            width: 40px;
+            max-width: 40px;
+            min-height: 25px;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            margin-top: 7px;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+
         #addpad{
             display: inline-block;
             margin-bottom: 5px;
-            /*left: 100px;*/
-            /*margin-right: -1px;*/
-            /*position: fixed;
-            top: 100px;*/
             height: 100%;
             min-width: 122px;
             width: 122px;
@@ -35,12 +48,11 @@
             }
         }
 
-        #addpad table tr td button,
         #addpad button {
             border: none;
             color: black;
-            max-width: 41px;
-            width: 41px;
+            max-width: 40px;
+            width: 40px;
             height: 22px;
             max-height: 22px;
             min-height: 22px;
@@ -50,51 +62,34 @@
 
              float: left;
              margin-left: -5px;
+             margin-right: 5px;
         }
-        #addpad table tr#enabled td button:hover,
-        #addpad button:hover{
-            background-color: darkgrey;
-        }
-        #addpad table tr#disabled td button:hover{
-            /*background-color: #F0F0F0; <-- this is now the default button color anyway*/
+        #addpad button#image,
+        #addpad button#disable-image{
+            margin-right: -5px;
         }
 
-        #addpad table tr td button i,
+
+        #addpad button:hover{
+            background-color: #777;
+        }
+
+
+
         #addpad button i {
             width: 10px;
         }
 
 
-        #addpad table tr td {
-            text-align: center;
-            padding: 0;
-            margin: 0;
-
-            line-height: 1;
-            padding-top: 2px;
-        }
-
-        #addpad table tr td span{
-            min-height: 30px;
-            height: 30px;
-
-
-        }
-
-        #addpad table tr#icons td i,
-        #addpad #icons i {
-            width: 40px;
-            max-width: 40px;
-            min-height: 25px;
-            font-size: 16px;
-            margin-top: 7px;
-            margin-bottom: 4px;
-        }
-        #addpad table tr#enabled td i{
+        #addpad #clickable button{
             color: black;
+            display: none;
         }
-        #addpad table tr#disabled td i{
+        #addpad #unclickable button{
             color: #aaa;
+        }
+        #addpad #unclickable button:hover{
+            background-color: #ccc;
         }
 
         /*Addpad title */
@@ -107,16 +102,11 @@
 
 
         }
-        /*Addpad title - hide text selection color*/
-        #addpad div span::selection {background-color: transparent;}
-        #addpad div span{cursor: default;}
-        /**/
-        #addpad table tr td span::selection,
-        #addpad table tr td::selection,
+
         #addpad .titlebar::selection {
             background-color: transparent;
         }
-        #addpad table tr td{cursor: default;}
+        #addpad .titlebar{cursor: default;}
     </style>
 </head>
 
@@ -127,35 +117,21 @@
 
         </div>
 
-        <!--<table>
-            <tr id="icons">
-                <td><i class="fa fa-header"></i></td>
-                <td><i class="fa fa-file-text"></i></td>
-                <td><i class="fa fa-picture-o"></i></td>
-            </tr>
-
-            <tr id="enabled" style="display:none;">
-                <td><button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="title"><i class="fa fa-angle-down"></i></button></td>
-                <td><button class="hint--right hint--bounce" data-hint="Add text below currently selected blog element." id="text" title=""><i class="fa fa-angle-down"></i></button></td>
-                <td><button class="hint--right hint--bounce" data-hint="Add image below currently selected blog element." id="image" data-toggle="tooltip"><i class="fa fa-angle-down"></i></button></td>
-            </tr>
-
-            <tr id="disabled">
-                <td><button class="hint--right hint--bounce" data-hint="You must select a blog element first."><i class="fa fa-angle-down"></i></button></td>
-                <td><button class="hint--right hint--bounce" data-hint="You must select a blog element first."><i class="fa fa-angle-down"></i></button></td>
-                <td><button class="hint--right hint--bounce" data-hint="You must select a blog element first."><i class="fa fa-angle-down"></i></button></td>
-            </tr>
-        </table>-->
-
         <div id="icons">
-            <td><i class="fa fa-header"></i></td>
-            <td><i class="fa fa-file-text"></i></td>
-            <!--<td><i class="fa fa-picture-o"></i></td>-->
+            <td><i id="icon-title" class="fa fa-header"></i></td>
+            <td><i id="icon-text" class="fa fa-file-text"></i></td>
+            <td><i id="icon-image" class="fa fa-picture-o"></i></td>
         </div>
-        <div>
+        <div id="clickable">
             <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="title"><i class="fa fa-angle-down"></i></button>
-            <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="title"><i class="fa fa-angle-down"></i></button>
-            <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="title"><i class="fa fa-angle-down"></i></button>
+            <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="text"><i class="fa fa-angle-down"></i></button>
+            <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element." id="image"><i class="fa fa-angle-down"></i></button>
+        </div>
+
+        <div id="unclickable">
+            <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element."><i class="fa fa-angle-down"></i></button>
+            <button class="hint--right hint--bounce" data-hint="Add title below currently selected blog element."><i class="fa fa-angle-down"></i></button>
+            <button id="disable-image" class="hint--right hint--bounce" data-hint="Add title below currently selected blog element."><i class="fa fa-angle-down"></i></button>
         </div>
 
 
