@@ -83,6 +83,9 @@ function validate_login_inputs(){
         $("#login-error").text("Password is blank")
         $("#login-button").hide()
         return false
+    }else if( $("#login-email").val().length > 0 && !validPassword($("#login-password").val())){
+        $("#login-error").text("Invalid password")
+        return false
     }
     $("#login-error").text("")
     $("#login-button").show()

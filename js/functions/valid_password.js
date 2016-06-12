@@ -1,8 +1,36 @@
 //
 function validPassword(password){
-    //i'm not really sure what I should require the user to input here
+    //var invalidCharacters = new RegExp("[^A-Za-z0-9!()$%^&*+=.?\[\]_`~@# |,<>:;{}-]")
+    var invalidCharacters = new RegExp("[^A-Za-z0-9!()$%^&*+=.?\\[\\]_`~@# |,<>:;{}-]")
+    var eightToTwenty = new RegExp("^(.{8,20}$)")
+    var uppercase = new RegExp("[A-Z]")
+    var lowercase = new RegExp("[a-z]")
+    var number = new RegExp("[0-9]")
+    var symbol = new RegExp("[^A-Za-z0-9]")
 
-    //10 characters or more, one capital, one number, one symbol, one space
-    //the above is probably too strict, but it is the ideal password requirements
+    if(invalidCharacters.test(password) == true){
+        return false
+    }
+
+    /*if(eightToTwenty.test(password) == false){
+        return false
+    }
+
+    if(uppercase.test(password) == false){
+        return false
+    }
+
+    if(lowercase.test(password) == false){
+        return false
+    }
+
+    if(number.test(password) == false){
+        return false
+    }
+
+    if(symbol.test(password) == false){
+        return false
+    }*/
+
     return true
 }
