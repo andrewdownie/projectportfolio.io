@@ -61,6 +61,13 @@ function validate_verify_inputs(){
         return false
     }
 
+    var valPass = validPassword($("#verify-password").val())
+    if($("#verify-username").val().length > 0 && valPass !== true){
+        $("#verify-error").text(valPass)
+        $("#verify-button").hide()
+        return false
+    }
+
     $("#verify-error").text("")
     $("#verify-button").show()
     return true

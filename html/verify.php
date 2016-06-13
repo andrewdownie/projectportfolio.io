@@ -62,6 +62,27 @@
 
                     <div id="verify-error">
                     </div>
+                    <br/>
+                    <div id="password-requirements">
+                        Password requirements:
+                        <ul>
+                            <li>
+                                8-20 characters long
+                            </li>
+                            <li>
+                                One uppercase letter
+                            </li>
+                            <li>
+                                One lowercase letter
+                            </li>
+                            <li>
+                                One number
+                            </li>
+                            <li>
+                                One symbol
+                            </li>
+                        </ul>
+                    </div>
 
 
                 </div>
