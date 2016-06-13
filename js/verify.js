@@ -49,6 +49,15 @@ function validate_verify_inputs(){
         }
     }
 
+    if( $("#verify-username").val().length == 0){
+        var valUsername = validUsername($("#verify-username").val())
+        if(valUsername !== true){
+            $("#verify-error").text(valUsername)
+            $("#verify-button").hide()
+            return false
+        }
+    }
+
     if( $("#verify-username").val().length == 0 && $("#verify-password").val().length > 0){
         $("#verify-error").text("Username is blank")
         $("#verify-button").hide()

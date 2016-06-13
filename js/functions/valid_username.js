@@ -1,13 +1,32 @@
-//TODO: make it not accept special characters
 function validUsername(username){
-    if(username.length > 15){
-        return false
+    var fourToFifteen = new RegExp("(^(.{4,15}$))")
+    var underDotStart = new RegExp("(^([_.]))")
+    var doubleUnderDot = new RegExp("(.*[_.]{2})")
+    var underDotEnd = new RegExp("(([_.])$)")
+    var allowedCharacters = new RegExp("(^(([a-zA-Z0-9._])+)$)")
+
+    if(fourToFifteen.test(username) == false){
+        if(username.length < 4){
+            return "Username too short"
+        }
+        return "Username too long"
     }
-    else if(username.length < 4){
-        return false
+
+    if(underDotStart.test(username) == true){
+        return "Username starts with dot or underscore"
     }
-    else if(username.length == 0){
-        return false
+
+    if(doubleUnderDot.test(username) == true){
+        return "Username has two dots / underscores in a row"
     }
-    return true
+
+    if(underDotEnd.test(username) == true){
+        return "Username ends with dot or underscore"
+    }
+
+    if(allowedCharacters.test(username) == true){
+        return true
+    }
+
+    return "Username contains invalid characters"
 }
