@@ -3,13 +3,10 @@ function validUsername(username){
     var underDotStart = new RegExp("(^([_.]))")
     var doubleUnderDot = new RegExp("(.*[_.]{2})")
     var underDotEnd = new RegExp("(([_.])$)")
-    var allowedCharacters = new RegExp("(^(([a-zA-Z0-9._])+)$)")
+    var illegalCharacters = new RegExp("(^(([^a-zA-Z0-9._]))$)")
 
-    if(fourToFifteen.test(username) == false){
-        if(username.length < 4){
-            return "Username too short"
-        }
-        return "Username too long"
+    if(illegalCharacters.test(username) == true){
+        return "Username contains invalid characters"
     }
 
     if(underDotStart.test(username) == true){
@@ -24,9 +21,13 @@ function validUsername(username){
         return "Username ends with dot or underscore"
     }
 
-    if(allowedCharacters.test(username) == true){
-        return true
+    if(fourToFifteen.test(username) == false){
+        if(username.length < 4){
+            return "Username too short"
+        }
+        return "Username too long"
     }
 
-    return "Username contains invalid characters"
+
+    return true
 }
