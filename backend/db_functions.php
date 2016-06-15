@@ -22,15 +22,17 @@ function refresh_logon($dirty_email, $dirty_old_PPSESSID){
 
 //return true if the given password is correct for the given account id
 function correct_password($account_id, $dirty_password){
-    $password = clean($dirty_password);
+    $password = escape($dirty_password);
 
     $sql = "SELECT (password) FROM account_credentials WHERE account=$account_id";
     $result = query($sql);
 
+
+
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         $stored_password = $row["password"];
-
+        
         return check_password($password, $stored_password);
     }
 

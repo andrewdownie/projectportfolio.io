@@ -24,32 +24,11 @@ function login($dirty_email, $dirty_password){
         return;
     }
 
-    
-
-    if($email === "user@example" && $password === "123"){
-
-        //====== check if email is in database
-        //---- match email to password
-        //---- check if password is correct
-
-        //IS THIS ALL I HAVE TO DO?!
-
-        if(True){//if the user was found in the DB and their password is correct
-            session_regenerate_id();
-            //---- update user profile, so they have the php sess id saved as their current login
-            //^call the update
-            setcookie('LOGGED_IN', "True", time() + 3600);
-            echo "login-success";
-        }
-        else{
-            echo "login-failure";
-        }
-
-    }
-    else{
-        echo "login-invalid";
-    }
-
+    session_regenerate_id();
+    fresh_logon();
+    //---- TODO: update the last seen, and user status columns in account head
+    setcookie('LOGGED_IN', "True", time() + 3600);
+    echo "login-success";
 }
 
 function signup($dirty_email){
