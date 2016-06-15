@@ -25,7 +25,6 @@ function validate_email($email){
 
 }
 
-//TODO: do this with regex
 function validate_password($password){
     $eightToTwenty = "(^(.{8,20}$))";
     $uppercase = "([A-Z])";
