@@ -12,7 +12,9 @@ function user_count($dirty_email){
     return $count;
 }
 
-function fresh_logon($dirty_email, $dirty_password, $dirty_new_PPSESSID){
+function fresh_logon($account){
+    $time = time();
+    $sql = "UPDATE account_head SET status = 'logged-in', last_seen=$time WHERE account=1;";
     return False;
 }
 
@@ -32,7 +34,7 @@ function correct_password($account_id, $dirty_password){
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
         $stored_password = $row["password"];
-        
+
         return check_password($password, $stored_password);
     }
 
@@ -75,15 +77,15 @@ function create_user($dirty_email){
             return;
         }
         else{
-            $sql4 = "delete from account_signup where account=$new_account_num";
-            $sql5 = "delete from account_head where account=$new_account_num";
+            $sql4 = "DELETE FROM account_signup WHERE account=$new_account_num";
+            $sql5 = "DELETE FROM account_head WHERE account=$new_account_num";
             query($sql4);
             query($sql5);
         }
     }
     else{
         echo "deleting head table failed";
-        $sql6 = "delete from account_head where email=$email";
+        $sql6 = "DELETE FROM account_head WHERE email=$email";
         query($sql6);
     }
 
@@ -139,7 +141,7 @@ function query($query){
 }
 
 function account_id_from_code($verification_code){
-    $sql = "select account from account_signup where code='$verification_code'";
+    $sql = "SELECT account FROM account_signup WHERE code='$verification_code'";
     $result = query($sql);
     $id = -1;
 
@@ -152,7 +154,7 @@ function account_id_from_code($verification_code){
 }
 
 function account_id_from_email($email){
-    $sql = "select account from account_head where email='$email'";
+    $sql = "SELECT account FROM account_head WHERE email='$email'";
     $result = query($sql);
     $id = -1;
 

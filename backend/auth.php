@@ -25,8 +25,7 @@ function login($dirty_email, $dirty_password){
     }
 
     session_regenerate_id();
-    fresh_logon();
-    //---- TODO: update the last seen, and user status columns in account head
+    fresh_logon($account_id);
     setcookie('LOGGED_IN', "True", time() + 3600);
     echo "login-success";
 }
