@@ -109,4 +109,5 @@ function check_password($password, $hashedPassword) {
     //TAKEN FROM: https://www.sitepoint.com/password-hashing-in-php/
     return crypt($password, $hashedPassword) == $hashedPassword;
 }
+
 ?>

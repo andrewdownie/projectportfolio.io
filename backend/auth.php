@@ -31,7 +31,7 @@ function login($dirty_email, $dirty_password){
 }
 
 function signup($dirty_email){
-    create_user($dirty_email);
+    create_account($dirty_email);
 }
 
 
