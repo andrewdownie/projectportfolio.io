@@ -110,9 +110,7 @@ function validate_password($password){
         return crypt($password, $hashedPassword) == $hashedPassword;
     }
 
-    function test_email($signupString){
-        // multiple recipients
-        $to  = 'andrew_dev@outlook.com'; // note the comma
+    function send_signup_email($to, $signupString){
 
         // subject
         $subject = 'Complete Registration - Verify your email address';
@@ -124,9 +122,15 @@ function validate_password($password){
         <title>Link to complete signup</title>
         </head>
         <body>
-        sent at: '.timestampify(time()).'
+        Hi '.$to.',<br/><br/>
+        Here is the link to complete your signup with ProjectPortfolio:
+        <br/>
         <a href="projectportfolio.io/verify?code='.$signupString.'">
         projectportfolio.io/verify?code='.$signupString.'</a>
+        <br/><br/>
+        If you did not request to signup, please ignore this email.
+        <br/>
+        sent at: '.timestampify(time()).'
         </body>
         </html>
         ';//how do i put links in an email?

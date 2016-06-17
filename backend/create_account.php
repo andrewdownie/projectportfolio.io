@@ -32,7 +32,7 @@ function create_account($dirty_email){
         $count = mysqli_num_rows($result);
 
         //mail($email,"ProjectPortfolio - Complete signup", "This is the msg telling you to sign up, fart.");
-        test_email($signupString);
+        send_signup_email($email, $signupString);
 
         if($count == 1){
             echo "signup-success";
