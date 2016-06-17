@@ -61,9 +61,9 @@
                     <li>
                         <a href="/projects/browse-projects">Projects</a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a href="#"> <?php echo $_COOKIE['PHPSESSID']; ?> </a>
-                    </li>
+                    </li>-->
                 </ul>
 
                 <div class="pull-right">

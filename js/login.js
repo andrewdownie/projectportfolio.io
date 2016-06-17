@@ -144,7 +144,7 @@ function ajaxcall_login(){
             "password": $("#login-password").val()
         },
         success: function(data) {
-            alert(data)
+            //alert(data)
             if(data === "login-success"){
                 $("#login-invalid-email-password").hide();
                 window.location = "/index"
@@ -192,7 +192,7 @@ function ajaxcall_signup(){
             "password": $("#signup-password").val()
         },
         success: function(data) {
-            alert(data)
+            //alert(data)
 
             if(data === "signup-success"){
                 //$("#signup-emails-dont-match").hide();

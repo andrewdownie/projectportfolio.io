@@ -112,20 +112,21 @@ function validate_password($password){
 
     function test_email($signupString){
         // multiple recipients
-        $to  = 'andrew_dev@outlook.com' . ', '; // note the comma
-        $to .= 'dd_downie@live.ca';
+        $to  = 'andrew_dev@outlook.com'; // note the comma
 
         // subject
-        $subject = 'Complete Registration - ProjectPortfolio';
+        $subject = 'Complete Registration - Verify your email address';
 
-        // message
+        // message TODO: get tls enabled, so the link will work (auto redirects to https)
         $message = '
         <html>
         <head>
-        <title>Here is your link to complete signup:</title>
+        <title>Link to complete signup</title>
         </head>
         <body>
-        '.$signupString.'
+        sent at: '.timestampify(time()).'
+        <a href="projectportfolio.io/verify?code='.$signupString.'">
+        projectportfolio.io/verify?code='.$signupString.'</a>
         </body>
         </html>
         ';//how do i put links in an email?
@@ -135,8 +136,7 @@ function validate_password($password){
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
         // Additional headers
-        $headers .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
-        $headers .= 'From: Signup Robot <signup_robot@projectportfolio.io>' . "\r\n";
+        $headers .= 'From: ProjectPortfolio <signup_robot@projectportfolio.io>' . "\r\n";
         $headers .= '' . "\r\n";
         $headers .= '' . "\r\n";
 
