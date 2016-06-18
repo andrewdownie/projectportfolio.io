@@ -36,7 +36,11 @@ function signup($dirty_email){
 
 
 function logout(){
-    //sign the user out that has that session id on their account
+    $session = session_id();
+    $sql = "UPDATE account_head SET status='logged-out', session='', last_seen=1 WHERE session='$session';";
+    $result = query($sql);
+
+    //TODO: verify that the above sql worked (through code)
 
     setcookie('LOGGED_IN', null, 1);
     session_regenerate_id();
@@ -45,7 +49,7 @@ function logout(){
 }
 
 
-function valid_login($cookie){
+function valid_login($account_num){
     return False;
 }
 

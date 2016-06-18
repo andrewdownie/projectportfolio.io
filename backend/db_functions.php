@@ -14,8 +14,11 @@ function user_count($dirty_email){
 
 function fresh_logon($account){
     $time = time();
-    $sql = "UPDATE account_head SET status = 'logged-in', last_seen=$time WHERE account=1;";
-    return False;
+    $session = session_id();
+    //echo "SESSION IS(".$session.") ";
+    $sql = "UPDATE account_head SET status='logged-in', session='$session', last_seen=$time WHERE account=$account;";
+    $result = query($sql);
+    //TODO: verify that the above sql went through okay
 }
 
 function refresh_logon($dirty_email, $dirty_old_PPSESSID){
@@ -74,6 +77,8 @@ function user_has_credentials($account_num, $username, $encrypted_password){
 }
 
 function user_has_signup_pending($account_num){
+    //TODO: validate that all numerical inputs are JUST numbers.
+
     $sql1 = "SELECT * FROM account_signup WHERE account=$account_num;";
     $result = query($sql1);
 

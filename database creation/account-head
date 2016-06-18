@@ -6,17 +6,6 @@ create TABLE account_head
         account INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
         email VARCHAR(255),
         status VARCHAR(255),
+        session VARCHAR(255),
         last_seen int
     );
-
-    //=====
-    //===== INSERT INTO TABLE ------------------------------------------------------
-    //=====
-    INSERT INTO users (email, password, salt, PPSESSID, PPSESSID_expiry, login_status, account_status)
-    VALUES ($email, $password, $salt, null, null, "logged-out", "unverified");
-
-    //=====
-    //===== UPDATE login_status ----------------------------------------------------
-    //=====
-    INSERT INTO users (email, password, PPSESSID, PPSESSID_expiry, login_status, account_status)
-    VALUES ($email, $password, null, null, "logged-out", "unverified");
