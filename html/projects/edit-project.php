@@ -64,12 +64,12 @@
                                 <button class="button full">Save</button>
                                 <button class="button full">Clear</button>
 
-                                <h3><i class="fa fa-link" aria-hidden="true"></i>&nbsp;Image Source</h3>
+                                <h3><i class="fa fa-file-image-o" aria-hidden="true"></i>&nbsp;Image Source</h3>
                                 <input type="text" value="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30">
                                 <button class="button full">Save</button>
                                 <button class="button full">Clear</button>
 
-                                <h3><i class="fa fa-link" aria-hidden="true" ></i>&nbsp;Project Spec</h3>
+                                <h3><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;Project Spec</h3>
                                 <input type="text" value="docs.google.com/project-spec-here">
                                 <button class="button full">Save</button>
                                 <button class="button full">Clear</button>

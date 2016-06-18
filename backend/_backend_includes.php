@@ -18,6 +18,7 @@ include($backend_path."create_account.php");
 include($backend_path."auth.php");
 include($backend_path."db_functions.php");
 include($backend_path."functions.php");
+include($backend_path."project_management.php");
 
 
  ?>
