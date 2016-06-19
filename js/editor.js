@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     /*Toggle pads when in xs mode*/
     $("#minimize-pads").click(function() {
-        var visible = ToggleElements($("#minimize-pads i"), "fa fa-plus-square-o", "fa fa-minus-square-o", $("#addpad table"), $("#stylepad #content"), $("#blogpad table") )
+        var visible = ToggleElements($("#minimize-pads i"), "fa fa-plus-square-o", "fa fa-minus-square-o", $("#addpad #content"), $("#stylepad #content"), $("#blogpad table") )
         if(visible){
             $(".editortools-topspace").css("padding-top", "90px")
 
@@ -17,7 +17,7 @@ $(document).ready(function(){
             $(".editortools-topspace").css("padding-top", "30px")
         }
         $("#moveremovepad").hide()
-    
+
     });
 
 
@@ -45,7 +45,7 @@ $(document).ready(function(){
     };
     function WindowSizeChanged(){
         ShowElements($("#editor-tools i"), "fa fa-folder-open", $("#addpad"), $("#stylepad"), $("#blogpad") )
-        ShowElements($("#minimize-pads i"), "fa fa-minus-square-o", $("#addpad table"), $("#stylepad #content"), $("#blogpad table") )
+        ShowElements($("#minimize-pads i"), "fa fa-minus-square-o", $("#addpad #content"), $("#stylepad #content"), $("#blogpad table") )
     }
 
 });

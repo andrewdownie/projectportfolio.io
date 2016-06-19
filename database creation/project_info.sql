@@ -5,5 +5,5 @@ create TABLE project_info
         spec_link VARCHAR(500),
         img_link VARCHAR(500),
         created INT,
-        modified INT,
+        modified INT
     );

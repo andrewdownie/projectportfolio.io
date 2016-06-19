@@ -3,6 +3,9 @@ function create_project($owner_id){
     if(!valid_login($owner_id)){
         return;
     }
+
+    $sql = "INSERT INTO project_head ()";
+    $sql .= "VALUES ();";
 }
 function delete_project($project_id, $owner_id){
     if(!valid_login($owner_id)){
