@@ -133,7 +133,7 @@ function validate_password($password){
         sent at: '.timestampify(time()).'
         </body>
         </html>
-        ';//how do i put links in an email?
+        ';
 
         // To send HTML mail, the Content-type header must be set
         $headers  = 'MIME-Version: 1.0' . "\r\n";

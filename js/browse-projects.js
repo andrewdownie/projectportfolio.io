@@ -1,8 +1,41 @@
 $(document).ready(function(){
     $("#create-new").click(function(){
-        window.location = "/projects/edit-project";
+        ajax_create_project();
     });
     $("button").click(function(){
-        window.location = "/projects/edit-project";
+        //window.location = "/projects/edit-project";
     });
+
+
 });
+
+//=====
+//===== CREATE PROJECT AJAX CALL -----------------------------------------------
+//=====
+function ajax_create_project(){
+    $.ajax({
+        url: '/ajax_api',
+        type: "POST",
+        data: {
+            "function": "create-project"
+        },
+        success: function(data) {
+            alert(data)
+
+            if(data === "create-project-success"){
+                //$("#signup-emails-dont-match").hide();
+                //window.location = "/verification"
+                alert("created a project")
+            }
+            else{
+                alert("Unexpect response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+            }
+        },
+        error: function(xhr, desc, err) {
+            alert('No response from server >:( ')
+        },
+        complete: function(){
+
+        }
+    });
+}

@@ -1,12 +1,21 @@
 <?php
-function create_project($owner_id){
-    if(!valid_login($owner_id)){
+function create_project(){
+    $creator_account = current_account();
+    if($creator_account == -1){
         return;
     }
 
-    $sql = "INSERT INTO project_head ()";
-    $sql .= "VALUES ();";
+
+    $sql = "INSERT INTO project_head (project, owner)";
+    $sql .= "VALUES (null, $creator_account);";
+
+    $result = query($sql);
+    //TODO: verify the above sql worked
+
+    echo "create-project-success";
+
 }
+
 function delete_project($project_id, $owner_id){
     if(!valid_login($owner_id)){
         return;

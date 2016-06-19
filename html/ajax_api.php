@@ -42,6 +42,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     else if($function === 'verify-account'){
         verify_account($_POST['username'], $_POST['password'], $_POST['verify_code']);
     }
+    else if($function === 'create-project'){
+        create_project();
+    }
     else{
         echo "ARE YOU A WIZARD?!\n     (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n\n Unrecognized function, how did you do that?";
 

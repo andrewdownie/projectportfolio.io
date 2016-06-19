@@ -47,6 +47,20 @@ function logout(){
     echo "logout-success";
 }
 
+//gets the current account, based on the session cookie the user sends
+function current_account(){
+    $session = session_id();
+    $sql = "SELECT account FROM account_head WHERE session='$session'";
+    $account_num = -1;
+
+    $result = query($sql);
+    if(mysqli_num_rows($result) == 1){
+        $row = mysqli_fetch_assoc($result);
+        $account_num = $row["account"];
+    }
+    
+    return $account_num;
+}
 
 function valid_login($account_num){
     $session = session_id();
