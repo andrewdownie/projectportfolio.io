@@ -86,7 +86,7 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Team (3)</p>
+                            <p class="panel-title">Membersd (3)</p>
                         </div>
                         <div class="panel-body">
                             <i class="fa fa-users team-icon" aria-hidden="true"></i>

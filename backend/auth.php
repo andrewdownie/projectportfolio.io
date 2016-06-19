@@ -39,7 +39,6 @@ function logout(){
     $session = session_id();
     $sql = "UPDATE account_head SET status='logged-out', session='', last_seen=1 WHERE session='$session';";
     $result = query($sql);
-
     //TODO: verify that the above sql worked (through code)
 
     setcookie('LOGGED_IN', null, 1);
@@ -50,7 +49,18 @@ function logout(){
 
 
 function valid_login($account_num){
-    return False;
+    $session = session_id();
+    $sql = "SELECT session FROM account_head WHERE account=$account_num;";
+    $result = query($sql);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $db_session = $row["session"];
+
+        return $db_session == $session;
+    }
+
+    return false;
 }
 
 function expire_ppsessid(){
