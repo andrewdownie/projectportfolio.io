@@ -144,7 +144,7 @@ function ajaxcall_login(){
             "password": $("#login-password").val()
         },
         success: function(data) {
-            alert(data)
+            //alert(data)
             if(data === "login-success"){
                 $("#login-invalid-email-password").hide();
                 window.location = "/index"

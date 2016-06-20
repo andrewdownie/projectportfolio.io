@@ -8,9 +8,26 @@ function create_project(){
 
     $sql = "INSERT INTO project_head (project, owner)";
     $sql .= "VALUES (null, $creator_account);";
-
     $result = query($sql);
     //TODO: verify the above sql worked
+    if(!$result){
+        echo "create-project-failure";
+        return;
+    }
+
+    $last_id = last_insert_id();
+
+    //TODO: get the created project number from the above sql somehow
+    $time = time();
+    $sql2 = "INSERT INTO project_info (project, name, spec_link, img_link, created, modified)";
+    $sql2 .= "VALUES ($last_id, 'New Project $time', null, null, $time, $time)";
+    $result2 = query($sql2);
+
+    if(!$result2){
+        echo "create-project-failure";
+        return;
+    }
+
 
     echo "create-project-success";
 

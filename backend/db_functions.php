@@ -92,6 +92,10 @@ function query($query){
     global $con;
     return mysqli_query($con, $query);
 }
+function last_insert_id(){
+    global $con;
+    return mysqli_insert_id($con);
+}
 
 function account_id_from_code($verification_code){
     $sql = "SELECT account FROM account_signup WHERE code='$verification_code'";

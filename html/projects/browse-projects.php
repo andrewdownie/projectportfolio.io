@@ -10,6 +10,7 @@
 
     <!-- PAGE SPECIFIC JS -->
     <script src="/js/browse-projects.js"></script>
+    <script src="/js/functions/read_cookie.js"></script>
 
     <!-- PAGE SPECIFIC OTHER -->
 

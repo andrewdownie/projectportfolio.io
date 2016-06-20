@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    if(read_cookie("LOGGED_IN") !== "True"){
+        $("#browse-projects #create-new").hide()
+        $("#browse-projects .editButton").hide()
+    }
+
     $("#create-new").click(function(){
         ajax_create_project();
     });
