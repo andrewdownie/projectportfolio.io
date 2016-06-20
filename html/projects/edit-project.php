@@ -60,19 +60,19 @@
                             </div>
                             <div class="col-md-5" style="padding: 0 20px 20px 20px;">
                                 <h3><i class="fa fa-terminal" aria-hidden="true"></i>&nbsp;Project Name</h3>
-                                <input type="text" value="Project A">
-                                <button class="button full">Save</button>
-                                <button class="button full">Clear</button>
+                                <input id="text-name" type="text" value="Project A">
+                                <button id="save-name" class="button full">Save</button>
+                                <button id="clear-name" class="button full">Clear</button>
 
                                 <h3><i class="fa fa-file-image-o" aria-hidden="true"></i>&nbsp;Image Source</h3>
-                                <input type="text" value="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30">
-                                <button class="button full">Save</button>
-                                <button class="button full">Clear</button>
+                                <input id="text-image" type="text" value="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30">
+                                <button id="save-image" class="button full">Save</button>
+                                <button id="clear-image" class="button full">Clear</button>
 
                                 <h3><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;Project Spec</h3>
-                                <input type="text" value="docs.google.com/project-spec-here">
-                                <button class="button full">Save</button>
-                                <button class="button full">Clear</button>
+                                <input id="text-spec" type="text" value="docs.google.com/project-spec-here">
+                                <button id="save-spec" class="button full">Save</button>
+                                <button id="clear-spec" class="button full">Clear</button>
 
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Membersd (3)</p>
+                            <p class="panel-title">Members&nbsp;(3)</p>
                         </div>
                         <div class="panel-body">
                             <i class="fa fa-users team-icon" aria-hidden="true"></i>
@@ -100,7 +100,7 @@
                 <a href="/projects/blogs">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Blogs (6)</p>
+                            <p class="panel-title">Blogs&nbsp;(6)</p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-pencil-square-o section-icon" aria-hidden="true" ></i>
@@ -113,7 +113,7 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Goals (34)</p>
+                            <p class="panel-title">Goals&nbsp;(34)</p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-check section-icon" aria-hidden="true" ></i>
@@ -126,7 +126,7 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Builds (11)</p>
+                            <p class="panel-title">Builds&nbsp;(11)</p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-home section-icon" aria-hidden="true" ></i>

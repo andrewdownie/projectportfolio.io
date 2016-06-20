@@ -12,6 +12,7 @@ $(document).ready(function(){
     });
 
 
+
 });
 
 //=====
@@ -25,12 +26,10 @@ function ajax_create_project(){
             "function": "create-project"
         },
         success: function(data) {
-            alert(data)
+            //alert(data)
 
             if(data === "create-project-success"){
-                //$("#signup-emails-dont-match").hide();
-                //window.location = "/verification"
-                alert("created a project")
+                window.location = "/projects/edit-project"
             }
             else{
                 alert("Unexpect response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
