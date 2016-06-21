@@ -1,4 +1,6 @@
-<?php include("/var/www/projectportfolio/html/head.php"); ?>
+<?php
+include("/var/www/projectportfolio/html/head.php"); 
+?>
 
     <!-- PAGE SPECIFIC INFO -->
     <title>Home - ProjectPortfolio</title>
