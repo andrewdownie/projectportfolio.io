@@ -1,5 +1,5 @@
 <?php
-include("/var/www/projectportfolio/html/head.php"); 
+include("/var/www/projectportfolio/html/head.php");
 ?>
 
     <!-- PAGE SPECIFIC INFO -->
@@ -32,7 +32,12 @@ include("/var/www/projectportfolio/html/head.php");
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    Home
+                    <!--Home-->
+                    <?php
+                        print_r($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+                        echo "<br/>";
+                        print_r($_SERVER['QUERY_STRING']);
+                    ?>
                 </div>
             </div>
         </footer>
