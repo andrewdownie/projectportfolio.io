@@ -9,7 +9,7 @@ RewriteRule ^ %1 [R,L,NC]
 
 ## To internally redirect /dir/foo to /dir/foo.php
 RewriteCond %{REQUEST_FILENAME}.php -f [NC]
-`RewriteRule ^ %{REQUEST_URI}.php [L]
+RewriteRule ^ %{REQUEST_URI}.php [L]
 
 #Test rewrite
 #RewriteRule ^/?test/([0-9]+)$ /projects.php?id=$1
