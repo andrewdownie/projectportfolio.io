@@ -37,55 +37,64 @@
 
                 <!-- Search area -->
                 <!--<div class="col-sm-3 col-md-3 pull-left">
-                    <form class="navbar-form" role="search">
-                        <div class="input-group input-group-sm">
-                            <div class="input-group-btn">
-                                <button class="btn btn-search" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                            </div>
-                            <input type="text" class="form-control search-box" placeholder="Search..." name="srch-term" id="srch-term">
-
-                        </div>
-                    </form>
-                </div>-->
-
-                <ul class="nav navbar-nav  pull-left">
-                    <!--<li>
-                        <a href="#">Top Rated</a>
-                    </li>-->
-                    <li>
-                        <a href="/dbtest">Database test</a>
-                    </li>
-                    <li>
-                        <a href="/editor">Editor</a>
-                    </li>
-                    <li>
-                        <a href="/projects/browse-projects">Projects</a>
-                    </li>
-                    <!--<li>
-                        <a href="#"> <?php echo $_COOKIE['PHPSESSID']; ?> </a>
-                    </li>-->
-                </ul>
-
-                <div class="pull-right">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <?php
-                                if(isset($_COOKIE['LOGGED_IN'])){
-                                    echo "<a id='navbar-logout' href='#'>Logout</a>";
-                                }
-                                else{
-                                    echo "<a href='/login'>Login</a>";
-                                }
-                             ?>
-
-                        </li>
-                    </ul>
-                </div>
+                <form class="navbar-form" role="search">
+                <div class="input-group input-group-sm">
+                <div class="input-group-btn">
+                <button class="btn btn-search" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
-            <!-- /.navbar-collapse -->
+            <input type="text" class="form-control search-box" placeholder="Search..." name="srch-term" id="srch-term">
+
         </div>
-        <!-- /.container -->
-    </nav>
+    </form>
+</div>-->
+
+<ul class="nav navbar-nav  pull-left">
+    <!--<li>
+    <a href="#">Top Rated</a>
+</li>-->
+<li>
+    <a href="/dbtest">Database test</a>
+</li>
+<li>
+    <a href="/editor">Editor</a>
+</li>
+<li>
+    <a href="/user/cur-user/projects">Projects</a>
+</li>
+<!--<li>
+<a href="#"> <?php echo $_COOKIE['PHPSESSID']; ?> </a>
+</li>-->
+</ul>
+
+<div class="pull-right">
+    <ul class="nav navbar-nav">
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">andrewdownie <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">My Projects</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </li>
+
+        <?php
+        if(isset($_COOKIE['LOGGED_IN'])){
+            echo "<li><a id='navbar-logout' href='#'>Logout</a></li>";
+        }
+        else{
+            echo "<li><a href='/login'>Login</a></li>";
+        }
+        ?>
+
+
+    </ul>
+</div>
+</div>
+<!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
+</nav>
 
 </body>
 

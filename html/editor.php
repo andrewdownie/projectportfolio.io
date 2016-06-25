@@ -32,7 +32,7 @@
         <div class="row">
 
             <div class="col-sm-2 col-xs-12" id="editor-tools-col">
-                <div class="padding-top-10;"></div>
+                <div></div>
 
                 <div class="width-100; hidden-xs"><a id="editor-tools" class="button-link"><i class="fa fa-folder-open"></i> Editor Tools</a></div>
 
