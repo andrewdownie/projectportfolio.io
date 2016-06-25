@@ -13,7 +13,7 @@ include("/var/www/projectportfolio/html/head.php");
 </head>
 
 <body>
-    <?php include "/var/www/projectportfolio/navbar/navbar.php";?>
+    <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
 
 
     <!-- Page Content -->
@@ -33,6 +33,7 @@ include("/var/www/projectportfolio/html/head.php");
             <li role="presentation"><a href="/projects/most-active">Most Active</a></li>
             <li role="presentation"><a href="/projects/recent">Recent</a></li>
         </ul>
+        <br/>
 
 
         <?php

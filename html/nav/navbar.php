@@ -59,14 +59,17 @@
     <a href="/editor">Editor</a>
 </li>
 <li>
-    <a href="/projects">Projects</a>
+    <!-- TODO: if logged in go to my projects -->
+    <a href="/projects/most-active">Projects</a>
+    <!-- TODO: if not logged in got to most recent -->
 </li>
 </ul>
 
 <div class="pull-right">
     <ul class="nav navbar-nav">
 
-        <?php
+
+        <?php //TODO: move this to a php includes
         if(isset($_COOKIE['LOGGED_IN'])){
             echo '<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">';

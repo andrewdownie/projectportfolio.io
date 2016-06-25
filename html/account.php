@@ -25,7 +25,7 @@ include("/var/www/projectportfolio/html/head.php");
 
     <div class="container">
         <div class="container">
-            <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
+            <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
         </div>
 
         <!-- Footer -->

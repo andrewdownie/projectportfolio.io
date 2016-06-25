@@ -13,7 +13,7 @@ include("/var/www/projectportfolio/html/head.php");
 </head>
 
 <body>
-    <?php include "/var/www/projectportfolio/navbar/navbar.php";?>
+    <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
 
 
     <!-- Page Content -->

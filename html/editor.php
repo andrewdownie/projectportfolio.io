@@ -25,7 +25,7 @@
 
     <!-- Page Content -->
     <div class="container">
-        <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
+        <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
     </div>
 
     <div class="container-fluid">
