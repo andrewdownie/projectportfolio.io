@@ -1,32 +1,55 @@
-<?php include("/var/www/projectportfolio/html/head.php"); ?>
+<?php
+include("/var/www/projectportfolio/html/head.php");
+?>
 
     <!-- PAGE SPECIFIC INFO -->
-    <title>Blog - ProjectPortfolio</title>
+    <title>User - ProjectPortfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <!-- PAGE SPECIFIC CSS -->
-
-    <!-- PAGE SPECIFIC JS -->
-    <script src="/js/blog.js"></script>
-
-    <!-- PAGE SPECIFIC OTHER -->
-
-
+    <!-- PAGE SPECIFIC INCLUDES -->
+    <link href="/css/login.css" rel="stylesheet">
 
 </head>
 
 <body>
+    <?php include "/var/www/projectportfolio/navbar/navbar.php";?>
+
+
     <!-- Page Content -->
     <div class="container">
-        <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
-    </div>
 
-    <div class="container" id="blog">
-        <button class="btn btn-link" id="back-to-blogs"><h3><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;Blogs</h3></button>
-        <br>
-        rendered html from the data base (CONVERTING AND SECURING THIS CONTENT WILL BE FUN)
 
     </div>
+    <!-- /.container -->
+
+    <div class="container">
+        <div class="container">
+            <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h1>Blog</h1>
+                        <hr/>
+                    </div>
+                    <?php
+                        print_r($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+                        echo "<br/>";
+                        print_r($_SERVER['QUERY_STRING']);
+                    ?>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+
+
 </body>
+
 </html>

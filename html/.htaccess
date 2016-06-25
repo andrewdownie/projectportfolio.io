@@ -21,28 +21,31 @@ RewriteRule ^(.*).php/?$ $1 [R,L,NC]
 # Map user
 RewriteRule ^user/([A-Za-z0-9._]*)/?$ user.php?username=$1 [L]
 
+# Map browse projects
+RewriteRule ^user/([A-Za-z0-9._]*)/projects/?$ projects/all-projects.php?username=$1 [L]
+
 # Map project
-RewriteRule ^user/([A-Za-z0-9._]*)/([A-Za-z0-9._]*)/?$ user.php?username=$1&projectname=$2 [L]
+RewriteRule ^user/([A-Za-z0-9._]*)/projects/([A-Za-z0-9._]*)/?$ projects/project.php?username=$1&projectname=$2 [L]
 
 # Map browse blogs
-RewriteRule ^user/([A-Za-z0-9._]*)/([A-Za-z0-9._]*)/blogs/?$ user.php?username=$1&projectname=$2 [L]
+RewriteRule ^user/([A-Za-z0-9._]*)/projects/([A-Za-z0-9._]*)/blogs/?$ projects/all-blogs.php?username=$1&projectname=$2 [L]
 
 # Map blog
-RewriteRule ^user/([A-Za-z0-9._]*)/([A-Za-z0-9._]*)/blogs/([A-Za-z0-9._]*)/?$ user.php?username=$1&projectname=$2&blogname=$3 [L]
+RewriteRule ^user/([A-Za-z0-9._]*)/projects/([A-Za-z0-9._]*)/blogs/([A-Za-z0-9._]*)/?$ projects/blog.php?username=$1&projectname=$2&blogname=$3 [L]
 
 
 # Map browse builds
-RewriteRule ^user/([A-Za-z0-9._]*)/([A-Za-z0-9._]*)/builds/?$ user.php?username=$1&projectname=$2 [L]
+RewriteRule ^user/([A-Za-z0-9._]*)/projects/([A-Za-z0-9._]*)/builds/?$ projects/all-builds.php?username=$1&projectname=$2 [L]
 
 # Map build
-RewriteRule ^user/([A-Za-z0-9._]*)/([A-Za-z0-9._]*)/builds/([A-Za-z0-9._]*)/?$ user.php?username=$1&projectname=$2&buildname=$3 [L]
+RewriteRule ^user/([A-Za-z0-9._]*)/projects/([A-Za-z0-9._]*)/builds/([A-Za-z0-9._]*)/?$ projects/build.php?username=$1&projectname=$2&buildname=$3 [L]
 
 
 # Map browse goals
-RewriteRule ^user/([A-Za-z0-9._]*)/([A-Za-z0-9._]*)/goals/?$ user.php?username=$1&projectname=$2 [L]
+RewriteRule ^user/([A-Za-z0-9._]*)/projects/([A-Za-z0-9._]*)/goals/?$ projects/all-goals.php?username=$1&projectname=$2 [L]
 
 # Map goal
-RewriteRule ^user/([A-Za-z0-9._]*)/([A-Za-z0-9._]*)/goals/([A-Za-z0-9._]*)/?$ user.php?username=$1&projectname=$2&goalname=$3 [L]
+RewriteRule ^user/([A-Za-z0-9._]*)/projects/([A-Za-z0-9._]*)/goals/([A-Za-z0-9._]*)/?$ projects/goal.php?username=$1&projectname=$2&goalname=$3 [L]
 
 # Map client facing urls to .php files
 RewriteCond %{REQUEST_FILENAME} !-f

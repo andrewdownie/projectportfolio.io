@@ -33,7 +33,7 @@ include("/var/www/projectportfolio/html/head.php");
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-header">
-                        <h1>User page</h1>
+                        <h1>All projects</h1>
                         <hr/>
                     </div>
                     <?php
