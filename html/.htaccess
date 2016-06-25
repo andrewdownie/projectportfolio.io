@@ -47,6 +47,9 @@ RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._-]*)/goals/?$ projects
 # Map goal
 RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._-]*)/goals/([A-Za-z0-9._-]*)/?$ projects/goal.php?username=$1&projectname=$2&goalname=$3 [L]
 
+# Map public projects
+RewriteRule ^projects/?$ public-projects.php [L]
+
 # Map client facing urls to .php files
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ $1.php [L]

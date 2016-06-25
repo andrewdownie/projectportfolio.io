@@ -19,7 +19,6 @@ include($backend_path."auth.php");
 include($backend_path."db_functions.php");
 include($backend_path."functions.php");
 include($backend_path."project_management.php");
-include($backend_path."routing.php");
 
 //TODO: this blobular method seems like it will get really inefficient if the site gets complex
  ?>

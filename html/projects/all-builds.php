@@ -34,7 +34,6 @@ include("/var/www/projectportfolio/html/head.php");
                 <div class="col-lg-12">
                     <div class="page-header">
                         <h1>All builds</h1>
-                        <hr/>
                     </div>
                     <?php
                         print_r($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);

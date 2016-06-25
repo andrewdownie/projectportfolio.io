@@ -26,7 +26,9 @@ function login($dirty_email, $dirty_password){
 
     session_regenerate_id();
     fresh_logon($account_id);
-    setcookie('LOGGED_IN', "True", time() + 3600);
+
+    $username = username_from_account_id($account_id);
+    setcookie('LOGGED_IN', $username, time() + 3600);
     echo "login-success";
 }
 
@@ -58,7 +60,7 @@ function current_account(){
         $row = mysqli_fetch_assoc($result);
         $account_num = $row["account"];
     }
-    
+
     return $account_num;
 }
 

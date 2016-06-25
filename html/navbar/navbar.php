@@ -59,30 +59,32 @@
     <a href="/editor">Editor</a>
 </li>
 <li>
-    <a href="/user/cur-user/projects">Projects</a>
+    <a href="/projects">Projects</a>
 </li>
-<!--<li>
-<a href="#"> <?php echo $_COOKIE['PHPSESSID']; ?> </a>
-</li>-->
 </ul>
 
 <div class="pull-right">
     <ul class="nav navbar-nav">
 
         <?php
-
-        //TODO: read the username from the LOGGED-IN cookie
         if(isset($_COOKIE['LOGGED_IN'])){
             echo '<li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">andrewdownie <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">';
+
+            echo $_COOKIE['LOGGED_IN']."&nbsp;";
+
+            echo '<span class="caret"></span></a>
             <ul class="dropdown-menu">
-            <li><a href="#">My Projects</a></li>
-            <li><a href="#">Account</a></li>
+            <li><a href="/user/';
+
+            echo $_COOKIE['LOGGED_IN'];
+
+            echo '/projects">My Projects</a></li>
+            <li><a href="/account">Account</a></li>
             <li role="separator" class="divider"></li>
             <li><a id="navbar-logout" href="#">Logout</a></li>
             </ul>
             </li>';
-            //echo "<li><a id='navbar-logout' href='#'>Logout</a></li>";
         }
         else{
             echo "<li><a href='/login'>Login</a></li>";

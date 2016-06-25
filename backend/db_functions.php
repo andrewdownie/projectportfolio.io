@@ -97,6 +97,19 @@ function last_insert_id(){
     return mysqli_insert_id($con);
 }
 
+function username_from_account_id($account_num){
+    $sql = "SELECT username FROM account_credentials WHERE account=$account_num";
+    $result = query($sql);
+    $id = -1;
+
+    if(mysqli_num_rows($result) == 1){
+        $row = mysqli_fetch_assoc($result);
+        $id = $row["username"];
+    }
+
+    return $id;
+}
+
 function account_id_from_code($verification_code){
     $sql = "SELECT account FROM account_signup WHERE code='$verification_code'";
     $result = query($sql);

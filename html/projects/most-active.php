@@ -29,8 +29,8 @@ include("/var/www/projectportfolio/html/head.php");
         </div>
 
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="/user/username/projects">My Projects</a></li>
-            <li role="presentation"><a href="/projects/most-active">Most Active</a></li>
+            <li role="presentation"><a href="/user/username/projects">My Projects</a></li>
+            <li role="presentation" class="active"><a href="/projects/most-active">Most Active</a></li>
             <li role="presentation"><a href="/projects/recent">Recent</a></li>
         </ul>
 

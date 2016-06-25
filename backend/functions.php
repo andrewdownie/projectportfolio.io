@@ -7,7 +7,7 @@ function generate_string(){
     return base64_encode($randomString);
 }
 
-//TODO: use regex for this
+
 function validate_email($email){
     $invalidCharacters = "([^a-zA-Z0-9._@])";
     $singleAt = "(^([A-Za-z0-9._]+@[A-Za-z0-9._]+)$)";
