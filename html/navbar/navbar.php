@@ -69,18 +69,20 @@
 <div class="pull-right">
     <ul class="nav navbar-nav">
 
-        <li class="dropdown">
+        <?php
+
+        //TODO: read the username from the LOGGED-IN cookie
+        if(isset($_COOKIE['LOGGED_IN'])){
+            echo '<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">andrewdownie <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#">My Projects</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Account</a></li>
+            <li><a href="#">My Projects</a></li>
+            <li><a href="#">Account</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a id="navbar-logout" href="#">Logout</a></li>
             </ul>
-        </li>
-
-        <?php
-        if(isset($_COOKIE['LOGGED_IN'])){
-            echo "<li><a id='navbar-logout' href='#'>Logout</a></li>";
+            </li>';
+            //echo "<li><a id='navbar-logout' href='#'>Logout</a></li>";
         }
         else{
             echo "<li><a href='/login'>Login</a></li>";
