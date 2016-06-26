@@ -59,9 +59,16 @@
     <a href="/editor">Editor</a>
 </li>
 <li>
-    <!-- TODO: if logged in go to my projects -->
-    <a href="/projects/most-active">Projects</a>
-    <!-- TODO: if not logged in got to most recent -->
+    <?php
+        if(isset($_COOKIE['LOGGED_IN'])){
+            echo '<a href="/user/';
+            echo $_COOKIE['LOGGED_IN'];
+            echo '/projects">Projects</a>';
+        }
+        else{
+            echo '<a href="/projects/most-active">Projects</a>';
+        }
+    ?>
 </li>
 </ul>
 

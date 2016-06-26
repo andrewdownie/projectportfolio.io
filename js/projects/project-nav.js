@@ -6,7 +6,13 @@ $(document).ready(function(){
 
 function setMyProjectsLinkHref(){
     var username = read_cookie("LOGGED_IN")
-    $("#project-nav #my-projects a").attr('href','/user/'+username+'/projects')
+
+    if(username == null){
+        $("#project-nav #my-projects").hide()
+    }else{
+        $("#project-nav #my-projects a").attr('href','/user/'+username+'/projects')
+    }
+
 }
 
 
