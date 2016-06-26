@@ -26,6 +26,7 @@ function load_projects(){
         type: "GET",
         data: {
             "function": "load-projects",
+            "username": "dd_dow",
             "amount": 12,
             "start": 1
         },

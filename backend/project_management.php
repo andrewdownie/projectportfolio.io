@@ -59,9 +59,36 @@ function changeSpec_project($project_id, $owner_id, $new_spec){
 }
 
 
-function load_projects($amount, $start){
-    $username = $_COOKIE['LOGGED_IN'];
-    $sql = "SELECT * FROM ";
+function load_projects($username, $amount, $start){
+    $sql = "SELECT account FROM account_credentials WHERE username='$username';";
+    $result = query($sql);
+
+    if(mysqli_num_rows($result) != 1){
+        //TODO: log error
+        echo "load-projects-failure";
+    }
+
+    $row = mysqli_fetch_assoc($result);
+    $account_num = $row["account"];
+
+    $sql2 = "SELECT *";
+    $sql2 .= " FROM project_info";
+    $sql2 .= " INNER JOIN project_head";
+    $sql2 .= " ON project_info.project=project_head.project";
+    $sql2 .= " WHERE project_head.owner=$account_num;";
+
+    $result2 = query($sql2);
+
+    if(mysqli_num_rows($result2) <= 0){
+        //TODO: log error
+        echo "load-projects-failure";
+    }
+
+    print_r($result2);
+
+
+
+    //$sql2 = ""
     //TODO: do a join on project_head and project_info where username is owner of the projects
 
     echo $username;
