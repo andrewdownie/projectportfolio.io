@@ -2,13 +2,13 @@
 include("/var/www/projectportfolio/html/head.php");
 ?>
 
-    <!-- PAGE SPECIFIC INFO -->
-    <title>User - ProjectPortfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+<!-- PAGE SPECIFIC INFO -->
+<title>User - ProjectPortfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
 
-    <!-- PAGE SPECIFIC INCLUDES -->
-    <link href="/css/login.css" rel="stylesheet">
+<!-- PAGE SPECIFIC INCLUDES -->
+<link href="/css/login.css" rel="stylesheet">
 
 </head>
 
@@ -24,25 +24,19 @@ include("/var/www/projectportfolio/html/head.php");
     <!-- /.container -->
 
     <div class="container">
-        <div class="container">
-            <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
-        </div>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="page-header">
-                        <h1>All goals</h1>
-                    </div>
-                    <?php
-                        print_r($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
-                        echo "<br/>";
-                        print_r($_SERVER['QUERY_STRING']);
-                    ?>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <h1>All goals</h1>
                 </div>
+                <?php
+                print_r($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+                echo "<br/>";
+                print_r($_SERVER['QUERY_STRING']);
+                ?>
             </div>
-        </footer>
+        </div>
 
     </div>
     <!-- /.container -->

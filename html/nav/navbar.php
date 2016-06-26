@@ -78,11 +78,6 @@
 
             echo '<span class="caret"></span></a>
             <ul class="dropdown-menu">
-            <li><a href="/user/';
-
-            echo $_COOKIE['LOGGED_IN'];
-
-            echo '/projects">My Projects</a></li>
             <li><a href="/account">Account</a></li>
             <li role="separator" class="divider"></li>
             <li><a id="navbar-logout" href="#">Logout</a></li>

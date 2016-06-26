@@ -22,11 +22,7 @@
 </head>
 
 <body>
-
-    <!-- Page Content -->
-    <div class="container">
-        <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
-    </div>
+    <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
 
     <div class="container-fluid">
         <div class="row">

@@ -26,11 +26,7 @@
 </head>
 
 <body>
-
-    <!-- Page Content -->
-    <div class="container">
-        <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
-    </div>
+    <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
     <div class="row" id="verify">
         <div class="col-lg-3">
         </div>

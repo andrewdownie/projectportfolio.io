@@ -14,11 +14,8 @@
 </head>
 
 <body>
-
+    <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
     <div class="container" >
-        <div class="container">
-            <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
-        </div>
 
         <div class="row">
             <div class="col-lg-3"></div>

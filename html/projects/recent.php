@@ -24,16 +24,7 @@ include("/var/www/projectportfolio/html/head.php");
     <!-- /.container -->
 
     <div class="container">
-        <div class="container">
-            <?php include "/var/www/projectportfolio/html/navbar/navbar.php";?>
-        </div>
-
-        <ul class="nav nav-tabs">
-            <li role="presentation"><a href="/user/username/projects">My Projects</a></li>
-            <li role="presentation"><a href="/projects/most-active">Most Active</a></li>
-            <li role="presentation" class="active"><a href="/projects/recent">Recent</a></li>
-        </ul>
-        <br/>
+        <?php include "/var/www/projectportfolio/html/nav/project-nav.php";?>
 
 
         <?php
