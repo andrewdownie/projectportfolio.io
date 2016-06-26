@@ -15,10 +15,9 @@ $backend_path = "/var/www/projectportfolio/backend/";
 include($backend_path."verify_account.php");
 include($backend_path."create_account.php");
 
+//TODO: sort these files (into more files if needed)
 include($backend_path."auth.php");
 include($backend_path."db_functions.php");
 include($backend_path."functions.php");
 include($backend_path."project_management.php");
-
-//TODO: this blobular method seems like it will get really inefficient if the site gets complex
- ?>
+?>

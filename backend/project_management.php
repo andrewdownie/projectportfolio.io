@@ -57,6 +57,13 @@ function changeSpec_project($project_id, $owner_id, $new_spec){
     }
 
 }
-//once the above five functions are working, I can start to make the sitepoint
-//pull projects from the database dynamically
+
+
+function load_projects($amount, $start){
+    $username = $_COOKIE['LOGGED_IN'];
+    $sql = "SELECT * FROM ";
+    //TODO: do a join on project_head and project_info where username is owner of the projects
+
+    echo $username;
+}
 ?>

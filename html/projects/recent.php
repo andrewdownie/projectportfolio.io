@@ -23,26 +23,11 @@ include("/var/www/projectportfolio/html/head.php");
 
 <body>
     <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
-
-
-    <!-- Page Content -->
-    <div class="container">
-
-
-    </div>
-    <!-- /.container -->
+    <?php include "/var/www/projectportfolio/html/nav/project-nav.php";?>
 
     <div class="container">
-        <?php include "/var/www/projectportfolio/html/nav/project-nav.php";?>
 
-
-        <?php
-        print_r($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
-        echo "<br/>";
-        print_r($_SERVER['QUERY_STRING']);
-        ?>
     </div>
-    <!-- /.container -->
 
 
 

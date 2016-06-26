@@ -1,4 +1,5 @@
 <ul class="nav nav-tabs" id="project-nav">
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
     <li role="presentation" id="my-projects">
         <a href="/user/<usernamehere>/projects">
             <i class="fa fa-user" aria-hidden="true"></i>

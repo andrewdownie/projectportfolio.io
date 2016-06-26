@@ -53,12 +53,6 @@
     <a href="#">Top Rated</a>
 </li>-->
 <li>
-    <a href="/dbtest">Database test</a>
-</li>
-<li>
-    <a href="/editor">Editor</a>
-</li>
-<li>
     <?php
         if(isset($_COOKIE['LOGGED_IN'])){
             echo '<a href="/user/';
@@ -69,6 +63,13 @@
             echo '<a href="/projects/most-active">Projects</a>';
         }
     ?>
+</li>
+
+<li>
+    <a href="/dbtest">Database test</a>
+</li>
+<li>
+    <a href="/editor">Editor</a>
 </li>
 </ul>
 

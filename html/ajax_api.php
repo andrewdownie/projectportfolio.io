@@ -52,6 +52,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     return;
 }
+else if($_SERVER['REQUEST_METHOD'] == "GET"){
+    $function = $_GET['function'];
+    if($function == 'load-projects'){
+        load_projects($_GET['amount'], $_GET['start']);
+    }
+    else{
 
+    }
+}
 
 ?>
