@@ -7,8 +7,16 @@ include("/var/www/projectportfolio/html/head.php");
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 
-<!-- PAGE SPECIFIC INCLUDES -->
+<!-- PAGE SPECIFIC CSS -->
 <link href="/css/login.css" rel="stylesheet">
+
+<!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/read_cookie.js"></script>
+<script src="/js/functions/get_resource_name.js"></script>
+<script src="/js/projects/project-nav.js"></script>
+
+
+<!-- PAGE SPECIFIC OTHER -->
 
 </head>
 
