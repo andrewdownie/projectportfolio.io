@@ -33,7 +33,12 @@ include("/var/www/projectportfolio/html/head.php");
         <div class="padding-top-10"></div>
         <div>
             <img id="loading-projects" src="http://i.imgur.com/G0Ot284.gif"/>
-            &nbsp;Loading projects...
+            <!--&nbsp;Loading projects...-->
+
+            <div id="insert-test">
+
+            </div>
+            
         </div>
 
     </div>

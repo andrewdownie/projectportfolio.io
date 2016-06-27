@@ -84,7 +84,7 @@ function load_projects($username, $amount, $start){
         echo "load-projects-failure";
     }
 
-    print_r($result2);
+    print_r(sql_to_json($result2));
 
 
 

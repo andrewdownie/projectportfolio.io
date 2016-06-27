@@ -33,6 +33,8 @@ function load_projects(){
         success: function(data) {
             alert(data)
 
+            $("#insert-test").after(data)
+
             if(data === "create-project-success"){
                 window.location = "/projects/edit-project"
             }

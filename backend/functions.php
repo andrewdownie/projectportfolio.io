@@ -96,6 +96,14 @@ function validate_password($password){
         return date('m/d/Y h:i:s', $time);
     }
 
+    function sql_to_json($sqlResult){
+        while($rows[] = mysqli_fetch_array($sqlResult));
+        return json_encode($rows);
+    }
+
+
+
+
     function encrypt_password($password) {
         //TAKEN FROM: https://www.sitepoint.com/password-hashing-in-php/
         if (defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH) {
