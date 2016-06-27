@@ -71,7 +71,7 @@ function load_projects($username, $amount, $start){
     $row = mysqli_fetch_assoc($result);
     $account_num = $row["account"];
 
-    $sql2 = "SELECT *";
+    $sql2 = "SELECT name, img_link, created";
     $sql2 .= " FROM project_info";
     $sql2 .= " INNER JOIN project_head";
     $sql2 .= " ON project_info.project=project_head.project";
@@ -82,15 +82,9 @@ function load_projects($username, $amount, $start){
     if(mysqli_num_rows($result2) <= 0){
         //TODO: log error
         echo "load-projects-failure";
+        return;
     }
 
     print_r(sql_to_json($result2));
-
-
-
-    //$sql2 = ""
-    //TODO: do a join on project_head and project_info where username is owner of the projects
-
-    echo $username;
 }
 ?>

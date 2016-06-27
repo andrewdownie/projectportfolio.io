@@ -7,3 +7,6 @@ create TABLE project_info
         created INT,
         modified INT
     );
+
+
+--SELECT name, img_link, created FROM project_info INNER JOIN project_head ON project_info.project=project_head.project WHERE project_head.owner=$account_num;

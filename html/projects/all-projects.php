@@ -13,6 +13,8 @@ include("/var/www/projectportfolio/html/head.php");
 <!-- PAGE SPECIFIC JS -->
 <script src="/js/functions/read_cookie.js"></script>
 <script src="/js/functions/get_resource_name.js"></script>
+<script src="/js/functions/build_project_card.js"></script>
+
 <script src="/js/projects/project-nav.js"></script>
 <script src="/js/projects/all-projects.js"></script>
 
@@ -32,13 +34,13 @@ include("/var/www/projectportfolio/html/head.php");
         <button class=" btn btn-success" id="create-new" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
         <div class="padding-top-10"></div>
         <div>
-            <img id="loading-projects" src="http://i.imgur.com/G0Ot284.gif"/>
-            <!--&nbsp;Loading projects...-->
+            <!--<img id="loading-projects" src="http://i.imgur.com/G0Ot284.gif"/>
+            &nbsp;Loading projects...-->
 
             <div id="insert-test">
 
             </div>
-            
+
         </div>
 
     </div>

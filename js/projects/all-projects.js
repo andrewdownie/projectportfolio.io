@@ -31,9 +31,13 @@ function load_projects(){
             "start": 1
         },
         success: function(data) {
-            alert(data)
+            //alert(data)
+            $("#insert-test").after(build_project_card("name","img_link","modified"))
+            //TODO: parse json
+            //var obj = jQuery.parseJSON( '{ "name": "John" }' );////////////////////////////////////////
+            //alert( obj.name === "John" );
 
-            $("#insert-test").after(data)
+            //$("#insert-test").after(data)
 
             if(data === "create-project-success"){
                 window.location = "/projects/edit-project"
