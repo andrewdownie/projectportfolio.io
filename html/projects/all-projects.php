@@ -12,6 +12,7 @@ include("/var/www/projectportfolio/html/head.php");
 <link href="/css/all-projects.css" rel="stylesheet">
 
 <!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/time_stampify.js"></script>
 <script src="/js/functions/read_cookie.js"></script>
 <script src="/js/functions/get_resource_name.js"></script>
 <script src="/js/functions/build_project_card.js"></script>
