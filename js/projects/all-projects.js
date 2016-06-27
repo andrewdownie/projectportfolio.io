@@ -32,10 +32,13 @@ function load_projects(){
         },
         success: function(data) {
             //alert(data)
-            $("#insert-test").after(build_project_card("name","img_link","modified"))
-            //TODO: parse json
-            //var obj = jQuery.parseJSON( '{ "name": "John" }' );////////////////////////////////////////
-            //alert( obj.name === "John" );
+
+            var obj = jQuery.parseJSON( data );
+            for(i = 0; i < obj.length; i++){
+                alert( obj[i].name );
+                $("#insert-test").after(build_project_card(obj[i].name, obj[i].img_link, obj[i].created))
+            }
+
 
             //$("#insert-test").after(data)
 
