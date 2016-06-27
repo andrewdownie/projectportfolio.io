@@ -78,7 +78,7 @@ function ajax_create_project(){
                 window.location = "/projects/edit-project"
             }
             else{
-                alert("Unexpect response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
             }
         },
         error: function(xhr, desc, err) {

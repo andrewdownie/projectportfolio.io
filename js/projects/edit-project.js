@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("#project #all-projects").click(function(){
-        window.location = "/projects/browse-projects"
+        window.location = "/projects/all-projects"
     });
 
 
