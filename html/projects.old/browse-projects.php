@@ -113,7 +113,7 @@
                         <div class="panel-heading">
                             <h3 class="panel-title">Project A <span class="card-date">May 10th, 2016</span></h3>
                         </div>
-                        <div class="panel-body" >
+                        <div class="panel-body">
                             <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod" >
                             <span class="info">
                                 <div>Blogs: 11</div>

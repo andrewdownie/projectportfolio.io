@@ -9,6 +9,7 @@ include("/var/www/projectportfolio/html/head.php");
 
 <!-- PAGE SPECIFIC CSS -->
 <link href="/css/login.css" rel="stylesheet">
+<link href="/css/all-projects.css" rel="stylesheet">
 
 <!-- PAGE SPECIFIC JS -->
 <script src="/js/functions/read_cookie.js"></script>
@@ -17,6 +18,7 @@ include("/var/www/projectportfolio/html/head.php");
 
 <script src="/js/projects/project-nav.js"></script>
 <script src="/js/projects/all-projects.js"></script>
+
 
 
 <!-- PAGE SPECIFIC OTHER -->
@@ -30,16 +32,17 @@ include("/var/www/projectportfolio/html/head.php");
 
 
 
-    <div class="container">
+    <div class="container" id="all-projects">
         <button class=" btn btn-success" id="create-new" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
-        <div class="padding-top-10"></div>
-        <div>
-            <!--<img id="loading-projects" src="http://i.imgur.com/G0Ot284.gif"/>
-            &nbsp;Loading projects...-->
 
-            <div id="insert-test">
+        <br/><br/>
 
-            </div>
+        <div class="row" id="loading-projects">
+            <img src="http://i.imgur.com/G0Ot284.gif"/>
+            &nbsp;Loading projects...
+        </div>
+
+        <div class="row" id="project-cards-row">
 
         </div>
 

@@ -21,6 +21,7 @@ $(document).ready(function(){
 //===== LOAD PROJECTS ----------------------------------------------------------
 //=====
 function load_projects(){
+    $("#all-projects #loading-projects").show()
     $.ajax({
         url: '/ajax_api',
         type: "GET",
@@ -32,15 +33,16 @@ function load_projects(){
         },
         success: function(data) {
             //alert(data)
+            $("#all-projects #loading-projects").hide()
 
             var obj = jQuery.parseJSON( data );
             for(i = 0; i < obj.length; i++){
-                alert( obj[i].name );
-                $("#insert-test").after(build_project_card(obj[i].name, obj[i].img_link, obj[i].created))
+                if(obj[i] == null){
+                    continue
+                }
+                $("#project-cards-row").after(build_project_card(obj[i].name, obj[i].img_link, obj[i].created))
             }
 
-
-            //$("#insert-test").after(data)
 
             if(data === "create-project-success"){
                 window.location = "/projects/edit-project"
