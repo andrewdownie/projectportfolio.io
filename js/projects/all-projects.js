@@ -1,15 +1,17 @@
 $(document).ready(function(){
     load_projects()
 
-    if(read_cookie("LOGGED_IN") !== "True"){
-        $("#browse-projects #create-new").hide()
-        $("#browse-projects .editButton").hide()
+    if(read_cookie("LOGGED_IN") == null){//TODO: make it hide, unless you are the owner
+        $("#all-projects #create-new").hide()
+        $("#all-projects .editButton").hide()
     }
 
     $("#create-new").click(function(){
         ajax_create_project();
     });
-    $("button").click(function(){
+
+    $("#all-projects #project-cards-row").on("click", ".thumbnail", function(){
+        alert('ma butt')
         //window.location = "/projects/edit-project";
     });
 

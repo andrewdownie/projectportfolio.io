@@ -1,23 +1,35 @@
 <ul class="nav nav-tabs" id="project-nav">
-    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+
+
+
     <li role="presentation" id="my-projects">
         <a href="/user/<usernamehere>/projects">
+            &nbsp;
             <i class="fa fa-user" aria-hidden="true"></i>
-            &nbsp;My Projects
+            &nbsp;
+            My Projects
+            &nbsp;&nbsp;&nbsp;
         </a>
     </li>
 
     <li role="presentation" id="most-active">
         <a href="/projects/most-active">
+            &nbsp;
             <i class="fa fa-star-o" aria-hidden="true"></i>
-            &nbsp;Most Active
+            &nbsp;
+            Most Active
+            &nbsp;&nbsp;
         </a>
     </li>
 
     <li role="presentation" id="recent">
         <a href="/projects/recent">
+            &nbsp;
             <i class="fa fa-calendar" aria-hidden="true"></i>
-            &nbsp;Recent
+            &nbsp;
+            Recent
+            &nbsp;&nbsp;&nbsp;
         </a>
     </li>
 </ul>

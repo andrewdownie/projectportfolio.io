@@ -32,9 +32,14 @@ include("/var/www/projectportfolio/html/head.php");
     <?php include "/var/www/projectportfolio/html/nav/project-nav.php";?>
 
 
+    <div class="container-fluid" id="all-projects">
+        <div class="row">
+            <div class="col-lg-12">
+                <button class=" btn btn-success" id="create-new" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
+            </div>
+        </div>
 
-    <div class="container" id="all-projects">
-        <button class=" btn btn-success" id="create-new" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
+
 
         <br/><br/>
 
