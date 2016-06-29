@@ -1,11 +1,6 @@
 $(document).ready(function(){
     load_projects()
 
-    if(read_cookie("LOGGED_IN") == null){//TODO: make it hide, unless you are the owner
-        $("#all-projects #create-new").hide()
-        $("#all-projects .editButton").hide()
-    }
-
     $("#create-new").click(function(){
         ajax_create_project()
     });
@@ -18,6 +13,20 @@ $(document).ready(function(){
 
 
 });
+
+function show_hide_edit_create(){
+    var logged_in_user = read_cookie("LOGGED_IN")
+    var resourceName = get_resource_name()
+    var urlParts = resourceName.split("/")
+
+    if(logged_in_user != null){
+        if(urlParts[3] == "user" && urlParts[4] == logged_in_user){
+            $("#all-projects #create-new").show()
+            $("#all-projects .editButton").show()
+        }
+    }
+
+}
 
 //=====
 //===== LOAD PROJECTS ----------------------------------------------------------
@@ -57,7 +66,7 @@ function load_projects(){
             alert('No response from server >:( ')
         },
         complete: function(){
-
+            show_hide_edit_create()
         }
     });
 }

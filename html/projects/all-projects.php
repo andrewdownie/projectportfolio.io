@@ -8,7 +8,7 @@ include("/var/www/projectportfolio/html/head.php");
 <meta name="description" content="">
 
 <!-- PAGE SPECIFIC CSS -->
-<link href="/css/login.css" rel="stylesheet">
+<!--<link href="/css/login.css" rel="stylesheet">-->
 <link href="/css/all-projects.css" rel="stylesheet">
 
 <!-- PAGE SPECIFIC JS -->
