@@ -7,7 +7,7 @@ $(document).ready(function(){
     }
 
     $("#create-new").click(function(){
-        ajax_create_project();
+        ajax_create_project()
     });
 
     $("#all-projects #project-cards-row").on("click", ".thumbnail", function(){

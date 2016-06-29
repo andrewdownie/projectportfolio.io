@@ -26,30 +26,32 @@ include("/var/www/projectportfolio/html/head.php");
 
 </head>
 
-<body>
+<body id="all-projects">
     <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
 
     <?php include "/var/www/projectportfolio/html/nav/project-nav.php";?>
 
+    <div class="container">
+        <div class="row" id="loading-projects">
+            <img src="http://i.imgur.com/G0Ot284.gif"/>
+            &nbsp;Loading projects...
+        </div>
+    </div>
 
-    <div class="container-fluid" id="all-projects">
+
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <button class=" btn btn-success" id="create-new" type="button"><i class="fa fa-plus" aria-hidden="true"></i> Create new project</button>
             </div>
         </div>
 
-
-
         <br/><br/>
 
-        <div class="row" id="loading-projects">
-            <img src="http://i.imgur.com/G0Ot284.gif"/>
-            &nbsp;Loading projects...
-        </div>
+
 
         <div class="row" id="project-cards-row">
-
+            <!--project cards will be dynamically inserted from db here-->
         </div>
 
     </div>

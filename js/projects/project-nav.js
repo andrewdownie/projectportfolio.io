@@ -1,10 +1,10 @@
 $(document).ready(function(){
-    setMyProjectsLinkHref()
+    project_set_myprojects_href()
+    project_nav_setup()
 
-    hightlightCurrentProjectTab()
 });
 
-function setMyProjectsLinkHref(){
+function project_set_myprojects_href(){
     var username = read_cookie("LOGGED_IN")
 
     if(username == null){
@@ -15,22 +15,35 @@ function setMyProjectsLinkHref(){
 
 }
 
-
-function hightlightCurrentProjectTab(){
+function project_nav_setup(){
     var resourceName = get_resource_name()
     var urlParts = resourceName.split("/")
-    var pathPiece1 = urlParts[3]
-    var pathPiece2 = urlParts[4]
 
-    if(pathPiece1 === "projects"){
-        if(pathPiece2 === "most-active"){
-            $("#project-nav #most-active").addClass("active")
-        }
-        else if(pathPiece2 === "recent"){
-            $("#project-nav #recent").addClass("active")
-        }
+    if(urlParts[3] == "projects"){
+        pnav_projects_url(urlParts[4])
     }
-    else if(pathPiece1 === "user"){
+    else if(urlParts[3] == "user"){
+        pnav_username_url(urlParts[4])
+    }
+}
+
+function pnav_projects_url(mostActiveOrRecent){
+    if(mostActiveOrRecent === "most-active"){
+        $("#project-nav #most-active").addClass("active")
+    }
+    else if(mostActiveOrRecent === "recent"){
+        $("#project-nav #recent").addClass("active")
+    }
+}
+
+function pnav_username_url(username){
+    var logged_in_user = read_cookie("LOGGED_IN")
+
+    if(logged_in_user != null && logged_in_user == username){
         $("#project-nav #my-projects").addClass("active")
+    }
+    else{
+        $("#project-nav #users-projects").show()
+        $("#project-nav #username").text(username)
     }
 }

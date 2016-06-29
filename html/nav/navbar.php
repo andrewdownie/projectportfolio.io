@@ -53,15 +53,16 @@
     <a href="#">Top Rated</a>
 </li>-->
 <li>
+    <!--<i class="fa fa-folder-open-o" aria-hidden="true"></i>-->
     <?php
-        if(isset($_COOKIE['LOGGED_IN'])){
-            echo '<a href="/user/';
-            echo $_COOKIE['LOGGED_IN'];
-            echo '/projects">Projects</a>';
-        }
-        else{
-            echo '<a href="/projects/most-active">Projects</a>';
-        }
+    if(isset($_COOKIE['LOGGED_IN'])){
+        echo '<a href="/user/';
+        echo $_COOKIE['LOGGED_IN'];
+        echo '/projects">Projects</a>';
+    }
+    else{
+        echo '<a href="/projects/most-active">Projects</a>';
+    }
     ?>
 </li>
 
@@ -86,9 +87,9 @@
 
             echo '<span class="caret"></span></a>
             <ul class="dropdown-menu">
-            <li><a href="/account">Account</a></li>
+            <li><a href="/account"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account</a></li>
             <li role="separator" class="divider"></li>
-            <li><a id="navbar-logout" href="#">Logout</a></li>
+            <li><a id="navbar-logout" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a></li>
             </ul>
             </li>';
         }
@@ -100,9 +101,9 @@
 
     </ul>
 </div>
-</div>
-<!-- /.navbar-collapse -->
-</div>
+<!--</div>
+/.navbar-collapse
+</div>-->
 <!-- /.container -->
 </nav>
 

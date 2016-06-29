@@ -32,5 +32,14 @@
             &nbsp;&nbsp;&nbsp;
         </a>
     </li>
+    <li role="presentation" id="users-projects" class="active" style="display:none;">
+        <a href="#">
+            &nbsp;
+            <i class="fa fa-user" aria-hidden="true"></i>
+            &nbsp;
+            <span id="username"></span>'s&nbsp;Projects
+            &nbsp;&nbsp;&nbsp;
+        </a>
+    </li>
 </ul>
 <br/>
