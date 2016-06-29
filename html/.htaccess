@@ -27,10 +27,10 @@ RewriteRule ^user/([A-Za-z0-9._-]*)/?$ user.php?username=$1 [L]
 RewriteRule ^user/([A-Za-z0-9._-]*)/projects/?$ projects/all-projects.php?username=$1 [L]
 
 # Map project
-RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._%-]*)/?$ projects/project.php?username=$1&projectname=$2 [L]
+RewriteRule ^user[/]([A-Za-z0-9._-]*)[/]projects[/]([A-Za-z0-9._-]*)[/]?$ projects/project.php?username=$1&projectname=$2 [L]
 
 # Map edit project
-RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._%-]*)/edit/?$ projects/edit-project.php?username=$1&projectname=$2 [L]
+RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._-]*)/edit/?$ projects/edit-project.php?username=$1&projectname=$2 [L]
 
 # Map browse blogs
 RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._-]*)/blogs/?$ projects/all-blogs.php?username=$1&projectname=$2 [L]

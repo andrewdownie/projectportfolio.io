@@ -5,15 +5,21 @@ $(document).ready(function(){
         ajax_create_project()
     });
 
-    $("#all-projects #project-cards-row").on("click", ".thumbnail", function(){
-        alert('ma butt')
-        //window.location = "/projects/edit-project";
+    $("#all-projects").on("click", ".project-thumbnail", function(){
+        var projectName = $(this).find(".project-name").text()
+        alert("/user/dd_dow/projects/" + projectName)
+        window.location.href = "/user/dd_dow/projects/" + projectName
+        return false
     });
 
 
 
 });
 
+
+//=====
+//===== SHOW HIDE EDIT CREATE --------------------------------------------------
+//=====
 function show_hide_edit_create(){
     var logged_in_user = read_cookie("LOGGED_IN")
     var resourceName = get_resource_name()
@@ -43,23 +49,22 @@ function load_projects(){
             "start": 1
         },
         success: function(data) {
-            //alert(data)
-            $("#all-projects #loading-projects").hide()
-
-            var obj = jQuery.parseJSON( data );
-            for(i = 0; i < obj.length; i++){
-                if(obj[i] == null){
-                    continue
-                }
-                $("#project-cards-row").after(build_project_card(obj[i].name, obj[i].img_link, obj[i].created))
-            }
+            alert(data)
+            $("#all-projects #loading-projects").hide(400)
 
 
-            if(data === "create-project-success"){
-                window.location = "/projects/edit-project"
+            if(data === "load-projects-failure"){
+                alert("Failed to load projects")
             }
             else{
-                //alert("Unexpect response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                var obj = jQuery.parseJSON( data )
+
+                for(i = 0; i < obj.length; i++){
+                    if(obj[i] == null){
+                        continue
+                    }
+                    $("#project-cards-row").after(build_project_card(obj[i].name, obj[i].img_link, obj[i].created))
+                }
             }
         },
         error: function(xhr, desc, err) {
