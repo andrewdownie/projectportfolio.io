@@ -33,6 +33,10 @@ include("/var/www/projectportfolio/html/head.php");
 
     <div class="container">
         <div class="row" id="loading-projects">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
             <img src="http://i.imgur.com/G0Ot284.gif"/>
             &nbsp;Loading projects...
         </div>

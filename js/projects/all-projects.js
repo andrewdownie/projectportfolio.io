@@ -49,12 +49,15 @@ function load_projects(){
             "start": 1
         },
         success: function(data) {
-            alert(data)
+            //alert(data)
             $("#all-projects #loading-projects").hide(400)
 
 
             if(data === "load-projects-failure"){
                 alert("Failed to load projects")
+            }
+            else if(data === "no-projects"){
+                $("#project-cards-row").after("<h2>&nbsp;&nbsp;You don't have any projects.</h2>")
             }
             else{
                 var obj = jQuery.parseJSON( data )
@@ -63,7 +66,7 @@ function load_projects(){
                     if(obj[i] == null){
                         continue
                     }
-                    $("#project-cards-row").after(build_project_card(obj[i].name, obj[i].img_link, obj[i].created))
+                    $("#project-cards-row").after(build_project_card(obj[i].name, obj[i].url_name, obj[i].img_link, obj[i].created))
                 }
             }
         },
@@ -92,6 +95,9 @@ function ajax_create_project(){
 
             if(data === "create-project-success"){
                 window.location = "/projects/edit-project"
+            }
+            else if("create-project-failure"){
+                alert("create project failure")
             }
             else{
                 alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")

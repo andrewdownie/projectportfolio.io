@@ -1,5 +1,7 @@
-function build_project_card(name, img_link, modified){
+function build_project_card(name, url_name, img_link, modified){
     var card = ""
+
+    //alert(url_name)//use this to test the project_name_to_url_name php function
 
     card += "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'>"
     card += "<a href='' class='thumbnail project-thumbnail'>"

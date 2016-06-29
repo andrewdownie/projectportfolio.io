@@ -1,4 +1,10 @@
 <?php
+function project_name_to_url_name($project_name){
+    //TODO: remove all spaces,
+    //TODO: make all characters lowercase
+    return $project_name;
+}
+
 function generate_string(){
     $fp = fopen('/dev/urandom', 'r');
     $randomString = fread($fp, 32);
