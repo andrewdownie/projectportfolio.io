@@ -3,7 +3,7 @@ include ("/var/www/projectportfolio/backend/_backend_includes.php");
 /*------------------------------------------------------------------------------
 DOCUMENT NAME: ajax_api.php
 DATE  CREATED: 2016-05-18
-DATE MODIFIED: 2016-05-18
+DATE MODIFIED: 2016-06-30
 CREATED    BY: Andrew Downie
 --------------------------------------------------------------------------------
 DESCRIPTION:
@@ -13,13 +13,6 @@ call will be redirected to the appropriate backend function.
 FUNCTION LIST:
 No functions, just a giant if statement.
 ------------------------------------------------------------------------------*/
-
-//=====
-//===== WASH DATA FROM USER ----------------------------------------------------
-//=====
-// - loop throgh all variables, and clean / escape them before doing anything else?
-//   -->? is this a good idea?
-//   --> I dont know, is it possible to by pass this... or?
 
 //=====
 //===== POST -------------------------------------------------------------------
@@ -44,6 +37,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     }
     else if($function === 'create-project'){
         create_project();
+    }
+    else if($function == 'delete-project'){
+        delete_project($_POST['project_url_name']);
     }
     else{
         echo "ARE YOU A WIZARD?!\n     (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n\n Unrecognized function, how did you do that?";

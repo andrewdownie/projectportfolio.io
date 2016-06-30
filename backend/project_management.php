@@ -39,12 +39,42 @@ function create_project(){
 
 }
 
-function delete_project($project_id, $owner_id){
-    if(!valid_login($owner_id)){
+function delete_project($project_url_name){
+    echo "fart: ".$project_url_name;
+    return;
+
+    $deletor_account = current_account();
+    if($deletor_account == -1){
         return;
     }
 
+    $sql = "SELECT owner FROM project_head WHERE project=$project_id;";
+    $result = query($sql);
+
+    if(mysqli_num_rows($result) < 1){
+        echo 'delete-project-failure';
+        return;
+    }
+
+    $row = mysqli_fetch_assoc($result);
+    $owner = $row['owner'];
+
+    if($owner != $deletor_account){
+        echo 'delete-project-failure';
+        return;
+    }
+
+    $sql2 = "DELETE FROM project_info WHERE project=$project_id;";
+    $sql2 = "DELETE FROM project_head WHERE project=$project_id;";
+    $result2 = query($sql2);
+
+    if($result2 == true){
+        echo 'delete-project-success';
+        return;
+    }
+    echo 'delete-project-failure';
 }
+
 function changeName_project($project_id, $owner_id, $new_name){
     if(!valid_login($owner_id)){
         return;

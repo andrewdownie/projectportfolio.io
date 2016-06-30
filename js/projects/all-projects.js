@@ -6,12 +6,17 @@ $(document).ready(function(){
     });
 
     $("#all-projects").on("click", ".project-thumbnail", function(){
-        var projectName = $(this).find(".url_name").text()
-        window.location.href = "/user/dd_dow/projects/" + projectName
+        var project_url_name = $(this).find(".url_name").text()
+        window.location.href = "/user/dd_dow/projects/" + project_url_name.trim()
         return false
     });
 
-
+    $("#all-projects").on("click", ".editButton", function(){
+        var project_url_name = $(this).parent().find(".url_name").text()
+        //alert(project_url_name)
+        window.location.href = "/user/dd_dow/projects/" + project_url_name.trim() + "/edit"
+        return false
+    });
 
 });
 
@@ -93,6 +98,8 @@ function ajax_create_project(){
             //alert(data)
 
             if(data === "create-project-success"){
+                //TODO: how do I figure out what project the user just created?
+                //TODO: might have to return json, and get the url name in the json, then redirect to that
                 window.location = "/projects/edit-project"
             }
             else if("create-project-failure"){

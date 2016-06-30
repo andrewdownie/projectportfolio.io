@@ -50,6 +50,7 @@ function logout(){
 }
 
 //gets the current account, based on the session cookie the user sends
+//TODO: I think i can use this to do auth, need to update last seen column in account_head
 function current_account(){
     $session = session_id();
     $sql = "SELECT account FROM account_head WHERE session='$session'";

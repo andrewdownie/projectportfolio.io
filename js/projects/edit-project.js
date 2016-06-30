@@ -3,10 +3,22 @@ $(document).ready(function(){
         window.location = "/projects/all-projects"
     });
 
+    $("#project #delete-project").click(function(){
+        ajax_delete_project()
+    });
 
-    ///
-    /// CLEAR TEXT INPUTS
-    ///
+    clearTextInputs()
+    saveTextInputs()
+
+
+
+});
+
+
+//=====
+//===== CLEAR TEXT INPUTS ------------------------------------------------------
+//=====
+function clearTextInputs(){
     $("#project #clear-name").click(function(){
         $("#text-name").val("")
         $("#text-name").focus()
@@ -21,11 +33,12 @@ $(document).ready(function(){
         $("#text-spec").val("")
         $("#text-spec").focus()
     });
+}
 
-
-    ///
-    /// SAVE TEXT INPUTS
-    ///
+//=====
+//===== SAVE TEXT INPUTS -------------------------------------------------------
+//=====
+function saveTextInputs(){
     $("#project #save-name").click(function(){
         $("#project #save-name").blur()
         alert('save name')
@@ -40,4 +53,38 @@ $(document).ready(function(){
         $("#project #save-spec").blur()
         alert('save spec')
     });
-});
+}
+
+//=====
+//===== DELETE PROJECT AJAX CALL -----------------------------------------------
+//=====
+function ajax_delete_project(){
+    $.ajax({
+        url: '/ajax_api',
+        type: "POST",
+        data: {
+            "function": "delete-project",
+            "project_url_name": "project-url-name-here"
+        },
+        success: function(data) {
+            alert(data)
+            return
+
+            if(data === "delete-project-success"){
+                //window.location = "/projects/edit-project"
+            }
+            else if("create-project-failure"){
+                alert("create project failure")
+            }
+            else{
+                alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+            }
+        },
+        error: function(xhr, desc, err) {
+            alert('No response from server >:( ')
+        },
+        complete: function(){
+
+        }
+    });
+}
