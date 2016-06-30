@@ -6,8 +6,7 @@ $(document).ready(function(){
     });
 
     $("#all-projects").on("click", ".project-thumbnail", function(){
-        var projectName = $(this).find(".project-name").text()
-        alert("/user/dd_dow/projects/" + projectName)
+        var projectName = $(this).find(".url_name").text()
         window.location.href = "/user/dd_dow/projects/" + projectName
         return false
     });

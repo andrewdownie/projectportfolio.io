@@ -1,7 +1,7 @@
 <?php
 function project_name_to_url_name($project_name){
-    //TODO: remove all spaces,
-    //TODO: make all characters lowercase
+    $project_name = strtolower($project_name);
+    $project_name = str_replace(" ", "", $project_name);
     return $project_name;
 }
 
