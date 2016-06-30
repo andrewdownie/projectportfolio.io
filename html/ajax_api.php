@@ -57,7 +57,9 @@ else if($_SERVER['REQUEST_METHOD'] == "GET"){
     if($function == 'load-projects'){
         load_projects($_GET['username'], $_GET['amount'], $_GET['start']);
 
-
+    }
+    else if($function == 'load-project'){
+        load_project($_GET['username'], $_GET['projectname']);
     }
     else{
 

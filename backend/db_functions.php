@@ -136,6 +136,21 @@ function account_id_from_email($email){
     return $id;
 }
 
+function account_id_from_username($username){
+    $sql = "SELECT account FROM account_credentials WHERE username='$username';";
+    $result = query($sql);
+    $account = -1;
+
+    if(mysqli_num_rows($result) != 1){
+        //TODO: log error
+        echo "account_id_from_username-failure";
+        return -1;
+    }
+
+    $row = mysqli_fetch_assoc($result);
+    return $row['account'];
+}
+
 function escape($string){
     global $con;
     return mysqli_real_escape_string($con, $string);

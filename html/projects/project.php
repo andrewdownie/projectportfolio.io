@@ -1,14 +1,18 @@
-<?php
-include("/var/www/projectportfolio/html/head.php");
-?>
+<?php include("/var/www/projectportfolio/html/head.php"); ?>
 
 <!-- PAGE SPECIFIC INFO -->
 <title>User - ProjectPortfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 
-<!-- PAGE SPECIFIC INCLUDES -->
+<!-- PAGE SPECIFIC CSS -->
 <link href="/css/login.css" rel="stylesheet">
+
+<!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/get_resource_name.js"></script>
+<script src="/js/projects/project.js"></script>
+
+<!-- PAGE SPECIFIC OTHER -->
 
 </head>
 
@@ -29,13 +33,10 @@ include("/var/www/projectportfolio/html/head.php");
             <div class="col-lg-12">
                 <div class="page-header">
                     <h1>One specific project</h1>
-                    <hr/>
                 </div>
-                <?php
-                print_r($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
-                echo "<br/>";
-                print_r($_SERVER['QUERY_STRING']);
-                ?>
+                <div id="test-insert-point">
+                    
+                </div>
             </div>
         </div>
 

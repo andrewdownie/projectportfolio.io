@@ -64,7 +64,6 @@ function changeSpec_project($project_id, $owner_id, $new_spec){
 
 }
 
-
 function load_projects($username, $amount, $start){
     $sql = "SELECT account FROM account_credentials WHERE username='$username';";
     $result = query($sql);
@@ -92,4 +91,25 @@ function load_projects($username, $amount, $start){
 
     print_r(sql_to_json($result2));
 }//echo "load-projects-failure";
+
+
+function load_project($username, $project_url_name){
+    $account = account_id_from_username($username);
+
+    $sql = "SELECT project_head.project, name, url_name, spec_link, img_link, created, modified";
+    $sql .= " FROM project_info";
+    $sql .= " INNER JOIN project_head";
+    $sql .= " ON project_head.project = project_info.project";
+    $sql .= " WHERE project_head.owner=$account";
+    $sql .= " AND project_info.url_name='$project_url_name'";
+
+    $result = query($sql);
+
+    if($result == false || mysqli_num_rows($result) <= 0){
+        echo "project-not-found";
+        return;
+    }
+
+    print_r(sql_to_json($result));
+}
 ?>
