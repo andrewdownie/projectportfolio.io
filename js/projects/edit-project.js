@@ -59,12 +59,21 @@ function saveTextInputs(){
 //===== DELETE PROJECT AJAX CALL -----------------------------------------------
 //=====
 function ajax_delete_project(){
+    var urlPieces = get_resource_name().split("/")
+    var projectUrlName = ""
+    if(urlPieces.length < 6){
+        alert('invalid-url-name')
+        return;
+    }
+    projectUrlName = urlPieces[6]
+
+
     $.ajax({
         url: '/ajax_api',
         type: "POST",
         data: {
             "function": "delete-project",
-            "project_url_name": "project-url-name-here"
+            "project_url_name": projectUrlName
         },
         success: function(data) {
             alert(data)

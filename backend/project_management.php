@@ -40,39 +40,55 @@ function create_project(){
 }
 
 function delete_project($project_url_name){
-    echo "fart: ".$project_url_name;
-    return;
-
     $deletor_account = current_account();
     if($deletor_account == -1){
         return;
     }
 
-    $sql = "SELECT owner FROM project_head WHERE project=$project_id;";
+    $sql = "SELECT project FROM project_info WHERE url_name='$project_url_name';";
     $result = query($sql);
 
-    if(mysqli_num_rows($result) < 1){
-        echo 'delete-project-failure';
+    if($result == false || mysqli_num_rows($result) < 1){
+        echo '1delete-project-failure';
         return;
     }
 
     $row = mysqli_fetch_assoc($result);
+    $project_id = $row['project'];
+
+    $sql2 = "SELECT owner FROM project_head WHERE project=$project_id;";
+    $result2 = query($sql2);
+
+    if($result == false || mysqli_num_rows($result2) != 1){
+        echo '2delete-project-failure';
+        return;
+    }
+
+    $row = mysqli_fetch_assoc($result2);
     $owner = $row['owner'];
 
     if($owner != $deletor_account){
-        echo 'delete-project-failure';
+        echo '3delete-project-failure';
         return;
     }
 
-    $sql2 = "DELETE FROM project_info WHERE project=$project_id;";
-    $sql2 = "DELETE FROM project_head WHERE project=$project_id;";
-    $result2 = query($sql2);
+    $sql3 = "DELETE FROM project_info WHERE project=$project_id;";
+    $result3 = query($sql3);
 
-    if($result2 == true){
+    if($result3 == false){
+        echo '4delete-project-failure';
+        return;
+    }
+
+    $sql4 = "DELETE FROM project_head WHERE project=$project_id;";
+    $result4 = query($sql4);
+
+    if($result4 != false){
         echo 'delete-project-success';
         return;
     }
-    echo 'delete-project-failure';
+
+    echo '5delete-project-failure';
 }
 
 function changeName_project($project_id, $owner_id, $new_name){

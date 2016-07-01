@@ -9,7 +9,9 @@
     <link href="/css/edit-project.css" rel="stylesheet">
 
     <!-- PAGE SPECIFIC JS -->
+    <script src="/js/functions/get_resource_name.js"></script>
     <script src="/js/projects/edit-project.js"></script>
+
 
 
     <!-- PAGE SPECIFIC OTHER -->
