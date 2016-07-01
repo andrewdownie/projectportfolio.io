@@ -46,9 +46,15 @@
     position: absolute;
     bottom: 35px;
     right: 32px;
-    padding: 10px 20px;
+    padding: 10px 30px;
     border: none;
-    background-color: #004488;
+    background-color: black;
     color: white;
     border-radius: 2px;
+    box-shadow: 1px 1px white, -1px -1px white;
+}
+#all-projects .editButton:hover{
+    text-decoration: none;
+    box-shadow: 1px 1px #aaa, -1px -1px #aaa;
+    color: #bbb;
 }

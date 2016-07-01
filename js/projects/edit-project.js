@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $("#project #all-projects").click(function(){
-        window.location = "/projects/all-projects"
+        var urlPieces = get_resource_name().split("/")
+        window.location = "/user/" + urlPieces[4] + "/projects"
     });
 
     $("#project #delete-project").click(function(){

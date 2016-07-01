@@ -14,7 +14,7 @@ function build_project_card(name, url_name, img_link, modified){
     card += time_stampify(modified)
     card += "        </span>"
     card += "        <a href='#' class='editButton' style='display:none;'>"
-    card += "            edit"
+    card += "            Edit"
     card += "        </a>"
     card += "    </a>"
     card += "</div>"
