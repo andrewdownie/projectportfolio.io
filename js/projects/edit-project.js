@@ -66,8 +66,6 @@ function ajax_delete_project(){
         return;
     }
     projectUrlName = urlPieces[6]
-
-
     $.ajax({
         url: '/ajax_api',
         type: "POST",
@@ -77,6 +75,7 @@ function ajax_delete_project(){
         },
         success: function(data) {
             alert(data)
+            window.location = "/user/" + urlPieces[4] + "/projects"
             return
 
             if(data === "delete-project-success"){
