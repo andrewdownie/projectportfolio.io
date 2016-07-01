@@ -19,13 +19,13 @@
 
 </head>
 
-<body>
+<body id="edit-project">
     <!-- Page Content -->
     <div class="container">
         <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
     </div>
 
-    <div class="container" id="project">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <button class="btn btn-link" style="float: left;" id="all-projects"><h3><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;All Projects</h3></button>
@@ -39,16 +39,16 @@
                     <div class="panel-heading height50">
                         <h1 class="panel-title">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4" id="project-name">
                                     Project A
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
-                                    <span class="date">
+                                    <span class="date" id="modified">
                                         Modified: May 11th, 2016
                                     </span>
 
-                                    <span class="date">
+                                    <span class="date" id="created">
                                         Created: May 10th, 2016
                                     </span>
                                 </div>
@@ -58,21 +58,33 @@
                     <div class="panel-body" >
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" alt="img y u no lod">
+                                <img src="https://picjumbo.imgix.net/HNCK0852.jpg" alt="No Image">
                             </div>
                             <div class="col-md-5" style="padding: 0 20px 20px 20px;">
-                                <h3><i class="fa fa-terminal" aria-hidden="true"></i>&nbsp;Project Name</h3>
-                                <input id="text-name" type="text" value="Project A">
+                                <h3>
+                                    <i class="fa fa-terminal" aria-hidden="true"></i>
+                                    &nbsp;
+                                    Project Name
+                                </h3>
+                                <input id="text-name" type="text" value="">
                                 <button id="save-name" class="button full">Save</button>
                                 <button id="clear-name" class="button full">Clear</button>
 
-                                <h3><i class="fa fa-file-image-o" aria-hidden="true"></i>&nbsp;Image Source</h3>
-                                <input id="text-image" type="text" value="https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30">
+                                <h3>
+                                    <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                                    &nbsp;
+                                    Image Source
+                                </h3>
+                                <input id="text-image" type="text" value="">
                                 <button id="save-image" class="button full">Save</button>
                                 <button id="clear-image" class="button full">Clear</button>
 
-                                <h3><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;Project Spec</h3>
-                                <input id="text-spec" type="text" value="docs.google.com/project-spec-here">
+                                <h3>
+                                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                                    &nbsp;
+                                    Project Spec
+                                </h3>
+                                <input id="text-spec" type="text" value="">
                                 <button id="save-spec" class="button full">Save</button>
                                 <button id="clear-spec" class="button full">Clear</button>
 

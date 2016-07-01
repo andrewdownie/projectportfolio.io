@@ -21,9 +21,11 @@ function create_project(){
     $time = time();
     $project_name = 'New Project '.$time;
     $project_url = project_name_to_url_name($project_name);
+    $default_spec = "docs.google.com/project-spec-here";
+    $default_imglink = "https://picjumbo.imgix.net/HNCK0852.jpg";
 
     $sql2 = "INSERT INTO project_info (project, name, url_name, spec_link, img_link, created, modified)";
-    $sql2 .= "VALUES ($last_id, '$project_name', '$project_url', null, null, $time, $time)";
+    $sql2 .= "VALUES ($last_id, '$project_name', '$project_url', '$default_spec', '$default_imglink', $time, $time)";
     $result2 = query($sql2);
 
 

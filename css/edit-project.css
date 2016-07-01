@@ -1,9 +1,9 @@
-#project img{
+#edit-project img{
     width: 100%;
     height: 100%;
 }
 
-#project input[type="text"]{
+#edit-project input[type="text"]{
     margin-bottom: 10px;
     border: #999 1px solid;
     width: 100%;
@@ -14,17 +14,17 @@
 
 
 
-#project .button.full{
+#edit-project .button.full{
     width: 22%;
 }
 @media (max-width: 570px){
-    #project .button.full{
+    #edit-project .button.full{
         width: 40%;
     }
 }
 
 
-#project .button{
+#edit-project .button{
     height: 25px;
     padding: 0px;
     margin: 0px;
@@ -32,17 +32,17 @@
     border: 1px solid #777;
     border-radius: 5px;
 }
-#project .button:hover{
+#edit-project .button:hover{
     background-color: #bbb;
 }
 
-#project .panel-heading{
+#edit-project .panel-heading{
     background-color: white;
     box-shadow: 2px 2px 2px #888888;
     border: 1px solid #777;
     border-bottom: 1px solid #ccc;
 }
-#project .panel-body{
+#edit-project .panel-body{
     box-shadow: 2px 2px 2px #888888;
     background-color: #f5f5f5;
     border: 1px solid #777;
@@ -51,12 +51,12 @@
     padding: 0;
     margin: 0;
 }
-#project .panel-body img{
+#edit-project .panel-body img{
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
-#project .section-icon{
+#edit-project .section-icon{
     color: black;
     font-size: 150px;
 
@@ -65,7 +65,7 @@
     height: 100%;
     text-align: center;
 }
-#project .team-icon{
+#edit-project .team-icon{
     color: black;
     width: 100%;
     height: 100%;
@@ -75,7 +75,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
-#project .delete-btn{
+#edit-project .delete-btn{
     height: 40px;
     padding: 5px;
     padding-left: 15px;
@@ -87,33 +87,33 @@
     float: right;
     margin-top: 22px;
 }
-#project .delete-btn:hover{
+#edit-project .delete-btn:hover{
     background-color: #f75c4c;
 }
-#project h3{
+#edit-project h3{
     margin-top: 15px;
 }
 
-#project .date{
+#edit-project .date{
     float: right;
     padding-right: 20px;
     font-size:12px;
 }
 
-#project .height50{
+#edit-project .height50{
     height: 50px;
 }
 @media (max-width: 387px){
-    #project .height50{
+    #edit-project .height50{
         height: 65px;
     }
-    #project .delete-btn{
+    #edit-project .delete-btn{
         margin-top: 0;
         margin-bottom: 20px;
     }
 }
 @media (max-width: 991px){
-    #project .date{
+    #edit-project .date{
         float: left;
     }
 }
