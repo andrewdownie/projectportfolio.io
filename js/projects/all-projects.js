@@ -95,14 +95,13 @@ function ajax_create_project(){
             "function": "create-project"
         },
         success: function(data) {
-            //alert(data)
+            //alert(data)]
+            var json = jQuery.parseJSON( data )
 
-            if(data === "create-project-success"){
-                //TODO: how do I figure out what project the user just created?
-                //TODO: might have to return json, and get the url name in the json, then redirect to that
-                window.location = "/projects/edit-project"
+            if(json.result === "create-project-success"){
+                window.location = "projects/" + json.project_url_name + "/edit"
             }
-            else if("create-project-failure"){
+            else if(json.result === "create-project-failure"){
                 alert("create project failure")
             }
             else{

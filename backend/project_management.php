@@ -11,7 +11,7 @@ function create_project(){
     $result = query($sql);
     //TODO: verify the above sql worked
     if(!$result){
-        echo "create-project-failure";
+        echo '{"result": "create-project-success"}';
         return;
     }
 
@@ -30,12 +30,12 @@ function create_project(){
 
     if(!$result2){
         //TODO: if the project_info insert fails, delete  the project_head entry
-        echo "create-project-failure";
+        echo '{"result": "create-project-success"}';
         return;
     }
 
 
-    echo "create-project-success";
+    echo '{"result": "create-project-success", "project_url_name": "'.$project_url.'"}';
 
 }
 

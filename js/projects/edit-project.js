@@ -65,6 +65,7 @@ function ajax_delete_project(){
         alert('invalid-url-name')
         return;
     }
+
     projectUrlName = urlPieces[6]
     $.ajax({
         url: '/ajax_api',
