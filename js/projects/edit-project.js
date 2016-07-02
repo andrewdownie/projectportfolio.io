@@ -20,7 +20,7 @@ $(document).ready(function(){
 //=====
 //===== NOT OWNER --------------------------------------------------------------
 //=====
-function notOwner(){
+function notOwner(){//actually put this into the functions folder, and reuse it
     //check if the person browsing this page is the owner,
     //if not redirect them to the page they came from
 }
@@ -110,7 +110,7 @@ function ajax_delete_project(){
 
 
 //=====
-//===== LOAD PROJECT AJAZ ------------------------------------------------------
+//===== LOAD PROJECT AJAX ------------------------------------------------------
 //=====
 function load_project_ajax(){
     var resourceName = get_resource_name()
@@ -150,7 +150,7 @@ function load_project_ajax(){
 }
 
 //=====
-//===== LOAD PROJECT COUNTS AJAZ ------------------------------------------------------
+//===== LOAD PROJECT COUNTS AJAX ------------------------------------------------------
 //=====
 function load_project_counts_ajax(project){
     //alert(project)
@@ -164,7 +164,7 @@ function load_project_counts_ajax(project){
             "project_id": project
         },
         success: function(data) {
-        //    alert(data)
+            //alert(data)
 
             var json = jQuery.parseJSON( data )
 

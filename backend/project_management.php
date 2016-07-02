@@ -201,7 +201,21 @@ function load_project($username, $project_url_name){
 //Returns json containing how many: blogs, builds, goals, and team members a
 //project has.
 function load_project_counts($project_id){
+    //$countMembers = "SELECT COUNT(*) FROM project_blogs;";
+    //$resultMembers = query($countMembers);
 
-    echo '{"build_count": 0, "goal_count": 0, "member_count": 0, "blog_count": 0}';
+    //$countGoals = "SELECT COUNT(*) FROM project_goals;";
+    //$resultGoals = query($countGoals);
+
+    //$countBuilds = "SELECT COUNT(*) FROM project_builds;";
+    //$resultBuilds = query($countBuilds);
+
+    //$countBlogs = "SELECT COUNT(*) FROM project_blogs;";
+    //$resultBlogs = query($countBlogs);
+
+    //TODO: how do I get values out of the above queries?
+    //      will the count be put into a column called count?
+
+    echo '{"build_count": 12, "goal_count": 56, "member_count": 3, "blog_count": 21}';
 }
 ?>
