@@ -51,7 +51,7 @@ function delete_project($project_url_name){
     $result = query($sql);
 
     if($result == false || mysqli_num_rows($result) < 1){
-        echo '1delete-project-failure';
+        echo 'delete-project-failure';
         return;
     }
 
@@ -62,7 +62,7 @@ function delete_project($project_url_name){
     $result2 = query($sql2);
 
     if($result == false || mysqli_num_rows($result2) != 1){
-        echo '2delete-project-failure';
+        echo 'delete-project-failure';
         return;
     }
 
@@ -70,7 +70,7 @@ function delete_project($project_url_name){
     $owner = $row['owner'];
 
     if($owner != $deletor_account){
-        echo '3delete-project-failure';
+        echo 'delete-project-failure';
         return;
     }
 
@@ -78,7 +78,7 @@ function delete_project($project_url_name){
     $result3 = query($sql3);
 
     if($result3 == false){
-        echo '4delete-project-failure';
+        echo 'delete-project-failure';
         return;
     }
 
@@ -90,22 +90,34 @@ function delete_project($project_url_name){
         return;
     }
 
-    echo '5delete-project-failure';
+    echo 'delete-project-failure';
 }
 
-function changeName_project($project_id, $owner_id, $new_name){
+function save_project_name($project_id, $new_value){
+    $deletor_account = current_account();
+    if($deletor_account == -1){
+        return;
+    }
+
+    $name = $new_value;
+    $url_name = project_name_to_url_name($name);
+
+    $sql = "UPDATE project_info SET name='$name', url_name='$url_name' WHERE project=$project_id;";
+    $result = query($sql);
+
+    if(!$result){
+        echo '{"result": "save-project-failure"}';
+    }
+    echo '{"result": "save-project-success", "url_name": "'.$url_name.'"}';
+
+}
+function save_project_image($project_id, $new_value){
     if(!valid_login($owner_id)){
         return;
     }
 
 }
-function changeImage_project($project_id, $owner_id, $new_image){
-    if(!valid_login($owner_id)){
-        return;
-    }
-
-}
-function changeSpec_project($project_id, $owner_id, $new_spec){
+function save_project_spec($project_id, $new_value){
     if(!valid_login($owner_id)){
         return;
     }
@@ -140,7 +152,8 @@ function load_projects($username, $amount, $start){
     print_r(sql_to_json($result2));
 }//echo "load-projects-failure";
 
-
+//Loads info about the given project owned by the given user.
+//This info is loaded from the tables project_head and project_info.
 function load_project($username, $project_url_name){
     $account = account_id_from_username($username);
 
@@ -159,5 +172,11 @@ function load_project($username, $project_url_name){
     }
 
     print_r(sql_to_json($result));
+}
+
+//Returns json containing how many: blogs, builds, goals, and team members a
+//project has.
+function load_project_counts($project_id){
+
 }
 ?>

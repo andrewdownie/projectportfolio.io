@@ -44,17 +44,17 @@ function clearTextInputs(){
 function saveTextInputs(){
     $("#edit-project #save-name").click(function(){
         $("#edit-project #save-name").blur()
-        alert('save name')
+        save_field_info("name")
     });
 
     $("#edit-project #save-image").click(function(){
         $("#edit-project #save-image").blur()
-        alert('save image')
+        save_field_info("image")
     });
 
     $("#edit-project #save-spec").click(function(){
         $("#edit-project #save-spec").blur()
-        alert('save spec')
+        save_field_info("spec")
     });
 }
 
@@ -78,7 +78,7 @@ function ajax_delete_project(){
             "project_url_name": projectUrlName
         },
         success: function(data) {
-            alert(data)
+            //alert(data)
             window.location = "/user/" + urlPieces[4] + "/projects"
             return
 
@@ -140,6 +140,44 @@ function load_project(){
 }
 
 
+//=====
+//===== SAVE FIELD INFO --------------------------------------------------------
+//=====
+function save_field_info(fieldToSave){
+    var resourceName = get_resource_name()
+    var urlParts = resourceName.split("/")
+
+    $("#all-projects #loading-projects").show()
+    $.ajax({
+        url: '/ajax_api',
+        type: "POST",
+        data: {
+            "function": "save-project-" + fieldToSave,
+            "project_id": parseInt($("#edit-project #project-id").text()),
+            "new_value": $("#edit-project #text-" + fieldToSave).val()
+        },
+        success: function(data) {
+            //alert(data)
+            var json = jQuery.parseJSON(data)
+            //alert(json.result)
+
+            if(json.result == "save-project-success"){
+                window.location = "/user/" + urlParts[4] + "/projects/" + json.url_name + "/edit"
+            }
+            else if(json.result == "save-project-failure"){
+                alert("save-project-failure")
+            }
+        },
+        error: function(xhr, desc, err) {
+            alert('No response from server >:( ')
+        },
+        complete: function(){
+
+        }
+    });
+}
+
+
 
 //=====
 //===== ADD PROJECT TO PAGE ----------------------------------------------------
@@ -151,6 +189,8 @@ function add_project_to_page(data){
     $("#edit-project #text-name").val(json.name)
     $("#edit-project #text-image").val(json.img_link)
     $("#edit-project #text-spec").val(json.spec_link)
+
+    $("#edit-project #project-id").text(json.project)
 
     $("#edit-project #modified").text(json.modified)
     $("#edit-project #created").text(json.created)

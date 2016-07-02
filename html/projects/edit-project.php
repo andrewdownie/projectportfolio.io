@@ -25,6 +25,8 @@
         <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
     </div>
 
+    <span id="project-id" style="display:none;"></span>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -100,7 +102,7 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Members&nbsp;(3)</p>
+                            <p class="panel-title">Members&nbsp;(0)</p>
                         </div>
                         <div class="panel-body">
                             <i class="fa fa-users team-icon" aria-hidden="true"></i>
@@ -114,7 +116,7 @@
                 <a href="/projects/blogs">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Blogs&nbsp;(6)</p>
+                            <p class="panel-title">Blogs&nbsp;(0)</p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-pencil-square-o section-icon" aria-hidden="true" ></i>
@@ -127,7 +129,7 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Goals&nbsp;(34)</p>
+                            <p class="panel-title">Goals&nbsp;(0)</p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-check section-icon" aria-hidden="true" ></i>
@@ -140,7 +142,7 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Builds&nbsp;(11)</p>
+                            <p class="panel-title">Builds&nbsp;(0)</p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-home section-icon" aria-hidden="true" ></i>

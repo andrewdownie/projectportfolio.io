@@ -41,6 +41,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     else if($function == 'delete-project'){
         delete_project($_POST['project_url_name']);
     }
+    else if($function == 'save-project-name'){
+        save_project_name($_POST['project_id'], $_POST['new_value']);
+    }
+    else if($function == 'save-project-image'){
+        save_project_image($_POST['project_id'], $_POST['new_value']);
+    }
+    else if($function == 'save-project-spec'){
+        save_project_spec($_POST['project_id'], $_POST['new_value']);
+    }
     else{
         echo "ARE YOU A WIZARD?!\n     (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n\n Unrecognized function, how did you do that?";
 
@@ -48,7 +57,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     return;
 }
-else if($_SERVER['REQUEST_METHOD'] == "GET"){
+
+//=====
+//===== GET --------------------------------------------------------------------
+//=====
+if($_SERVER['REQUEST_METHOD'] == "GET"){
     $function = $_GET['function'];
     if($function == 'load-projects'){
         load_projects($_GET['username'], $_GET['amount'], $_GET['start']);
