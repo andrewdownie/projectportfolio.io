@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    load_project()
+    load_project_ajax()
 
     $("#edit-project #all-projects").click(function(){
         var urlPieces = get_resource_name().split("/")
@@ -17,6 +17,13 @@ $(document).ready(function(){
 
 });
 
+//=====
+//===== NOT OWNER --------------------------------------------------------------
+//=====
+function notOwner(){
+    //check if the person browsing this page is the owner,
+    //if not redirect them to the page they came from
+}
 
 //=====
 //===== CLEAR TEXT INPUTS ------------------------------------------------------
@@ -103,9 +110,9 @@ function ajax_delete_project(){
 
 
 //=====
-//===== LOAD PROJECT -----------------------------------------------------------
+//===== LOAD PROJECT AJAZ ------------------------------------------------------
 //=====
-function load_project(){
+function load_project_ajax(){
     var resourceName = get_resource_name()
     var urlParts = resourceName.split("/")
 
@@ -123,11 +130,14 @@ function load_project(){
         success: function(data) {
             //alert(data)
 
+            var json = jQuery.parseJSON( data )[0]
+
             if(data == "project-not-found"){
                 alert("project not found... :(")
             }
             else{
-                add_project_to_page(data)
+                add_project_to_page(json)
+                load_project_counts_ajax(json.project)
             }
         },
         error: function(xhr, desc, err) {
@@ -135,6 +145,41 @@ function load_project(){
         },
         complete: function(){
 
+        }
+    });
+}
+
+//=====
+//===== LOAD PROJECT COUNTS AJAZ ------------------------------------------------------
+//=====
+function load_project_counts_ajax(project){
+    //alert(project)
+
+    $("#all-projects #loading-projects").show()
+    $.ajax({
+        url: '/ajax_api',
+        type: "GET",
+        data: {
+            "function": "load-project-counts",
+            "project_id": project
+        },
+        success: function(data) {
+        //    alert(data)
+
+            var json = jQuery.parseJSON( data )
+
+            if(data == "project-not-found"){
+                alert("project not found... :(")
+            }
+            else{
+                add_project_counts_to_page(json)
+            }
+        },
+        error: function(xhr, desc, err) {
+            alert('No response from server >:( ')
+        },
+        complete: function(){
+            $("#edit-project #member-loading").hide()
         }
     });
 }
@@ -157,12 +202,13 @@ function save_field_info(fieldToSave){
             "new_value": $("#edit-project #text-" + fieldToSave).val()
         },
         success: function(data) {
-            //alert(data)
+            alert(data)
             var json = jQuery.parseJSON(data)
-            //alert(json.result)
 
             if(json.result == "save-project-success"){
-                window.location = "/user/" + urlParts[4] + "/projects/" + json.url_name + "/edit"
+                if(json.url_name != ""){
+                    window.location = "/user/" + urlParts[4] + "/projects/" + json.url_name + "/edit"
+                }
             }
             else if(json.result == "save-project-failure"){
                 alert("save-project-failure")
@@ -182,16 +228,30 @@ function save_field_info(fieldToSave){
 //=====
 //===== ADD PROJECT TO PAGE ----------------------------------------------------
 //=====
-function add_project_to_page(data){
-    var json = jQuery.parseJSON( data )[0]
+function add_project_to_page(json){
 
     $("#edit-project #project-name").text(json.name)
     $("#edit-project #text-name").val(json.name)
     $("#edit-project #text-image").val(json.img_link)
+    $("#edit-project #project-img").attr("src", json.img_link)
     $("#edit-project #text-spec").val(json.spec_link)
 
     $("#edit-project #project-id").text(json.project)
 
-    $("#edit-project #modified").text(json.modified)
-    $("#edit-project #created").text(json.created)
+    $("#edit-project #modified").text("Modified: " + time_stampify(json.modified))
+    $("#edit-project #created").text("Created: " + time_stampify(json.created))
+}
+
+
+//=====
+//===== ADD PROJECT COUNTS TO --------------------------------------------------
+//=====
+function add_project_counts_to_page(json){
+
+    $("#edit-project #member-count").text(json.member_count)
+    $("#edit-project #blog-count").text(json.blog_count)
+    $("#edit-project #build-count").text(json.build_count)
+    $("#edit-project #goal-count").text(json.goal_count)
+
+    $("#edit-project .loading-counts").hide()
 }

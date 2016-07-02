@@ -96,6 +96,7 @@ function delete_project($project_url_name){
 function save_project_name($project_id, $new_value){
     $deletor_account = current_account();
     if($deletor_account == -1){
+        echo '{"result": "save-project-failure"}';
         return;
     }
 
@@ -107,20 +108,43 @@ function save_project_name($project_id, $new_value){
 
     if(!$result){
         echo '{"result": "save-project-failure"}';
+        return;
     }
     echo '{"result": "save-project-success", "url_name": "'.$url_name.'"}';
 
 }
 function save_project_image($project_id, $new_value){
-    if(!valid_login($owner_id)){
+    $deletor_account = current_account();
+    if($deletor_account == -1){
+        echo '{"result": "save-project-failure"}';
         return;
     }
 
-}
-function save_project_spec($project_id, $new_value){
-    if(!valid_login($owner_id)){
+    $sql = "UPDATE project_info SET img_link='$new_value' WHERE project=$project_id;";
+    $result = query($sql);
+
+    if(!$result){
+        echo '{"result": "save-project-failure"}';
         return;
     }
+    echo '{"result": "save-project-success", "url_name": ""}';
+
+}
+function save_project_spec($project_id, $new_value){
+    $deletor_account = current_account();
+    if($deletor_account == -1){
+        echo '{"result": "save-project-failure"}';
+        return;
+    }
+
+    $sql = "UPDATE project_info SET spec_link='$new_value' WHERE project=$project_id;";
+    $result = query($sql);
+
+    if(!$result){
+        echo '{"result": "save-project-failure"}';
+        return;
+    }
+    echo '{"result": "save-project-success", "url_name": ""}';
 
 }
 
@@ -178,5 +202,6 @@ function load_project($username, $project_url_name){
 //project has.
 function load_project_counts($project_id){
 
+    echo '{"build_count": 0, "goal_count": 0, "member_count": 0, "blog_count": 0}';
 }
 ?>

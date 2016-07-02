@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         save_project_spec($_POST['project_id'], $_POST['new_value']);
     }
     else{
-        echo "ARE YOU A WIZARD?!\n     (∩｀-´)⊃━☆ﾟ.*･｡ﾟ \n\n Unrecognized function, how did you do that?";
+        echo "There was a hole.";
 
     }
 
@@ -70,8 +70,11 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     else if($function == 'load-project'){
         load_project($_GET['username'], $_GET['projectname']);
     }
+    else if($function == 'load-project-counts'){
+        load_project_counts($_GET['project_id']);
+    }
     else{
-
+        echo "There was a hole.";
     }
 }
 

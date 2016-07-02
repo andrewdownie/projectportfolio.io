@@ -1,20 +1,21 @@
 <?php include("/var/www/projectportfolio/html/head.php"); ?>
 
-    <!-- PAGE SPECIFIC INFO -->
-    <title>Edit project - ProjectPortfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+<!-- PAGE SPECIFIC INFO -->
+<title>Edit project - ProjectPortfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
 
-    <!-- PAGE SPECIFIC CSS -->
-    <link href="/css/edit-project.css" rel="stylesheet">
+<!-- PAGE SPECIFIC CSS -->
+<link href="/css/edit-project.css" rel="stylesheet">
 
-    <!-- PAGE SPECIFIC JS -->
-    <script src="/js/functions/get_resource_name.js"></script>
-    <script src="/js/projects/edit-project.js"></script>
+<!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/get_resource_name.js"></script>
+<script src="/js/functions/time_stampify.js"></script>
+<script src="/js/projects/edit-project.js"></script>
 
 
 
-    <!-- PAGE SPECIFIC OTHER -->
+<!-- PAGE SPECIFIC OTHER -->
 
 
 </head>
@@ -60,7 +61,7 @@
                     <div class="panel-body" >
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="https://picjumbo.imgix.net/HNCK0852.jpg" alt="No Image">
+                                <img alt="No Image" id="project-img">
                             </div>
                             <div class="col-md-5" style="padding: 0 20px 20px 20px;">
                                 <h3>
@@ -102,7 +103,11 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Members&nbsp;(0)</p>
+                            <div class="panel-title">
+                                <img style="height: 1em; width: 1em;" class="loading-counts" src="http://i.imgur.com/G0Ot284.gif"/>
+                                Members
+                                (<span id="member-count"></span>)
+                            </div>
                         </div>
                         <div class="panel-body">
                             <i class="fa fa-users team-icon" aria-hidden="true"></i>
@@ -116,7 +121,11 @@
                 <a href="/projects/blogs">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Blogs&nbsp;(0)</p>
+                            <p class="panel-title">
+                                <img style="height: 1em; width: 1em;" class="loading-counts" src="http://i.imgur.com/G0Ot284.gif"/>
+                                Blogs
+                                (<span id="blog-count"></span>)
+                            </p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-pencil-square-o section-icon" aria-hidden="true" ></i>
@@ -129,7 +138,11 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Goals&nbsp;(0)</p>
+                            <p class="panel-title">
+                                <img style="height: 1em; width: 1em;" class="loading-counts" src="http://i.imgur.com/G0Ot284.gif"/>
+                                Goals
+                                (<span id="goal-count"></span>)
+                            </p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-check section-icon" aria-hidden="true" ></i>
@@ -142,7 +155,11 @@
                 <a href="#">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <p class="panel-title">Builds&nbsp;(0)</p>
+                            <p class="panel-title">
+                                <img style="height: 1em; width: 1em;" class="loading-counts" src="http://i.imgur.com/G0Ot284.gif"/>
+                                Builds
+                                (<span id="build-count"></span>)
+                            </p>
                         </div>
                         <div class="panel-body" >
                             <i class="fa fa-home section-icon" aria-hidden="true" ></i>

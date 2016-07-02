@@ -6,7 +6,7 @@ function build_project_card(name, url_name, img_link, modified){
     card += "        <span class='url_name' style='display:none;'>"
     card += url_name
     card += "        </span>"
-    card += "        <img src='" + "https://picjumbo.imgix.net/HNCK0852.jpg?q=40&w=1650&sharp=30" + "'/>"
+    card += "        <img src='" + img_link + "'/>"
     card += "        <span class='info info-top project-name'>"
     card += name
     card += "        </span>"
