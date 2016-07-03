@@ -11,10 +11,12 @@ $(document).ready(function(){
         ajax_delete_project()
     });
 
+    projectLinks()
+
     clearTextInputs()
     saveTextInputs()
 
-
+    window.onresize = setImageHeight()
 
 });
 
@@ -24,6 +26,31 @@ $(document).ready(function(){
 function notOwner(){//actually put this into the functions folder, and reuse it
     //check if the person browsing this page is the owner,
     //if not redirect them to the page they came from
+}
+
+//=====
+//===== PROJECT LINKS ----------------------------------------------------------
+//=====
+function projectLinks(){
+    $("#edit-project #view-blogs").click(function(){
+        redirectToProjectLink("blogs")
+    });
+    $("#edit-project #view-members").click(function(){
+        redirectToProjectLink("members")
+        alert('You clicked: view project members, this does not go anywhere atm')
+    });
+    $("#edit-project #view-builds").click(function(){
+        redirectToProjectLink("builds")
+    });
+    $("#edit-project #view-goals").click(function(){
+        redirectToProjectLink("goals")
+    });
+}
+function redirectToProjectLink(topPageName){
+    var urlPieces = get_resource_name().split("/")
+    var location = "/user/" + urlPieces[4] + "/projects/" + urlPieces[6] + "/" + topPageName
+
+    window.location = location
 }
 
 //=====

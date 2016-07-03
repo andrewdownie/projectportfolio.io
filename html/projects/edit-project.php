@@ -100,7 +100,7 @@
 
         <div class="row">
             <div class="col-md-3">
-                <a href="#">
+                <a href="" id="view-members">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title">
@@ -118,7 +118,7 @@
             </div>
 
             <div class="col-md-3">
-                <a href="/projects/blogs">
+                <a href="#" id="view-blogs">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <p class="panel-title">
@@ -135,7 +135,7 @@
             </div>
 
             <div class="col-md-3">
-                <a href="#">
+                <a href="#" id='view-goals'>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <p class="panel-title">
@@ -152,7 +152,7 @@
             </div>
 
             <div class="col-md-3">
-                <a href="#">
+                <a href="#" id="view-builds">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <p class="panel-title">
