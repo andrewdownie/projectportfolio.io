@@ -1,5 +1,6 @@
 $(document).ready(function(){
     load_project_ajax()
+    setImageHeight()
 
     $("#edit-project #all-projects").click(function(){
         var urlPieces = get_resource_name().split("/")
@@ -23,6 +24,14 @@ $(document).ready(function(){
 function notOwner(){//actually put this into the functions folder, and reuse it
     //check if the person browsing this page is the owner,
     //if not redirect them to the page they came from
+}
+
+//=====
+//===== SET IMAGE HEIGHT -------------------------------------------------------
+//=====
+function setImageHeight(){
+    var height = $("#edit-project #input-col").outerHeight()
+    $("#edit-project #project-img").height(height)
 }
 
 //=====

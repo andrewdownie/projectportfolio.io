@@ -63,7 +63,7 @@
                             <div class="col-md-6">
                                 <img alt="No Image" id="project-img">
                             </div>
-                            <div class="col-md-5" style="padding: 0 20px 20px 20px;">
+                            <div id="input-col" class="col-md-5" style="padding: 0 20px 20px 20px;">
                                 <h3>
                                     <i class="fa fa-terminal" aria-hidden="true"></i>
                                     &nbsp;
