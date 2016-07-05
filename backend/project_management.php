@@ -218,4 +218,9 @@ function load_project_counts($project_id){
 
     echo '{"build_count": 12, "goal_count": 56, "member_count": 3, "blog_count": 21}';
 }
+
+//Return data about the most recent blog entry for a project
+function load_recent_blog($projectTitle){
+    echo $projectTitle;
+}
 ?>

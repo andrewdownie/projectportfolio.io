@@ -12,6 +12,8 @@ include("/var/www/projectportfolio/html/head.php");
 
 <!-- JAVASCRIPT FUNCTIONS -->
 <script src="/js/functions/get_resource_name.js"></script>
+<script src="/js/functions/build_blog_header.js"></script>
+<script src="/js/functions/build_blog_body.js"></script>
 
 <!-- PAGE SPECIFIC JS -->
 <script src="/js/projects/all-blogs.js"></script>
@@ -36,7 +38,7 @@ include("/var/www/projectportfolio/html/head.php");
             <div class="col-lg-12">
                 <div class="page-header">
                     <h1>
-                        <span id="project-name"></span>
+                        <span id="project-title"></span>
                         <small>blogs</small>
                     </h1>
                 </div>

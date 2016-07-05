@@ -73,6 +73,9 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     else if($function == 'load-project-counts'){
         load_project_counts($_GET['project_id']);
     }
+    else if($function == 'load-recent-blog'){
+        load_recent_blog($_GET['project-title']);
+    }
     else{
         echo "There was a hole.";
     }
