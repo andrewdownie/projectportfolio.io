@@ -7,12 +7,19 @@ include("/var/www/projectportfolio/html/head.php");
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 
-<!-- PAGE SPECIFIC INCLUDES -->
+<!-- PAGE SPECIFIC CSS -->
 <link href="/css/login.css" rel="stylesheet">
 
+<!-- JAVASCRIPT FUNCTIONS -->
+<script src="/js/functions/get_resource_name.js"></script>
+
+<!-- PAGE SPECIFIC JS -->
+<script src="/js/projects/all-blogs.js"></script>
+
+<!-- PAGE SPECIFIC OTHER -->
 </head>
 
-<body>
+<body id="all-blogs">
     <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
 
 
@@ -28,7 +35,10 @@ include("/var/www/projectportfolio/html/head.php");
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
-                    <h1>Xelnaga Build</h1>
+                    <h1>
+                        <span id="project-name"></span>
+                        <small>blogs</small>
+                    </h1>
                 </div>
                 blog entries here
             </div>

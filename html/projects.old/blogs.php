@@ -9,7 +9,7 @@
     <link href="/css/blogs.css" rel="stylesheet">
 
     <!-- PAGE SPECIFIC JS -->
-    <script src="/js/blogs.js"></script>
+    <script src="/js/projects/blogs.js"></script>
 
     <!-- PAGE SPECIFIC OTHER -->
 

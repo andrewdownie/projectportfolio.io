@@ -20,3 +20,4 @@ function get_url_vars()
     }
     return vars;
 }
+//TODO: change this to get url pieces, or something more clear
