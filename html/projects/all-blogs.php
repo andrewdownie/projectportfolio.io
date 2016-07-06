@@ -42,7 +42,8 @@ include("/var/www/projectportfolio/html/head.php");
                         <small>blogs</small>
                     </h1>
                 </div>
-                blog entries here
+                <div id="test-insertion-point">
+                </div>
             </div>
         </div>
 

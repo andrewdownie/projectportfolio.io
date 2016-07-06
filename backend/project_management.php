@@ -221,6 +221,17 @@ function load_project_counts($project_id){
 
 //Return data about the most recent blog entry for a project
 function load_recent_blog($projectTitle){
-    echo $projectTitle;
+    $project = project_from_url_name($projectTitle);
+
+    $sql = "SELECT * FROM blog_head WHERE project=$project";
+    $result = query($sql);
+
+    if(mysqli_num_rows($result) != 1){//TODO: this will break if a selector is not put on the sql above
+        echo "load-blog-failure";
+        return;
+    }
+
+    print_r(sql_to_json($result));
+    //TODO: need to get info from blog_info as well
 }
 ?>

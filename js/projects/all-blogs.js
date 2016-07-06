@@ -51,7 +51,8 @@ function loadRecentBlog(projectTitle){
         },
         success: function(data) {
             alert(data)
-
+            $("#test-insertion-point").text(data)
+            //TODO: parse the json here
         },
         error: function(xhr, desc, err) {
             alert('No response from server >:( ')

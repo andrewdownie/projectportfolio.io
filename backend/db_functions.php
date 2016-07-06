@@ -151,6 +151,19 @@ function account_id_from_username($username){
     return $row['account'];
 }
 
+function project_from_url_name($url_name){
+    $sql = "SELECT project FROM project_info WHERE url_name='$url_name'";
+    $result = query($sql);
+
+    if($result == false || mysqli_num_rows($result) != 1){
+        echo 'project_from_url_error';
+        return;
+    }
+
+    $row = mysqli_fetch_assoc($result);
+    return $row['project'];
+}
+
 function escape($string){
     global $con;
     return mysqli_real_escape_string($con, $string);
