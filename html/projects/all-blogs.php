@@ -8,9 +8,9 @@ include("/var/www/projectportfolio/html/head.php");
 <meta name="description" content="">
 
 <!-- PAGE SPECIFIC CSS -->
-<link href="/css/login.css" rel="stylesheet">
 
 <!-- JAVASCRIPT FUNCTIONS -->
+<script src="/js/functions/time_stampify.js"></script>
 <script src="/js/functions/get_resource_name.js"></script>
 <script src="/js/functions/build_blog_header.js"></script>
 <script src="/js/functions/build_blog_body.js"></script>
@@ -28,12 +28,6 @@ include("/var/www/projectportfolio/html/head.php");
     <!-- Page Content -->
     <div class="container">
 
-
-    </div>
-    <!-- /.container -->
-
-    <div class="container">
-
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
@@ -42,9 +36,15 @@ include("/var/www/projectportfolio/html/head.php");
                         <small>blogs</small>
                     </h1>
                 </div>
-                <div id="test-insertion-point">
-                </div>
             </div>
+        </div>
+
+        <div class="row">
+            <div id="blog-insertion-point">
+            </div>
+            <!-- somehow the below does not work... -->
+            <div class="col-md-10">poo</div>
+            <div class="col-md-2">butt</div>
         </div>
 
     </div>

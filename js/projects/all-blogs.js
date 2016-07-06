@@ -50,9 +50,15 @@ function loadRecentBlog(projectTitle){
             "project-title": projectTitle,
         },
         success: function(data) {
-            alert(data)
-            $("#test-insertion-point").text(data)
-            //TODO: parse the json here
+        //    alert(data)
+        //    $("#blog-insertion-point").text(data)
+
+            var json = jQuery.parseJSON(data)
+            setPageTitle(json.project_name)
+            createFirstBlog(json)
+
+
+            //begin loading blog headers here
         },
         error: function(xhr, desc, err) {
             alert('No response from server >:( ')
@@ -61,6 +67,14 @@ function loadRecentBlog(projectTitle){
 
         }
     });
+}
+
+//=====
+//===== CREATE FIRST BLOG ------------------------------------------------------
+//=====
+function createFirstBlog(json){
+    var blogHead = build_blog_header(json.name, time_stampify(json.created))
+     $("#blog-insertion-point").after(blogHead)
 }
 
 //=====

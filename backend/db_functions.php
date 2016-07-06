@@ -151,8 +151,10 @@ function account_id_from_username($username){
     return $row['account'];
 }
 
+//return the project number at index 0,
+//and the project name at index 1
 function project_from_url_name($url_name){
-    $sql = "SELECT project FROM project_info WHERE url_name='$url_name'";
+    $sql = "SELECT project, name FROM project_info WHERE url_name='$url_name'";
     $result = query($sql);
 
     if($result == false || mysqli_num_rows($result) != 1){
@@ -161,7 +163,11 @@ function project_from_url_name($url_name){
     }
 
     $row = mysqli_fetch_assoc($result);
-    return $row['project'];
+
+    $array[] = $row['project'];
+    $array[] = $row['name'];
+
+    return $array;
 }
 
 function escape($string){

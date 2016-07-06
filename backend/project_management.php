@@ -221,9 +221,11 @@ function load_project_counts($project_id){
 
 //Return data about the most recent blog entry for a project
 function load_recent_blog($projectTitle){
-    $project = project_from_url_name($projectTitle);
+    $info = project_from_url_name($projectTitle);
+    $projectNumber = $info[0];
+    $nameArray = array("project_name"=>$info[1]);
 
-    $sql = "SELECT * FROM blog_head WHERE project=$project";
+    $sql = "SELECT * FROM blog_head WHERE project=$projectNumber";
     $result = query($sql);
 
     if(mysqli_num_rows($result) != 1){
@@ -244,7 +246,6 @@ function load_recent_blog($projectTitle){
 
     $row2 = mysqli_fetch_assoc($result2);
 
-    print_r(json_encode(array_merge($row, $row2)));
-    //TODO: need to get info from blog_info as well
+    print_r(json_encode(array_merge($row, $row2, $nameArray)));
 }
 ?>
