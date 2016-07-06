@@ -173,7 +173,7 @@ function load_projects($username, $amount, $start){
         return;
     }
 
-    print_r(sql_to_json($result2));
+    print_r(sql_result_to_json($result2));
 }//echo "load-projects-failure";
 
 //Loads info about the given project owned by the given user.
@@ -195,7 +195,7 @@ function load_project($username, $project_url_name){
         return;
     }
 
-    print_r(sql_to_json($result));
+    print_r(sql_result_to_json($result));
 }
 
 //Returns json containing how many: blogs, builds, goals, and team members a
@@ -226,12 +226,25 @@ function load_recent_blog($projectTitle){
     $sql = "SELECT * FROM blog_head WHERE project=$project";
     $result = query($sql);
 
-    if(mysqli_num_rows($result) != 1){//TODO: this will break if a selector is not put on the sql above
+    if(mysqli_num_rows($result) != 1){
         echo "load-blog-failure";
         return;
     }
 
-    print_r(sql_to_json($result));
+    $row = mysqli_fetch_assoc($result);
+    $blog = $row['blog'];
+
+    $sql2 = "SELECT * FROM blog_info WHERE blog=$blog";
+    $result2 = query($sql2);
+
+    if(mysqli_num_rows($result2) != 1){
+        echo "load-blog-failure";
+        return;
+    }
+
+    $row2 = mysqli_fetch_assoc($result2);
+
+    print_r(json_encode(array_merge($row, $row2)));
     //TODO: need to get info from blog_info as well
 }
 ?>

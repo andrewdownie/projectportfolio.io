@@ -66,14 +66,9 @@ function load_projects(){
                 $("#project-cards-row").after("<h2>&nbsp;&nbsp;You don't have any projects.</h2>")
             }
             else{
-                var obj = jQuery.parseJSON( data )
+                var json = jQuery.parseJSON( data )
+                addProjects(json)
 
-                for(i = 0; i < obj.length; i++){
-                    if(obj[i] == null){
-                        continue
-                    }
-                    $("#project-cards-row").after(build_project_card(obj[i].name, obj[i].url_name, obj[i].img_link, obj[i].created))
-                }
             }
         },
         error: function(xhr, desc, err) {
@@ -83,6 +78,15 @@ function load_projects(){
             show_hide_edit_create()
         }
     });
+}
+
+function addProjects(parsedJSON){
+    for(i = 0; i < parsedJSON.length; i++){
+        if(parsedJSON[i] == null){
+            continue
+        }
+        $("#project-cards-row").after(build_project_card(parsedJSON[i].name, parsedJSON[i].url_name, parsedJSON[i].img_link, parsedJSON[i].created))
+    }
 }
 
 

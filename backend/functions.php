@@ -102,11 +102,10 @@ function validate_password($password){
         return date('m/d/Y h:i:s', $time);
     }
 
-    function sql_to_json($sqlResult){
+    function sql_result_to_json($sqlResult){
         while($rows[] = mysqli_fetch_array($sqlResult));
         return json_encode($rows);
     }
-
 
 
 
