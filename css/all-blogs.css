@@ -1,0 +1,26 @@
+#all-blogs .blog-img{
+    object-fit: cover;
+    max-height: 210px;
+
+
+    width: 100%;
+    height: 100%;
+}
+
+#all-blogs .img-container{
+    background-color: red;
+
+    max-height: 230px;
+    min-height: 150px;
+
+    width: 100%;
+    height: 100%;
+}
+
+#all-blogs .blog-created{
+    margin-top: 26px;
+}
+
+#all-blogs .modified{
+    text-align: center;
+}

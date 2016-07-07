@@ -8,6 +8,7 @@ include("/var/www/projectportfolio/html/head.php");
 <meta name="description" content="">
 
 <!-- PAGE SPECIFIC CSS -->
+<link href="/css/all-blogs.css" rel="stylesheet">
 
 <!-- JAVASCRIPT FUNCTIONS -->
 <script src="/js/functions/time_stampify.js"></script>
@@ -42,9 +43,6 @@ include("/var/www/projectportfolio/html/head.php");
         <div class="row">
             <div id="blog-insertion-point">
             </div>
-            <!-- somehow the below does not work... -->
-            <div class="col-md-10">poo</div>
-            <div class="col-md-2">butt</div>
         </div>
 
     </div>

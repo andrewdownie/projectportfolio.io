@@ -55,7 +55,10 @@ function loadRecentBlog(projectTitle){
 
             var json = jQuery.parseJSON(data)
             setPageTitle(json.project_name)
-            createFirstBlog(json)
+            for(var i = 0; i < 5; i++){
+                createFirstBlog(json)
+            }
+
 
 
             //begin loading blog headers here
@@ -74,7 +77,9 @@ function loadRecentBlog(projectTitle){
 //=====
 function createFirstBlog(json){
     var blogHead = build_blog_header(json.name, time_stampify(json.created))
-     $("#blog-insertion-point").after(blogHead)
+     $("#blog-insertion-point").before(blogHead)
+     var blogBody = build_blog_body(json.img_link, json.first_snippet, time_stampify(json.modified))
+     $("#blog-insertion-point").before(blogBody)
 }
 
 //=====
