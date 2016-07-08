@@ -5,6 +5,15 @@ $(document).ready(function(){
 
     loadBlogHeaders()
 
+
+
+    $('#all-blogs').on('click', '.blog-header', function() {
+        var id = this.id.split("-")[1]
+        //alert(id)
+
+        toggle_elements($("#head-" + id + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #body-" + id))
+    });
+
     //onclick:
     //loadBlogBody(clickIdentifier) //could i pass info about the element click to figure out what body to load
 });
@@ -50,14 +59,13 @@ function loadRecentBlog(projectTitle){
             "project-title": projectTitle,
         },
         success: function(data) {
-        //    alert(data)
-        //    $("#blog-insertion-point").text(data)
+            //    alert(data)
+            //    $("#blog-insertion-point").text(data)
 
             var json = jQuery.parseJSON(data)
             setPageTitle(json.project_name)
-            for(var i = 0; i < 5; i++){
-                createFirstBlog(json)
-            }
+
+            createFirstBlog(json)
 
 
 
@@ -76,10 +84,12 @@ function loadRecentBlog(projectTitle){
 //===== CREATE FIRST BLOG ------------------------------------------------------
 //=====
 function createFirstBlog(json){
-    var blogHead = build_blog_header(json.name, time_stampify(json.created))
-     $("#blog-insertion-point").before(blogHead)
-     var blogBody = build_blog_body(json.img_link, json.first_snippet, time_stampify(json.modified))
-     $("#blog-insertion-point").before(blogBody)
+    for(var i = 0; i < 5; i++){
+        var blogHead = build_blog_header(i, json.name, time_stampify(json.created))
+        $("#blog-insertion-point").before(blogHead)
+        var blogBody = build_blog_body(i, json.img_link, json.first_snippet, time_stampify(json.modified))
+        $("#blog-insertion-point").before(blogBody)
+    }
 }
 
 //=====

@@ -17,9 +17,28 @@
     height: 100%;
 }
 
+#all-blogs .view-blog-btn{
+    width: 200px;
+}
+
 #all-blogs .blog-created{
     margin-top: 26px;
 }
+
+@media (max-width: 991px){
+    #all-blogs .view-blog-btn{
+        margin-top: 20px;
+        width: 100%;
+    }
+    #all-blogs .blog-created{
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
 
 #all-blogs .modified{
     text-align: center;

@@ -12,7 +12,9 @@ include("/var/www/projectportfolio/html/head.php");
 
 <!-- JAVASCRIPT FUNCTIONS -->
 <script src="/js/functions/time_stampify.js"></script>
+<script src="/js/functions/toggle_elements.js"></script>
 <script src="/js/functions/get_resource_name.js"></script>
+
 <script src="/js/functions/build_blog_header.js"></script>
 <script src="/js/functions/build_blog_body.js"></script>
 
