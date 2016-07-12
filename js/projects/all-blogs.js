@@ -59,7 +59,7 @@ function loadRecentBlog(projectTitle){
             "project-title": projectTitle,
         },
         success: function(data) {
-            alert(data);
+            //alert(data);
             //    $("#blog-insertion-point").text(data)
 
             var json = jQuery.parseJSON(data);

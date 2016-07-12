@@ -179,7 +179,7 @@ function load_projects($username, $amount, $start){
         return;
     }
 
-    print_r(sql_result_to_json($result2));
+    print_r(sql_to_json($result2));
 }//echo "load-projects-failure";
 
 //Loads info about the given project owned by the given user.
@@ -201,7 +201,7 @@ function load_project($username, $project_url_name){
         return;
     }
 
-    print_r(sql_result_to_json($result));
+    print_r(sql_to_json($result));
 }
 
 //Returns json containing how many: blogs, builds, goals, and team members a

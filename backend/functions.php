@@ -120,6 +120,11 @@ function validate_password($password){
         return $rows;
     }
 
+    function sql_to_json($sqlResult){
+        while($rows[] = mysqli_fetch_array($sqlResult));
+        return json_encode($rows);
+    }
+
 
 
     function encrypt_password($password) {
