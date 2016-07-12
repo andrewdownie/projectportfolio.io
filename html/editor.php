@@ -10,6 +10,9 @@
     <link href="/css/editor.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/hint.css">
 
+    <!-- JS FUNCTIONS -->
+    <script src="/js/functions/toggle_elements.js"></script>
+
     <!-- PAGE SPECIFIC JS -->
     <script src="/js/documentManipulation.js"></script>
     <script src="/js/modalinput.js"></script>

@@ -2,13 +2,13 @@ $(document).ready(function(){
     /*Toggle pads when not in xs mode*/
     $("#editor-tools").click(function(){
         //LinkToggle($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#editor-pads"))
-        ToggleElements($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#addpad"), $("#stylepad"), $("#blogpad") )
+        toggle_elements($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#addpad"), $("#stylepad"), $("#blogpad") )
         $("#moveremovepad").hide()
     });
 
     /*Toggle pads when in xs mode*/
     $("#minimize-pads").click(function() {
-        var visible = ToggleElements($("#minimize-pads i"), "fa fa-plus-square-o", "fa fa-minus-square-o", $("#addpad #content"), $("#stylepad #content"), $("#blogpad table") )
+        var visible = toggle_elements($("#minimize-pads i"), "fa fa-plus-square-o", "fa fa-minus-square-o", $("#addpad #content"), $("#stylepad #content"), $("#blogpad table") )
         if(visible){
             $(".editortools-topspace").css("padding-top", "90px")
 
