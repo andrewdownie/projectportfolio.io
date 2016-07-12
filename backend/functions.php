@@ -1,8 +1,20 @@
 <?php
 function project_name_to_url_name($project_name){
     $project_name = strtolower($project_name);
-    $project_name = str_replace(" ", "", $project_name);
+    $project_name = str_replace(" ", "_", $project_name);
     return $project_name;
+}
+
+//makes sure that the name selected for a blog / project / other projectportfolio
+//item is a valid one
+function valid_item_name($name){
+    $invalidCharacters = "([^a-zA-Z0-9 -])";
+
+    if(preg_match($invalidCharacters, $name) === 1){
+        return false;
+    }
+
+    return true;
 }
 
 function generate_string(){
@@ -13,7 +25,8 @@ function generate_string(){
     return base64_encode($randomString);
 }
 
-
+//validate refers to the fact that it returns a string that says what is wrong,
+//rather than simply a boolean meaning correct / incorrect
 function validate_email($email){
     $invalidCharacters = "([^a-zA-Z0-9._@])";
     $singleAt = "(^([A-Za-z0-9._]+@[A-Za-z0-9._]+)$)";

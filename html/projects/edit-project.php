@@ -10,6 +10,7 @@
 
 <!-- PAGE SPECIFIC JS -->
 <script src="/js/functions/get_resource_name.js"></script>
+<script src="/js/functions/valid_item_name.js"></script>
 <script src="/js/functions/time_stampify.js"></script>
 <script src="/js/projects/edit-project.js"></script>
 

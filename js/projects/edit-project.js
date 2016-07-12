@@ -1,22 +1,22 @@
 $(document).ready(function(){
-    load_project_ajax()
-    setImageHeight()
+    load_project_ajax();
+    setImageHeight();
 
     $("#edit-project #all-projects").click(function(){
-        var urlPieces = get_resource_name().split("/")
-        window.location = "/user/" + urlPieces[4] + "/projects"
+        var urlPieces = get_resource_name().split("/");
+        window.location = "/user/" + urlPieces[4] + "/projects";
     });
 
     $("#edit-project #delete-project").click(function(){
-        ajax_delete_project()
+        ajax_delete_project();
     });
 
-    projectLinks()
+    projectLinks();
 
-    clearTextInputs()
-    saveTextInputs()
+    clearTextInputs();
+    saveTextInputs();
 
-    window.onresize = setImageHeight()
+    window.onresize = setImageHeight();
 
 });
 
@@ -33,32 +33,32 @@ function notOwner(){//actually put this into the functions folder, and reuse it
 //=====
 function projectLinks(){
     $("#edit-project #view-blogs").click(function(){
-        redirectToProjectLink("blogs")
+        redirectToProjectLink("blogs");
     });
     $("#edit-project #view-members").click(function(){
-        redirectToProjectLink("members")
-        alert('You clicked: view project members, this does not go anywhere atm')
+        redirectToProjectLink("members");
+        alert('You clicked: view project members, this does not go anywhere atm');
     });
     $("#edit-project #view-builds").click(function(){
-        redirectToProjectLink("builds")
+        redirectToProjectLink("builds");
     });
     $("#edit-project #view-goals").click(function(){
-        redirectToProjectLink("goals")
+        redirectToProjectLink("goals");
     });
 }
 function redirectToProjectLink(topPageName){
-    var urlPieces = get_resource_name().split("/")
-    var location = "/user/" + urlPieces[4] + "/projects/" + urlPieces[6] + "/" + topPageName
+    var urlPieces = get_resource_name().split("/");
+    var location = "/user/" + urlPieces[4] + "/projects/" + urlPieces[6] + "/" + topPageName;
 
-    window.location = location
+    window.location = location;
 }
 
 //=====
 //===== SET IMAGE HEIGHT -------------------------------------------------------
 //=====
 function setImageHeight(){
-    var height = $("#edit-project #input-col").outerHeight()
-    $("#edit-project #project-img").height(height)
+    var height = $("#edit-project #input-col").outerHeight();
+    $("#edit-project #project-img").height(height);
 }
 
 //=====
@@ -66,18 +66,18 @@ function setImageHeight(){
 //=====
 function clearTextInputs(){
     $("#edit-project #clear-name").click(function(){
-        $("#text-name").val("")
-        $("#text-name").focus()
+        $("#text-name").val("");
+        $("#text-name").focus();
     });
 
     $("#edit-project #clear-image").click(function(){
-        $("#text-image").val("")
-        $("#text-image").focus()
+        $("#text-image").val("");
+        $("#text-image").focus();
     });
 
     $("#edit-project #clear-spec").click(function(){
-        $("#text-spec").val("")
-        $("#text-spec").focus()
+        $("#text-spec").val("");
+        $("#text-spec").focus();
     });
 }
 
@@ -86,18 +86,25 @@ function clearTextInputs(){
 //=====
 function saveTextInputs(){
     $("#edit-project #save-name").click(function(){
-        $("#edit-project #save-name").blur()
-        save_field_info("name")
+        $("#edit-project #save-name").blur();
+
+        var newName = $("#edit-project #text-name").val();
+        if(!valid_item_name(newName)){
+            alert("Invalid project name. Can only contain letters, numbers, spaces and dashes.");
+            return;
+        }
+
+        save_field_info("name");
     });
 
     $("#edit-project #save-image").click(function(){
-        $("#edit-project #save-image").blur()
-        save_field_info("image")
+        $("#edit-project #save-image").blur();
+        save_field_info("image");
     });
 
     $("#edit-project #save-spec").click(function(){
-        $("#edit-project #save-spec").blur()
-        save_field_info("spec")
+        $("#edit-project #save-spec").blur();
+        save_field_info("spec");
     });
 }
 
@@ -105,14 +112,14 @@ function saveTextInputs(){
 //===== DELETE PROJECT AJAX CALL -----------------------------------------------
 //=====
 function ajax_delete_project(){
-    var urlPieces = get_resource_name().split("/")
-    var projectUrlName = ""
+    var urlPieces = get_resource_name().split("/");
+    var projectUrlName = "";
     if(urlPieces.length < 6){
-        alert('invalid-url-name')
+        alert('invalid-url-name');
         return;
     }
 
-    projectUrlName = urlPieces[6]
+    projectUrlName = urlPieces[6];
     $.ajax({
         url: '/ajax_api',
         type: "POST",
@@ -122,21 +129,21 @@ function ajax_delete_project(){
         },
         success: function(data) {
             //alert(data)
-            window.location = "/user/" + urlPieces[4] + "/projects"
-            return
+            window.location = "/user/" + urlPieces[4] + "/projects";
+            return;//this is for testing
 
             if(data === "delete-project-success"){
                 //window.location = "/projects/edit-project"
             }
             else if("create-project-failure"){
-                alert("create project failure")
+                alert("create project failure");
             }
             else{
-                alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ");
             }
         },
         error: function(xhr, desc, err) {
-            alert('No response from server >:( ')
+            alert('No response from server >:( ');
         },
         complete: function(){
 
@@ -149,10 +156,10 @@ function ajax_delete_project(){
 //===== LOAD PROJECT AJAX ------------------------------------------------------
 //=====
 function load_project_ajax(){
-    var resourceName = get_resource_name()
-    var urlParts = resourceName.split("/")
+    var resourceName = get_resource_name();
+    var urlParts = resourceName.split("/");
 
-    $("#all-projects #loading-projects").show()
+    $("#all-projects #loading-projects").show();
     $.ajax({
         url: '/ajax_api',
         type: "GET",
@@ -166,18 +173,18 @@ function load_project_ajax(){
         success: function(data) {
             //alert(data)
 
-            var json = jQuery.parseJSON( data )[0]
+            var json = jQuery.parseJSON( data )[0];
 
             if(data == "project-not-found"){
-                alert("project not found... :(")
+                alert("project not found... :(");
             }
             else{
-                add_project_to_page(json)
-                load_project_counts_ajax(json.project)
+                add_project_to_page(json);
+                load_project_counts_ajax(json.project);
             }
         },
         error: function(xhr, desc, err) {
-            alert('No response from server >:( ')
+            alert('No response from server >:( ');
         },
         complete: function(){
 
@@ -191,7 +198,7 @@ function load_project_ajax(){
 function load_project_counts_ajax(project){
     //alert(project)
 
-    $("#all-projects #loading-projects").show()
+    $("#all-projects #loading-projects").show();
     $.ajax({
         url: '/ajax_api',
         type: "GET",
@@ -202,20 +209,22 @@ function load_project_counts_ajax(project){
         success: function(data) {
             //alert(data)
 
-            var json = jQuery.parseJSON( data )
+            var json = jQuery.parseJSON( data );
 
             if(data == "project-not-found"){
-                alert("project not found... :(")
+                alert("project not found... :(");
             }
             else{
-                add_project_counts_to_page(json)
+                add_project_counts_to_page(json);
+                //add_project_counts_to_page(json[0])
+                //add_project_counts_to_page(json[1])
             }
         },
         error: function(xhr, desc, err) {
-            alert('No response from server >:( ')
+            alert('No response from server >:( ');
         },
         complete: function(){
-            $("#edit-project #member-loading").hide()
+            $("#edit-project #member-loading").hide();
         }
     });
 }
@@ -225,10 +234,10 @@ function load_project_counts_ajax(project){
 //===== SAVE FIELD INFO --------------------------------------------------------
 //=====
 function save_field_info(fieldToSave){
-    var resourceName = get_resource_name()
-    var urlParts = resourceName.split("/")
+    var resourceName = get_resource_name();
+    var urlParts = resourceName.split("/");
 
-    $("#all-projects #loading-projects").show()
+    $("#all-projects #loading-projects").show();
     $.ajax({
         url: '/ajax_api',
         type: "POST",
@@ -238,20 +247,20 @@ function save_field_info(fieldToSave){
             "new_value": $("#edit-project #text-" + fieldToSave).val()
         },
         success: function(data) {
-            alert(data)
-            var json = jQuery.parseJSON(data)
+            alert(data);
+            var json = jQuery.parseJSON(data);
 
             if(json.result == "save-project-success"){
-                if(json.url_name != ""){
-                    window.location = "/user/" + urlParts[4] + "/projects/" + json.url_name + "/edit"
+                if(json.url_name !== ""){
+                    window.location = "/user/" + urlParts[4] + "/projects/" + json.url_name + "/edit";
                 }
             }
             else if(json.result == "save-project-failure"){
-                alert("save-project-failure")
+                alert("save-project-failure");
             }
         },
         error: function(xhr, desc, err) {
-            alert('No response from server >:( ')
+            alert('No response from server >:( ');
         },
         complete: function(){
 
@@ -266,16 +275,16 @@ function save_field_info(fieldToSave){
 //=====
 function add_project_to_page(json){
 
-    $("#edit-project #project-name").text(json.name)
-    $("#edit-project #text-name").val(json.name)
-    $("#edit-project #text-image").val(json.img_link)
-    $("#edit-project #project-img").attr("src", json.img_link)
-    $("#edit-project #text-spec").val(json.spec_link)
+    $("#edit-project #project-name").text(json.name);
+    $("#edit-project #text-name").val(json.name);
+    $("#edit-project #text-image").val(json.img_link);
+    $("#edit-project #project-img").attr("src", json.img_link);
+    $("#edit-project #text-spec").val(json.spec_link);
 
-    $("#edit-project #project-id").text(json.project)
+    $("#edit-project #project-id").text(json.project);
 
-    $("#edit-project #modified").text("Modified: " + time_stampify(json.modified))
-    $("#edit-project #created").text("Created: " + time_stampify(json.created))
+    $("#edit-project #modified").text("Modified: " + time_stampify(json.modified));
+    $("#edit-project #created").text("Created: " + time_stampify(json.created));
 }
 
 
@@ -284,10 +293,10 @@ function add_project_to_page(json){
 //=====
 function add_project_counts_to_page(json){
 
-    $("#edit-project #member-count").text(json.member_count)
-    $("#edit-project #blog-count").text(json.blog_count)
-    $("#edit-project #build-count").text(json.build_count)
-    $("#edit-project #goal-count").text(json.goal_count)
+    $("#edit-project #member-count").text(json.member_count);
+    $("#edit-project #blog-count").text(json.blog_count);
+    $("#edit-project #build-count").text(json.build_count);
+    $("#edit-project #goal-count").text(json.goal_count);
 
-    $("#edit-project .loading-counts").hide()
+    $("#edit-project .loading-counts").hide();
 }

@@ -100,6 +100,12 @@ function save_project_name($project_id, $new_value){
         return;
     }
 
+    //TODO: make sure the project name validation works -----------------------------<<
+    if(!valid_item_name($new_value)){
+        echo '{"result": "invalid-item-name"}';
+        return;
+    }
+
     $name = $new_value;
     $url_name = project_name_to_url_name($name);
 
