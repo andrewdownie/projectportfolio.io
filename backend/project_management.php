@@ -20,7 +20,7 @@ function create_project(){
     //TODO: get the created project number from the above sql somehow
     $time = time();
     $project_name = 'New Project '.$time;
-    $project_url = project_name_to_url_name($project_name);
+    $project_url = name_to_url_name($project_name);
     $default_spec = "docs.google.com/project-spec-here";
     $default_imglink = "https://picjumbo.imgix.net/HNCK0852.jpg";
 
@@ -107,7 +107,7 @@ function save_project_name($project_id, $new_value){
     }
 
     $name = $new_value;
-    $url_name = project_name_to_url_name($name);
+    $url_name = name_to_url_name($name);
 
     $sql = "UPDATE project_info SET name='$name', url_name='$url_name' WHERE project=$project_id;";
     $result = query($sql);
@@ -226,32 +226,64 @@ function load_project_counts($project_id){
 }
 
 //Return data about the most recent blog entry for a project
-function load_recent_blog($projectTitle){
-    $info = project_from_url_name($projectTitle);
-    $projectNumber = $info[0];
-    $nameArray = array("project_name"=>$info[1]);
+function load_recent_blogs($projectTitle){
+    $idName = project_id_name_from_url_name($projectTitle);
+    $projectNumber = $idName[0];
+    $nameArray = array("project_name"=>$idName[1]);
 
-    $sql = "SELECT * FROM blog_head WHERE project=$projectNumber";
-    $result = query($sql);
+    $output[] = $nameArray;
 
-    if(mysqli_num_rows($result) != 1){
-        echo "load-blog-failure";
+    $sqlTwoRecentBlogs = "SELECT * FROM blog_head WHERE project=$projectNumber";
+    $sqlTwoRecentBlogs .= " ORDER BY created DESC LIMIT 2;";
+    $recentBlogs = query($sqlTwoRecentBlogs);
+
+    if($recentBlogs === false){
+        echo '{"result": "load-recent-blogs-failure-1"}';
         return;
     }
 
-    $row = mysqli_fetch_assoc($result);
-    $blog = $row['blog'];
-
-    $sql2 = "SELECT * FROM blog_info WHERE blog=$blog";
-    $result2 = query($sql2);
-
-    if(mysqli_num_rows($result2) != 1){
-        echo "load-blog-failure";
+    $numBlogs = mysqli_num_rows($recentBlogs);
+    if($numBlogs == 0 || $numBlogs > 2){
+        echo '{"result": "load-recent-blogs-failure-2"}';
         return;
     }
 
-    $row2 = mysqli_fetch_assoc($result2);
 
-    print_r(json_encode(array_merge($row, $row2, $nameArray)));
+    $blogHead1 = mysqli_fetch_assoc($recentBlogs);
+    $blog1 = $blogHead1['blog'];
+    $blog1Array = array("created"=>$blogHead1['created'],"name"=>$blogHead1['name']);
+
+    $sqlBlogInfo1 = "SELECT * FROM blog_info WHERE blog=$blog1";
+    $blogInfo1 = query($sqlBlogInfo1);
+    $output[] = array_merge(mysqli_fetch_assoc($blogInfo1), $blog1Array);
+
+
+    if($numBlogs == 2){
+        $blogHead2 = mysqli_fetch_assoc($recentBlogs);
+        $blog2 = $blogHead2['blog'];
+        $blog2Array = array("created"=>$blogHead2['created'],"name"=>$blogHead2['name']);
+
+        $sqlBlogInfo2 = "SELECT * FROM blog_info WHERE blog=$blog2";
+        $blogInfo2 = query($sqlBlogInfo2);
+        $output[] = array_merge(mysqli_fetch_assoc($blogInfo2), $blog2Array);
+    }
+
+    if(count($output) != 2 && count($output) != 3){
+        echo '{"result": "load-recent-blogs-failure-3"}';
+        return;
+    }
+
+
+
+    print_r(json_encode($output));
+    //print_r(json_encode(array_merge($row, $row2, $nameArray)));
+
+
+    /*if(mysqli_num_rows($result2) != 1){
+    echo '{"result": "load-recent-blogs-failure-2"}';
+    return;
+}*/
+//$row2 = mysqli_fetch_assoc($result2);
 }
+
 ?>

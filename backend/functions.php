@@ -1,5 +1,5 @@
 <?php
-function project_name_to_url_name($project_name){
+function name_to_url_name($project_name){
     $project_name = strtolower($project_name);
     $project_name = str_replace(" ", "_", $project_name);
     return $project_name;
@@ -115,9 +115,9 @@ function validate_password($password){
         return date('m/d/Y h:i:s', $time);
     }
 
-    function sql_result_to_json($sqlResult){
+    function sql_to_array($sqlResult){
         while($rows[] = mysqli_fetch_array($sqlResult));
-        return json_encode($rows);
+        return $rows;
     }
 
 

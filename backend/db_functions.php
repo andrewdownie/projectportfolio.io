@@ -153,7 +153,7 @@ function account_id_from_username($username){
 
 //return the project number at index 0,
 //and the project name at index 1
-function project_from_url_name($url_name){
+function project_id_name_from_url_name($url_name){
     $sql = "SELECT project, name FROM project_info WHERE url_name='$url_name'";
     $result = query($sql);
 
