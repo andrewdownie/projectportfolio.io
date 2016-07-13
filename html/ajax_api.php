@@ -13,24 +13,19 @@ call will be redirected to the appropriate backend function.
 FUNCTION LIST:
 No functions, just a giant if statement.
 ------------------------------------------------------------------------------*/
-
 //=====
 //===== POST -------------------------------------------------------------------
 //=====
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     $function = $_POST['function'];
-
     if($function === 'login'){
         login($_POST['email'], $_POST['password']);
-
     }
     else if($function === 'logout'){
         logout();
-
     }
     else if($function === 'signup'){
         signup($_POST['email']);
-
     }
     else if($function === 'verify-account'){
         verify_account($_POST['username'], $_POST['password'], $_POST['verify_code']);
@@ -52,12 +47,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     }
     else{
         echo "There was a hole.";
-
     }
-
     return;
 }
-
 //=====
 //===== GET --------------------------------------------------------------------
 //=====
@@ -65,7 +57,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     $function = $_GET['function'];
     if($function == 'load-projects'){
         load_projects($_GET['username'], $_GET['amount'], $_GET['start']);
-
     }
     else if($function == 'load-project'){
         load_project($_GET['username'], $_GET['projectname']);
@@ -73,12 +64,14 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     else if($function == 'load-project-counts'){
         load_project_counts($_GET['project_id']);
     }
-    else if($function == 'load-recent-blog'){
+    else if($function == 'load-recent-blogs'){
         load_recent_blogs($_GET['project-title']);
+    }
+    else if($function == 'load-blog-headers'){
+        load_blog_headers($_GET['project_id'], $_GET['start_index']);
     }
     else{
         echo "There was a hole.";
     }
 }
-
 ?>

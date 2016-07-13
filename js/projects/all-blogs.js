@@ -1,9 +1,7 @@
 $(document).ready(function(){
     var projectTitle = getProjectTitle();
     setPageTitle(projectTitle);
-    loadRecentBlog(projectTitle);
-
-    loadBlogHeaders();
+    loadRecentBlogs(projectTitle);
 
 
 
@@ -48,23 +46,22 @@ function setPageTitle(title){
 //=====
 //===== AJAX - LOAD RECENT BLOG ------------------------------------------------
 //=====
-function loadRecentBlog(projectTitle){
+function loadRecentBlogs(projectTitle){
     //TODO: loading icon??
 
     $.ajax({
         url: '/ajax_api',
         type: "GET",
         data: {
-            "function": "load-recent-blog",
+            "function": "load-recent-blogs",
             "project-title": projectTitle,
         },
         success: function(data) {
             //alert(data);
-            //    $("#blog-insertion-point").text(data)
+
 
             var json = jQuery.parseJSON(data);
-
-
+            loadBlogHeaders(json[0].project_id, 1);
 
             if(json.length === 0){
                 alert("Unable to find this project");
@@ -79,14 +76,46 @@ function loadRecentBlog(projectTitle){
             }
 
             if(json.length >= 2){
-                createRecentBlog(json[1]);
+                createRecentBlogs(json[1]);
             }
 
             if(json.length == 3){
-                createRecentBlog(json[2]);
+                createRecentBlogs(json[2]);
             }
 
             //begin loading blog headers here
+
+
+        },
+        error: function(xhr, desc, err) {
+            alert('No response from server >:( ');
+        },
+        complete: function(){
+
+        }
+    });
+}
+
+
+//=====
+//===== AJAX - LOAD BLOG HEADERS -----------------------------------------------
+//=====
+function loadBlogHeaders(projectID, startIndex){
+
+    $.ajax({
+        url: '/ajax_api',
+        type: "GET",
+        data: {
+            "function": "load-blog-headers",
+            "project_id": projectID,
+            "start_index": startIndex
+        },
+        success: function(data) {
+            //alert(data);
+
+            var json = jQuery.parseJSON(data);
+            createBlogHeaders(json);
+
         },
         error: function(xhr, desc, err) {
             alert('No response from server >:( ');
@@ -98,26 +127,28 @@ function loadRecentBlog(projectTitle){
 }
 
 //=====
-//===== CREATE FIRST BLOG ------------------------------------------------------
+//===== CREATE FIRST TWO RECENT BLOGS ------------------------------------------
 //=====
-function createRecentBlog(json){
-    var blogHead = build_blog_header(1, json.name, time_stampify(json.created));
+function createBlogHeaders(json){
+
+    for(var i = 0; i < json.length; i++){
+        if(json[i] !== null){
+            var blogHead = build_blog_header(json[i].blog, json[i].name, time_stampify(json[i].created), "fa-plus-square");
+
+            $("#blog-insertion-point").before(blogHead);
+        }
+
+    }
+}
+
+
+//=====
+//===== CREATE FIRST TWO RECENT BLOGS ------------------------------------------
+//=====
+function createRecentBlogs(json){
+    var blogHead = build_blog_header(json.blog, json.name, time_stampify(json.created), "fa-minus-square");
     $("#blog-insertion-point").before(blogHead);
-    var blogBody = build_blog_body(1, json.img_link, json.first_snippet, time_stampify(json.modified));
+    var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
     $("#blog-insertion-point").before(blogBody);
 
-}
-
-//=====
-//===== AJAX - LOAD BLOG HEADERS -----------------------------------------------
-//=====
-function loadBlogHeaders(){
-    // this will load just the headers of anything older than the most recent blog entry
-}
-
-//=====
-//===== AJAX - LOAD PROJECT BODY -----------------------------------------------
-//=====
-function loadBlogBody(identifierHere){
-    //this will load the body of a single blog entry
 }
