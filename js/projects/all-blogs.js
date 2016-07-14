@@ -9,6 +9,13 @@ $(document).ready(function(){
         var id = this.id.split("-")[1];
         //alert(id)
 
+
+        if($("#body-" + id).length == 0){
+            alert("clicked element: " + id + " and it's body does not exist");
+            loadBlogBody(projectID, id);
+            //TODO: how the hell do I save the projectID?
+        }
+
         toggle_elements($("#head-" + id + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #body-" + id));
     });
 
@@ -43,7 +50,7 @@ function loadRecentBlogs(projectTitle){
             "project-title": projectTitle,
         },
         success: function(data) {
-            alert(data);
+            //alert(data);
 
 
             var json = jQuery.parseJSON(data);
@@ -113,6 +120,36 @@ function loadBlogHeaders(projectID, startIndex){
     });
 }
 
+/* LOAD BLOG BODY -----------------------------|Downie    |2016-07-14|2016-07-14
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: send an ajax request to get the blog body info for the blog-header
+             that got clicked.
+       TODO: create the php to handle this
+             */
+function loadBlogBody(projectID, blogID){
+
+    $.ajax({
+        url: '/ajax/all-blogs',
+        type: "GET",
+        data: {
+            "function": "load-blog-body",
+            "project_id": projectID,
+            "blog_id": blogID
+        },
+        success: function(data) {
+            alert(data);
+
+        },
+        error: function(xhr, desc, err) {
+            alert('No response from server >:( ');
+        },
+        complete: function(){
+
+        }
+    });
+}
+
+
 /* CREATE BLOG HEADERS ------------------------|Downie    |2016-07-14|2016-07-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: create the blog headers for all the blog, except the first two,
@@ -121,6 +158,7 @@ function createBlogHeaders(json){
 
     for(var i = 0; i < json.length; i++){
         if(json[i] !== null){
+            //alert(json[i].blog)//TODO: why is the blog # coming out as one instead of 3?
             var blogHead = build_blog_header(json[i].blog, json[i].name, time_stampify(json[i].created), "fa-plus-square");
 
             $("#blog-insertion-point").before(blogHead);
