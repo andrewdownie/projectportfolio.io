@@ -29,6 +29,6 @@ include($backend_path."project_management.php");
 //TODO: page specific php (all backend php will be setup this way in the future
 //                         then only required stuff will be included)
 //TODO: there shouldn't (?) be an issue naming the backend php the same as the html php, since they have different folder paths
-include($backend_path."projects/all-blogs.php");
+//include($backend_path."projects/all-blogs.php");
 
 ?>

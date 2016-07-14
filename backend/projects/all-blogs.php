@@ -1,8 +1,20 @@
 <?php
-include($backend_path."db_functions.php");
+// MAIN FUNCTIONS
+//==============================================================================
 
 
-//Return data about the most recent blog entry for a project
+/* LOAD RECENT BLOGS --------------------------|Downie    |2016-07-14|2016-07-14
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: loads the blog_head and blog_info rows for the two most recent blog
+             entries of a project.
+    RETURNS: prints the selected blog headers / info to buffer, which will be
+             picked up by client that sent the AJAX call.
+       TODO: Make it so $start_index actually works.
+--------------------------------------------------------------------------------
+$project_id: the project number to use to load from the blog_header table
+$start_index: blog_head rows are sorted DESC, by date created, $start_index
+              determines starting row. (Useful for html pagers)
+*/
 function load_recent_blogs($projectTitle){
     $idName = project_id_name_from_url_name($projectTitle);
     $projectNumber = $idName[0];
@@ -75,6 +87,19 @@ function load_recent_blogs($projectTitle){
     print_r(json_encode($output));
 }
 
+
+/* LOAD BLOG HEADERS --------------------------|Downie    |2016-07-14|2016-07-14
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: loads rows from table: blog_header, for the project_id.
+    RETURNS: prints the select blog headers to buffer, which will be picked up by
+         client that sent the AJAX call.
+       TODO: Make it so $start_index actually works, expected that 50
+             blog_headers will be selected at a time.
+--------------------------------------------------------------------------------
+$project_id: the project number to use to load from the blog_header table
+$start_index: blog_head rows are sorted DESC, by date created, $start_index
+              determines starting row. (Useful for html pagers)
+*/
 function load_blog_headers($project_id, $start_index){
 
     $sql = "SELECT * FROM blog_head WHERE project=$project_id";
@@ -99,4 +124,7 @@ function load_blog_headers($project_id, $start_index){
     //TODO: why is this returning zero rows?
 }
 
+
+// HELPER FUNCTIONS
+//==============================================================================
 ?>

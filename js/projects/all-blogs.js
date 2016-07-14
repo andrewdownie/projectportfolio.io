@@ -16,48 +16,34 @@ $(document).ready(function(){
     //loadBlogBody(clickIdentifier) //could i pass info about the element click to figure out what body to load
 });
 
-//=====
-//===== GET PROJECT TITLE
-//=====
+// GET PROJECT TITLE --------------------------|Downie    |2016-07-14|2016-07-14
+//_____________________________________________|AUTHOR    |CREATED   |MODIFIED
 function getProjectTitle(){
     return get_resource_name().split("/")[6];
 }
 
-//=====
-//===== SET THE TITLE OF THE PAGE
-//=====
+// SET PAGE TITLE -----------------------------|Downie    |2016-07-14|2016-07-14
+//_____________________________________________|AUTHOR    |CREATED   |MODIFIED
 function setPageTitle(title){
     $("#all-blogs #project-title").text(title);
 }
 
-//TODO:
-// - load everything about the most recent blog entry
-// - for every blog entry older than the most recent, just load the title and date
-//   -> so don't load the most recent when loading info about all the blogs
-
-//TODO:
-// - get javascript setup to poop a blog entry to the page
-// - get javascript to poop a blog title and creation date to the page
-// - get javascript to load info about a project when you open it
-
-//TODO:
-// - do the php to load the stuff you need in the first TODO
-
-//=====
-//===== AJAX - LOAD RECENT BLOG ------------------------------------------------
-//=====
+/* LOAD RECENT BLOGS --------------------------|Downie    |2016-07-14|2016-07-14
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: send an ajax request to get the blog header blog info rows for the
+             first two most recent blog entries for the current project*/
 function loadRecentBlogs(projectTitle){
     //TODO: loading icon??
 
     $.ajax({
-        url: '/ajax_api',
+        url: '/ajax/all-blogs',
         type: "GET",
         data: {
             "function": "load-recent-blogs",
             "project-title": projectTitle,
         },
         success: function(data) {
-            //alert(data);
+            alert(data);
 
 
             var json = jQuery.parseJSON(data);
@@ -97,13 +83,14 @@ function loadRecentBlogs(projectTitle){
 }
 
 
-//=====
-//===== AJAX - LOAD BLOG HEADERS -----------------------------------------------
-//=====
+/* LOAD BLOG HEADERS --------------------------|Downie    |2016-07-14|2016-07-14
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: send an ajax request to get the blog header information for the
+             current project */
 function loadBlogHeaders(projectID, startIndex){
 
     $.ajax({
-        url: '/ajax_api',
+        url: '/ajax/all-blogs',
         type: "GET",
         data: {
             "function": "load-blog-headers",
@@ -126,9 +113,10 @@ function loadBlogHeaders(projectID, startIndex){
     });
 }
 
-//=====
-//===== CREATE FIRST TWO RECENT BLOGS ------------------------------------------
-//=====
+/* CREATE BLOG HEADERS ------------------------|Downie    |2016-07-14|2016-07-14
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: create the blog headers for all the blog, except the first two,
+             which should already be on the page, by the time this runs */
 function createBlogHeaders(json){
 
     for(var i = 0; i < json.length; i++){
@@ -142,9 +130,10 @@ function createBlogHeaders(json){
 }
 
 
-//=====
-//===== CREATE FIRST TWO RECENT BLOGS ------------------------------------------
-//=====
+/* CREATE RECENT BLOGS ------------------------|Downie    |2016-07-14|2016-07-14
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: create the first two blog on the page, with their info being shown
+             by default */
 function createRecentBlogs(json){
     var blogHead = build_blog_header(json.blog, json.name, time_stampify(json.created), "fa-minus-square");
     $("#blog-insertion-point").before(blogHead);

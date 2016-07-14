@@ -64,12 +64,12 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     else if($function == 'load-project-counts'){
         load_project_counts($_GET['project_id']);
     }
-    else if($function == 'load-recent-blogs'){
+    /*else if($function == 'load-recent-blogs'){
         load_recent_blogs($_GET['project-title']);
     }
     else if($function == 'load-blog-headers'){
         load_blog_headers($_GET['project_id'], $_GET['start_index']);
-    }
+    }*/
     else{
         echo "There was a hole.";
     }
