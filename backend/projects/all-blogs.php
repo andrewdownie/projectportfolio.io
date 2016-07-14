@@ -1,4 +1,7 @@
 <?php
+include($backend_path."db_functions.php");
+
+
 //Return data about the most recent blog entry for a project
 function load_recent_blogs($projectTitle){
     $idName = project_id_name_from_url_name($projectTitle);
