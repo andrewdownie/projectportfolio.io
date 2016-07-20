@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 
         if($("#body-" + blogID).length === 0){
-            alert("clicked element: " + blogID + " and it's body does not exist");
+            //alert("clicked element: " + blogID + " and it's body does not exist");
             loadBlogBody(blogID);
             //TODO: how the hell do I save the projectID?
         }
@@ -136,11 +136,12 @@ function loadBlogHeaders(projectID, startIndex){
     });
 }
 
-/* LOAD BLOG BODY =============================|Downie    |2016-07-14|2016-07-14
+/* LOAD BLOG BODY =============================|Downie    |2016-07-14|2016-07-19
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: send an ajax request to get the blog body info for the blog-header
              that got clicked.
-       TODO: create the php to handle this
+       TODO: add a loading icon at start of function, remove loading icon in ajax complete
+             - show error message under blog head, if error loading blog body
 --------------------------------------------------------------------------------
 blogID: the unique id of the blog_info (aka. blog body) to load
 */
@@ -154,11 +155,11 @@ function loadBlogBody(blogID){
             "blog_id": blogID
         },
         success: function(data) {
-            alert(data);
+            //alert(data);
 
             var json = jQuery.parseJSON(data)[0];
             var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
-            $("#head-" + blogID).after(blogBody);
+            $("#head-" + blogID).parent().next().after(blogBody);
 
         },
         error: function(xhr, desc, err) {
