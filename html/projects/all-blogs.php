@@ -19,6 +19,7 @@ include("/var/www/projectportfolio/html/head.php");
 <script src="/js/functions/build_blog_body.js"></script>
 
 <!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/functions.js"></script>
 <script src="/js/projects/all-blogs.js"></script>
 
 <!-- PAGE SPECIFIC OTHER -->
@@ -30,6 +31,7 @@ include("/var/www/projectportfolio/html/head.php");
 
     <!-- Page Content -->
     <div class="container">
+        <div id="project-ID" class="hide"></div>
 
         <div class="row">
             <div class="col-lg-12">

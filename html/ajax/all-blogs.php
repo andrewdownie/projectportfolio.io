@@ -22,6 +22,9 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     else if($function == 'load-blog-headers'){
         load_blog_headers($_GET['project_id'], $_GET['start_index']);
     }
+    else if($function == 'load-blog-body'){
+        load_blog_body($_GET['blog_id']);
+    }
 }
 
 

@@ -1,41 +1,54 @@
 $(document).ready(function(){
-    var projectTitle = getProjectTitle();
-    setPageTitle(projectTitle);
-    loadRecentBlogs(projectTitle);
+    var urlTitle = getProjectUrlTitle();
+    var approxTitle = urlNameToApproxName(urlTitle);
+    setPageTitle(approxTitle);
+    loadRecentBlogs(urlTitle);
 
 
 
     $('#all-blogs').on('click', '.blog-header', function() {
-        var id = this.id.split("-")[1];
-        //alert(id)
+        var blogID = this.id.split("-")[1];
+        //alert(blogID)
 
 
-        if($("#body-" + id).length == 0){
-            alert("clicked element: " + id + " and it's body does not exist");
-            loadBlogBody(projectID, id);
+        if($("#body-" + blogID).length === 0){
+            alert("clicked element: " + blogID + " and it's body does not exist");
+            loadBlogBody(blogID);
             //TODO: how the hell do I save the projectID?
         }
 
-        toggle_elements($("#head-" + id + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #body-" + id));
+        toggle_elements($("#head-" + blogID + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #body-" + blogID));
     });
 
     //onclick:
     //loadBlogBody(clickIdentifier) //could i pass info about the element click to figure out what body to load
 });
 
-// GET PROJECT TITLE --------------------------|Downie    |2016-07-14|2016-07-14
+// GET PROJECT TITLE ==========================|Downie    |2016-07-14|2016-07-14
 //_____________________________________________|AUTHOR    |CREATED   |MODIFIED
-function getProjectTitle(){
+function getProjectUrlTitle(){
     return get_resource_name().split("/")[6];
 }
 
-// SET PAGE TITLE -----------------------------|Downie    |2016-07-14|2016-07-14
+// SET PAGE TITLE =============================|Downie    |2016-07-14|2016-07-14
 //_____________________________________________|AUTHOR    |CREATED   |MODIFIED
 function setPageTitle(title){
     $("#all-blogs #project-title").text(title);
 }
 
-/* LOAD RECENT BLOGS --------------------------|Downie    |2016-07-14|2016-07-14
+// SET PROJECT ID =============================|Downie    |2016-07-14|2016-07-14
+//_____________________________________________|AUTHOR    |CREATED   |MODIFIED
+function setProjectID(projectID){
+    $("#all-blogs #project-ID").text(projectID);
+}
+
+// GET PROJECT ID =============================|Downie    |2016-07-14|2016-07-14
+//_____________________________________________|AUTHOR    |CREATED   |MODIFIED
+function getProjectID(){
+    return $("#all-blogs #project-ID").text();
+}
+
+/* LOAD RECENT BLOGS ==========================|Downie    |2016-07-14|2016-07-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: send an ajax request to get the blog header blog info rows for the
              first two most recent blog entries for the current project*/
@@ -55,6 +68,9 @@ function loadRecentBlogs(projectTitle){
 
             var json = jQuery.parseJSON(data);
             loadBlogHeaders(json[0].project_id, 1);
+
+            //setProjectID(json[0].project_id);//TODO: do I still need this, since each blog has a unique number?
+
 
             if(json.length === 0){
                 alert("Unable to find this project");
@@ -90,7 +106,7 @@ function loadRecentBlogs(projectTitle){
 }
 
 
-/* LOAD BLOG HEADERS --------------------------|Downie    |2016-07-14|2016-07-14
+/* LOAD BLOG HEADERS ==========================|Downie    |2016-07-14|2016-07-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: send an ajax request to get the blog header information for the
              current project */
@@ -120,24 +136,29 @@ function loadBlogHeaders(projectID, startIndex){
     });
 }
 
-/* LOAD BLOG BODY -----------------------------|Downie    |2016-07-14|2016-07-14
+/* LOAD BLOG BODY =============================|Downie    |2016-07-14|2016-07-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: send an ajax request to get the blog body info for the blog-header
              that got clicked.
        TODO: create the php to handle this
-             */
-function loadBlogBody(projectID, blogID){
+--------------------------------------------------------------------------------
+blogID: the unique id of the blog_info (aka. blog body) to load
+*/
+function loadBlogBody(blogID){
 
     $.ajax({
         url: '/ajax/all-blogs',
         type: "GET",
         data: {
             "function": "load-blog-body",
-            "project_id": projectID,
             "blog_id": blogID
         },
         success: function(data) {
             alert(data);
+
+            var json = jQuery.parseJSON(data)[0];
+            var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
+            $("#head-" + blogID).after(blogBody);
 
         },
         error: function(xhr, desc, err) {
@@ -150,7 +171,7 @@ function loadBlogBody(projectID, blogID){
 }
 
 
-/* CREATE BLOG HEADERS ------------------------|Downie    |2016-07-14|2016-07-14
+/* CREATE BLOG HEADERS ========================|Downie    |2016-07-14|2016-07-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: create the blog headers for all the blog, except the first two,
              which should already be on the page, by the time this runs */
@@ -168,7 +189,7 @@ function createBlogHeaders(json){
 }
 
 
-/* CREATE RECENT BLOGS ------------------------|Downie    |2016-07-14|2016-07-14
+/* CREATE RECENT BLOGS ========================|Downie    |2016-07-14|2016-07-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: create the first two blog on the page, with their info being shown
              by default */

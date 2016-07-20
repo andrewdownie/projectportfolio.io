@@ -3,13 +3,12 @@
 //==============================================================================
 
 
-/* LOAD RECENT BLOGS --------------------------|Downie    |2016-07-14|2016-07-14
+/* LOAD RECENT BLOGS ==========================|Downie    |2016-07-14|2016-07-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: loads the blog_head and blog_info rows for the two most recent blog
              entries of a project.
     RETURNS: prints the selected blog headers / info to buffer, which will be
              picked up by client that sent the AJAX call.
-       TODO: Make it so $start_index actually works.
 --------------------------------------------------------------------------------
 $project_id: the project number to use to load from the blog_header table
 $start_index: blog_head rows are sorted DESC, by date created, $start_index
@@ -88,7 +87,7 @@ function load_recent_blogs($projectTitle){
 }
 
 
-/* LOAD BLOG HEADERS --------------------------|Downie    |2016-07-14|2016-07-14
+/* LOAD BLOG HEADERS ==========================|Downie    |2016-07-14|2016-07-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: loads rows from table: blog_header, for the project_id.
     RETURNS: prints the select blog headers to buffer, which will be picked up by
@@ -122,6 +121,28 @@ function load_blog_headers($project_id, $start_index){
 
     print_r(sql_to_json($result));//TODO: make this Work
     //TODO: why is this returning zero rows?
+}
+
+/* LOAD BLOG BODY =============================|Downie    |2016-07-19|2016-07-19
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: loads the blog body for a single blog.
+    RETURNS: prints the select blog body to buffer, which will be picked up by
+         client that sent the AJAX call.
+       TODO: N/A-ATM
+--------------------------------------------------------------------------------
+$project_id: the project number to use to load from the blog_header table
+$start_index: blog_head rows are sorted DESC, by date created, $start_index
+              determines starting row. (Useful for html pagers)
+*/
+function load_blog_body($blog_id){
+    $sqlBlogInfo = "SELECT * FROM blog_info WHERE blog=$blog_id";
+    $result = query($sqlBlogInfo);
+
+    if(mysqli_num_rows($result) != 1){
+        echo '{"result": "load-blog-body-error"}';
+        return;
+    }
+    echo sql_to_json($result);
 }
 
 

@@ -1,4 +1,4 @@
-/* FUNCTION NAME ------------------------------|Downie    |YYYY-MM-DD|YYYY-MM-DD
+/* FUNCTION NAME ==============================|Downie    |YYYY-MM-DD|YYYY-MM-DD
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION:
     RETURNS:
@@ -11,7 +11,7 @@ $var2:
 
 LIGHT WEIGHT VERSION:
 
-/* FUNCTION NAME ------------------------------|Downie    |YYYY-MM-DD|YYYY-MM-DD
+/* FUNCTION NAME ==============================|Downie    |YYYY-MM-DD|YYYY-MM-DD
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
-DESCRIPTION: 
+DESCRIPTION:
 */
