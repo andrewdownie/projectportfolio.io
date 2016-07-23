@@ -34,13 +34,16 @@ include("/var/www/projectportfolio/html/head.php");
         <div id="project-ID" class="hide"></div>
 
         <div class="row">
-            <div class="col-lg-12">
-                <div class="page-header">
-                    <h1>
-                        <span id="project-title"></span>
-                        <small>blogs</small>
-                    </h1>
-                </div>
+            <div class="col-lg-10">
+                <h1>
+                    <span id="project-title"></span>
+                    <small>blogs</small>
+                </h1>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                <h1>
+                    <button class='btn btn-success blog-btn'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;New Blog</button>
+                </h1>
             </div>
         </div>
 
