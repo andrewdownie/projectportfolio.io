@@ -1,3 +1,8 @@
+
+#all-blogs .blog-btn{
+    width: 100%;
+}
+
 #all-blogs .blog-img{
     object-fit: cover;
     max-height: 210px;
@@ -25,16 +30,19 @@
     margin-top: -8px;
 }
 
-@media (max-width: 991px){
-    #all-blogs .view-blog-btn{
-        margin-top: 20px;
-        width: 100%;
+
+#all-blogs .space-dates{
+    display: inline-block;
+}
+@media (max-width: 340px){
+    #all-blogs .space-dates{
+        display: none;
     }
-    #all-blogs .blog-created{
-        margin-top: -10px;
-        margin-bottom: 10px;
+    #all-blogs .date-created{
+        display: block;
     }
 }
+
 
 
 

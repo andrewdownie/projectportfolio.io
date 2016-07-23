@@ -20,10 +20,10 @@ $(document).ready(function(){
         var visible = toggle_elements($("#all-blogs #head-" + blogID + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #body-" + blogID));
 
         if(visible){
-            $("#all-blogs #last-mod-" + blogID).show();
+            $("#all-blogs #date-modified-" + blogID).show();
         }
         else{
-            $("#all-blogs #last-mod-" + blogID).hide();
+            $("#all-blogs #date-modified-" + blogID).hide();
         }
     });
 
@@ -53,6 +53,12 @@ function setProjectID(projectID){
 //_____________________________________________|AUTHOR    |CREATED   |MODIFIED
 function getProjectID(){
     return $("#all-blogs #project-ID").text();
+}
+
+// SET DATE MODIFIED ==========================|Downie    |2016-07-23|2016-07-23
+//_____________________________________________|AUTHOR    |CREATED   |MODIFIED
+function setDateModified(blogNum, date){
+    $("#all-blogs #date-modified-" + blogNum).text("Modified: " + date);
 }
 
 /* LOAD RECENT BLOGS ==========================|Downie    |2016-07-14|2016-07-14
@@ -143,7 +149,7 @@ function loadBlogHeaders(projectID, startIndex){
     });
 }
 
-/* LOAD BLOG BODY =============================|Downie    |2016-07-14|2016-07-19
+/* LOAD BLOG BODY =============================|Downie    |2016-07-14|2016-07-23
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: send an ajax request to get the blog body info for the blog-header
              that got clicked.
@@ -165,10 +171,10 @@ function loadBlogBody(blogID){
             //alert(data);
 
             var json = jQuery.parseJSON(data)[0];
-            var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
+            var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet);
 
-            //$("#head-" + blogID).parent().next().after(blogBody);
-            $("#head-" + blogID).parent().next().after(blogBody);
+            $("#head-" + blogID).parent().parent().next().after(blogBody);
+            setDateModified(blogID, time_stampify(json.modified));
         },
         error: function(xhr, desc, err) {
             alert('No response from server >:( ');
@@ -180,7 +186,7 @@ function loadBlogBody(blogID){
 }
 
 
-/* CREATE BLOG HEADERS ========================|Downie    |2016-07-14|2016-07-14
+/* CREATE BLOG HEADERS ========================|Downie    |2016-07-14|2016-07-23
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: create the blog headers for all the blog, except the first two,
              which should already be on the page, by the time this runs */
@@ -198,14 +204,14 @@ function createBlogHeaders(json){
 }
 
 
-/* CREATE RECENT BLOGS ========================|Downie    |2016-07-14|2016-07-14
+/* CREATE RECENT BLOGS ========================|Downie    |2016-07-14|2016-07-23
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: create the first two blog on the page, with their info being shown
              by default */
 function createRecentBlogs(json){
     var blogHead = build_blog_header(json.blog, json.name, time_stampify(json.created), "fa-minus-square");
     $("#blog-insertion-point").before(blogHead);
-    var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
-    $("#blog-insertion-point").before(blogBody);
-
+    var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet);
+    $("#head-" + json.blog).parent().parent().next().after(blogBody);
+    setDateModified(json.blog, time_stampify(json.modified));
 }

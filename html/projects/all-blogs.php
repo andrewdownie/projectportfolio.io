@@ -44,10 +44,10 @@ include("/var/www/projectportfolio/html/head.php");
             </div>
         </div>
 
-        <div class="row">
-            <div id="blog-insertion-point">
-            </div>
+        <!--     <div class="row">-->
+        <div id="blog-insertion-point">
         </div>
+        <!--     </div>-->
 
     </div>
     <!-- /.container -->
