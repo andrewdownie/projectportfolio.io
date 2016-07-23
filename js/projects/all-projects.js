@@ -1,21 +1,21 @@
 $(document).ready(function(){
-    load_projects()
+    load_projects();
 
     $("#create-new").click(function(){
-        ajax_create_project()
+        ajax_create_project();
     });
 
-    $("#all-projects").on("click", ".project-thumbnail", function(){
-        var project_url_name = $(this).find(".url_name").text()
-        window.location.href = "/user/dd_dow/projects/" + project_url_name.trim()
-        return false
+    $("#all-projects").on("click", ".project-thumbnail", function(){//TODO: get username of user login claim from cookie
+        var project_url_name = $(this).find(".url_name").text();
+        window.location.href = "/user/dd_dow/projects/" + project_url_name.trim();
+        return false;
     });
 
     $("#all-projects").on("click", ".editButton", function(){
-        var project_url_name = $(this).parent().find(".url_name").text()
+        var project_url_name = $(this).parent().find(".url_name").text();
         //alert(project_url_name)
-        window.location.href = "/user/dd_dow/projects/" + project_url_name.trim() + "/edit"
-        return false
+        window.location.href = "/user/dd_dow/projects/" + project_url_name.trim() + "/edit";
+        return false;
     });
 
 });
@@ -27,14 +27,14 @@ $(document).ready(function(){
 //===== SHOW HIDE EDIT CREATE --------------------------------------------------
 //=====
 function show_hide_edit_create(){
-    var logged_in_user = read_cookie("LOGGED_IN")
-    var resourceName = get_resource_name()
-    var urlParts = resourceName.split("/")
+    var logged_in_user = read_cookie("LOGGED_IN");
+    var resourceName = get_resource_name();
+    var urlParts = resourceName.split("/");
 
-    if(logged_in_user != null){
+    if(logged_in_user !== null){
         if(urlParts[3] == "user" && urlParts[4] == logged_in_user){
-            $("#all-projects #create-new").show()
-            $("#all-projects .editButton").show()
+            $("#all-projects #create-new").show();
+            $("#all-projects .editButton").show();
         }
     }
 
@@ -44,7 +44,7 @@ function show_hide_edit_create(){
 //===== LOAD PROJECTS ----------------------------------------------------------
 //=====
 function load_projects(){
-    $("#all-projects #loading-projects").show()
+    $("#all-projects #loading-projects").show();
     $.ajax({
         url: '/ajax_api',
         type: "GET",
@@ -56,36 +56,36 @@ function load_projects(){
         },
         success: function(data) {
             //alert(data)
-            $("#all-projects #loading-projects").hide(400)
+            $("#all-projects #loading-projects").hide(400);
 
 
             if(data === "load-projects-failure"){
-                alert("Failed to load projects")
+                alert("Failed to load projects");
             }
             else if(data === "no-projects"){
-                $("#project-cards-row").after("<h2>&nbsp;&nbsp;You don't have any projects.</h2>")
+                $("#project-cards-row").after("<h2>&nbsp;&nbsp;You don't have any projects.</h2>");
             }
             else{
-                var json = jQuery.parseJSON( data )
-                addProjects(json)
+                var json = jQuery.parseJSON( data );
+                addProjects(json);
 
             }
         },
         error: function(xhr, desc, err) {
-            alert('No response from server >:( ')
+            alert('No response from server >:( ');
         },
         complete: function(){
-            show_hide_edit_create()
+            show_hide_edit_create();
         }
     });
 }
 
 function addProjects(parsedJSON){
     for(i = 0; i < parsedJSON.length; i++){
-        if(parsedJSON[i] == null){
-            continue
+        if(parsedJSON[i] === null){
+            continue;
         }
-        $("#project-cards-row").after(build_project_card(parsedJSON[i].name, parsedJSON[i].url_name, parsedJSON[i].img_link, parsedJSON[i].created))
+        $("#project-cards-row").after(build_project_card(parsedJSON[i].name, parsedJSON[i].url_name, parsedJSON[i].img_link, parsedJSON[i].created));
     }
 }
 
@@ -102,20 +102,20 @@ function ajax_create_project(){
         },
         success: function(data) {
             //alert(data)]
-            var json = jQuery.parseJSON( data )
+            var json = jQuery.parseJSON( data );
 
             if(json.result === "create-project-success"){
-                window.location = "projects/" + json.project_url_name + "/edit"
+                window.location = "projects/" + json.project_url_name + "/edit";
             }
             else if(json.result === "create-project-failure"){
-                alert("create project failure")
+                alert("create project failure");
             }
             else{
-                alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ")
+                alert("Unexpected response error\n\nThe wizard isn't happy about this either\n     (∩｀╭╮´)⊃━☆ﾟ.*･｡ﾟ");
             }
         },
         error: function(xhr, desc, err) {
-            alert('No response from server >:( ')
+            alert('No response from server >:( ');
         },
         complete: function(){
 

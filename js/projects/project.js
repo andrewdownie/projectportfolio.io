@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    load_project()
+    load_project();
 
 });
 
@@ -8,10 +8,10 @@ $(document).ready(function(){
 //===== LOAD PROJECT -----------------------------------------------------------
 //=====
 function load_project(){
-    var resourceName = get_resource_name()
-    var urlParts = resourceName.split("/")
+    var resourceName = get_resource_name();
+    var urlParts = resourceName.split("/");
 
-    $("#all-projects #loading-projects").show()
+    $("#all-projects #loading-projects").show();
     $.ajax({
         url: '/ajax_api',
         type: "GET",
@@ -26,14 +26,14 @@ function load_project(){
             //alert(data)
 
             if(data == "project-not-found"){
-                alert("project not found... :(")
+                alert("project not found... :(");
             }
             else{
-                add_project_to_page(data)
+                add_project_to_page(data);
             }
         },
         error: function(xhr, desc, err) {
-            alert('No response from server >:( ')
+            alert('No response from server >:( ');
         },
         complete: function(){
 
@@ -45,13 +45,13 @@ function load_project(){
 //===== ADD PROJECT TO PAGE ----------------------------------------------------
 //=====
 function add_project_to_page(data){
-    var obj = jQuery.parseJSON( data )
+    var obj = jQuery.parseJSON( data );
 
     for(i = 0; i < obj.length; i++){
-        if(obj[i] == null){
-            continue
+        if(obj[i] === null){
+            continue;
         }
-        var row = obj[i]
-        $("#test-insert-point").after(row.project + " " + row.name + " " + row.url_name + " " + row.spec_link + " " + row.img_link + " " + row.created + " " + row.modified)
+        var row = obj[i];
+        $("#test-insert-point").after(row.project + " " + row.name + " " + row.url_name + " " + row.spec_link + " " + row.img_link + " " + row.created + " " + row.modified);
     }
 }

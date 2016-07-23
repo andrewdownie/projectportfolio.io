@@ -17,7 +17,14 @@ $(document).ready(function(){
             //TODO: how the hell do I save the projectID?
         }
 
-        toggle_elements($("#head-" + blogID + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #body-" + blogID));
+        var visible = toggle_elements($("#all-blogs #head-" + blogID + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #body-" + blogID));
+
+        if(visible){
+            $("#all-blogs #last-mod-" + blogID).show();
+        }
+        else{
+            $("#all-blogs #last-mod-" + blogID).hide();
+        }
     });
 
     //onclick:
@@ -159,8 +166,9 @@ function loadBlogBody(blogID){
 
             var json = jQuery.parseJSON(data)[0];
             var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
-            $("#head-" + blogID).parent().next().after(blogBody);
 
+            //$("#head-" + blogID).parent().next().after(blogBody);
+            $("#head-" + blogID).parent().next().after(blogBody);
         },
         error: function(xhr, desc, err) {
             alert('No response from server >:( ');
