@@ -42,7 +42,7 @@ include("/var/www/projectportfolio/html/head.php");
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2">
                 <h1>
-                    <button class='btn btn-success blog-btn'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;New Blog</button>
+                    <button id='create-blog' class='btn btn-success blog-btn'><i class='fa fa-plus' aria-hidden='true'></i>&nbsp;New Blog</button>
                 </h1>
             </div>
         </div>
@@ -55,7 +55,7 @@ include("/var/www/projectportfolio/html/head.php");
     </div>
     <!-- /.container -->
 
-
+    <div class="bottom-padding"></div>
 
 </body>
 

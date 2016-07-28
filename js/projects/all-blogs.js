@@ -27,6 +27,11 @@ $(document).ready(function(){
         }
     });
 
+    $('#all-blogs #create-blog').click(function() {
+        alert('vim rocks, so easy to concentrate :D');
+
+    });
+
     //onclick:
     //loadBlogBody(clickIdentifier) //could i pass info about the element click to figure out what body to load
 });
