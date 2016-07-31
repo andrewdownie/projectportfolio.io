@@ -10,7 +10,13 @@ function build_blog_header(blogNum, name, created, faClass){
     html += "            &nbsp;";
     html +=              name;
     html += "        </a>";
+
+
+
     html += "    </h3>";
+    //html += "    <div style='float:right;'>meow</div>";
+
+
 
     html += "    <h3 class='col-md-6'>";
     html += "        <div class='row'>";
@@ -31,7 +37,9 @@ function build_blog_header(blogNum, name, created, faClass){
     ///// BUILD BLOG DATE ROW
     /////
     html += "<div class='row date-row'>";
-    html += "    <div class='col-md-12'>";
+//    html += "    <div class='col-md-6'> </div>";
+    html += "    <div class='col-md-6' style='float:right;'>";
+    html += "        <strong>";
     html += "        <span class='date-created'>";
     html += "            Created: ";
     html +=              created;
@@ -42,8 +50,10 @@ function build_blog_header(blogNum, name, created, faClass){
     html += "        <span id='date-modified-" + blogNum + "' class='date-modified'>";
     html += "            &nbsp;";
     html += "        </span>";
+    html += "        </strong>";
     html += "    </div>";
     html += "</div>";//close row
+
 
 
     return html;
