@@ -146,6 +146,23 @@ function load_blog_body($blog_id){
 }
 
 
+
+/* CREATE NEW BLOG ============================|Downie    |2016-07-31|2016-07-31
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: creates a new blog in the project the owning user is currently
+             editing.
+    RETURNS: success or failure message about whether or not the new blog was
+             created. 
+--------------------------------------------------------------------------------
+$project_id: the id of the proeject to create the blog in 
+*/
+function create_new_blog($project_id){
+    echo "create-new-blog:failure";
+
+}
+
+
+
 // HELPER FUNCTIONS
 //==============================================================================
 ?>

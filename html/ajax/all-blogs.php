@@ -26,6 +26,12 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
         load_blog_body($_GET['blog_id']);
     }
 }
-
+else if($_SERVER['REQUEST_METHOD'] == "POST"){
+    $function = $_POST['function'];
+    
+    if($function == 'create-new-blog'){
+       create_new_blog($_POST['project_id']);
+    }
+}
 
 ?>
