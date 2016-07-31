@@ -28,8 +28,7 @@ $(document).ready(function(){
     });
 
     $('#all-blogs #create-blog').click(function() {
-        alert('vim rocks, so easy to concentrate :D');
-
+	createNewBlog(getProjectID());
     });
 
     //onclick:
@@ -153,6 +152,46 @@ function loadBlogHeaders(projectID, startIndex){
         }
     });
 }
+
+
+
+
+/* CREATE NEW BLOG ============================|Downie    |2016-07-31|2016-07-31
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: creates a new blog under the project the user is currently editing 
+--------------------------------------------------------------------------------
+projectID: the id of the project, that the user wants to add a new blog to 
+*/
+function createNewBlog(projectID){
+    alert('create new blog pls');
+
+    $.ajax({
+        url: '/ajax/all-blogs',
+        type: "POST",
+        data: {
+            "function": "create-new-blog",
+            "project_id": projectID
+        },
+        success: function(data) {
+            alert(data);
+
+            //var json = jQuery.parseJSON(data);
+            //createBlogHeaders(json);
+
+        },
+        error: function(xhr, desc, err) {
+            alert('No response from server >:( ');
+        },
+        complete: function(){
+
+        }
+    });
+
+}
+
+
+
+
 
 /* LOAD BLOG BODY =============================|Downie    |2016-07-14|2016-07-23
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
