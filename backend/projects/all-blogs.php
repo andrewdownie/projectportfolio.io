@@ -157,7 +157,21 @@ DESCRIPTION: creates a new blog in the project the owning user is currently
 $project_id: the id of the proeject to create the blog in 
 */
 function create_new_blog($project_id){
-    echo "create-new-blog:failure";
+   // echo "create-new-blog:failure";
+    $time = time();
+    $blogName = "new blog ".$time;
+    $blogUrl = name_to_url_name($blogName);
+      
+    $createBlog = "INSERT INTO blog_head values(null, 5, '$blogName', '$blogUrl', $time)";
+    $result = query($createBlog);
+
+    $createdBlog = last_insert_id();
+
+    $createBlogInfo = "INSERT INTO blog_info values($createdBlog, '', '', $time)";
+    $result2 = query($createBlogInfo);
+
+    print_r($project_id);
+//    echo '{"result": "create-new-blog-success"}';
 
 }
 
