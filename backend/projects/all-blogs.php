@@ -170,8 +170,7 @@ function create_new_blog($project_id){
     $createBlogInfo = "INSERT INTO blog_info values($createdBlog, '', '', $time)";
     $result2 = query($createBlogInfo);
 
-    print_r($project_id);
-//    echo '{"result": "create-new-blog-success"}';
+    echo '{"result": "create-new-blog-success"}';
 
 }
 

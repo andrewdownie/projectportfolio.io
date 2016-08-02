@@ -30,6 +30,13 @@ $(document).ready(function(){
     $('#all-blogs #create-blog').click(function() {
 	createNewBlog(getProjectID());
     });
+     
+    $('#all-blogs .delete-blog').click(function() {
+        alert('delete this blog (not setup yet)');
+        //TODO: figure out what blog to delete, based on the number of the button
+        var blogID = getBlogID(this);
+	createNewBlog(getProjectID(), blogID);
+    });
 
     //onclick:
     //loadBlogBody(clickIdentifier) //could i pass info about the element click to figure out what body to load
@@ -163,8 +170,6 @@ DESCRIPTION: creates a new blog under the project the user is currently editing
 projectID: the id of the project, that the user wants to add a new blog to 
 */
 function createNewBlog(projectID){
-    alert('create new blog pls');
-
     $.ajax({
         url: '/ajax/all-blogs',
         type: "POST",
@@ -173,11 +178,16 @@ function createNewBlog(projectID){
             "project_id": projectID
         },
         success: function(data) {
-            alert(data);
+          //alert(data);
 
-            //var json = jQuery.parseJSON(data);
-            //createBlogHeaders(json);
-
+            var json = jQuery.parseJSON(data);
+            if(json.result === "create-new-blog-success"){
+                alert("create blog: success");
+                window.location.href = "";      
+            } 
+            else{
+                alert("create blog: failed");          
+            }
         },
         error: function(xhr, desc, err) {
             alert('No response from server >:( ');
@@ -187,6 +197,46 @@ function createNewBlog(projectID){
         }
     });
 
+}
+
+
+
+
+
+
+/* DELETE BLOG ================================|Downie    |2016-07-31|2016-07-31
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: deletes a blog from project 
+---------------------------------------------------------------------------
+projectID: the id of the project, that the user wants to delete 
+*/
+function deleteBlog(projectID){
+    $.ajax({
+        url: '/ajax/all-blogs',
+        type: "POST",
+        data: {
+            "function": "delete-blog",
+            "project_id": projectID
+        },
+        success: function(data) {
+          //alert(data);
+
+            var json = jQuery.parseJSON(data);
+            if(json.result === "delete-blog-success"){
+                alert("delete blog: success");
+                //window.location.href = "";      
+            } 
+            else{
+                alert("delete blog: failed");          
+            }
+        },
+        error: function(xhr, desc, err) {
+            alert('No response from server >:( ');
+        },
+        complete: function(){
+
+        }
+    });
 }
 
 
@@ -238,7 +288,6 @@ function createBlogHeaders(json){
 
     for(var i = 0; i < json.length; i++){
         if(json[i] !== null){
-            //alert(json[i].blog)//TODO: why is the blog # coming out as one instead of 3?
             var blogHead = build_blog_header(json[i].blog, json[i].name, time_stampify(json[i].created), "fa-plus-square");
 
             $("#blog-insertion-point").before(blogHead);

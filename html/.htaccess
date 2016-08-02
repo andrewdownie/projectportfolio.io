@@ -38,6 +38,8 @@ RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._-]*)/blogs/?$ projects
 # Map blog
 RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._-]*)/blogs/([A-Za-z0-9._-]*)/?$ projects/blog.php?username=$1&projectname=$2&blogname=$3 [L]
 
+#Map edit blog
+RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._-]*)/blogs/([A-Za-z0-9._-]*)/edit/?$ projects/edit-blog.php?username=$1&projectname=$2&blogname=$3 [L]
 
 # Map browse builds
 RewriteRule ^user/([A-Za-z0-9._-]*)/projects/([A-Za-z0-9._-]*)/builds/?$ projects/all-builds.php?username=$1&projectname=$2 [L]
