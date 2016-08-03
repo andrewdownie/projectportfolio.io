@@ -1,0 +1,5 @@
+screen -t "main"
+screen -t "backend"
+screen -t "js"
+screen -t "html"
+screen -t "css"

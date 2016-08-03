@@ -1,0 +1,27 @@
+bind x
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "% %t"
+
+startup_message off
+
+defscrollback 10000
+
+#create window setup
+chdir /var/www/projectportfolio
+screen -t MAIN 
+
+chdir /var/www/projectportolfio/css
+screen -t css
+
+chdir /var/www/projectportfolio/html
+screen -t html
+
+chdir /var/www/projectportfolio/backend
+screen -t backend
+
+chdir /var/www/projectportfolio/js
+screen -t js
+
+chdir /var/www/projectportfolio
+screen -t todo vim todo.txt
