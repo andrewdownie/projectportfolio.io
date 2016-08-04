@@ -27,7 +27,7 @@ function build_blog_header(blogNum, name, created, faClass){
     html += "                <button class='btn simple-button blog-btn'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Edit</button>";
     html += "            </div>";
     html += "            <div class='col-md-3 col-xs-6 btn-col'>";
-    html += "                <button class='btn simple-button blog-btn'> <i class='fa fa-times-circle' aria-hidden='true'></i>&nbsp;Delete</button>";
+    html += "                <button class='btn simple-button blog-btn delete-blog'> <i class='fa fa-times-circle' aria-hidden='true'></i>&nbsp;Delete</button>";
     html += "            </div>";
     html += "        </div>";//Close row
     html += "    </h3>";

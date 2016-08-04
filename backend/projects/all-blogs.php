@@ -174,6 +174,24 @@ function create_new_blog($project_id){
 
 }
 
+/* DELETE BLOG ================================|Downie    |2016-07-31|2016-07-31
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: Deletes a blog for the owning user 
+    RETURNS: a json message, containing whether or not the deletion was successful. 
+--------------------------------------------------------------------------------
+$project_id: the id of the proeject to create the blog in 
+*/
+function delete_blog($blog_id){
+    //1. check if the user is signed in
+    //2. check if the user is the owner of the blog
+    //-   a. get the project from the blog_id
+    //-   b. get the owner of the above project
+    //-   c. compare the id of the owner, to the id of the user
+    //3. delete the blog,
+
+    echo '{"result": "delete-blog-test"}';
+
+}
 
 
 // HELPER FUNCTIONS

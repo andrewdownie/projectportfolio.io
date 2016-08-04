@@ -8,13 +8,12 @@ $(document).ready(function(){
 
     $('#all-blogs').on('click', '.blog-header', function() {
         var blogID = this.id.split("-")[1];
-        //alert(blogID)
+        // alert(blogID)
 
 
-        if($("#body-" + blogID).length === 0){
-            //alert("clicked element: " + blogID + " and it's body does not exist");
+        if($("#blog-img-" + blogID + " img").length === 0){
+            alert("clicked element: " + blogID + " and it's body does not exist");
             loadBlogBody(blogID);
-            //TODO: how the hell do I save the projectID?
         }
 
         var visible = toggle_elements($("#all-blogs #head-" + blogID + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #body-" + blogID));
@@ -31,15 +30,13 @@ $(document).ready(function(){
 	createNewBlog(getProjectID());
     });
      
-    $('#all-blogs .delete-blog').click(function() {
-        alert('delete this blog (not setup yet)');
+    $('#all-blogs').on('click', '.delete-blog', function() {
+       // alert('delete this blog (not setup yet)');
         //TODO: figure out what blog to delete, based on the number of the button
-        var blogID = getBlogID(this);
-	createNewBlog(getProjectID(), blogID);
+       // var blogID = getBlogID(this);
+        deleteBlog(0);
     });
 
-    //onclick:
-    //loadBlogBody(clickIdentifier) //could i pass info about the element click to figure out what body to load
 });
 
 // GET PROJECT TITLE ==========================|Downie    |2016-07-14|2016-07-14
@@ -208,18 +205,18 @@ function createNewBlog(projectID){
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: deletes a blog from project 
 ---------------------------------------------------------------------------
-projectID: the id of the project, that the user wants to delete 
+blogID: the id of the blog, that the user wants to delete 
 */
-function deleteBlog(projectID){
+function deleteBlog(blogID){
     $.ajax({
         url: '/ajax/all-blogs',
         type: "POST",
         data: {
             "function": "delete-blog",
-            "project_id": projectID
+            "blog_id": blogID
         },
         success: function(data) {
-          //alert(data);
+         alert(data);
 
             var json = jQuery.parseJSON(data);
             if(json.result === "delete-blog-success"){
@@ -265,10 +262,8 @@ function loadBlogBody(blogID){
             //alert(data);
 
             var json = jQuery.parseJSON(data)[0];
-            var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet);
+            fill_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
 
-            $("#head-" + blogID).parent().parent().next().after(blogBody);
-            setDateModified(blogID, time_stampify(json.modified));
         },
         error: function(xhr, desc, err) {
             alert('No response from server >:( ');
@@ -288,7 +283,7 @@ function createBlogHeaders(json){
 
     for(var i = 0; i < json.length; i++){
         if(json[i] !== null){
-            var blogHead = build_blog_header(json[i].blog, json[i].name, time_stampify(json[i].created), "fa-plus-square");
+            var blogHead = build_blog_skeleton(json[i].blog, json[i].name, time_stampify(json[i].created), "fa-plus-square");
 
             $("#blog-insertion-point").before(blogHead);
         }
@@ -302,9 +297,7 @@ _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: create the first two blog on the page, with their info being shown
              by default */
 function createRecentBlogs(json){
-    var blogHead = build_blog_header(json.blog, json.name, time_stampify(json.created), "fa-minus-square");
+    var blogHead = build_blog_skeleton(json.blog, json.name, time_stampify(json.created), "fa-minus-square");
     $("#blog-insertion-point").before(blogHead);
-    var blogBody = build_blog_body(json.blog, json.img_link, json.first_snippet);
-    $("#head-" + json.blog).parent().parent().next().after(blogBody);
-    setDateModified(json.blog, time_stampify(json.modified));
+    fill_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
 }

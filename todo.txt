@@ -1,4 +1,4 @@
 DATE           | STATUS       | ITEM  
 ====================================================================================================
 
-2016-08-03	not started	allow the owning user to delete blogs
+2016-08-03	in progress	allow the owning user to delete blogs
