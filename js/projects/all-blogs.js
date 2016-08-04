@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 
         if($("#blog-img-" + blogID + " img").length === 0){
-            alert("clicked element: " + blogID + " and it's body does not exist");
+           // alert("clicked element: " + blogID + " and it's body does not exist");
             loadBlogBody(blogID);
         }
 
@@ -31,10 +31,10 @@ $(document).ready(function(){
     });
      
     $('#all-blogs').on('click', '.delete-blog', function() {
-       // alert('delete this blog (not setup yet)');
-        //TODO: figure out what blog to delete, based on the number of the button
-       // var blogID = getBlogID(this);
-        deleteBlog(0);
+        var blogID = this.id.split("-")[2];//_Delete buttons have id in form of: delete-btn-<blogID>
+        //alert("Blog for deletion has id: " + blogID);
+
+        deleteBlog(blogID);
     });
 
 });
@@ -84,14 +84,18 @@ function loadRecentBlogs(projectTitle){
             "project-title": projectTitle,
         },
         success: function(data) {
-            //alert(data);
-
+           // alert(data);
 
             var json = jQuery.parseJSON(data);
+
+
+            if(json.result === "no-recent-blogs"){
+                alert('no recent blogs'); 
+                return;
+            }
+
+
             loadBlogHeaders(json[0].project_id, 1);
-
-            //setProjectID(json[0].project_id);//TODO: do I still need this, since each blog has a unique number?
-
 
             if(json.length === 0){
                 alert("Unable to find this project");
@@ -142,9 +146,13 @@ function loadBlogHeaders(projectID, startIndex){
             "start_index": startIndex
         },
         success: function(data) {
-            //alert(data);
+          // alert(data);
 
             var json = jQuery.parseJSON(data);
+            if(json.result == "less-than-three-blogs"){
+                return; 
+            }
+            
             createBlogHeaders(json);
 
         },
@@ -216,12 +224,12 @@ function deleteBlog(blogID){
             "blog_id": blogID
         },
         success: function(data) {
-         alert(data);
+       //  alert(data);
 
             var json = jQuery.parseJSON(data);
             if(json.result === "delete-blog-success"){
                 alert("delete blog: success");
-                //window.location.href = "";      
+                window.location.href = "";      
             } 
             else{
                 alert("delete blog: failed");          

@@ -56,6 +56,8 @@ function current_account(){
     $sql = "SELECT account FROM account_head WHERE session='$session'";
     $account_num = -1;
 
+    //TODO: check status, and when they were last seen
+
     $result = query($sql);
     if(mysqli_num_rows($result) == 1){
         $row = mysqli_fetch_assoc($result);

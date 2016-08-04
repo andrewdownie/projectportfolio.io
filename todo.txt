@@ -1,4 +1,5 @@
-DATE           | STATUS       | ITEM  
-====================================================================================================
-
-2016-08-03	in progress	allow the owning user to delete blogs
+TODO
+-> fix the created date from being hidden when a blog skeleton is minimized
+-> add the most recent blog to the (view) project page
+-> make it so that a user can edit a blog
+==> and save it to a db

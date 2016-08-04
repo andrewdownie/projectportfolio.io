@@ -7,6 +7,7 @@ include($backend_path."projects/all-blogs.php");
 include($backend_path."_error_reporting.php");
 include($backend_path."db_functions.php");
 include($backend_path."functions.php");
+include($backend_path."auth.php");
 
 session_start();
 

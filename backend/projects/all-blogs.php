@@ -31,11 +31,15 @@ function load_recent_blogs($projectTitle){
     }
 
     $numBlogs = mysqli_num_rows($recentBlogs);
-    if($numBlogs == 0 || $numBlogs > 2){
-        echo '{"result": "load-recent-blogs-failure-2"}';
+    if($numBlogs == 0){
+        echo '{"result": "no-recent-blogs"}';
         return;
     }
 
+    if($numBlogs > 2){
+        echo '{"result": "load-recent-blogs-failure-2"}';
+        return;
+    }
 
     $blogHead1 = mysqli_fetch_assoc($recentBlogs);
     $blog1 = $blogHead1['blog'];
@@ -107,7 +111,7 @@ function load_blog_headers($project_id, $start_index){
 
 
     if($start_index == 1 && mysqli_num_rows($result) < 3){
-        echo $project_id." ";
+       // echo $project_id." ";
         echo '{"result": "less-than-three-blogs"}';
         return;
     }
@@ -157,7 +161,9 @@ DESCRIPTION: creates a new blog in the project the owning user is currently
 $project_id: the id of the proeject to create the blog in 
 */
 function create_new_blog($project_id){
-   // echo "create-new-blog:failure";
+    //TODO: make sure the user is logged in, and owns the project
+    //TODO: include more error checking
+
     $time = time();
     $blogName = "new blog ".$time;
     $blogUrl = name_to_url_name($blogName);
@@ -182,14 +188,52 @@ DESCRIPTION: Deletes a blog for the owning user
 $project_id: the id of the proeject to create the blog in 
 */
 function delete_blog($blog_id){
-    //1. check if the user is signed in
-    //2. check if the user is the owner of the blog
-    //-   a. get the project from the blog_id
-    //-   b. get the owner of the above project
-    //-   c. compare the id of the owner, to the id of the user
     //3. delete the blog,
 
-    echo '{"result": "delete-blog-test"}';
+    $curAccount = current_account(); 
+    if($curAccount == -1){
+        echo '{"result": "not-logged-in"}';
+        return;
+    } 
+    
+    //--  get the project that the blog to be deleted belongs to --------------
+    $selectProject = "SELECT project FROM blog_head WHERE blog=$blog_id";
+    $projectResult = query($selectProject);
+
+    if(mysqli_num_rows($projectResult) != 1){
+        echo '{"result": "error-finding-project"}';
+    }
+    $row = mysqli_fetch_assoc($projectResult); 
+    $project = $row['project'];
+
+
+    //-- get the owner of the project, that the blog is in -------------------- 
+    $selectOwner = "SELECT owner FROM project_head WHERE project=$project";
+    $ownerResult = query($selectOwner);
+
+    if(mysqli_num_rows($ownerResult) != 1){
+        echo '{"result": "error-finding-owner"}';
+        return;
+    }
+    $row = mysqli_fetch_assoc($ownerResult);
+    $owner = $row['owner'];
+
+    if($owner === $curAccount){
+        $deleteContents = "DELETE FROM blog_contents WHERE blog=$blog_id";
+	$contentsResult = query($deleteContents);
+
+        $deleteInfo = "DELETE FROM blog_info WHERE blog=$blog_id";
+        $infoResult = query($deleteInfo);
+
+        $deleteHead = "DELETE FROM blog_head WHERE blog=$blog_id";
+        $headResult = query($deleteHead);
+
+
+        echo '{"result": "delete-blog-success"}';
+        return;
+    }
+
+    echo '{"result": "not-blog-owner"}';
 
 }
 
