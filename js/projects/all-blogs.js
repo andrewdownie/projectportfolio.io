@@ -27,7 +27,7 @@ $(document).ready(function(){
     });
 
     $('#all-blogs #create-blog').click(function() {
-	createNewBlog(getProjectID());
+    	createNewBlog(getProjectID());
     });
      
     $('#all-blogs').on('click', '.delete-blog', function() {
@@ -35,6 +35,30 @@ $(document).ready(function(){
         //alert("Blog for deletion has id: " + blogID);
 
         deleteBlog(blogID);
+    });
+
+    $('#all-blogs').on('click', '.edit-blog', function() {
+        
+        var blogID = this.id.split("-")[2];
+
+
+        var url_name = $("#all-blogs #url-name-" + blogID).text();
+       // alert(url_name);
+       
+        var slash = "/"; 
+        if(window.location.href[window.location.href.length-1] == "/"){
+            slash = ""; 
+        }
+        
+        window.location.href = window.location.href + slash + url_name + "/edit";      
+        //TODO: get the id of this button (the number from the form edit-btn-<number>)
+        // use the above number to do... things
+        // need to somehow get the url name to do the redirect here.... Do I send the url name and store it? or will I have to add it?
+
+        
+      
+    
+    
     });
 
 });
@@ -84,9 +108,10 @@ function loadRecentBlogs(projectTitle){
             "project-title": projectTitle,
         },
         success: function(data) {
-           // alert(data);
+           //alert(data);
 
             var json = jQuery.parseJSON(data);
+            
 
 
             if(json.result === "no-recent-blogs"){
@@ -291,7 +316,7 @@ function createBlogHeaders(json){
 
     for(var i = 0; i < json.length; i++){
         if(json[i] !== null){
-            var blogHead = build_blog_skeleton(json[i].blog, json[i].name, time_stampify(json[i].created), "fa-plus-square");
+            var blogHead = build_blog_skeleton(json[i].blog, json.url_name, json[i].name, time_stampify(json[i].created), "fa-plus-square");
 
             $("#blog-insertion-point").before(blogHead);
         }
@@ -305,7 +330,7 @@ _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: create the first two blog on the page, with their info being shown
              by default */
 function createRecentBlogs(json){
-    var blogHead = build_blog_skeleton(json.blog, json.name, time_stampify(json.created), "fa-minus-square");
+    var blogHead = build_blog_skeleton(json.blog, json.url_name, json.name, time_stampify(json.created), "fa-minus-square");
     $("#blog-insertion-point").before(blogHead);
     fill_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
 }

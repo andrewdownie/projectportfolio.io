@@ -14,6 +14,8 @@ $(document).ready(function(){
     $("#all-projects").on("click", ".editButton", function(){
         var project_url_name = $(this).parent().find(".url_name").text();
         //alert(project_url_name)
+
+        //TODO: get the username from the cookie? what if the user isn't signed in?
         window.location.href = "/user/dd_dow/projects/" + project_url_name.trim() + "/edit";
         return false;
     });

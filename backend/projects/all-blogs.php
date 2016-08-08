@@ -43,7 +43,7 @@ function load_recent_blogs($projectTitle){
 
     $blogHead1 = mysqli_fetch_assoc($recentBlogs);
     $blog1 = $blogHead1['blog'];
-    $blog1Array = array("created"=>$blogHead1['created'],"name"=>$blogHead1['name']);
+    $blog1Array = array("created"=>$blogHead1['created'],"name"=>$blogHead1['name'],"url_name"=>$blogHead1['url_name']);
 
     $sqlBlogInfo1 = "SELECT * FROM blog_info WHERE blog=$blog1";
     $blogInfo1 = query($sqlBlogInfo1);
@@ -63,7 +63,7 @@ function load_recent_blogs($projectTitle){
     if($numBlogs == 2){
         $blogHead2 = mysqli_fetch_assoc($recentBlogs);
         $blog2 = $blogHead2['blog'];
-        $blog2Array = array("created"=>$blogHead2['created'],"name"=>$blogHead2['name']);
+        $blog2Array = array("created"=>$blogHead2['created'],"name"=>$blogHead2['name'],"url_name"=>$blogHead2['url_name']);
 
         $sqlBlogInfo2 = "SELECT * FROM blog_info WHERE blog=$blog2";
         $blogInfo2 = query($sqlBlogInfo2);

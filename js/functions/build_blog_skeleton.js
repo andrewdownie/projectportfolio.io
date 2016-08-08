@@ -1,16 +1,17 @@
-function build_blog_skeleton(blogNum, name, created, faClass){
+function build_blog_skeleton(blogNum, urlName, name, created, faClass){
     var html = "";
 
 
     //// BLOG HEAD
     html += "<div class='row blog-header-row page-header'>";
-    //---------  BLOG NAME / TOGGLE LINK  --------------------------- 
+    //---------  BLOG NAME / TOGGLE LINK / URL NAME  ---------------- 
     html += "    <h3 class='col-md-6'>";
     html += "        <a href='#!' id='head-" + blogNum + "' class='blog-header'>";
     html += "            <i class='fa " + faClass + "' aria-hidden='true'></i>";
     html += "            &nbsp;";
     html +=              name;
     html += "        </a>";
+    html += "        <div style='display:none;' id='url-name-" + blogNum + "'>" + urlName + "</div>";
     html += "    </h3>";
     //-----  BLOG BUTTONS (VIEW, EDIT DELETE)  ----------------------
     html += "    <h3 class='col-md-6'>";
@@ -19,7 +20,7 @@ function build_blog_skeleton(blogNum, name, created, faClass){
     html += "                <button id='view-btn-" + blogNum + "' class='btn btn-primary simple-button blog-btn'><i class='fa fa-file' aria-hidden='true'></i>&nbsp;View Full Entry</button>";
     html += "            </div>";
     html += "            <div class='col-md-3 col-xs-6 btn-col'>";
-    html += "                <button id='edit-btn-" + blogNum + "' class='btn simple-button blog-btn'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Edit</button>";
+    html += "                <button id='edit-btn-" + blogNum + "' class='btn simple-button blog-btn edit-blog'><i class='fa fa-pencil' aria-hidden='true'></i>&nbsp;Edit</button>";
     html += "            </div>";
     html += "            <div class='col-md-3 col-xs-6 btn-col'>";
     html += "                <button id='delete-btn-" + blogNum + "' class='btn simple-button blog-btn delete-blog'> <i class='fa fa-times-circle' aria-hidden='true'></i>&nbsp;Delete</button>";
