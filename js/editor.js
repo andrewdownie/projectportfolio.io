@@ -1,4 +1,26 @@
 $(document).ready(function(){
+    /*Blogpad buttons*/
+    $("#blogpad #blogpad-save").click(function(){
+        this.blur();
+
+        var url = window.location.href;
+        var projectUrlName = url.split("/")[6];
+        var blogUrlName = url.split("/")[8];
+
+        //alert(projectUrlName);
+        //alert(blogUrlName);
+        SaveBlog(projectUrlName, blogUrlName);
+
+    });
+
+
+    $("#blogpad #blogpad-exit").click(function(){
+        this.blur();
+        alert("this is the exit button");
+
+    });
+
+
     /*Toggle pads when not in xs mode*/
     $("#editor-tools").click(function(){
         //LinkToggle($("#editor-tools i"), "fa fa-folder", "fa fa-folder-open", $("#editor-pads"))
@@ -49,3 +71,46 @@ $(document).ready(function(){
     }
 
 });
+
+
+/* SAVE BLOG ==================================|Downie   |2016-08-09|2016-08-09
+_______________________________________________|AUTHOR   |CREATED   |MODIFIED
+Description: saves the current snapshot of the blog
+*/
+function SaveBlog(projectUrlName, blogUrlName){
+    var blogContents = $("#content-area").html();
+    alert(blogContents);
+
+
+     //need to send the blog name, and the project name
+     $.ajax({
+         url: '/ajax/editor',
+         type: "POST",
+         data: {
+             "function": "save-blog",
+             "project_url_name": projectUrlName,
+             "blog_url_name": blogUrlName
+         },
+         success: function(data) {
+              alert(data);
+     
+             // var json = jQuery.parseJSON(data)[0];
+             // fill_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
+     
+         },
+         error: function(xhr, desc, err) {
+             alert('No response from server >:( ');
+         },
+             complete: function(){
+     
+         }
+    });
+
+
+    //TODO: (do I need to add the username to differentiate the different projects, I'm thinking yes, which means I need to modify a lot of what I've done)
+    //1. get the blog contents - DONE
+    //2. create an ajax request
+    //3. send the data in the ajax request, along with project name, owner, and so on
+    //4. do the server side stuff (esp. whitelisting / filtering of the blogs contents)
+
+}
