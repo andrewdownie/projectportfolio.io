@@ -7,6 +7,23 @@
 
     <!-- PAGE SPECIFIC CSS -->
     <link href="/css/navbar.css" rel="stylesheet">
+    <style>
+        .navbar #version{
+            color: red;
+            font-size: 10px;
+            float: right;
+            border: solid 1px #eee;
+            border-radius: 5px 1px;
+            
+            padding: 0px 5px;
+            margin: 0 0;
+
+            line-height: 16px;
+            
+        }
+
+
+    </style>
 
     <!-- PAGE SPECIFIC JS -->
     <script src="/js/navbar/logout.js"></script>
@@ -30,7 +47,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="/">ProjectPortfolio</a>
+                <a class="navbar-brand" href="/">ProjectPortfolio&nbsp;<div id="version">ALPHA</div></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

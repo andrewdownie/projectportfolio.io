@@ -7,7 +7,7 @@
 /* SAVE BLOG =================================|Downie     |2016-08-12|2016-08-12
 ______________________________________________|AUTHOR     |CREATED   |MODIFIED
 */
-function save_blog($projectUrlName, $blogUrlName){
+function save_blog($projectUrlName, $blogUrlName, $imgLink, $firstSnippet, $blogContents){
     //1. Get the project number for the blog the user is currently editing
     //2. Get the blog number the user is currently editing (using info from step 1)
     //3. Update the tables related to the blog the user is editing (using info from step 2)
@@ -29,12 +29,20 @@ function save_blog($projectUrlName, $blogUrlName){
 
     if($blogNum == false){ return; }
 
-    echo $blogNum;
 
 
 
     // 3 - Update the tables related to the blog the user is editing
-    //_updateBlogInfo();
+    $updateBlogResult = _updateBlogInfo($blogNum, $imgLink, $firstSnippet);
+
+    if($updateBlogResult == false){
+        //probably also need to do database cleanup
+        return;
+    }
+
+   
+
+    //_updateBlogContents();
 
 
 
@@ -43,6 +51,7 @@ function save_blog($projectUrlName, $blogUrlName){
     //update the blog info table
 
     //update the blog contents table (is this just a straight overwrite?)(this will require adding another parameter to this function)
+    echo "{'result': 'blog-save-success'}";
 }
 
 
@@ -110,11 +119,30 @@ Returns: true if successful, false otherwise
 */
 function _updateBlogInfo($blogNum, $imgLink, $firstSnippet){
     $modified = time();
-    $updateHead = "UPDATE img_link = $imgLink, first_snippet = $firstSnippet, modified = $modified WHERE blog=$blogNum;";
+    $updateHead = "UPDATE blog_info SET img_link='$imgLink', first_snippet='$firstSnippet', modified='$modified' WHERE blog=$blogNum;";
     $updateResult = query($updateHead);
     
     //TODO: error checking
+    //if(errors){
+    //  echo "there was err";
+    //  return false;
+    //}
 
+    return true;
+}
+
+
+/* UPDATE BLOG CONTENTS ======================|Downie     |2016-08-12|2016-08-12
+______________________________________________|AUTHOR     |CREATED   |MODIFIED
+Description: updates the contents table for a single blog
+             updates the following columns: contents 
+             
+Returns: true if successful when trying to update blog contents, false otherwise
+*/
+function _updateBlogContents($blogNum, $newContents){
+
+    //check for existance,
+    //if it does not exisit create it.
 
 }
 

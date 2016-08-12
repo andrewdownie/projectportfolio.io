@@ -6,10 +6,14 @@ $(document).ready(function(){
         var url = window.location.href;
         var projectUrlName = url.split("/")[6];
         var blogUrlName = url.split("/")[8];
+        var blogContents = $("#content-area").html();
+        var imgLink = "";
+        var firstSnippet = "";
 
-        //alert(projectUrlName);
-        //alert(blogUrlName);
-        SaveBlog(projectUrlName, blogUrlName);
+        firstSnippet = $("#content-area").find(".text").eq(0).text();
+        imgLink = $("#content-area").find("img").eq(0).attr("src");
+
+        SaveBlog(projectUrlName, blogUrlName, imgLink, firstSnippet, blogContents);
 
     });
 
@@ -77,10 +81,7 @@ $(document).ready(function(){
 _______________________________________________|AUTHOR   |CREATED   |MODIFIED
 Description: saves the current snapshot of the blog
 */
-function SaveBlog(projectUrlName, blogUrlName){
-    var blogContents = $("#content-area").html();
-    alert(blogContents);
-
+function SaveBlog(projectUrlName, blogUrlName, imgLink, firstSnippet, blogContents){
 
      //need to send the blog name, and the project name
      $.ajax({
@@ -89,7 +90,10 @@ function SaveBlog(projectUrlName, blogUrlName){
          data: {
              "function": "save-blog",
              "project_url_name": projectUrlName,
-             "blog_url_name": blogUrlName
+             "blog_url_name": blogUrlName,
+             "img_link": imgLink,
+             "first_snippet": firstSnippet,
+             "blog_contents": blogContents
          },
          success: function(data) {
               alert(data);
@@ -101,7 +105,7 @@ function SaveBlog(projectUrlName, blogUrlName){
          error: function(xhr, desc, err) {
              alert('No response from server >:( ');
          },
-             complete: function(){
+          complete: function(){
      
          }
     });

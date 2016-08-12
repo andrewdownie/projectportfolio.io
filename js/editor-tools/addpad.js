@@ -2,7 +2,6 @@ $(document).ready(function() {
     var focusElement
     DisableAddpad()
 
-    //TODO: change "#addpad-title" to "#addpad #title"
     $('#addpad #title').mousedown(function(e){
         $(this).blur()
         if(typeof(focusElement) === 'undefined'){ return; }
@@ -19,7 +18,7 @@ $(document).ready(function() {
     $('#addpad #text').mousedown(function(e){
         $(this).blur()
         if(typeof(focusElement) === 'undefined'){ return; }
-        focusElement = GetNearestEditable(focusElement).after("<p contenteditable='true'> text </p>").next("p").focus()
+        focusElement = GetNearestEditable(focusElement).after("<p contenteditable='true' class='text'> text </p>").next("p").focus()
         move_moveremovepad(focusElement)
 
         $("#stylepad #setImage-disabled").show()
