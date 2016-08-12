@@ -1,52 +1,128 @@
 <?php
+//MAIN FUNCTIONS ==============================================================
 
+
+
+
+/* SAVE BLOG =================================|Downie     |2016-08-12|2016-08-12
+______________________________________________|AUTHOR     |CREATED   |MODIFIED
+*/
 function save_blog($projectUrlName, $blogUrlName){
-    //1. get the project number for the blog the user is currently editing
-    //2. once that is had... update the blog contents, 
-    //3. then update the blog title, the blog desciption, the blog image, and the blog modified date
+    //1. Get the project number for the blog the user is currently editing
+    //2. Get the blog number the user is currently editing (using info from step 1)
+    //3. Update the tables related to the blog the user is editing (using info from step 2)
     
+
     $currentUser = current_account();
 
 
-    // 1 ----- Get the project number for the blog the user is currently editing
-    $selectProjectNum =  "SELECT project_head.project FROM project_head INNER JOIN project_info ON project_head.project = project_info.project"; 
-    $selectProjectNum .= " WHERE project_head.owner = $currentUser AND project_info.url_name = '$projectUrlName'";
+    // 1 - get the project number for the blog the user is currently editing
+    $projectNum = _getProjectNum($projectUrlName, $currentUser);
 
-    $resultProjectNum = query($selectProjectNum);
+    if($projectNum == false){ return; }
 
-    if($resultProjectNum == false || mysqli_num_rows($resultProjectNum) != 1){
-        print_r($resultProjectNum);
+
+
+
+    // 2 - Get the blog number the user is currently editing
+    $blogNum = _getBlogNum($blogUrlName, $projectNum);
+
+    if($blogNum == false){ return; }
+
+    echo $blogNum;
+
+
+
+    // 3 - Update the tables related to the blog the user is editing
+//    _updateBlogHead();
+
+
+
+
+    //update the blog header table
+    //update the blog info table
+
+    //update the blog contents table (is this just a straight overwrite?)(this will require adding another parameter to this function)
+}
+
+
+
+//HELP FUNCTIONS ==============================================================
+
+
+
+
+/* GET PROJECT NUM ===========================|Downie     |2016-08-12|2016-08-12
+______________________________________________|AUTHOR     |CREATED   |MODIFIED
+Description: gets the unique project identifier (aka project number) for a project that has the given
+             projectUrlName, and is owned by the given user
+Returns: the project number if successful, false in all other cases
+*/
+function _getProjectNum($projecturlname, $currentuser){
+
+    $selectprojectnum =  "select project_head.project from project_head inner join project_info on project_head.project = project_info.project"; 
+    $selectprojectnum .= " where project_head.owner = $currentuser and project_info.url_name = '$projecturlname'";
+
+    $resultprojectnum = query($selectprojectnum);
+
+    if($resultprojectnum == false || mysqli_num_rows($resultprojectnum) != 1){
+        print_r($resultprojectnum);
         echo "{'result': 'error-saving-blog'}";
-        return;
-
+        return false;
     }
 
-    $row = mysqli_fetch_assoc($resultProjectNum);
+    $row = mysqli_fetch_assoc($resultprojectnum);
 
-    $projectNum = $row['project'];
+    return $row['project'];
+
+}
 
 
-    // 2 ----- Get the blog number the user is currently editing
+/* GET BLOG NUM ==============================|Downie     |2016-08-12|2016-08-12
+______________________________________________|AUTHOR     |CREATED   |MODIFIED
+Description: gets the unique blog identifier (aka blog number) for a blog that has the given
+             blogUrlName, and is in the given project
+Returns: the blog number if successful, false in all other cases
+*/
+function _getBlogNum($blogUrlName, $projectNum){
+
     $selectBlogNum = "SELECT blog FROM blog_head WHERE project=$projectNum AND url_name='$blogUrlName';";
     $resultBlogNum = query($selectBlogNum);
 
 
     if($resultBlogNum == false || mysqli_num_rows($resultBlogNum) != 1){
         echo "{'result': 'error-saving-blog'}";
-        return;
+        return false;
     }
 
     $row = mysqli_fetch_assoc($resultBlogNum);
-    $blogNum = $row['blog'];
+    return $row['blog'];
+
+}
 
 
-    echo "blog num is: " . $blogNum;
+/* UPDATE BLOG HEAD ==========================|Downie     |2016-08-12|2016-08-12
+______________________________________________|AUTHOR     |CREATED   |MODIFIED
+Description: gets the unique project identifier (aka project number) for a project that has the given
+             projectUrlName, and is owned by the given user
+Returns: the project number if successful, false in all other cases
+*/
+function _updateBlogHead($projectUrlName, $currentUser){
 
+    $selectprojectnum =  "select project_head.project from project_head inner join project_info on project_head.project = project_info.project"; 
+    $selectprojectnum .= " where project_head.owner = $currentuser and project_info.url_name = '$projecturlname'";
 
+    $resultprojectnum = query($selectprojectnum);
 
+    if($resultprojectnum == false || mysqli_num_rows($resultprojectnum) != 1){
+        print_r($resultprojectnum);
+        echo "{'result': 'error-saving-blog'}";
+        return false;
+    }
 
+    $row = mysqli_fetch_assoc($resultProjectNum);
 
-
+    return $row['project'];
 
 }
 
