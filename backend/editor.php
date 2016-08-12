@@ -34,7 +34,7 @@ function save_blog($projectUrlName, $blogUrlName){
 
 
     // 3 - Update the tables related to the blog the user is editing
-//    _updateBlogHead();
+    //_updateBlogInfo();
 
 
 
@@ -101,28 +101,20 @@ function _getBlogNum($blogUrlName, $projectNum){
 }
 
 
-/* UPDATE BLOG HEAD ==========================|Downie     |2016-08-12|2016-08-12
+/* UPDATE BLOG INFO ==========================|Downie     |2016-08-12|2016-08-12
 ______________________________________________|AUTHOR     |CREATED   |MODIFIED
-Description: gets the unique project identifier (aka project number) for a project that has the given
-             projectUrlName, and is owned by the given user
-Returns: the project number if successful, false in all other cases
+Description: updates the info table for a single blog
+             updates the following columns: img_link, first_snippet, modified
+             
+Returns: true if successful, false otherwise
 */
-function _updateBlogHead($projectUrlName, $currentUser){
+function _updateBlogInfo($blogNum, $imgLink, $firstSnippet){
+    $modified = time();
+    $updateHead = "UPDATE img_link = $imgLink, first_snippet = $firstSnippet, modified = $modified WHERE blog=$blogNum;";
+    $updateResult = query($updateHead);
+    
+    //TODO: error checking
 
-    $selectprojectnum =  "select project_head.project from project_head inner join project_info on project_head.project = project_info.project"; 
-    $selectprojectnum .= " where project_head.owner = $currentuser and project_info.url_name = '$projecturlname'";
-
-    $resultprojectnum = query($selectprojectnum);
-
-    if($resultprojectnum == false || mysqli_num_rows($resultprojectnum) != 1){
-        print_r($resultprojectnum);
-        echo "{'result': 'error-saving-blog'}";
-        return false;
-    }
-
-    $row = mysqli_fetch_assoc($resultProjectNum);
-
-    return $row['project'];
 
 }
 
