@@ -208,7 +208,7 @@ function createNewBlog(projectID){
             "project_id": projectID
         },
         success: function(data) {
-          //alert(data);
+            alert(data);
 
             var json = jQuery.parseJSON(data);
             if(json.result === "create-new-blog-success"){

@@ -12,9 +12,9 @@
 
     <!-- JS FUNCTIONS -->
     <script src="/js/functions/toggle_elements.js"></script>
+    <script src="/js/documentManipulation.js"></script>
 
     <!-- PAGE SPECIFIC JS -->
-    <script src="/js/documentManipulation.js"></script>
     <script src="/js/modalinput.js"></script>
     <script src="/js/editor-tools/moveremovepad.js"></script>
     <script src="/js/editor-tools/addpad.js"></script>
@@ -58,7 +58,7 @@
         <div class="row">
             <div class="padding-top-10;" ></div>
             <div class="col-md-8 col-sm-10 col-xs-12 col-sm-push-2" id="content-area">
-                <p id="blog-title" contenteditable="true">Page Title</p>
+                <!-- <p id="blog-title" contenteditable="true">Page Title</p> -->
             </div>
 
         </div>

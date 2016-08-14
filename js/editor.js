@@ -1,15 +1,16 @@
 $(document).ready(function(){
+    var url = window.location.href;
+    var projectUrlName = url.split("/")[6];
+    var blogUrlName = url.split("/")[8];
+
     //Load this blog asap after startup
-    LoadBlog();
+    LoadBlog(projectUrlName, blogUrlName);
 
 
     /*Blogpad buttons*/
     $("#blogpad #blogpad-save").click(function(){
         this.blur();
 
-        var url = window.location.href;
-        var projectUrlName = url.split("/")[6];
-        var blogUrlName = url.split("/")[8];
         var blogContents = $("#content-area").html();
         var imgLink = "";
         var firstSnippet = "";
@@ -23,7 +24,6 @@ $(document).ready(function(){
             imgLink = images.eq(0).attr("src");
         }
   
-        
 
 
         SaveBlog(projectUrlName, blogUrlName, newBlogName, imgLink, firstSnippet, blogContents);
@@ -96,7 +96,6 @@ Description: saves the current snapshot of the blog
 */
 function SaveBlog(projectUrlName, curBlogUrlName, newBlogName, imgLink, firstSnippet, blogContents){
 
-     //need to send the blog name, and the project name
      $.ajax({
          url: '/ajax/editor',
          type: "POST",
@@ -144,9 +143,45 @@ function SaveBlog(projectUrlName, curBlogUrlName, newBlogName, imgLink, firstSni
 _______________________________________________|AUTHOR   |CREATED   |MODIFIED
 Description: loads the current blog from the database 
 */
-function LoadBlog(){
-    //TODO: this function
+function LoadBlog(projectUrlName, blogUrlName){
 
+     $.ajax({
+         url: '/ajax/editor',
+         type: "GET",
+         data: {
+             "function": "load-blog",
+             "project_url_name": projectUrlName,
+             "blog_url_name": blogUrlName
+         },
+         success: function(data) {
+           alert(data);
+
+              
+
+            var json = jQuery.parseJSON(data);
+
+            if(json.result == "blog-load-success"){
+                if(json.blog_load_status == "content-not-found"){
+                    $("#content-area").html("<p id='blog-title' contenteditable='true'> Page Title </p>");       
+
+                } else if(json.blog_load_status == "content-found"){
+                    $("#content-area").html(json.blog_content);
+
+                }
+            }
+            else{
+                alert("blog was not able to be loaded");
+
+            }
+     
+         },
+         error: function(xhr, desc, err) {
+             alert('No response from server >:( ');
+         },
+          complete: function(){
+     
+         }
+    });
 }
 
 

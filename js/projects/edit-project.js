@@ -20,13 +20,6 @@ $(document).ready(function(){
 
 });
 
-//=====
-//===== NOT OWNER --------------------------------------------------------------
-//=====
-function notOwner(){//actually put this into the functions folder, and reuse it
-    //check if the person browsing this page is the owner,
-    //if not redirect them to the page they came from
-}
 
 //=====
 //===== PROJECT LINKS ----------------------------------------------------------

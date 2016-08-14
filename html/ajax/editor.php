@@ -16,6 +16,11 @@ session_start();
 //==============================================================================
 if($_SERVER['REQUEST_METHOD'] == "GET"){
 
+    $function = $_GET['function'];
+
+    if($function == 'load-blog'){
+        load_blog($_GET['project_url_name'],$_GET['blog_url_name']);
+    }
 
 }
 else if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -25,5 +30,6 @@ else if($_SERVER['REQUEST_METHOD'] == "POST"){
     if($function == 'save-blog'){
         save_blog($_POST['project_url_name'], $_POST['cur_blog_url_name'], $_POST['new_blog_name'], $_POST['img_link'], $_POST['first_snippet'], $_POST['blog_contents']);
     }
+
 }
 ?>
