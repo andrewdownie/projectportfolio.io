@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    //Load this blog asap after startup
+    LoadBlog();
+
+
     /*Blogpad buttons*/
     $("#blogpad #blogpad-save").click(function(){
         this.blur();
@@ -7,15 +11,20 @@ $(document).ready(function(){
         var projectUrlName = url.split("/")[6];
         var blogUrlName = url.split("/")[8];
         var blogContents = $("#content-area").html();
-        var imgLink = null;
+        var imgLink = "";
         var firstSnippet = "";
         var newBlogName = "";
 
         firstSnippet = $("#content-area").find(".text").eq(0).text();
         newBlogName = $("#content-area #blog-title").text();
-        imgLink = $("#content-area").find("img").eq(0).attr("src");
+        images = $("#content-area").find("img").eq(0);
 
-        alert("image link is (" + imgLink + ")");
+        if(images.length > 0){
+            imgLink = images.eq(0).attr("src");
+        }
+  
+        
+
 
         SaveBlog(projectUrlName, blogUrlName, newBlogName, imgLink, firstSnippet, blogContents);
 
@@ -107,10 +116,14 @@ function SaveBlog(projectUrlName, curBlogUrlName, newBlogName, imgLink, firstSni
 
               var json = jQuery.parseJSON(data);
               if(json.result == "blog-save-success"){
+                if(json.new_url_name != curBlogUrlName){
+                
                   var urlFront = GetUrlFront(window.location.href);
                   
                   var newUrl = urlFront + "/" + json.new_url_name + "/edit";
                   window.location.href = newUrl;
+
+                }
               }
               else{
                 alert("blog was not saved successfully");
@@ -127,6 +140,18 @@ function SaveBlog(projectUrlName, curBlogUrlName, newBlogName, imgLink, firstSni
 
 }
 
+/* LOAD BLOG ==================================|Downie   |2016-08-14|2016-08-14
+_______________________________________________|AUTHOR   |CREATED   |MODIFIED
+Description: loads the current blog from the database 
+*/
+function LoadBlog(){
+    //TODO: this function
+
+}
+
+
+
+//HELPER FUNCTIONS ============================================================
 
 /* GET URL FRONT ==============================|Downie   |2016-08-14|2016-08-14
 _______________________________________________|AUTHOR   |CREATED   |MODIFIED
