@@ -4,10 +4,13 @@
 
 
 
-/* SAVE BLOG =================================|Downie     |2016-08-12|2016-08-12
+/* SAVE BLOG =================================|Downie     |2016-08-12|2016-08-13
 ______________________________________________|AUTHOR     |CREATED   |MODIFIED
+Description: using the project url name, the blog url name, and the currently signed in users ID,
+             this funciton will find the blog being edited and update this blog using the: 
+             new blog name, imgage link, first snippet and blog contents provided
 */
-function save_blog($projectUrlName, $blogUrlName, $imgLink, $firstSnippet, $blogContents){
+function save_blog($projectUrlName, $curBlogUrlName, $newBlogName, $imgLink, $firstSnippet, $blogContents){
     //1. Get the project number for the blog the user is currently editing
     //2. Get the blog number the user is currently editing (using info from step 1)
     //3. Update the tables related to the blog the user is editing (using info from step 2)
@@ -25,7 +28,7 @@ function save_blog($projectUrlName, $blogUrlName, $imgLink, $firstSnippet, $blog
 
 
     // 2 - Get the blog number the user is currently editing
-    $blogNum = _getBlogNum($blogUrlName, $projectNum);
+    $blogNum = _getBlogNum($curBlogUrlName, $projectNum);
 
     if($blogNum == false){ return; }
 
@@ -41,6 +44,11 @@ function save_blog($projectUrlName, $blogUrlName, $imgLink, $firstSnippet, $blog
     }
 
    
+    
+    $newUrlName = name_to_url_name($newBlogName);
+    _updateBlogHead($blogNum, $newBlogName, $newUrlName);
+    
+
 
     //_updateBlogContents();
 
@@ -51,7 +59,8 @@ function save_blog($projectUrlName, $blogUrlName, $imgLink, $firstSnippet, $blog
     //update the blog info table
 
     //update the blog contents table (is this just a straight overwrite?)(this will require adding another parameter to this function)
-    echo "{'result': 'blog-save-success'}";
+    echo '{"result": "blog-save-success", "new_url_name": "' . $newUrlName . '"}';
+    
 }
 
 
@@ -76,7 +85,7 @@ function _getProjectNum($projecturlname, $currentuser){
 
     if($resultprojectnum == false || mysqli_num_rows($resultprojectnum) != 1){
         print_r($resultprojectnum);
-        echo "{'result': 'error-saving-blog'}";
+        echo '{"result": "error-saving-blog"}';
         return false;
     }
 
@@ -100,7 +109,7 @@ function _getBlogNum($blogUrlName, $projectNum){
 
 
     if($resultBlogNum == false || mysqli_num_rows($resultBlogNum) != 1){
-        echo "{'result': 'error-saving-blog'}";
+        echo '{"result": "error-saving-blog"}';
         return false;
     }
 
@@ -146,4 +155,26 @@ function _updateBlogContents($blogNum, $newContents){
 
 }
 
+
+/* UPDATE BLOG HEAD  =========================|Downie     |2016-08-13|2016-08-13
+______________________________________________|AUTHOR     |CREATED   |MODIFIED
+Description: updates the head table for a single blog
+             updates the following columns: name, url_name
+             uses the <to_url_name> function to derive the new url_name from the
+             given new name
+             
+Returns: true if successful when trying to update blog head, false in all other cases 
+*/
+function _updateBlogHead($blogNum, $newBlogName, $newUrlName){
+
+
+    $updateHead = "UPDATE blog_head SET name='$newBlogName', url_name='$newUrlName' WHERE blog=$blogNum;";
+    $updateResult = query($updateHead);
+
+    //TODO: error checking
+    
+
+
+    return true;
+}
 ?>

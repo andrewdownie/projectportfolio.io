@@ -23,7 +23,7 @@ else if($_SERVER['REQUEST_METHOD'] == "POST"){
     $function = $_POST['function'];
     
     if($function == 'save-blog'){
-        save_blog($_POST['project_url_name'], $_POST['blog_url_name'], $_POST['img_link'], $_POST['first_snippet'], $_POST['blog_contents']);
+        save_blog($_POST['project_url_name'], $_POST['cur_blog_url_name'], $_POST['new_blog_name'], $_POST['img_link'], $_POST['first_snippet'], $_POST['blog_contents']);
     }
 }
 ?>

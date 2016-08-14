@@ -7,13 +7,17 @@ $(document).ready(function(){
         var projectUrlName = url.split("/")[6];
         var blogUrlName = url.split("/")[8];
         var blogContents = $("#content-area").html();
-        var imgLink = "";
+        var imgLink = null;
         var firstSnippet = "";
+        var newBlogName = "";
 
         firstSnippet = $("#content-area").find(".text").eq(0).text();
+        newBlogName = $("#content-area #blog-title").text();
         imgLink = $("#content-area").find("img").eq(0).attr("src");
 
-        SaveBlog(projectUrlName, blogUrlName, imgLink, firstSnippet, blogContents);
+        alert("image link is (" + imgLink + ")");
+
+        SaveBlog(projectUrlName, blogUrlName, newBlogName, imgLink, firstSnippet, blogContents);
 
     });
 
@@ -81,7 +85,7 @@ $(document).ready(function(){
 _______________________________________________|AUTHOR   |CREATED   |MODIFIED
 Description: saves the current snapshot of the blog
 */
-function SaveBlog(projectUrlName, blogUrlName, imgLink, firstSnippet, blogContents){
+function SaveBlog(projectUrlName, curBlogUrlName, newBlogName, imgLink, firstSnippet, blogContents){
 
      //need to send the blog name, and the project name
      $.ajax({
@@ -90,16 +94,27 @@ function SaveBlog(projectUrlName, blogUrlName, imgLink, firstSnippet, blogConten
          data: {
              "function": "save-blog",
              "project_url_name": projectUrlName,
-             "blog_url_name": blogUrlName,
+             "cur_blog_url_name": curBlogUrlName,
+             "new_blog_name": newBlogName,
              "img_link": imgLink,
              "first_snippet": firstSnippet,
              "blog_contents": blogContents
          },
          success: function(data) {
               alert(data);
-     
-             // var json = jQuery.parseJSON(data)[0];
-             // fill_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
+
+              
+
+              var json = jQuery.parseJSON(data);
+              if(json.result == "blog-save-success"){
+                  var urlFront = GetUrlFront(window.location.href);
+                  
+                  var newUrl = urlFront + "/" + json.new_url_name + "/edit";
+                  window.location.href = newUrl;
+              }
+              else{
+                alert("blog was not saved successfully");
+              }
      
          },
          error: function(xhr, desc, err) {
@@ -110,11 +125,33 @@ function SaveBlog(projectUrlName, blogUrlName, imgLink, firstSnippet, blogConten
          }
     });
 
+}
 
-    //TODO: (do I need to add the username to differentiate the different projects, I'm thinking yes, which means I need to modify a lot of what I've done)
-    //1. get the blog contents - DONE
-    //2. create an ajax request
-    //3. send the data in the ajax request, along with project name, owner, and so on
-    //4. do the server side stuff (esp. whitelisting / filtering of the blogs contents)
 
+/* GET URL FRONT ==============================|Downie   |2016-08-14|2016-08-14
+_______________________________________________|AUTHOR   |CREATED   |MODIFIED
+Description: gets the front of the url up to right before the current blog name 
+*/
+function GetUrlFront(blogUrl){
+
+    var urlPieces = window.location.href.split("/");
+    var urlFront = "";
+    
+    urlFront += urlPieces[0];
+    urlFront += "//";
+    urlFront += urlPieces[2];
+    urlFront += "/";
+    urlFront += urlPieces[3];
+    urlFront += "/";
+    urlFront += urlPieces[4];
+    urlFront += "/";
+    urlFront += urlPieces[5];
+    urlFront += "/";
+    urlFront += urlPieces[6];
+    urlFront += "/";
+    urlFront += urlPieces[7];
+
+
+    return urlFront;
+    
 }
