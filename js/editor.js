@@ -154,7 +154,7 @@ function LoadBlog(projectUrlName, blogUrlName){
              "blog_url_name": blogUrlName
          },
          success: function(data) {
-           alert(data);
+           //alert(data);
 
               
 

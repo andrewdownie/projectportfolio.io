@@ -45,12 +45,10 @@ $(document).ready(function(){
         var url_name = $("#all-blogs #url-name-" + blogID).text();
        // alert(url_name);
        
-        var slash = "/"; 
-        if(window.location.href[window.location.href.length-1] == "/"){
-            slash = ""; 
-        }
+        var href = _cleanUrlEnd(window.location.href);
+
         
-        window.location.href = window.location.href + slash + url_name + "/edit";      
+        window.location.href = href + "/" + url_name + "/edit";      
         //TODO: get the id of this button (the number from the form edit-btn-<number>)
         // use the above number to do... things
         // need to somehow get the url name to do the redirect here.... Do I send the url name and store it? or will I have to add it?
@@ -333,4 +331,22 @@ function createRecentBlogs(json){
     var blogHead = build_blog_skeleton(json.blog, json.url_name, json.name, time_stampify(json.created), "fa-minus-square");
     $("#blog-insertion-point").before(blogHead);
     fill_blog_body(json.blog, json.img_link, json.first_snippet, time_stampify(json.modified));
+}
+
+
+/* CLEAN URL END ==============================|Downie    |2016-07-14|2016-07-23
+_______________________________________________|AUTHOR    |CREATED   |MODIFIED
+DESCRIPTION: removes unwanted characters from the end of the url
+  */
+function _cleanUrlEnd(url){
+    var newUrl = url;
+    var lastChar = newUrl[newUrl.length - 1];
+
+    while(lastChar == "/" || lastChar == "#" || lastChar == "!"){
+        newUrl = newUrl.substr(0, newUrl.length - 2);
+        lastChar = newUrl[newUrl.length - 1];
+    }
+        
+    return newUrl;
+
 }

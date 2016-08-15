@@ -11,6 +11,13 @@ Description: using the project url name, the blog url name, and the currently si
              new blog name, imgage link, first snippet and blog contents provided
 */
 function save_blog($projectUrlName, $curBlogUrlName, $newBlogName, $imgLink, $firstSnippet, $blogContents){
+    //TODO: escape all other variables
+
+    $eBlogContents = str_replace("\"", "'", $blogContents);
+    $eBlogContents = escape($eBlogContents);
+    //TODO: makes sure the escape function is doing what it is supposed to do... the \ are not showing up in the db
+    
+    
 
     $currentUser = current_account();
     if($currentUser < 0){
@@ -38,12 +45,12 @@ function save_blog($projectUrlName, $curBlogUrlName, $newBlogName, $imgLink, $fi
 
    
     
-    $newUrlName = name_to_url_name($newBlogName);
+    $newUrlName = name_to_url_name(trim($newBlogName));
     _updateBlogHead($blogNum, $newBlogName, $newUrlName);
     //TODO: error handling
     
 
-    _updateBlogContents($projectUrlName, $curBlogUrlName);
+    _updateBlogContents($blogNum, $eBlogContents);
     //TODO: error handling
 
 
