@@ -151,7 +151,7 @@ function load_blog_body($blog_id){
 
 
 
-/* CREATE NEW BLOG ============================|Downie    |2016-07-31|2016-07-31
+/* CREATE NEW BLOG ============================|Downie    |2016-07-31|2016-08-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: creates a new blog in the project the owning user is currently
              editing.
@@ -160,15 +160,23 @@ DESCRIPTION: creates a new blog in the project the owning user is currently
 --------------------------------------------------------------------------------
 $project_id: the id of the proeject to create the blog in 
 */
-function create_new_blog($project_id){
-    //TODO: make sure the user is logged in, and owns the project
+function create_new_blog($projectUrlName){
     //TODO: include more error checking
+
+    $currentUser = current_account();
+    if($currentUser == -1){
+        echo '{"result": "not-signed-in"}';
+    }
+
+    $projectNum = _getProjectNum($projectUrlName, $currentUser);
+
+
 
     $time = time();
     $blogName = "new blog ".$time;
     $blogUrl = name_to_url_name($blogName);
       
-    $createBlog = "INSERT INTO blog_head values(null, 5, '$blogName', '$blogUrl', $time)";
+    $createBlog = "INSERT INTO blog_head values(null, $projectNum, '$blogName', '$blogUrl', $time)";
     $result = query($createBlog);
 
     $createdBlog = last_insert_id();
@@ -244,4 +252,38 @@ function delete_blog($blog_id){
 
 // HELPER FUNCTIONS
 //==============================================================================
+
+
+
+
+
+/* GET PROJECT NUM ===========================|Downie     |2016-08-12|2016-08-12
+______________________________________________|AUTHOR     |CREATED   |MODIFIED
+Description: gets the unique project identifier (aka project number) for a project that has the given
+             projectUrlName, and is owned by the given user
+Returns: the project number if successful, false in all other cases
+NOTE: this is a duplicate from the editor.php backend file
+*/
+function _getProjectNum($projecturlname, $currentuser){
+
+    $selectprojectnum =  "select project_head.project from project_head inner join project_info on project_head.project = project_info.project";
+    $selectprojectnum .= " where project_head.owner = $currentuser and project_info.url_name = '$projecturlname'";
+
+    $resultprojectnum = query($selectprojectnum);
+
+    if($resultprojectnum == false || mysqli_num_rows($resultprojectnum) != 1){
+        echo '{"result": "error-get-project-num"}';
+        return false;
+    }
+
+    $row = mysqli_fetch_assoc($resultprojectnum);
+
+    return $row['project'];
+
+}
+
+
+
+
+
 ?>

@@ -27,7 +27,7 @@ $(document).ready(function(){
     });
 
     $('#all-blogs #create-blog').click(function() {
-    	createNewBlog(getProjectID());
+    	createNewBlog(getProjectUrlTitle());
     });
      
     $('#all-blogs').on('click', '.delete-blog', function() {
@@ -111,11 +111,15 @@ function loadRecentBlogs(projectTitle){
             var json = jQuery.parseJSON(data);
             
 
+            //TODO: this does not work
+            setProjectID(json.project_id);
+
 
             if(json.result === "no-recent-blogs"){
                 alert('no recent blogs'); 
                 return;
             }
+
 
 
             loadBlogHeaders(json[0].project_id, 1);
@@ -195,15 +199,14 @@ function loadBlogHeaders(projectID, startIndex){
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: creates a new blog under the project the user is currently editing 
 --------------------------------------------------------------------------------
-projectID: the id of the project, that the user wants to add a new blog to 
 */
-function createNewBlog(projectID){
+function createNewBlog(projectUrlName){
     $.ajax({
         url: '/ajax/all-blogs',
         type: "POST",
         data: {
             "function": "create-new-blog",
-            "project_id": projectID
+            "project_url_name": projectUrlName 
         },
         success: function(data) {
             alert(data);

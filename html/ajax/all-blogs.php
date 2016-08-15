@@ -31,7 +31,7 @@ else if($_SERVER['REQUEST_METHOD'] == "POST"){
     $function = $_POST['function'];
     
     if($function == 'create-new-blog'){
-       create_new_blog($_POST['project_id']);
+       create_new_blog($_POST['project_url_name']);
     }
     else if($function == 'delete-blog'){
         delete_blog($_POST['blog_id']);
