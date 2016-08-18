@@ -61,13 +61,33 @@ $(document).ready(function(){
 
 });
 
+
+// GET PROJECT OWNER ==========================|Downie    |2016-08-18|2016-08-18
+//_____________________________________________|AUTHOR    |CREATED   |MODIFIED
+function getProjectOwner(){
+    return get_resource_name().split("/")[4];
+}
+
+// SHOW EDIT DELETE BUTTONS ===================|Downie    |2016-08-18|2016-08-18
+//_____________________________________________|AUTHOR    |CREATED   |MODIFIED
+function showEditDeleteButtons(projectOwner){
+    var cookieUser = read_cookie("LOGGED_IN");
+
+    if(cookieUser == projectOwner){
+        alert("matches");
+        //TODO: for some reason I am currently unable to select these css selectors, even though I can do so fine in css using the same selector
+        $(".delete-blog").hide();
+        $("#all-blogs .edit-blog").css("display", "inline-block");
+    }
+
+}
+
 // GET PROJECT TITLE ==========================|Downie    |2016-07-14|2016-07-14
 //_____________________________________________|AUTHOR    |CREATED   |MODIFIED
 function getProjectUrlTitle(){
     return get_resource_name().split("/")[6];
 }
-
-// SET PAGE TITLE =============================|Downie    |2016-07-14|2016-07-14
+// SET PAGE TITLE =============================|Downie    |2016-07-14|2016-07-14 
 //_____________________________________________|AUTHOR    |CREATED   |MODIFIED
 function setPageTitle(title){
     $("#all-blogs #project-title").text(title);
@@ -120,6 +140,10 @@ function loadRecentBlogs(projectTitle){
                 return;
             }
 
+
+
+            var projectOwner = getProjectOwner();
+            showEditDeleteButtons(projectOwner);
 
 
             loadBlogHeaders(json[0].project_id, 1);
@@ -181,6 +205,7 @@ function loadBlogHeaders(projectID, startIndex){
             }
             
             createBlogHeaders(json);
+
 
         },
         error: function(xhr, desc, err) {

@@ -29,14 +29,13 @@ function projectLinks(){
         redirectToProjectLink("blogs");
     });
     $("#edit-project #view-members").click(function(){
-        redirectToProjectLink("members");
-        alert('You clicked: view project members, this does not go anywhere atm');
+        alert('Members is a feature that will not be in the alpha, sorry :(');
     });
     $("#edit-project #view-builds").click(function(){
-        redirectToProjectLink("builds");
+        alert("Builds is a feature that will not be in the alpha, sorry :(");
     });
     $("#edit-project #view-goals").click(function(){
-        redirectToProjectLink("goals");
+        alert("Goals is a feature that will not be in the alpha, sorry :(");
     });
 }
 function redirectToProjectLink(topPageName){

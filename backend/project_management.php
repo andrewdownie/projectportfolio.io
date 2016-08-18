@@ -216,13 +216,21 @@ function load_project_counts($project_id){
     //$countBuilds = "SELECT COUNT(*) FROM project_builds;";
     //$resultBuilds = query($countBuilds);
 
-    //$countBlogs = "SELECT COUNT(*) FROM project_blogs;";
-    //$resultBlogs = query($countBlogs);
+    $countBlogs = "SELECT COUNT(*) AS blog_count FROM blog_head where project = $project_id;";
+    $resultBlogs = query($countBlogs);
+   
+    if($resultBlogs == false || mysqli_num_rows($resultBlogs) != 1){
+        echo '{"result": "error-counting-blogs"}';
+        return;
+    }
+
+    $row = mysqli_fetch_assoc($resultBlogs);
+    $blogCount = $row['blog_count'];
 
     //TODO: how do I get values out of the above queries?
     //      will the count be put into a column called count?
 
-    echo '{"build_count": 12, "goal_count": 56, "member_count": 3, "blog_count": 21}';
+    echo '{"build_count": "0", "goal_count": 0, "member_count": 0, "blog_count": '.$blogCount.'}';
 }
 
 

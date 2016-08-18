@@ -19,6 +19,7 @@ include("/var/www/projectportfolio/html/head.php");
 <script src="/js/functions/fill_blog_body.js"></script>
 
 <!-- PAGE SPECIFIC JS -->
+<script src="/js/functions/read_cookie.js"></script>
 <script src="/js/functions/functions.js"></script>
 <script src="/js/projects/all-blogs.js"></script>
 

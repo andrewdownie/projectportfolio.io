@@ -181,7 +181,7 @@ function create_new_blog($projectUrlName){
 
     $createdBlog = last_insert_id();
 
-    $createBlogInfo = "INSERT INTO blog_info values($createdBlog, '', '', $time)";
+    $createBlogInfo = "INSERT INTO blog_info values($createdBlog, 'http://i.imgur.com/WtDPZp7.png', '', $time)";
     $result2 = query($createBlogInfo);
 
     $blogTitle = "<p id='blog-title' contenteditable='true'> BlogTitle </p>";

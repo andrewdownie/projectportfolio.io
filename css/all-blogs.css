@@ -41,6 +41,10 @@
     /*margin-top: -8px;*/
 }
 
+#all-blogs .delete-blog,
+#all-blogs .edit-blog{
+/*    display: none;*/
+}
 
 #all-blogs .space-dates{
     display: inline-block;
