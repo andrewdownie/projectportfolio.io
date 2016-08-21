@@ -43,7 +43,7 @@
 
 #all-blogs .delete-blog,
 #all-blogs .edit-blog{
-/*    display: none;*/
+    display: none;
 }
 
 #all-blogs .space-dates{

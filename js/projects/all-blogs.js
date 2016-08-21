@@ -73,11 +73,12 @@ function getProjectOwner(){
 function showEditDeleteButtons(projectOwner){
     var cookieUser = read_cookie("LOGGED_IN");
 
+
     if(cookieUser == projectOwner){
         alert("matches");
         //TODO: for some reason I am currently unable to select these css selectors, even though I can do so fine in css using the same selector
-        $(".delete-blog").hide();
-        $("#all-blogs .edit-blog").css("display", "inline-block");
+        $(".delete-blog").show();
+        $(".edit-blog").show();
     }
 
 }
@@ -143,7 +144,6 @@ function loadRecentBlogs(projectTitle){
 
 
             var projectOwner = getProjectOwner();
-            showEditDeleteButtons(projectOwner);
 
 
             loadBlogHeaders(json[0].project_id, 1);
@@ -167,6 +167,8 @@ function loadRecentBlogs(projectTitle){
             if(json.length == 3){
                 createRecentBlogs(json[2]);
             }
+
+            showEditDeleteButtons(projectOwner);
 
             //begin loading blog headers here
 
