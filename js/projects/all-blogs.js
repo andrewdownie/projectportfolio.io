@@ -73,6 +73,8 @@ function getProjectOwner(){
 function showEditDeleteButtons(projectOwner){
     var cookieUser = read_cookie("LOGGED_IN");
 
+    var projectOwner = getProjectOwner();
+
 
     if(cookieUser == projectOwner){
         $(".delete-blog").show();
@@ -142,7 +144,6 @@ function loadRecentBlogs(projectTitle){
 
 
 
-            var projectOwner = getProjectOwner();
 
 
             loadBlogHeaders(json[0].project_id, 1);
@@ -167,7 +168,7 @@ function loadRecentBlogs(projectTitle){
                 createRecentBlogs(json[2]);
             }
 
-            showEditDeleteButtons(projectOwner);
+            showEditDeleteButtons();
 
             //begin loading blog headers here
 
@@ -206,6 +207,8 @@ function loadBlogHeaders(projectID, startIndex){
             }
             
             createBlogHeaders(json);
+
+            showEditDeleteButtons();
 
 
         },
@@ -349,6 +352,8 @@ function createBlogHeaders(json){
         }
 
     }
+
+
 }
 
 
