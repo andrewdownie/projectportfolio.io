@@ -75,10 +75,9 @@ function showEditDeleteButtons(projectOwner){
 
 
     if(cookieUser == projectOwner){
-        alert("matches");
-        //TODO: for some reason I am currently unable to select these css selectors, even though I can do so fine in css using the same selector
         $(".delete-blog").show();
         $(".edit-blog").show();
+        $("#create-blog").show();
     }
 
 }

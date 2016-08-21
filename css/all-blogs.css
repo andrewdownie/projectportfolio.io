@@ -42,7 +42,8 @@
 }
 
 #all-blogs .delete-blog,
-#all-blogs .edit-blog{
+#all-blogs .edit-blog,
+#all-blogs  #create-blog{
     display: none;
 }
 
