@@ -91,6 +91,9 @@ function load_recent_blogs($projectTitle){
 }
 
 
+
+
+
 /* LOAD BLOG HEADERS ==========================|Downie    |2016-07-14|2016-07-14
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: loads rows from table: blog_header, for the project_id.
@@ -127,6 +130,10 @@ function load_blog_headers($project_id, $start_index){
     //TODO: why is this returning zero rows?
 }
 
+
+
+
+
 /* LOAD BLOG BODY =============================|Downie    |2016-07-19|2016-07-19
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED
 DESCRIPTION: loads the blog body for a single blog.
@@ -148,6 +155,9 @@ function load_blog_body($blog_id){
     }
     echo sql_to_json($result);
 }
+
+
+
 
 
 
@@ -191,6 +201,10 @@ function create_new_blog($projectUrlName){
     echo '{"result": "create-new-blog-success"}';
 
 }
+
+
+
+
 
 /* DELETE BLOG ================================|Downie    |2016-07-31|2016-07-31
 _______________________________________________|AUTHOR    |CREATED   |MODIFIED

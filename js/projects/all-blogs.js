@@ -43,7 +43,6 @@ $(document).ready(function(){
 
 
         var url_name = $("#all-blogs #url-name-" + blogID).text();
-       // alert(url_name);
        
         var href = _cleanUrlEnd(window.location.href);
 
@@ -346,7 +345,7 @@ function createBlogHeaders(json){
 
     for(var i = 0; i < json.length; i++){
         if(json[i] !== null){
-            var blogHead = build_blog_skeleton(json[i].blog, json.url_name, json[i].name, time_stampify(json[i].created), "fa-plus-square");
+            var blogHead = build_blog_skeleton(json[i].blog, json[i].url_name, json[i].name, time_stampify(json[i].created), "fa-plus-square");
 
             $("#blog-insertion-point").before(blogHead);
         }
