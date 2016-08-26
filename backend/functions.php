@@ -150,14 +150,13 @@ function validate_password($password){
         $message = '
         <html>
         <head>
-        <title>Link to complete signup</title>
+        <title>Complete signup</title>
         </head>
         <body>
         Hi '.$to.',<br/><br/>
-        Here is the link to complete your signup with ProjectPortfolio:
+        Visit this link to complete your signup with ProjectPortfolio:
         <br/>
-        <a href="projectportfolio.io/verify?code='.$signupString.'">
-        projectportfolio.io/verify?code='.$signupString.'</a>
+        projectportfolio.io/verify?code='.$signupString.'
         <br/><br/>
         If you did not request to signup, please ignore this email.
         <br/>
@@ -166,17 +165,13 @@ function validate_password($password){
         </html>
         ';
 
-        echo "Hi Dare: ".$message;
-        return;
 
-        // To send HTML mail, the Content-type header must be set
-        $headers  = 'MIME-Version: 1.0' . '\r\n';
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
+        $from = " ProjectPortfolio <signup_robot@projectportfolio.io>";
 
-        // Additional headers
-        $headers .= 'From: ProjectPortfolio <signup_robot@projectportfolio.io>' . "\r\n";
-        $headers .= '' . "\r\n";
-        $headers .= '' . "\r\n";
+        $headers  = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+        $headers .= "From: ". $from. "\r\n";
+
 
         // Mail it
         mail($to, $subject, $message, $headers);
