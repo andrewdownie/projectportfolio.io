@@ -1,0 +1,17 @@
+#blog-title{
+   font-size: 30px; 
+   text-align: center;
+}
+img, p{
+    max-width: 800px;
+}
+
+.bold{
+    font-weight: bold;
+}
+.italic{
+    font-style: italic;
+}
+.underline{
+    text-decoration: underline;
+}

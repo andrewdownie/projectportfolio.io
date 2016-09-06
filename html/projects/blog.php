@@ -7,40 +7,31 @@ include("/var/www/projectportfolio/html/head.php");
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 
-<!-- PAGE SPECIFIC INCLUDES -->
-<link href="/css/login.css" rel="stylesheet">
+<!-- JS FUNCTIONS -->
+
+
+<!-- PAGE SPECIFIC JS -->   
+<script src="/js/projects/blog.js"></script>
+
+<!-- PAGE SPECIFIC CSS -->
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/styles.css" rel="styleshet">
 
 </head>
 
-<body>
+<body id="blog">
     <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
 
 
-    <!-- Page Content -->
-    <div class="container">
-
-
-    </div>
-    <!-- /.container -->
 
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12">
-                <div class="page-header">
-                    <h1>Blog</h1>
-                    <hr/>
-                </div>
-                <?php
-                print_r($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
-                echo "<br/>";
-                print_r($_SERVER['QUERY_STRING']);
-                ?>
+            <div class="col-md-8 col-sm-10 col-xs-12 col-sm-push-2" id="content-area">
             </div>
         </div>
 
     </div>
-    <!-- /.container -->
 
 
 
