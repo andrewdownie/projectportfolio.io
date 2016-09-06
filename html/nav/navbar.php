@@ -69,25 +69,25 @@
     <!--<li>
     <a href="#">Top Rated</a>
 </li>-->
+
+<li>
+    <a href="">Most Active Projects</a>
+</li>
+<li>
+    <a href="">Recent Projects</a>
+</li>
 <li>
     <!--<i class="fa fa-folder-open-o" aria-hidden="true"></i>-->
     <?php
     if(isset($_COOKIE['LOGGED_IN'])){
         echo '<a href="/user/';
         echo $_COOKIE['LOGGED_IN'];
-        echo '/projects">Projects</a>';
+        echo '/projects">My Projects</a>';
     }
     else{
-        echo '<a href="/projects/most-active">Projects</a>';
+        //echo '<a href="/projects/most-active">Projects</a>';
     }
     ?>
-</li>
-
-<li>
-    <a href="/dbtest">Database test</a>
-</li>
-<li>
-    <a href="/editor">Editor</a>
 </li>
 </ul>
 

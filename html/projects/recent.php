@@ -23,9 +23,13 @@ include("/var/www/projectportfolio/html/head.php");
 
 <body>
     <?php include "/var/www/projectportfolio/html/nav/navbar.php";?>
-    <?php include "/var/www/projectportfolio/html/nav/project-nav.php";?>
+    <!--<?php include "/var/www/projectportfolio/html/nav/project-nav.php";?>-->
 
     <div class="container">
+       <div class="row">
+            <!-- recent projects will be inserted -->
+
+       </div>
 
     </div>
 

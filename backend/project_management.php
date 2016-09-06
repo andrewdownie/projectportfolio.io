@@ -187,7 +187,7 @@ function load_projects($username, $amount, $start){
 function load_project($username, $project_url_name){
     $account = account_id_from_username($username);
 
-    $sql = "SELECT project_head.project, name, url_name, spec_link, img_link, created, modified";
+    $sql = "SELECT project_head.project, name, spec_link, img_link, created, modified";
     $sql .= " FROM project_info";
     $sql .= " INNER JOIN project_head";
     $sql .= " ON project_head.project = project_info.project";

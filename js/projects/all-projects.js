@@ -1,23 +1,39 @@
+//TODO:
+//get the user name from the url, and then put that name onto the page as the title
 $(document).ready(function(){
     load_projects();
+
+    var username = get_username();
+    
+    $("#all-projects #projects-owner").text(username);
+
+    if(username === false){
+        alert("did the url get mangled? ...the url got mangled didn't it"); 
+    }
 
     $("#create-new").click(function(){
         ajax_create_project();
     });
 
-    $("#all-projects").on("click", ".project-thumbnail", function(){//TODO: get username of user login claim from cookie
+    $("#all-projects").on("click", ".project-thumbnail", function(){
         var project_url_name = $(this).find(".url_name").text();
-        window.location.href = "/user/dd_dow/projects/" + project_url_name.trim();
+        window.location.href = "/user/" + username + "/projects/" + project_url_name.trim();
         return false;
     });
 
     $("#all-projects").on("click", ".editButton", function(){
         var project_url_name = $(this).parent().find(".url_name").text();
-        //alert(project_url_name)
 
-        //TODO: get the username from the cookie? what if the user isn't signed in?
-        window.location.href = "/user/dd_dow/projects/" + project_url_name.trim() + "/edit";
+
+        window.location.href = "/user/" + username + "/projects/" + project_url_name.trim() + "/edit";
+
+
         return false;
+    });
+
+    $("#all-projects #view-user-profile").click(function(){
+       window.location.href = "/user/" + username; 
+
     });
 
 });
@@ -30,11 +46,10 @@ $(document).ready(function(){
 //=====
 function show_hide_edit_create(){
     var logged_in_user = read_cookie("LOGGED_IN");
-    var resourceName = get_resource_name();
-    var urlParts = resourceName.split("/");
+    var usernameFromURL = get_username();
 
     if(logged_in_user !== null){
-        if(urlParts[3] == "user" && urlParts[4] == logged_in_user){
+        if(usernameFromURL == logged_in_user){
             $("#all-projects #create-new").show();
             $("#all-projects .editButton").show();
         }

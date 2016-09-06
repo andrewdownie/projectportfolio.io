@@ -13,7 +13,7 @@ function build_blog_skeleton(blogNum, urlName, name, created, faClass){
     html += "        </a>";
     html += "        <div style='display:none;' id='url-name-" + blogNum + "'>" + urlName + "</div>";
     html += "    </h3>";
-    //-----  BLOG BUTTONS (VIEW, EDIT DELETE)  ----------------------
+    //-----  BLOG BUTTONS (VIEW, EDIT, DELETE)  ----------------------
     html += "    <h3 class='col-md-6'>";
     html += "        <div class='row'>";
     html += "            <div class='col-md-3 col-xs-6 btn-col'>";

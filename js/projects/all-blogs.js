@@ -44,7 +44,7 @@ $(document).ready(function(){
 
         var url_name = $("#all-blogs #url-name-" + blogID).text();
        
-        var href = _cleanUrlEnd(window.location.href);
+        var href = clean_url_end(window.location.href);
 
         
         window.location.href = href + "/" + url_name + "/edit";      
@@ -367,19 +367,3 @@ function createRecentBlogs(json){
 }
 
 
-/* CLEAN URL END ==============================|Downie    |2016-07-14|2016-07-23
-_______________________________________________|AUTHOR    |CREATED   |MODIFIED
-DESCRIPTION: removes unwanted characters from the end of the url
-  */
-function _cleanUrlEnd(url){
-    var newUrl = url;
-    var lastChar = newUrl[newUrl.length - 1];
-
-    while(lastChar == "/" || lastChar == "#" || lastChar == "!"){
-        newUrl = newUrl.substr(0, newUrl.length - 2);
-        lastChar = newUrl[newUrl.length - 1];
-    }
-        
-    return newUrl;
-
-}

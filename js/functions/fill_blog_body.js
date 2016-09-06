@@ -4,7 +4,13 @@ function fill_blog_body(blogNum, imgLink, firstSnippet, dateModified){
     var blogImg = "blog-img-" + blogNum;
 
 
-    $("#all-blogs #" + blogModified).text("Modified: " + dateModified);
-    $("#all-blogs #" + blogDesc).text(firstSnippet);
-    $("#all-blogs #" + blogImg).html("<img src='" + imgLink + "' class='blog-img' >");
+    if(firstSnippet === ""){
+        firstSnippet = "The first snippet is blank.";
+    }
+
+
+
+    $("#" + blogModified).text("Modified: " + dateModified);
+    $("#" + blogDesc).text(firstSnippet);
+    $("#" + blogImg).html("<img alt='No Image Found' src='" + imgLink + "' class='blog-img' >");
 }

@@ -72,3 +72,9 @@ projects.php*/
     border-radius: 5px;
     box-shadow: 2px 2px 2px #000;
 }
+
+
+/* project.php */
+.white-space-50{
+    margin-bottom: 50px;   
+}

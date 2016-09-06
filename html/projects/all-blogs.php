@@ -14,13 +14,15 @@ include("/var/www/projectportfolio/html/head.php");
 <script src="/js/functions/time_stampify.js"></script>
 <script src="/js/functions/toggle_elements.js"></script>
 <script src="/js/functions/get_resource_name.js"></script>
+<script src="/js/functions/clean_url_end.js"></script>
 
 <script src="/js/functions/build_blog_skeleton.js"></script>
 <script src="/js/functions/fill_blog_body.js"></script>
 
-<!-- PAGE SPECIFIC JS -->
 <script src="/js/functions/read_cookie.js"></script>
 <script src="/js/functions/functions.js"></script>
+
+<!-- PAGE SPECIFIC JS -->
 <script src="/js/projects/all-blogs.js"></script>
 
 <!-- PAGE SPECIFIC OTHER -->
