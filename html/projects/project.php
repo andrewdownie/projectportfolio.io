@@ -15,6 +15,8 @@
 <script src="/js/functions/build_blog_skeleton.js"></script>
 <script src="/js/functions/fill_blog_body.js"></script>
 <script src="/js/functions/read_cookie.js"></script>
+<script src="/js/functions/clean_url_end.js"></script>
+<script src="/js/functions/toggle_elements.js"></script>
 
 
 <!-- PAGE SPECIFIC JS -->
@@ -52,10 +54,10 @@
 
 
 
-
                 <h2>
                     Most Recent Blogs
                 </h2>
+                <a id="view-all-blogs" href="#!"> view all blogs </a>
                 <div id="blogs-insert-point">
                     
                 </div>

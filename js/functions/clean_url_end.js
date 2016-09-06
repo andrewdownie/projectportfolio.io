@@ -7,7 +7,7 @@ function clean_url_end(url){
     var lastChar = newUrl[newUrl.length - 1];
 
     while(lastChar == "/" || lastChar == "#" || lastChar == "!"){
-        newUrl = newUrl.substr(0, newUrl.length - 2);
+        newUrl = newUrl.substr(0, newUrl.length - 1);
         lastChar = newUrl[newUrl.length - 1];
     }
 

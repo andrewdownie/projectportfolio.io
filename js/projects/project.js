@@ -2,8 +2,26 @@ $(document).ready(function(){
     load_project();
 
 
-    
+    $("#project #view-all-blogs").click(function(){
+       var cleanUrl = clean_url_end(window.location.href); 
+       window.location.href = cleanUrl + "/blogs";
+    });
 
+    $("#project").on("click", ".blog-header", function(){
+        var blogId = this.id.split("-")[1];
+
+        
+        var visible = toggle_elements($("#project #head-" + blogId + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#project #body-" + blogId));
+
+    });
+
+    $("#project").on("click", ".view-blog", function(){
+        var blogId = this.id.split("-")[2];
+
+        var blogUrlName = $("#project #url-name-" + blogId).text();
+        var cleanUrl = clean_url_end(window.location.href);
+        window.location.href = cleanUrl + "/blogs/" + blogUrlName;
+    });
 });
 
 
@@ -21,7 +39,7 @@ function load_project(){
         data: {
             "function": "load-project",
             "username": urlParts[4],
-            "projectname": urlParts[6],
+            "projectname": clean_url_end(urlParts[6]),
             "amount": 12,
             "start": 1
         },
@@ -80,8 +98,7 @@ function loadMostRecentBlogs(projectNum){
             alert('No response from server >:( ');
         },
         complete: function(){
-            showEditDeleteButtons();
-
+        
         }
     });
 }
@@ -129,15 +146,3 @@ function addProjectToPage(projectInfo){
 }
 
 
-//=====
-//===== SHOW EDIT DELETE BUTTONS
-//=====
-function showEditDeleteButtons(){
-    var cookieUser = read_cookie("LOGGED_IN");
-    var urlUser = window.location.href.split("/")[4];
-
-    if(cookieUser === urlUser){
-        $(".delete-blog").show();
-        $(".edit-blog").show();
-    }
-}

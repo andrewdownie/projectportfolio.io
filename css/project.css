@@ -13,7 +13,7 @@
     padding-right: 5px;
 }
 
-#project .delete-blog,
-#project .edit-blog{
+#project .edit-blog,
+#project .delete-blog{
     display: none;
 }
