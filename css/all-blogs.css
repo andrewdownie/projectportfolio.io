@@ -1,19 +1,19 @@
-#project #project-img{
+#all-blogs #project-img{
     height: 200px;
 }
 
-#project .blog-btn{
+#all-blogs .blog-btn{
     width: 100%;
 }
 
-#project .btn-col{
+#all-blogs .btn-col{
     padding: 0;
     margin: 0;
 
     padding-right: 5px;
 }
 
-#project .edit-blog,
-#project .delete-blog{
+#all-blogs.edit-blog,
+#all-blogs.delete-blog{
     display: none;
 }
