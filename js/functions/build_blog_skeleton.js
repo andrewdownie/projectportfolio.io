@@ -50,6 +50,8 @@ function build_blog_skeleton(blogNum, urlName, name, created, faClass){
     html += "                    </span>";
     html += "                </strong>";
     html += "            </div>";
+    html += "        </div>";
+    html += "        <div class='row blog-img-container'>";
     //-----------------  IMAGE  -------------------------------------
     html += "            <div class='col-md-12' id='blog-img-" + blogNum + "'>";
     html += "            </div>";

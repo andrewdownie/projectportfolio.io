@@ -1,5 +1,6 @@
 #all-blogs #project-img{
     height: 200px;
+    width: 100%;
 }
 
 #all-blogs .blog-btn{
@@ -17,3 +18,5 @@
 #all-blogs.delete-blog{
     display: none;
 }
+
+

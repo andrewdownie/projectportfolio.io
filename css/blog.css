@@ -15,3 +15,6 @@ img, p{
 .underline{
     text-decoration: underline;
 }
+.title{
+    font-size: 20px;
+}

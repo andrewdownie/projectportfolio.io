@@ -50,7 +50,7 @@ button.simple-button:hover{
     width: 100%;
 }
 
-/*blogs.php
+/*all-blogs.php
 projects.php*/
 .header-button{
     float:right;
@@ -71,6 +71,20 @@ projects.php*/
     color: white;
     border-radius: 5px;
     box-shadow: 2px 2px 2px #000;
+}
+
+.blog-img{
+    object-fit: cover;
+    max-height: 210px;
+    width: 100%;/*was auto*/
+    height: 100%;
+}
+
+.blog-img-container{
+    max-height: 230px;
+    min-height: 150px;
+    width: 100%;/*was auto*/
+    height: 100%;
 }
 
 
