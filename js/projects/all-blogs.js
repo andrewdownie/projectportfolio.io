@@ -6,6 +6,9 @@ $(document).ready(function(){
 
 
 
+    ///
+    /// Toggle blog header ---------------------------------
+    ///
     $('#all-blogs').on('click', '.blog-header', function() {
         var blogID = this.id.split("-")[1];
         // alert(blogID)
@@ -26,10 +29,20 @@ $(document).ready(function(){
         }
     });
 
+
+
+    ///
+    /// Create a new blog -------------------------
+    ///
     $('#all-blogs #create-blog').click(function() {
     	createNewBlog(getProjectUrlTitle());
     });
      
+
+
+    ///
+    /// Delete a blog
+    ///
     $('#all-blogs').on('click', '.delete-blog', function() {
         var blogID = this.id.split("-")[2];//_Delete buttons have id in form of: delete-btn-<blogID>
         //alert("Blog for deletion has id: " + blogID);
@@ -37,6 +50,11 @@ $(document).ready(function(){
         deleteBlog(blogID);
     });
 
+
+
+    ///
+    /// Edit a blog
+    ///
     $('#all-blogs').on('click', '.edit-blog', function() {
         
         var blogID = this.id.split("-")[2];
@@ -48,14 +66,21 @@ $(document).ready(function(){
 
         
         window.location.href = href + "/" + url_name + "/edit";      
-        //TODO: get the id of this button (the number from the form edit-btn-<number>)
-        // use the above number to do... things
-        // need to somehow get the url name to do the redirect here.... Do I send the url name and store it? or will I have to add it?
+    
+    });
 
-        
-      
-    
-    
+
+
+    ///
+    /// View a blog
+    ///
+    $("#all-blogs").on('click', '.view-blog', function() {
+        var blogID = this.id.split("-")[2];
+
+        var url_name = $("#all-blogs #url-name-" + blogID).text();
+        var href = clean_url_end(window.location.href);
+
+        window.location.href = href + "/" + url_name;
     });
 
 });
