@@ -78,11 +78,11 @@ projects.php*/
     max-height: 210px;
     width: 100%;/*was auto*/
     height: 100%;
+    max-height: 230px;
+    min-height: 150px;
 }
 
 .blog-img-container{
-    max-height: 230px;
-    min-height: 150px;
     width: 100%;/*was auto*/
     height: 100%;
 }

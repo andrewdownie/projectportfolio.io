@@ -9,6 +9,7 @@ include("/var/www/projectportfolio/html/head.php");
 
 <!-- PAGE SPECIFIC CSS -->
 <link href="/css/all-blogs.css" rel="stylesheet">
+<link href="/css/all-blogs.css" rel="stylesheet">
 
 <!-- JAVASCRIPT FUNCTIONS -->
 <script src="/js/functions/time_stampify.js"></script>
@@ -55,10 +56,10 @@ include("/var/www/projectportfolio/html/head.php");
         </div>
         <!--     </div>-->
 
+        <div class="white-space-50"></div>
     </div>
     <!-- /.container -->
 
-    <div class="bottom-padding"></div>
 
 </body>
 

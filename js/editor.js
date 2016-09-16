@@ -25,7 +25,6 @@ $(document).ready(function(){
         }
   
 
-
         SaveBlog(projectUrlName, blogUrlName, newBlogName, imgLink, firstSnippet, blogContents);
 
     });

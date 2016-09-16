@@ -14,8 +14,9 @@
     padding-right: 5px;
 }
 
-#all-blogs.edit-blog,
-#all-blogs.delete-blog{
+#all-blogs .edit-blog,
+#all-blogs .delete-blog,
+#all-blogs #create-blog{
     display: none;
 }
 

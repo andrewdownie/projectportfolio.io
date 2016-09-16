@@ -19,13 +19,13 @@ $(document).ready(function(){
             loadBlogBody(blogID);
         }
 
-        var visible = toggle_elements($("#all-blogs #head-" + blogID + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #body-" + blogID));
+        var visible = toggle_elements($("#all-blogs #head-" + blogID + " i"), "fa fa-plus-square", "fa fa-minus-square", $("#all-blogs #blog-img-" + blogID), $("#all-blogs #blog-desc-" + blogID), $("#all-blogs #blog-modified-" + blogID));
 
         if(visible){
-            $("#all-blogs #date-modified-" + blogID).show();
+            //$("#all-blogs #date-modified-" + blogID).show();
         }
         else{
-            $("#all-blogs #date-modified-" + blogID).hide();
+            //$("#all-blogs #date-modified-" + blogID).hide();
         }
     });
 
