@@ -3,7 +3,7 @@ $(document).ready(function(){
     var verify =  get_url_vars()['verify'];
     if(verify == "success"){
         $("#verify-success").show();
-        $("#login-email").focus();
+        $("#email").focus();
     }
     else if(verify == "failure"){
         $("#verify-failure").show();
@@ -19,7 +19,7 @@ $(document).ready(function(){
     validate_signup_inputs();
 
 
-    $("#login-email, #login-password").on('input',function(e){
+    $("#email, #password").on('input',function(e){
         validate_login_inputs();
     });
 
@@ -28,7 +28,7 @@ $(document).ready(function(){
     });
 
 
-    $("#login-email, #login-password").keypress(function(event){
+    $("#email, #password").keypress(function(event){
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if(keycode == '13'){
             if(validate_login_inputs()){
@@ -69,22 +69,22 @@ $(document).ready(function(){
 function validate_login_inputs(){
     //return true
 
-    if( $("#login-email").val().length > 0  && !validEmail($("#login-email").val()) ){
+    if( $("#email").val().length > 0  && !validEmail($("#email").val()) ){
         $("#login-error").text("Invalid email");
         $("#login-button").hide();
         return false;
     }
-    else if( $("#login-email").val().length === 0 && $("#login-password").val().length > 0){
+    else if( $("#email").val().length === 0 && $("#password").val().length > 0){
         $("#login-error").text("Email cannot be blank");
         $("#login-button").hide();
         return false;
     }
-    else if( $("#login-email").val().length > 0 && $("#login-password").val().length === 0){
+    else if( $("#email").val().length > 0 && $("#password").val().length === 0){
         $("#login-error").text("Password is blank");
         $("#login-button").hide();
         return false;
-    }else if( $("#login-email").val().length > 0){
-        var valPass = validPassword($("#login-password").val());
+    }else if( $("#email").val().length > 0){
+        var valPass = validPassword($("#password").val());
 
         if(valPass !== true){
             $("#login-error").text(valPass);
@@ -124,10 +124,10 @@ function validate_signup_inputs(){
 //===== LOGIN AJAX CALL --------------------------------------------------------
 //=====
 function ajaxcall_login(){
-    if($("#login-email").val() === ""){
+    if($("#email").val() === ""){
         return;
     }
-    if($("#login-password").val() === ""){
+    if($("#password").val() === ""){
         $("#login-error").text("Password is blank");
         $("#login-button").hide();
         return;
@@ -140,8 +140,8 @@ function ajaxcall_login(){
         type: "POST",
         data: {
             "function": "login",
-            "email": $("#login-email").val(),
-            "password": $("#login-password").val()
+            "email": $("#email").val(),
+            "password": $("#password").val()
         },
         success: function(data) {
             //alert(data)
@@ -152,12 +152,12 @@ function ajaxcall_login(){
             else if(data === "login-invalid"){
                 $("#login-error").text("Invalid email/pass combo");
                 $("#login-button").hide();
-                $("#login-password").val("");
+                $("#password").val("");
             }
             else if(data === "login-invalid-email"){
                 $("#login-error").text("Invalid email");
                 $("#login-button").hide();
-                $("#login-password").val("");
+                $("#password").val("");
             }
             else{
                 alert("Unexpected response error");

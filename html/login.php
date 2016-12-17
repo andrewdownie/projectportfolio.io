@@ -62,12 +62,12 @@
                             <i class="fa fa-at"></i>
                             Email
                         </h4>
-                        <input type="text" id="login-email" class="standard-input">
+                        <input type="text" id="email" class="standard-input" autocomplete="email">
                         <h4>
                             <i class="fa fa-asterisk"></i>
                             Password
                         </h4>
-                        <input type="password" id="login-password" class="standard-input">
+                        <input type="password" id="password" class="standard-input" autocomplete="password">
 
                         <br/>
                         <button class="btn btn-primary simple-button" id="login-button">Login</button>
